@@ -1,7 +1,7 @@
 {
-    "name": "@revengine/test",
+    "name": "@dm-elections-dashboard/test",
     "version": "0.0.1",
-    "description": "RevEngine tests",
+    "description": "Daily Maverick Elections Dashboard tests",
     "main": "index.ts",
     "scripts": {
       "start": "tsx index.ts",

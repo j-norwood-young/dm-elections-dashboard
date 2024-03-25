@@ -16,6 +16,9 @@ npm start
 
 ## Testing
 
+Run tests for individual packages from their respective directories:
+
 ```bash
+cd packages/package
 npm test
 ```

@@ -8,7 +8,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Run tests from packages folders\" && exit 1",
     "start": "npm-run-all -p start:*",
     "dev": "npm-run-all -p dev:*",
     "start:example": "cd packages/example && npm start",
@@ -18,5 +18,6 @@
   "license": "MIT",
   "dependencies": {
     "npm-run-all": "^4.1.5"
-  }
+  },
+  "type": "module"
 }

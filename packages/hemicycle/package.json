@@ -32,7 +32,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-hemicycle": "^1.0.4",
-		"voronoijs": "^1.0.0"
+		"svelte-hemicycle": "^1.0.5"
 	}
 }

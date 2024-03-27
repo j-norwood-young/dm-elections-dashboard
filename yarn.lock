@@ -5068,10 +5068,10 @@ svelte-check@^3.6.0:
     postcss "^8.4.29"
     postcss-scss "^4.0.8"
 
-svelte-hemicycle@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/svelte-hemicycle/-/svelte-hemicycle-1.0.4.tgz#427bd949ebbfe270ee09db2f2cab4f1a9cf1e2dd"
-  integrity sha512-KpxkDqiaNjfiD1M5NqMrKMUz6bAnV6Kov/mtjuvHAOSQfbLDOJwOfGSYvwx7q9j3hIbNYjmC6Ceo1JdI1E/1UA==
+svelte-hemicycle@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/svelte-hemicycle/-/svelte-hemicycle-1.0.5.tgz#b3373b0c4ff8d9b307a3e7e20cf30b0911445b91"
+  integrity sha512-6JklClqZ2YY+6S+q4UXtyw8tFCMgOwOR281g1msnSgpq/WRMTjd/lRjOzQAC1oOiFO/NYnjyrgS0LaDC6npS6g==
   dependencies:
     svelte "^4.2.11"
     voronoijs "^1.0.0"

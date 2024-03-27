@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsx index.ts",
     "test": "env NODE_ENV=test jest --detectOpenHandles",
-    "dev": "env NODE_ENV=development tsx --watch index.ts"
+    "dev": "env NODE_ENV=development tsx --watch src/index.ts"
   },
   "author": "Jason Norwood-Young <jason@10layer.com>",
   "license": "MIT",

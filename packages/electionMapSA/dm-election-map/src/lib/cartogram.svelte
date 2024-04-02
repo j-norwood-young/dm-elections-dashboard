@@ -1,8 +1,8 @@
 <script lang="ts">
-  import * as d3 from "d3";
-  import { scaleOrdinal } from "d3-scale";
-  import { geoIdentity, geoPath } from "d3-geo";
-  import geodata from "../data/sa-province.json";
+  import { scaleOrdinal, scaleSqrt } from "d3-scale";
+  import { max } from "d3-array";
+  import { geoArea, geoIdentity, geoPath } from "d3-geo";
+  import geodata from "../data/sa-province-geojson.json";
   import type {
     Feature,
     FeatureCollection,
@@ -69,7 +69,7 @@
       let bestArea = 0;
       d.geometry.coordinates.forEach(function (coords) {
         let poly: Polygon = { type: "Polygon", coordinates: coords };
-        let area = d3.geoArea(poly);
+        let area = geoArea(poly);
         if (area > bestArea) {
           bestArea = area;
           best = poly;
@@ -81,10 +81,10 @@
     }
   };
 
-  $: size = d3.scaleSqrt(
+  $: size = scaleSqrt(
     [
       0,
-      d3.max(
+      max(
         data.features,
         (d: GeoJsonProperties) => d?.properties.Reg_Voters
       ),

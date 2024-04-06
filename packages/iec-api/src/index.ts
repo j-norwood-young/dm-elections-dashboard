@@ -1,7 +1,7 @@
 import restify from 'restify';
 import dotenv from 'dotenv';
 import { createClient } from 'redis';
-import { promises as fs } from 'fs';
+import * as ElectionResults from './election_results';
 
 dotenv.config();
 
@@ -34,6 +34,27 @@ export const closeRedis = async () => {
     });
 }
 
+async function getCache(key: string) {
+    try {
+        let data = await client.get(key);
+        if (data) {
+            return JSON.parse(data);
+        }
+        return null;
+    } catch (err: any) {
+        console.error("Error getting cache:", err.code || err.message || err);
+        return null;
+    }
+}
+
+async function setCache(key: string, data: any) {
+    try {
+        await client.set(key, JSON.stringify(data));
+    } catch (err: any) {
+        console.error("Error setting cache:", err.code || err.message || err);
+    }
+}
+
 // getNationalSeats = async (year) => {
     
 
@@ -50,6 +71,38 @@ server.get("/national/seats/:year", async (req, res, next) => {
         // client.set(`national_seats_${year}`, seats);
     }
     res.send({ year, seats });
+    next();
+});
+
+server.get("/electoral_types", async (req, res, next) => {
+    let electoralTypes = await getCache("electoral_types");
+    if (!electoralTypes) {
+        electoralTypes = await ElectionResults.electoralTypes();
+        setCache("electoral_types", electoralTypes);
+    }
+    res.send(electoralTypes);
+    next();
+});
+
+server.get("/electoral_events/:eventTypeID", async (req, res, next) => {
+    const eventTypeID = req.params.eventTypeID;
+    let electoralEvents = await getCache(`electoral_events_${eventTypeID}`);
+    if (!electoralEvents) {
+        electoralEvents = await ElectionResults.electoralEvents(eventTypeID);
+        setCache(`electoral_events_${eventTypeID}`, electoralEvents);
+    }
+    res.send(electoralEvents);
+    next();
+});
+
+server.get("/contesting_parties/:eventID", async (req, res, next) => {
+    const eventID = req.params.eventID;
+    let parties = await getCache(`contesting_parties_${eventID}`);
+    if (!parties) {
+        parties = await ElectionResults.consetingParties(eventID);
+        setCache(`contesting_parties_${eventID}`, parties);
+    }
+    res.send(parties);
     next();
 });
 

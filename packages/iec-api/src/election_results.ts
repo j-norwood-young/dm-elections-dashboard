@@ -23,3 +23,13 @@ export async function consetingParties(eventID: number) {
     const parties = await iec.contestingParties(eventID);
     return parties;
 }
+
+export async function results(eventID: number) {
+    const results = await iec.NPEBallotResults(eventID);
+    return results;
+}
+
+export async function seats(eventID: number) {
+    const seats = await iec.NPESeatCalculationResults(eventID);
+    return seats;
+}

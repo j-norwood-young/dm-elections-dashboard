@@ -1,75 +1,42 @@
-import restify from 'restify';
 import dotenv from 'dotenv';
+import { server } from './api';
 import { setupRedis, getCache, setCache } from './cache';
-import * as ElectionResults from './election_results';
 
 dotenv.config();
 
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || "127.0.0.1";
+const years = ["2019", "2014", "2009"]
 
-export const server = restify.createServer();
-
-server.use(restify.plugins.bodyParser());
-
-server.get('/', async (req, res, next) => {
-    res.send({ msg: 'Hello, world!' });
-    next();
-});
-
-server.get("/electoral_types", async (req, res, next) => {
-    let electoralTypes = await getCache("electoral_types");
-    if (!electoralTypes) {
-        electoralTypes = await ElectionResults.electoralTypes();
-        setCache("electoral_types", electoralTypes);
-    }
-    res.send(electoralTypes);
-    next();
-});
-
-server.get("/electoral_events/:eventTypeID", async (req, res, next) => {
-    const eventTypeID = req.params.eventTypeID;
-    let electoralEvents = await getCache(`electoral_events_${eventTypeID}`);
-    if (!electoralEvents) {
-        electoralEvents = await ElectionResults.electoralEvents(eventTypeID);
-        setCache(`electoral_events_${eventTypeID}`, electoralEvents);
-    }
-    res.send(electoralEvents);
-    next();
-});
-
-server.get("/contesting_parties/:eventID", async (req, res, next) => {
-    const eventID = req.params.eventID;
-    let parties = await getCache(`contesting_parties_${eventID}`);
-    if (!parties) {
-        parties = await ElectionResults.consetingParties(eventID);
-        setCache(`contesting_parties_${eventID}`, parties);
-    }
-    res.send(parties);
-    next();
-});
-
-server.get("/results/:eventID", async (req, res, next) => {
-    const eventID = req.params.eventID;
-    let results = await getCache(`results_${eventID}`);
-    if (!results) {
-        results = await ElectionResults.results(eventID);
-        setCache(`results_${eventID}`, results);
-    }
-    res.send(results);
-    next();
-});
-
-server.get("/seats/:eventID", async (req, res, next) => {
-    const eventID = req.params.eventID;
-    let seats = await getCache(`seats_${eventID}`);
-    if (!seats) {
-        seats = await ElectionResults.seats(eventID);
-        setCache(`seats_${eventID}`, seats);
-    }
-    res.send(seats);
-    next();
-});
+// async function heatCache() {
+//     const electoralTypes = await ElectionResults.electoralTypes();
+//     setCache("electoral_types", electoralTypes);
+//     const national_election = electoralTypes.find((et: any) => et.Description === "National Election");
+    
+//     if (!national_election) {
+//         throw new Error("National Election not found");
+//     }
+//     const electoralEvents = await ElectionResults.electoralEvents(national_election.ID);
+//     if (!electoralEvents) {
+//         throw new Error("National Election not found");
+//     }
+//     electoralEvents.forEach(async (ee: any) => {
+//         setCache(`electoral_events_${ee.ID}`, ee);
+//         await ElectionResults.provinces(ee.ID);
+//         await ElectionResults.consetingParties(ee.ID);
+//         await ElectionResults.results(ee.ID);
+//         await ElectionResults.seats(ee.ID);
+//     });
+//     years.forEach(async (year) => {
+//         const national_event = electoral_events.find((ee: any) => ee.Description.includes(year));
+//         if (!national_event) {
+//             return;
+//         }
+//         await ElectionResults.consetingParties(national_event.ID);
+//         await ElectionResults.results(national_event.ID);
+//         await ElectionResults.seats(national_event.ID);
+//     });
+// }
 
 if (process.env.NODE_ENV !== 'test') {
     server.listen(port, host || "127.0.0.1", async () => {

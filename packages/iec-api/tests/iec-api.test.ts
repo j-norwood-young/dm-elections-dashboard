@@ -1,5 +1,5 @@
 import supertest from "supertest";
-import { server } from "../src/index";
+import { server } from "../src/api";
 import { setupRedis, closeRedis } from "../src/cache";
 
 const electoralTypes = [
@@ -88,8 +88,28 @@ describe("IEC API tests", () => {
             .expect(200)
             .expect('Content-Type', /json/)
             .then((response) => {
-                console.log(response.body)
                 expect(response.body.PartyResults.length).toBeGreaterThan(10);
             });
     })
 })
+
+describe("Combined API tests", () => {
+    beforeAll(async () => {
+        await setupRedis();
+    });
+
+    afterAll(async () => {
+        await closeRedis();
+    });
+
+    test("GET from /seats/national/2019", () => {
+        return supertest(server)
+            .get("/seats/national/2019")
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .then((response) => {
+                console.log(response.body)
+                expect(response.body.PartyResults.length).toBeGreaterThan(10);
+            });
+    })
+});

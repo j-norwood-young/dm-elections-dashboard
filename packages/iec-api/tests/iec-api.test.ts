@@ -108,8 +108,7 @@ describe("Combined API tests", () => {
             .expect(200)
             .expect('Content-Type', /json/)
             .then((response) => {
-                console.log(response.body)
-                expect(response.body.PartyResults.length).toBeGreaterThan(10);
+                expect(response.body.partyResults.length).toBeGreaterThan(10);
             });
     })
 });

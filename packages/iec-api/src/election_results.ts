@@ -33,3 +33,8 @@ export async function seats(eventID: number) {
     const seats = await iec.NPESeatCalculationResults(eventID);
     return seats;
 }
+
+export async function provinces(eventID: number) {
+    const provinces = await iec.delimitations(eventID);
+    return provinces;
+}

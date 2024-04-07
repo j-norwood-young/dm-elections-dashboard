@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import { server } from './api';
-import { setupRedis, getCache, setCache } from './cache';
 
 dotenv.config();
 
@@ -40,7 +39,6 @@ const years = ["2019", "2014", "2009"]
 
 if (process.env.NODE_ENV !== 'test') {
     server.listen(port, host || "127.0.0.1", async () => {
-        await setupRedis();
         console.log(`DM IEC API is running on http://${host}:${port}`);
     });
 }

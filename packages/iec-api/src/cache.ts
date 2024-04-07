@@ -5,17 +5,23 @@ dotenv.config();
 
 const redis_url = process.env.REDIS_URL || 'redis://localhost:6379';
 
+let connected = false;
+
 const client = createClient({
     url: redis_url
 });
 
 export const setupRedis = async () => {
-    if (client.isReady) return;
+    if (client.isReady) {
+        connected = true;
+        return;
+    }
     await client.connect().catch((err) => {
         console.error("Unable to connect to Redis url:", redis_url);
         console.error(err.code || err.message || err);
         process.exit(1);
     });
+    connected = true;
 };
 
 export const closeRedis = async () => {
@@ -28,6 +34,7 @@ export const closeRedis = async () => {
 
 export async function getCache(key: string) {
     try {
+        if (!connected) await setupRedis();
         let data = await client.get(key);
         if (data) {
             return JSON.parse(data);
@@ -41,6 +48,7 @@ export async function getCache(key: string) {
 
 export async function setCache(key: string, data: any) {
     try {
+        if (!connected) await setupRedis();
         await client.set(key, JSON.stringify(data));
     } catch (err: any) {
         console.error("Error setting cache:", err.code || err.message || err);

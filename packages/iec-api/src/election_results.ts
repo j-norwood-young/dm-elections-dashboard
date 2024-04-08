@@ -19,7 +19,7 @@ export async function electoralEvents(eventTypeID: number) {
     return electoralEvents;
 }
 
-export async function consetingParties(eventID: number) {
+export async function contestingParties(eventID: number) {
     const parties = await iec.contestingParties(eventID);
     return parties;
 }
@@ -37,4 +37,9 @@ export async function seats(eventID: number) {
 export async function provinces(eventID: number) {
     const provinces = await iec.delimitations(eventID);
     return provinces;
+}
+
+export async function votesByProvince(eventID: number, provinceID: number) {
+    const votes = await iec.NPEBallotResultsProvince(eventID, provinceID);
+    return votes;
 }

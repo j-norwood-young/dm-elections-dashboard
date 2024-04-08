@@ -34,7 +34,7 @@ export const closeRedis = async () => {
 
 export async function getCache(key: string) {
     try {
-        if (!connected) await setupRedis();
+        await setupRedis();
         let data = await client.get(key);
         if (data) {
             return JSON.parse(data);
@@ -48,9 +48,18 @@ export async function getCache(key: string) {
 
 export async function setCache(key: string, data: any) {
     try {
-        if (!connected) await setupRedis();
+        await setupRedis();
         await client.set(key, JSON.stringify(data));
     } catch (err: any) {
         console.error("Error setting cache:", err.code || err.message || err);
+    }
+}
+
+export async function clearCache() {
+    try {
+        await setupRedis();
+        await client.flushAll();
+    } catch (err: any) {
+        console.error("Error clearing cache:", err.code || err.message || err);
     }
 }

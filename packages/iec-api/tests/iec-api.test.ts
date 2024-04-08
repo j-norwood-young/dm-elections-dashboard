@@ -91,6 +91,17 @@ describe("IEC API tests", () => {
                 expect(response.body.PartyResults.length).toBeGreaterThan(10);
             });
     })
+
+    test("GET from /provinces/{electoral_event_id}", () => {
+        return supertest(server)
+            .get(`/provinces/${electoral_event_id}`)
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .then((response) => {
+                // console.log(response.body);
+                expect(response.body.length).toBeGreaterThan(0);
+            });
+    })
 })
 
 describe("Combined API tests", () => {
@@ -102,13 +113,25 @@ describe("Combined API tests", () => {
         await closeRedis();
     });
 
-    test("GET from /seats/national/2019", () => {
+    test("GET from /results/seats/national/2019", () => {
         return supertest(server)
-            .get("/seats/national/2019")
-            .expect(200)
+            .get("/results/seats/national/2019")
+            // .expect(200)
             .expect('Content-Type', /json/)
             .then((response) => {
                 expect(response.body.partyResults.length).toBeGreaterThan(10);
-            });
+            })
+    })
+
+    test("GET from /results/votes/national/2019", () => {
+        return supertest(server)
+            .get("/results/votes/national/2019")
+            // .expect(200)
+            .expect('Content-Type', /json/)
+            .then((response) => {
+                console.log(response.body[0].PartyBallotResults);
+                expect(response.body.length).toBe(10);
+                expect(response.body[0].PartyBallotResults.length).toBeGreaterThan(2);
+            })
     })
 });

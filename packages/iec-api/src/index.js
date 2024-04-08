@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import { server } from './api';
-import { heatCache } from './heat_cache';
+import { server } from './api.js';
+import { heatCache } from './heat_cache.js';
 
 dotenv.config();
 

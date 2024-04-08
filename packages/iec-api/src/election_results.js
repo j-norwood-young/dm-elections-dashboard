@@ -1,5 +1,5 @@
 import dotenv from "dotenv"
-import { IEC } from 'iec-za';
+import {IEC} from 'iec-za';
 
 dotenv.config();
 
@@ -14,32 +14,32 @@ export async function electoralTypes() {
     return electoralTypes;
 }
 
-export async function electoralEvents(eventTypeID: number) {
+export async function electoralEvents(eventTypeID) {
     const electoralEvents = await iec.electoralEvents(eventTypeID);
     return electoralEvents;
 }
 
-export async function contestingParties(eventID: number) {
+export async function contestingParties(eventID) {
     const parties = await iec.contestingParties(eventID);
     return parties;
 }
 
-export async function results(eventID: number) {
+export async function results(eventID) {
     const results = await iec.NPEBallotResults(eventID);
     return results;
 }
 
-export async function seats(eventID: number) {
+export async function seats(eventID) {
     const seats = await iec.NPESeatCalculationResults(eventID);
     return seats;
 }
 
-export async function provinces(eventID: number) {
+export async function provinces(eventID) {
     const provinces = await iec.delimitations(eventID);
     return provinces;
 }
 
-export async function votesByProvince(eventID: number, provinceID: number) {
+export async function votesByProvince(eventID, provinceID) {
     const votes = await iec.NPEBallotResultsProvince(eventID, provinceID);
     return votes;
 }

@@ -22,7 +22,7 @@ const electoralTypes = [
 ]
 
 describe("IEC API tests", () => {
-    let electoral_event_id: number | null = null;
+    let electoral_event_id = null;
     beforeAll(async () => {
         await setupRedis();
     });
@@ -129,7 +129,7 @@ describe("Combined API tests", () => {
             // .expect(200)
             .expect('Content-Type', /json/)
             .then((response) => {
-                console.log(response.body[0].PartyBallotResults);
+                // console.log(response.body[0].PartyBallotResults);
                 expect(response.body.length).toBe(10);
                 expect(response.body[0].PartyBallotResults.length).toBeGreaterThan(2);
             })

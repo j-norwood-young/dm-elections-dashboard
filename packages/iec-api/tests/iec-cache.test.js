@@ -1,5 +1,5 @@
-import { heatCache } from "../src/heat_cache"
-import { setupRedis, clearCache, closeRedis, getCache } from "../src/cache"
+import { heatCache } from "../src/heat_cache.js"
+import { setupRedis, clearCache, closeRedis, getCache } from "../src/cache.js"
 
 describe("Heat Cache", () => {
     // beforeAll(async () => {
@@ -14,7 +14,7 @@ describe("Heat Cache", () => {
         let electoralTypes = await getCache("electoral_types");
         expect(electoralTypes).not.toBeNull();
         expect(electoralTypes.length).toEqual(4);
-        let national_election = electoralTypes.find((et: any) => et.Description === "National Election");
+        let national_election = electoralTypes.find((et) => et.Description === "National Election");
         let electoralEvents = await getCache(`electoral_events_${national_election.ID}`);
         expect(electoralEvents.length).toBeGreaterThan(4);
         const electoral_event_id = electoralEvents[0].ID;

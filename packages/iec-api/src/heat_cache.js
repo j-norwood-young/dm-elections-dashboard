@@ -1,11 +1,18 @@
-import * as ElectionResults from "./election_results";
-import { setCache } from "./cache";
+import * as ElectionResults from "./election_results.js";
+import { setCache } from "./cache.js";
 
-export async function heatCache(years: string[] = ["2019", "2014"], type: string = "National Election") {
+/**
+ * Caches electoral data for specified years and election type.
+ * @param {string[]} years - The years for which to cache the data.
+ * @param {string} type - The type of election to cache.
+ * @throws {Error} If electoral types for the specified type are not found.
+ * @throws {Error} If events for the specified type are not found.
+ */
+export async function heatCache(years = ["2019", "2014"], type = "National Election") {
     const electoralTypes = await ElectionResults.electoralTypes();
     expect(electoralTypes.length).toEqual(4);
     await setCache("electoral_types", electoralTypes);
-    const national_election = electoralTypes.find((et: any) => et.Description === type);
+    const national_election = electoralTypes.find((et) => et.Description === type);
     if (!national_election) {
         throw new Error(`Electoral types for ${type} not found`);
     }

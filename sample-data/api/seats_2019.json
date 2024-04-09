@@ -1,0 +1,88 @@
+{
+  "partyResults": [
+    {
+      "Name": "AFRICAN NATIONAL CONGRESS",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+      "Abbreviation": "ANC",
+      "Seats": 230
+    },
+    {
+      "Name": "DEMOCRATIC ALLIANCE",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+      "Abbreviation": "DA",
+      "Seats": 84
+    },
+    {
+      "Name": "ECONOMIC FREEDOM FIGHTERS",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+      "Abbreviation": "EFF",
+      "Seats": 44
+    },
+    {
+      "Name": "INKATHA FREEDOM PARTY",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/IFP.png",
+      "Abbreviation": "IFP",
+      "Seats": 14
+    },
+    {
+      "Name": "VRYHEIDSFRONT PLUS",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+      "Abbreviation": "VF PLUS",
+      "Seats": 10
+    },
+    {
+      "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+      "Abbreviation": "ACDP",
+      "Seats": 4
+    },
+    {
+      "Name": "AFRICAN INDEPENDENT CONGRESS",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+      "Abbreviation": "AIC",
+      "Seats": 2
+    },
+    {
+      "Name": "AFRICAN TRANSFORMATION MOVEMENT",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+      "Abbreviation": "ATM",
+      "Seats": 2
+    },
+    {
+      "Name": "CONGRESS  OF THE PEOPLE",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+      "Abbreviation": "COPE",
+      "Seats": 2
+    },
+    {
+      "Name": "GOOD",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+      "Abbreviation": "GOOD",
+      "Seats": 2
+    },
+    {
+      "Name": "NATIONAL FREEDOM PARTY",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/NFP.png",
+      "Abbreviation": "NFP",
+      "Seats": 2
+    },
+    {
+      "Name": "UNITED DEMOCRATIC MOVEMENT",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+      "Abbreviation": "UDM",
+      "Seats": 2
+    },
+    {
+      "Name": "AL JAMA-AH",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ALJAMA.png",
+      "Abbreviation": "ALJAMA",
+      "Seats": 1
+    },
+    {
+      "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+      "LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+      "Abbreviation": "PAC",
+      "Seats": 1
+    }
+  ]
+}

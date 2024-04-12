@@ -3488,7 +3488,7 @@
         "Area": 169309.834091,
         "Shape_Leng": 28.206381,
         "Shape_Area": 16.154667,
-        "Reg_Voters": 230000,
+        "Reg_Voters": 3363161,
         "Major_Party": "ANC"
       },
       "id": 0
@@ -7124,8 +7124,8 @@
         "Area": 130011.486541,
         "Shape_Leng": 24.249596,
         "Shape_Area": 11.979428,
-        "Reg_Voters": 530000,
-        "Major_Party": "EFF"
+        "Reg_Voters": 1462508,
+        "Major_Party": "ANC"
       },
       "id": 1
     },
@@ -7918,8 +7918,8 @@
         "Area": 18182.492286,
         "Shape_Leng": 10.967065,
         "Shape_Area": 1.640382,
-        "Reg_Voters": 2230000,
-        "Major_Party": "DA"
+        "Reg_Voters": 6381220,
+        "Major_Party": "ANC"
       },
       "id": 2
     },
@@ -10262,7 +10262,7 @@
         "Area": 94451.019752,
         "Shape_Leng": 19.024784,
         "Shape_Area": 8.715379,
-        "Reg_Voters": 90000,
+        "Reg_Voters": 5524666,
         "Major_Party": "ANC"
       },
       "id": 3
@@ -12305,7 +12305,7 @@
         "Area": 125806.05244,
         "Shape_Leng": 21.859564,
         "Shape_Area": 11.141413,
-        "Reg_Voters": 1230000,
+        "Reg_Voters": 2608460,
         "Major_Party": "ANC"
       },
       "id": 4
@@ -14119,7 +14119,7 @@
         "Area": 76544.303926,
         "Shape_Leng": 23.650775,
         "Shape_Area": 6.889972,
-        "Reg_Voters": 630000,
+        "Reg_Voters": 1951776,
         "Major_Party": "ANC"
       },
       "id": 5
@@ -16577,8 +16577,8 @@
         "Area": 105238.13133,
         "Shape_Leng": 26.091486,
         "Shape_Area": 9.477825,
-        "Reg_Voters": 230000,
-        "Major_Party": "DA"
+        "Reg_Voters": 1702728,
+        "Major_Party": "ANC"
       },
       "id": 6
     },
@@ -20504,8 +20504,8 @@
         "Area": 378276.609738,
         "Shape_Leng": 48.008397,
         "Shape_Area": 34.691554,
-        "Reg_Voters": 330000,
-        "Major_Party": "IFP"
+        "Reg_Voters": 626471,
+        "Major_Party": "ANC"
       },
       "id": 7
     },
@@ -23957,8 +23957,8 @@
         "Area": 131521.55912,
         "Shape_Leng": 38.085976,
         "Shape_Area": 12.49468,
-        "Reg_Voters": 630000,
-        "Major_Party": "IND"
+        "Reg_Voters": 3128567,
+        "Major_Party": "ANC"
       },
       "id": 8
     }

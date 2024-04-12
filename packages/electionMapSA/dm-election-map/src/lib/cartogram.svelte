@@ -134,7 +134,7 @@
             ? "transparent"
             : colorScale(province.properties?.Major_Party)}
           stroke={selectCartogram === "cartogram"
-            ? "#f6f6f6"
+            ? "#202020"
             : "#737270"}
         />
         <text

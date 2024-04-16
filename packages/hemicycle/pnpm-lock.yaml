@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   svelte-hemicycle:
-    specifier: ^1.0.4
-    version: 1.0.4
+    specifier: ^1.0.5
+    version: 1.0.5
 
 devDependencies:
   '@fontsource/fira-mono':
@@ -1873,8 +1873,8 @@ packages:
       svelte: 4.2.12
     dev: true
 
-  /svelte-hemicycle@1.0.4:
-    resolution: {integrity: sha512-KpxkDqiaNjfiD1M5NqMrKMUz6bAnV6Kov/mtjuvHAOSQfbLDOJwOfGSYvwx7q9j3hIbNYjmC6Ceo1JdI1E/1UA==}
+  /svelte-hemicycle@1.0.5:
+    resolution: {integrity: sha512-6JklClqZ2YY+6S+q4UXtyw8tFCMgOwOR281g1msnSgpq/WRMTjd/lRjOzQAC1oOiFO/NYnjyrgS0LaDC6npS6g==}
     dependencies:
       svelte: 4.2.12
       voronoijs: 1.0.0

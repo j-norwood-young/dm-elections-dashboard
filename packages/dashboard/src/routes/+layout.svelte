@@ -1,4 +1,6 @@
+
 <script>
+	export const ssr = false;
 	import Header from './Header.svelte';
 	import './styles.css';
 </script>
@@ -39,10 +41,6 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
 	}
 
 	@media (min-width: 480px) {

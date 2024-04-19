@@ -1,11 +1,11 @@
 <script>
 	import Hemicycle from 'svelte-hemicycle';
 
-	import data2014 from '../data/seats_2014.json';
+	import data2014 from '$lib/data/seats_2014.json';
 	const Data2014 = data2014.partyResults;
-	import data2019 from '../data/seats_2019.json';
+	import data2019 from '$lib/data/seats_2019.json';
 	const Data2019 = data2019.partyResults;
-	import colors from '../data/color-scheme.json';
+	import colors from '$lib/data/color-scheme.json';
 
 	let data, total_seats, heading, text_position;
 	data = Data2014;
@@ -19,18 +19,10 @@
 			case '2014':
 				data = Data2014;
 				heading = '2014';
-				text_position = {
-					x: 90,
-					y: 10
-				};
 				break;
 			case '2019':
 				data = Data2019;
 				heading = '2019';
-				text_position = {
-					x: 100,
-					y: 50
-				};
 				break;
 			case '2024':
 				heading = '2024';
@@ -52,6 +44,9 @@
 			case 'low':
 				selectedScheme = colors.colorSchemes[1].low;
 				break;
+			case 'dm':
+				selectedScheme = colors.colorSchemes[2].dm;
+				break;
 		}
 
 		const filled = data.map((item, index) => ({
@@ -65,6 +60,7 @@
 	const display = ['points', 'text'];
 	const color = 'black';
 	const font_size = '20';
+	const selectedShape = 'hexagon';
 </script>
 
 <svelte:head>
@@ -83,8 +79,9 @@
 		<h3>Color Schemes</h3>
 		<button type="button" on:click={() => toggleColorScheme('high')}>High-contrast</button>
 		<button type="button" on:click={() => toggleColorScheme('low')}>Subdued</button>
+		<button type="button" on:click={() => toggleColorScheme('dm')}>DM Proposal</button>
 	</div>
-	<Hemicycle {data} {rows} {total_seats} {display} {color} {font_size} />
+	<Hemicycle {data} {rows} {total_seats} {display} {color} {font_size} {selectedShape} />
 </section>
 
 <style>

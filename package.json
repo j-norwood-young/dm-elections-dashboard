@@ -11,8 +11,8 @@
     "test": "echo \"Run tests from packages folders\" && exit 1",
     "start": "npm-run-all -p start:*",
     "dev": "npm-run-all -p dev:*",
-    "start:example": "cd packages/example && npm start",
-    "dev:example": "cd packages/example && npm run dev"
+    "start:iec-api": "cd packages/iec-api && npm start",
+    "dev:iec-api": "cd packages/iec-api && npm run dev"
   },
   "author": "",
   "license": "MIT",

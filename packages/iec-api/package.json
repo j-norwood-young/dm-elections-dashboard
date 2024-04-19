@@ -4,10 +4,10 @@
   "description": "Feed results from the IEC API to various services",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx index.ts",
+    "start": "tsx src/index.ts",
     "test": "env NODE_ENV=test jest --detectOpenHandles",
     "test:watch": "env NODE_ENV=test jest --watch",
-    "dev": "env NODE_ENV=development tsx --watch index.ts"
+    "dev": "env NODE_ENV=development tsx --watch src/index.ts"
   },
   "author": "Jason Norwood-Young <jason@10layer.com>",
   "license": "MIT",

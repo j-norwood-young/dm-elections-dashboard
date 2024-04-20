@@ -14,7 +14,8 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"svelte-hemicycle": "1.0.5"
+		"svelte-hemicycle": "1.0.5",
+		"svelte-preprocess": "^5.1.4"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",

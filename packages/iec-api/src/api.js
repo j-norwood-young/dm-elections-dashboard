@@ -1,5 +1,6 @@
 
 import restify from 'restify';
+import Fastify from 'fastify';
 import restifyErrors from 'restify-errors';
 import dotenv from 'dotenv';
 import { getCache, setCache } from './cache.js';
@@ -7,9 +8,11 @@ import * as ElectionResults from './election_results.js';
 
 dotenv.config();
 
-export const server = restify.createServer();
+export const server = Fastify({
+    logger: true
+})
 
-server.use(restify.plugins.bodyParser());
+// server.use(restify.plugins.bodyParser());
 
 server.get('/', async (req, res) => {
     res.send({ msg: 'Hello, world!' });

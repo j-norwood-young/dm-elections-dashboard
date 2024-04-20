@@ -1,5 +1,5 @@
 import dotenv from "dotenv"
-import {IEC} from 'iec-za';
+import { IEC } from 'iec-za';
 
 dotenv.config();
 

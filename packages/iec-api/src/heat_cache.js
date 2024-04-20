@@ -1,5 +1,6 @@
 import * as ElectionResults from "./election_results.js";
 import { setCache } from "./cache.js";
+import assert from "assert";
 
 /**
  * Caches electoral data for specified years and election type.
@@ -10,7 +11,7 @@ import { setCache } from "./cache.js";
  */
 export async function heatCache(years = ["2019", "2014"], type = "National Election") {
     const electoralTypes = await ElectionResults.electoralTypes();
-    expect(electoralTypes.length).toEqual(4);
+    assert(electoralTypes.length === 4);
     await setCache("electoral_types", electoralTypes);
     const national_election = electoralTypes.find((et) => et.Description === type);
     if (!national_election) {

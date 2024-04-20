@@ -1,4 +1,4 @@
-import supertest from "supertest";
+// import supertest from "supertest";
 import { server } from "../src/api";
 import { setupRedis, closeRedis } from "../src/cache";
 
@@ -32,75 +32,81 @@ describe("IEC API tests", () => {
     });
 
     test("GET from /", () => {
-        return supertest(server)
-            .get("/")
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.text).toBe(JSON.stringify({ msg: "Hello, world!" }));
-            });
+        return server.inject({
+            method: "GET",
+            url: "/"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(response.payload).toBe(JSON.stringify({ msg: "Hello, world!" }));
+        });
     })
 
     test("GET from /electoral_types", () => {
-        return supertest(server)
-            .get("/electoral_types")
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.body).toEqual(electoralTypes);
-            });
+        return server.inject({
+            method: "GET",
+            url: "/electoral_types"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(response.payload).toBe(JSON.stringify(electoralTypes));
+        });
     })
 
     test("GET from /electoral_events/1", () => {
-        return supertest(server)
-            .get("/electoral_events/1")
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.body.length).toBeGreaterThan(4);
-                electoral_event_id = response.body[0].ID;
-            });
+        return server.inject({
+            method: "GET",
+            url: "/electoral_events/1"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(response.payload.length).toBeGreaterThan(4);
+            electoral_event_id = JSON.parse(response.payload)[0].ID;
+        });
     })
 
     test("GET from /contesting_parties/{electoral_event_id}", () => {
-        return supertest(server)
-            .get(`/contesting_parties/${electoral_event_id}`)
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.body.length).toBeGreaterThan(10);
-            });
+        return server.inject({
+            method: "GET",
+            url: `/contesting_parties/${electoral_event_id}`
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(JSON.parse(response.payload).length).toBeGreaterThan(10);
+        });
     })
 
     test("GET from /results/{electoral_event_id}", () => {
-        return supertest(server)
-            .get(`/results/${electoral_event_id}`)
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.body.PartyBallotResults.length).toBeGreaterThan(10);
-            });
+        return server.inject({
+            method: "GET",
+            url: `/results/${electoral_event_id}`
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(JSON.parse(response.payload).PartyBallotResults.length).toBeGreaterThan(10);
+        });
     })
 
     test("GET from /seats/{electoral_event_id}", () => {
-        return supertest(server)
-            .get(`/seats/${electoral_event_id}`)
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.body.PartyResults.length).toBeGreaterThan(10);
-            });
+        return server.inject({
+            method: "GET",
+            url: `/seats/${electoral_event_id}`
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(JSON.parse(response.payload).PartyResults.length).toBeGreaterThan(10);
+        });
     })
 
     test("GET from /provinces/{electoral_event_id}", () => {
-        return supertest(server)
-            .get(`/provinces/${electoral_event_id}`)
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                // console.log(response.body);
-                expect(response.body.length).toBeGreaterThan(0);
-            });
+        return server.inject({
+            method: "GET",
+            url: `/provinces/${electoral_event_id}`
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(JSON.parse(response.payload).length).toBe(10);
+        });
     })
 })
 
@@ -114,24 +120,25 @@ describe("Combined API tests", () => {
     });
 
     test("GET from /results/seats/national/2019", () => {
-        return supertest(server)
-            .get("/results/seats/national/2019")
-            // .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                expect(response.body.partyResults.length).toBeGreaterThan(10);
-            })
+        return server.inject({
+            method: "GET",
+            url: "/results/seats/national/2019"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(JSON.parse(response.payload).partyResults.length).toBeGreaterThan(10);
+        });
     })
 
     test("GET from /results/votes/national/2019", () => {
-        return supertest(server)
-            .get("/results/votes/national/2019")
-            // .expect(200)
-            .expect('Content-Type', /json/)
-            .then((response) => {
-                // console.log(response.body[0].PartyBallotResults);
-                expect(response.body.length).toBe(10);
-                expect(response.body[0].PartyBallotResults.length).toBeGreaterThan(2);
-            })
+        return server.inject({
+            method: "GET",
+            url: "/results/votes/national/2019"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            expect(JSON.parse(response.payload).length).toBe(10);
+            expect(JSON.parse(response.payload)[0].PartyBallotResults.length).toBeGreaterThan(2);
+        });
     })
 });

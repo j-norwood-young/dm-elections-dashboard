@@ -10,7 +10,7 @@ describe("Heat Cache", () => {
     //     await closeRedis();
     // });
     test("Heat Cache", async () => {
-        // await heatCache();
+        await heatCache();
         let electoralTypes = await getCache("electoral_types");
         expect(electoralTypes).not.toBeNull();
         expect(electoralTypes.length).toEqual(4);

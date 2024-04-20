@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import { getCache } from './cache.js';
-import supertest from "supertest";
 import { server } from "./api.js";
 const years = ["2019", "2014"];
 
@@ -26,10 +25,16 @@ export async function generateFiles() {
 
     // API data
     for (let year of years) {
-        const seats = await supertest(server).get(`/results/seats/national/${year}`);
-        fs.writeFileSync(path.join("../../sample-data/api", `seats_${year}.json`), JSON.stringify(seats.body, null, 2));
-        const votes = await supertest(server).get(`/results/votes/national/${year}`);
-        fs.writeFileSync(path.join("../../sample-data/api", `votes_${year}.json`), JSON.stringify(votes.body, null, 2));
+        const seats = await server.inject({
+            method: "GET",
+            url: `/results/seats/national/${year}`
+        });
+        fs.writeFileSync(path.join("../../sample-data/api", `seats_${year}.json`), JSON.stringify(seats.json(), null, 2));
+        const votes = await server.inject({
+            method: "GET",
+            url: `/results/votes/national/${year}`
+        });
+        fs.writeFileSync(path.join("../../sample-data/api", `votes_${year}.json`), JSON.stringify(votes.json(), null, 2));
     }
     process.exit(0);
 }

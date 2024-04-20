@@ -1,10 +1,10 @@
 {
   "name": "@dm-elections-dashboard/iec-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Feed results from the IEC API to various services",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx index.ts",
+    "start": "tsx src/index.js",
     "test": "env NODE_ENV=test jest --detectOpenHandles",
     "test:watch": "env NODE_ENV=test jest --watch",
     "dev": "env NODE_ENV=development tsx --watch index.ts"
@@ -12,8 +12,10 @@
   "author": "Jason Norwood-Young <jason@10layer.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/preset-env": "^7.24.4",
     "dotenv": "^16.4.5",
-    "iec-za": "^0.1.4",
+    "fastify": "^4.26.2",
+    "iec-za": "^0.1.6",
     "redis": "^4.6.13",
     "restify": "^11.1.0",
     "restify-errors": "^8.0.2",

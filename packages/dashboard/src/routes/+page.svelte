@@ -5,7 +5,7 @@
 	const Data2014 = data2014.partyResults;
 	import data2019 from '$lib/data/seats_2019.json';
 	const Data2019 = data2019.partyResults;
-	import colors from '$lib/data/color-scheme.json';
+	import colors from '$pkg/color-scheme.json';
 
 	let data, total_seats, heading, text_position;
 	data = Data2014;

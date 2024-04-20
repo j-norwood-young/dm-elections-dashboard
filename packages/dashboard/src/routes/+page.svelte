@@ -65,16 +65,16 @@
 		border-radius: 8px;
 		border: 1px solid transparent;
 		padding: 0.6em 1.2em;
-		color: white;
+		color: var(--color-white);
 		transition: border-color 0.25s;
 	}
 	button:not([disabled]):hover {
-		border: 1px solid white;
+		border: 1px solid var(--color-white);
 	}
 	button[disabled] {
-		background-color: white;
-		border-color: 1px solid black;
-		color: black;
+		background-color: var(--color-white);
+		border-color: 1px solid var(--color-black);
+		color: var(--color-black);
 		cursor: not-allowed;
 	}
 	h1 {

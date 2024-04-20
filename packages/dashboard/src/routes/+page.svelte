@@ -36,15 +36,15 @@
 <section>
 	<h1>{heading} National Elections</h1>
 	<div id="toggleBar">
-		<button type="button" on:click={() => show('2014')}>2014</button>
-		<button type="button" on:click={() => show('2019')}>2019</button>
+		<button type="button" on:click={() => loadData('2014')}>2014</button>
+		<button type="button" on:click={() => loadData('2019')}>2019</button>
 		<button type="button" disabled={true} title="Not available yet!">2024</button>
 	</div>
 	<div id="toggleBar">
 		<h3>Color Schemes</h3>
-		<button type="button" on:click={() => toggleColorScheme('high')}>High-contrast</button>
-		<button type="button" on:click={() => toggleColorScheme('low')}>Subdued</button>
-		<button type="button" on:click={() => toggleColorScheme('dm')}>DM Proposal</button>
+		<button type="button" on:click={() => manipulateHemicycle('high')}>High-contrast</button>
+		<button type="button" on:click={() => manipulateHemicycle('low')}>Subdued</button>
+		<button type="button" on:click={() => manipulateHemicycle('dm')}>DM Proposal</button>
 	</div>
 	<Hemicycle {data} {rows} {total_seats} {display} {color} {font_size} {selectedShape} />
 </section>

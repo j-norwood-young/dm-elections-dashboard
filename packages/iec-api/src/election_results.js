@@ -43,3 +43,8 @@ export async function votesByProvince(eventID, provinceID) {
     const votes = await iec.NPEBallotResultsProvince(eventID, provinceID);
     return votes;
 }
+
+export async function seatsByProvince(eventID, provinceID) {
+    const seats = await iec.NPESeatCalculationResultsProvince(eventID, provinceID);
+    return seats;
+}

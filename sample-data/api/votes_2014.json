@@ -22,7 +22,8 @@
         "Votes": 1587338,
         "Percentage": 70.752847006,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -31,7 +32,8 @@
         "Votes": 356050,
         "Percentage": 15.870313176,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -40,7 +42,8 @@
         "Votes": 118645,
         "Percentage": 5.28839575,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -49,7 +52,8 @@
         "Votes": 84783,
         "Percentage": 3.779055644,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -58,7 +62,8 @@
         "Votes": 26580,
         "Percentage": 1.184757546,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -67,7 +72,8 @@
         "Votes": 17514,
         "Percentage": 0.78065627,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -76,7 +82,8 @@
         "Votes": 9649,
         "Percentage": 0.430087493,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -85,7 +92,8 @@
         "Votes": 8771,
         "Percentage": 0.390952161,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -94,7 +102,8 @@
         "Votes": 8016,
         "Percentage": 0.357299341,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -103,7 +112,8 @@
         "Votes": 4538,
         "Percentage": 0.202273504,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "KINGDOM GOVERNANCE MOVEMENT",
@@ -112,7 +122,8 @@
         "Votes": 3576,
         "Percentage": 0.159394017,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "NATIONAL FREEDOM PARTY",
@@ -121,7 +132,8 @@
         "Votes": 3559,
         "Percentage": 0.158636272,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -130,7 +142,8 @@
         "Votes": 2501,
         "Percentage": 0.111477751,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AZANIAN PEOPLE'S ORGANISATION",
@@ -139,7 +152,8 @@
         "Votes": 2323,
         "Percentage": 0.103543709,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -166,7 +180,8 @@
         "Votes": 721126,
         "Percentage": 69.718670027,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -175,7 +190,8 @@
         "Votes": 167972,
         "Percentage": 16.23958149,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -184,7 +200,8 @@
         "Votes": 81559,
         "Percentage": 7.885147684,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -193,7 +210,8 @@
         "Votes": 19837,
         "Percentage": 1.917846891,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -202,7 +220,8 @@
         "Votes": 14613,
         "Percentage": 1.412789062,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -211,7 +230,8 @@
         "Votes": 7972,
         "Percentage": 0.770735263,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -220,7 +240,8 @@
         "Votes": 5128,
         "Percentage": 0.495776522,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -229,7 +250,8 @@
         "Votes": 2380,
         "Percentage": 0.230099088,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -238,7 +260,8 @@
         "Votes": 2093,
         "Percentage": 0.202351845,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -247,7 +270,8 @@
         "Votes": 2058,
         "Percentage": 0.198968035,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -256,7 +280,8 @@
         "Votes": 1989,
         "Percentage": 0.192297095,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AZANIAN PEOPLE'S ORGANISATION",
@@ -265,7 +290,8 @@
         "Votes": 1405,
         "Percentage": 0.135835806,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "INKATHA FREEDOM PARTY",
@@ -274,7 +300,8 @@
         "Votes": 1177,
         "Percentage": 0.1137927,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "NATIONAL FREEDOM PARTY",
@@ -283,7 +310,8 @@
         "Votes": 1039,
         "Percentage": 0.10045082,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -310,7 +338,8 @@
         "Votes": 2522012,
         "Percentage": 54.919244923,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -319,7 +348,8 @@
         "Votes": 1309862,
         "Percentage": 28.523509005,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -328,7 +358,8 @@
         "Votes": 471074,
         "Percentage": 10.258090914,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -337,7 +368,8 @@
         "Votes": 58122,
         "Percentage": 1.265662635,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "INKATHA FREEDOM PARTY",
@@ -346,7 +378,8 @@
         "Votes": 37785,
         "Percentage": 0.822804836,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -355,7 +388,8 @@
         "Votes": 30761,
         "Percentage": 0.669850458,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -364,7 +398,8 @@
         "Votes": 25541,
         "Percentage": 0.556179921,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -373,7 +408,8 @@
         "Votes": 23203,
         "Percentage": 0.505267715,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -382,7 +418,8 @@
         "Votes": 22404,
         "Percentage": 0.487868719,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "NATIONAL FREEDOM PARTY",
@@ -391,7 +428,8 @@
         "Votes": 22403,
         "Percentage": 0.487846943,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -400,7 +438,8 @@
         "Votes": 19943,
         "Percentage": 0.434278069,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -409,7 +448,8 @@
         "Votes": 11077,
         "Percentage": 0.241212364,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AL JAMA-AH",
@@ -418,7 +458,8 @@
         "Votes": 7509,
         "Percentage": 0.163515721,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -427,7 +468,8 @@
         "Votes": 5844,
         "Percentage": 0.127258739,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AZANIAN PEOPLE'S ORGANISATION",
@@ -436,7 +478,8 @@
         "Votes": 5277,
         "Percentage": 0.114911767,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -463,7 +506,8 @@
         "Votes": 2530827,
         "Percentage": 65.314479359,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -472,7 +516,8 @@
         "Votes": 517461,
         "Percentage": 13.35440779,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "INKATHA FREEDOM PARTY",
@@ -481,7 +526,8 @@
         "Votes": 393949,
         "Percentage": 10.166863965,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "NATIONAL FREEDOM PARTY",
@@ -490,7 +536,8 @@
         "Votes": 249118,
         "Percentage": 6.429128688,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -499,7 +546,8 @@
         "Votes": 76384,
         "Percentage": 1.971284956,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -508,7 +556,8 @@
         "Votes": 19309,
         "Percentage": 0.49831825,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "MINORITY FRONT",
@@ -517,7 +566,8 @@
         "Votes": 18924,
         "Percentage": 0.488382338,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -526,7 +576,8 @@
         "Votes": 15406,
         "Percentage": 0.397591328,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -535,7 +586,8 @@
         "Votes": 9687,
         "Percentage": 0.249997871,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -544,7 +596,8 @@
         "Votes": 7232,
         "Percentage": 0.186640302,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -553,7 +606,8 @@
         "Votes": 5553,
         "Percentage": 0.143309402,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -562,7 +616,8 @@
         "Votes": 4390,
         "Percentage": 0.113295205,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AL JAMA-AH",
@@ -571,7 +626,8 @@
         "Votes": 4288,
         "Percentage": 0.110662834,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -598,7 +654,8 @@
         "Votes": 1091642,
         "Percentage": 78.795761823,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -607,7 +664,8 @@
         "Votes": 139158,
         "Percentage": 10.044557303,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -616,7 +674,8 @@
         "Votes": 85203,
         "Percentage": 6.150033889,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "BUSHBUCKRIDGE RESIDENTS ASSOCIATION",
@@ -625,7 +684,8 @@
         "Votes": 12208,
         "Percentage": 0.881185096,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -634,7 +694,8 @@
         "Votes": 11707,
         "Percentage": 0.845022437,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "NATIONAL FREEDOM PARTY",
@@ -643,7 +704,8 @@
         "Votes": 9312,
         "Percentage": 0.672149051,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -652,7 +714,8 @@
         "Votes": 7072,
         "Percentage": 0.510463712,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -661,7 +724,8 @@
         "Votes": 5173,
         "Percentage": 0.373392079,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -670,7 +734,8 @@
         "Votes": 4269,
         "Percentage": 0.308140496,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "INKATHA FREEDOM PARTY",
@@ -679,7 +744,8 @@
         "Votes": 4143,
         "Percentage": 0.299045696,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -688,7 +754,8 @@
         "Votes": 3931,
         "Percentage": 0.283743333,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -697,7 +764,8 @@
         "Votes": 2640,
         "Percentage": 0.190557721,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -706,7 +774,8 @@
         "Votes": 1995,
         "Percentage": 0.144001005,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -715,7 +784,8 @@
         "Votes": 1738,
         "Percentage": 0.125450499,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -742,7 +812,8 @@
         "Votes": 278540,
         "Percentage": 63.875798333,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -751,7 +822,8 @@
         "Votes": 101882,
         "Percentage": 23.363948035,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -760,7 +832,8 @@
         "Votes": 22083,
         "Percentage": 5.06415328,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -769,7 +842,8 @@
         "Votes": 14452,
         "Percentage": 3.314184812,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -778,7 +852,8 @@
         "Votes": 5761,
         "Percentage": 1.321133317,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -787,7 +862,8 @@
         "Votes": 3805,
         "Percentage": 0.872576336,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -796,7 +872,8 @@
         "Votes": 2436,
         "Percentage": 0.558632314,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
@@ -805,7 +882,8 @@
         "Votes": 1461,
         "Percentage": 0.335041794,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AZANIAN PEOPLE'S ORGANISATION",
@@ -814,7 +892,8 @@
         "Votes": 936,
         "Percentage": 0.214646899,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -823,7 +902,8 @@
         "Votes": 681,
         "Percentage": 0.156169378,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PATRIOTIC ALLIANCE",
@@ -832,7 +912,8 @@
         "Votes": 591,
         "Percentage": 0.135530254,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -841,7 +922,8 @@
         "Votes": 478,
         "Percentage": 0.109616686,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -850,7 +932,8 @@
         "Votes": 451,
         "Percentage": 0.103424948,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -859,7 +942,8 @@
         "Votes": 450,
         "Percentage": 0.103195625,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -886,7 +970,8 @@
         "Votes": 1202905,
         "Percentage": 78.973836784,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -895,7 +980,8 @@
         "Votes": 156488,
         "Percentage": 10.273843546,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -904,7 +990,8 @@
         "Votes": 100562,
         "Percentage": 6.602156425,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -913,7 +1000,8 @@
         "Votes": 12478,
         "Percentage": 0.819213101,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -922,7 +1010,8 @@
         "Votes": 10269,
         "Percentage": 0.674186515,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -931,7 +1020,8 @@
         "Votes": 6611,
         "Percentage": 0.434029317,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -940,7 +1030,8 @@
         "Votes": 6306,
         "Percentage": 0.414005275,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -949,7 +1040,8 @@
         "Votes": 4841,
         "Percentage": 0.31782422,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -958,7 +1050,8 @@
         "Votes": 4340,
         "Percentage": 0.284932269,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -967,7 +1060,8 @@
         "Votes": 4044,
         "Percentage": 0.265499101,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -976,7 +1070,8 @@
         "Votes": 3949,
         "Percentage": 0.259262104,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AZANIAN PEOPLE'S ORGANISATION",
@@ -985,7 +1080,8 @@
         "Votes": 3692,
         "Percentage": 0.242389387,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -1012,7 +1108,8 @@
         "Votes": 763804,
         "Percentage": 67.791790296,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "DEMOCRATIC ALLIANCE",
@@ -1021,7 +1118,8 @@
         "Votes": 141902,
         "Percentage": 12.594580058,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -1030,7 +1128,8 @@
         "Votes": 141150,
         "Percentage": 12.527835937,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -1039,7 +1138,8 @@
         "Votes": 18120,
         "Percentage": 1.608249289,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -1048,7 +1148,8 @@
         "Votes": 10845,
         "Percentage": 0.962553176,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
@@ -1057,7 +1158,8 @@
         "Votes": 10109,
         "Percentage": 0.897229143,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -1066,7 +1168,8 @@
         "Votes": 8540,
         "Percentage": 0.757971795,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -1075,7 +1178,8 @@
         "Votes": 8421,
         "Percentage": 0.747409893,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -1084,7 +1188,8 @@
         "Votes": 5311,
         "Percentage": 0.471380352,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -1093,7 +1198,8 @@
         "Votes": 4690,
         "Percentage": 0.416263199,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN PEOPLE'S CONVENTION",
@@ -1102,7 +1208,8 @@
         "Votes": 3321,
         "Percentage": 0.294756948,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AZANIAN PEOPLE'S ORGANISATION",
@@ -1111,7 +1218,8 @@
         "Votes": 1708,
         "Percentage": 0.151594359,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "NATIONAL FREEDOM PARTY",
@@ -1120,7 +1228,8 @@
         "Votes": 1519,
         "Percentage": 0.134819573,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "INKATHA FREEDOM PARTY",
@@ -1129,7 +1238,8 @@
         "Votes": 1326,
         "Percentage": 0.117689766,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -1138,7 +1248,8 @@
         "Votes": 1297,
         "Percentage": 0.115115857,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -1165,7 +1276,8 @@
         "Votes": 1241424,
         "Percentage": 57.257372309,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN NATIONAL CONGRESS",
@@ -1174,7 +1286,8 @@
         "Votes": 737219,
         "Percentage": 34.002260917,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -1183,7 +1296,8 @@
         "Votes": 50280,
         "Percentage": 2.319030951,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -1192,7 +1306,8 @@
         "Votes": 25318,
         "Percentage": 1.167725251,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -1201,7 +1316,8 @@
         "Votes": 23243,
         "Percentage": 1.072021408,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -1210,7 +1326,8 @@
         "Votes": 13833,
         "Percentage": 0.638010246,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -1219,7 +1336,8 @@
         "Votes": 13052,
         "Percentage": 0.601988703,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AL JAMA-AH",
@@ -1228,7 +1346,8 @@
         "Votes": 11376,
         "Percentage": 0.524687671,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "INDEPENDENT CIVIC ORGANISATION OF SOUTH AFRICA",
@@ -1237,7 +1356,8 @@
         "Votes": 11124,
         "Percentage": 0.513064843,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -1246,7 +1366,8 @@
         "Votes": 9927,
         "Percentage": 0.457856409,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PATRIOTIC ALLIANCE",
@@ -1255,7 +1376,8 @@
         "Votes": 7996,
         "Percentage": 0.368794182,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN INDEPENDENT CONGRESS",
@@ -1264,7 +1386,8 @@
         "Votes": 6987,
         "Percentage": 0.322256747,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -1273,7 +1396,8 @@
         "Votes": 3963,
         "Percentage": 0.182782809,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UBUNTU PARTY",
@@ -1282,7 +1406,8 @@
         "Votes": 2211,
         "Percentage": 0.10197648,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   },
@@ -1309,7 +1434,8 @@
         "Votes": 15311,
         "Percentage": 84.441870726,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN NATIONAL CONGRESS",
@@ -1318,7 +1444,8 @@
         "Votes": 1508,
         "Percentage": 8.316787999,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AGANG SOUTH AFRICA",
@@ -1327,7 +1454,8 @@
         "Votes": 328,
         "Percentage": 1.808956541,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "ECONOMIC FREEDOM FIGHTERS",
@@ -1336,7 +1464,8 @@
         "Votes": 255,
         "Percentage": 1.406353408,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "VRYHEIDSFRONT PLUS",
@@ -1345,7 +1474,8 @@
         "Votes": 198,
         "Percentage": 1.091992058,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
@@ -1354,7 +1484,8 @@
         "Votes": 184,
         "Percentage": 1.014780499,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "UNITED DEMOCRATIC MOVEMENT",
@@ -1363,7 +1494,8 @@
         "Votes": 128,
         "Percentage": 0.70593426,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "CONGRESS  OF THE PEOPLE",
@@ -1372,7 +1504,8 @@
         "Votes": 52,
         "Percentage": 0.286785793,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       },
       {
         "Name": "PAN AFRICANIST CONGRESS OF AZANIA",
@@ -1381,7 +1514,8 @@
         "Votes": 46,
         "Percentage": 0.253695125,
         "BallotType": "National",
-        "IsIndependent": false
+        "IsIndependent": false,
+        "NumberOfSeats": 0
       }
     ]
   }

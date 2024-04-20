@@ -37,8 +37,12 @@ export async function heatCache(years = ["2019", "2014"], type = "National Elect
         for (let province of provinces) {
             // console.log(province)
             const votes = await ElectionResults.votesByProvince(ee.ID, province.ProvinceID);
-            // console.log(votes)
+            // console.log(votes.PartyBallotResults)
+            assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
             await setCache(`votes_${ee.ID}_${province.ProvinceID}`, votes);
+            const seats = await ElectionResults.seatsByProvince(ee.ID, province.ProvinceID);
+            assert(seats.PartyResults.length > 0, seats.PartyResults.length);
+            await setCache(`seats_${ee.ID}_${province.ProvinceID}`, seats);
         }
     }
 }

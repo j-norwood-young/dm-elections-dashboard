@@ -1,6 +1,5 @@
 
 import Fastify from 'fastify';
-import restifyErrors from 'restify-errors';
 import dotenv from 'dotenv';
 import { getCache, setCache } from './cache.js';
 import * as ElectionResults from './election_results.js';

@@ -1,7 +1,14 @@
 <script>
 	import Hemicycle from 'svelte-hemicycle';
+	import { useMediaQuery } from 'svelte-breakpoints';
+
 	import { toggleColorScheme, decorateWithColors } from '$lib/load-colors';
 	import { generateHemicycleInformation, loadDefaultDataSet } from '$lib/load-data';
+
+	const isSmall = useMediaQuery('(max-width: 200px)');
+	const isMedium = useMediaQuery('(min-width: 480px)');
+	const isBigger = useMediaQuery('(min-width: 720px)');
+	const isRest = useMediaQuery('(min-width: 1024px)');
 
 	const rows = 12;
 	const display = ['points', 'text'];
@@ -9,7 +16,31 @@
 	const font_size = '20';
 	const selectedShape = 'hexagon';
 
-	let data, total_seats, heading, selectedScheme;
+	let data, total_seats, heading, selectedScheme, arc, className, hcWidth, hcHeight;
+
+	$: {
+		if ($isSmall) {
+			arc = 360;
+			className = 'small';
+			hcWidth = 10;
+			hcHeight = 10;
+		}
+		if ($isMedium) {
+			arc = 300;
+			hcWidth = 220;
+			hcHeight = 220;
+		}
+		if ($isBigger) {
+			arc = 270;
+			hcWidth = 420;
+			hcHeight = 420;
+		}
+		if ($isRest) {
+			arc = 180;
+			hcWidth = 620;
+			hcHeight = 620;
+		}
+	}
 
 	data = loadDefaultDataSet();
 	total_seats = 400;
@@ -35,30 +66,64 @@
 
 <section>
 	<h1>{heading} National Elections</h1>
-	<div id="toggleBar">
+	<h2>Year Data</h2>
+	<div class={$isSmall === true ? 'toggleBar mobileSmall' : 'toggleBar default'}>
 		<button type="button" on:click={() => loadData('2014')}>2014</button>
 		<button type="button" on:click={() => loadData('2019')}>2019</button>
 		<button type="button" disabled={true} title="Not available yet!">2024</button>
 	</div>
-	<div id="toggleBar">
-		<h3>Color Schemes</h3>
+	<h2>Color Schemes</h2>
+	<div class={$isSmall === true ? 'toggleBar mobileSmall' : 'toggleBar default'}>
 		<button type="button" on:click={() => manipulateHemicycle('high')}>High-contrast</button>
 		<button type="button" on:click={() => manipulateHemicycle('low')}>Subdued</button>
 		<button type="button" on:click={() => manipulateHemicycle('dm')}>DM Proposal</button>
 	</div>
-	<Hemicycle {data} {rows} {total_seats} {display} {color} {font_size} {selectedShape} />
+	<div class={className}>
+		<Hemicycle
+			{hcWidth}
+			{hcHeight}
+			{data}
+			{rows}
+			{total_seats}
+			{display}
+			{color}
+			{font_size}
+			{selectedShape}
+			{arc}
+		/>
+	</div>
 </section>
 
 <style>
+	.toggleBar {
+		margin-bottom: 2rem;
+	}
+	.default {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex-grow: 1;
+		justify-content: space-between;
+		width: 25vw;
+	}
+	.mobileSmall {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		flex-grow: 1;
+	}
+	.mobileSmall > button {
+		margin-bottom: 4px;
+	}
+	.small {
+		width: fit-content;
+	}
 	section {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		flex: 0.4;
-	}
-	#toggleBar {
-		margin-bottom: 2rem;
 	}
 	button {
 		background-color: var(--color-bg-3);

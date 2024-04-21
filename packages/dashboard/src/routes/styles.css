@@ -104,3 +104,8 @@ button:focus:not(:focus-visible) {
 	width: 1px;
 	white-space: nowrap;
 }
+
+.small > main > svg {
+	min-width: 100%;
+	max-width: 80%;
+}

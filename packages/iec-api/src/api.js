@@ -1,5 +1,6 @@
 
 import Fastify from 'fastify';
+import cors from '@fastify/cors';
 import dotenv from 'dotenv';
 import { getCache, setCache } from './cache.js';
 import * as ElectionResults from './election_results.js';
@@ -12,6 +13,10 @@ const PROVINCES = ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Li
 export const server = Fastify({
     logger: true
 })
+
+server.register(cors, {
+    origin: "*"
+});
 
 server.get('/', async (req, res) => {
     res.send({ msg: 'Hello, world!' });

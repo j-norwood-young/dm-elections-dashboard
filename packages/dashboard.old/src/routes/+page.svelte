@@ -1,14 +1,25 @@
 <script>
+	import { onMount } from 'svelte';
 	import Hemicycle from 'svelte-hemicycle';
 	import { useMediaQuery } from 'svelte-breakpoints';
 
 	import { toggleColorScheme, decorateWithColors } from '$lib/load-colors';
-	import { generateHemicycleInformation, loadDefaultDataSet } from '$lib/load-data';
+	import {
+		fetch2009Data,
+		generateHemicycleInformation,
+		loadDefaultDataSet,
+		dataMapper
+	} from '$lib/load-data';
+	import TabularData from '#tabular/tabular-results.svelte';
 
 	const isSmall = useMediaQuery('(max-width: 200px)');
 	const isMedium = useMediaQuery('(min-width: 480px)');
 	const isBigger = useMediaQuery('(min-width: 720px)');
 	const isRest = useMediaQuery('(min-width: 1024px)');
+
+	let current_party, defaultDataJson, defaultData;
+
+	const DEFAULT_COLOR_SCHEME = 'high';
 
 	const rows = 12;
 	const display = ['points', 'text'];
@@ -17,6 +28,20 @@
 	const selectedShape = 'hexagon';
 
 	let data, total_seats, heading, selectedScheme, arc, className, hcWidth, hcHeight;
+
+	onMount(async () => {
+		const manipulateHemicycle = (data) => {
+			selectedScheme = toggleColorScheme(DEFAULT_COLOR_SCHEME);
+			return selectedScheme && decorateWithColors(data, selectedScheme);
+		};
+
+		defaultData = (await loadDefaultDataSet()).partyResults.map(dataMapper);
+		defaultData = manipulateHemicycle(defaultData);
+
+		data2009 = (await fetch2009Data()).partyResults.map(dataMapper);
+		data2019 = (await fetch2019Data()).partyResults.map(dataMapper);
+		data2024 = (await fetch2024Data()).partyResults.map(dataMapper);
+	});
 
 	$: {
 		if ($isSmall) {
@@ -42,20 +67,14 @@
 		}
 	}
 
-	data = loadDefaultDataSet();
+	data = defaultData;
 	total_seats = 400;
 	heading = '2014';
-
 	const loadData = (year) => {
 		const { title, seats, modified } = generateHemicycleInformation(year);
 		heading = title;
 		total_seats = seats;
 		data = modified;
-	};
-
-	const manipulateHemicycle = (scheme) => {
-		selectedScheme = toggleColorScheme(scheme);
-		data = selectedScheme && decorateWithColors(data, selectedScheme);
 	};
 </script>
 
@@ -72,26 +91,29 @@
 		<button type="button" on:click={() => loadData('2019')}>2019</button>
 		<button type="button" disabled={true} title="Not available yet!">2024</button>
 	</div>
-	<h2>Color Schemes</h2>
-	<div class={$isSmall === true ? 'toggleBar mobileSmall' : 'toggleBar default'}>
-		<button type="button" on:click={() => manipulateHemicycle('high')}>High-contrast</button>
-		<button type="button" on:click={() => manipulateHemicycle('low')}>Subdued</button>
-		<button type="button" on:click={() => manipulateHemicycle('dm')}>DM Proposal</button>
-	</div>
-	<div class={className}>
+	<div class={className} id="hemicycle">
 		<Hemicycle
+			bind:current_party
 			{hcWidth}
 			{hcHeight}
 			{data}
 			{rows}
-			{total_seats}
 			{display}
 			{color}
 			{font_size}
 			{selectedShape}
 			{arc}
+			{total_seats}
 		/>
 	</div>
+	{#if current_party}
+		<div>
+			{current_party?.text}
+			{current_party?.count}
+		</div>
+	{/if}
+	<h2>Tabular Data</h2>
+	<TabularData></TabularData>
 </section>
 
 <style>

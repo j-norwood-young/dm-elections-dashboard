@@ -1,4 +1,3 @@
-
 <script>
 	export const ssr = false;
 	import Header from './Header.svelte';

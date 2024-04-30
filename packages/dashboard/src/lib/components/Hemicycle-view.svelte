@@ -160,7 +160,7 @@
   }
   .partyResultsInformation {
     position: absolute;
-    top: calc((100vh / 2) + 60px);
+    top: calc((100vh / 2) + 80px);
   }
   .toggleBar {
     margin-bottom: 2rem;

@@ -32,14 +32,16 @@
     <TableBody tableBodyClass="text-white font-thin text-xs text-center">
       <TableBodyRow class={oddRow}>
         <TableBodyCell>
-          <img
-            src="https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png"
-            width="30"
-            height="30"
-            alt="ANC logo"
-          />
-          <span>ANC</span></TableBodyCell
-        >
+          <div class="resultsCell">
+            <img
+              src="https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png"
+              width="30"
+              height="30"
+              alt="ANC logo"
+            />
+            <span>ANC</span>
+          </div>
+        </TableBodyCell>
         <TableBodyCell
           >88% <Badge rounded color="red">Down 10%</Badge></TableBodyCell
         >
@@ -47,27 +49,41 @@
       </TableBodyRow>
       <TableBodyRow class={evenRow}>
         <TableBodyCell>
-          <img
-            src="https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png"
-            width="30"
-            height="30"
-            alt="DA logo"
-          /><span>DA</span></TableBodyCell
+          <div class="resultsCell">
+            <img
+              src="https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png"
+              width="30"
+              height="30"
+              alt="DA logo"
+            /><span>DA</span>
+          </div>
+        </TableBodyCell>
+        <TableBodyCell>
+          48% <Badge rounded color="red">Down 18%</Badge>
+        </TableBodyCell>
+        <TableBodyCell
+          >192 seats of 400 <Badge rounded color="red">Down 25 seats</Badge
+          ></TableBodyCell
         >
-        <TableBodyCell>White</TableBodyCell>
-        <TableBodyCell>Laptop PC</TableBodyCell>
       </TableBodyRow>
       <TableBodyRow class={oddRow}>
         <TableBodyCell>
-          <img
-            src="https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png"
-            width="30"
-            height="30"
-            alt="EFF logo"
-          />EFF</TableBodyCell
+          <div class="resultsCell">
+            <img
+              src="https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png"
+              width="30"
+              height="30"
+              alt="EFF logo"
+            /><span>EFF</span>
+          </div>
+        </TableBodyCell>
+        <TableBodyCell
+          >33% <Badge rounded color="green">Up 5%</Badge></TableBodyCell
         >
-        <TableBodyCell>Black</TableBodyCell>
-        <TableBodyCell>Accessories</TableBodyCell>
+        <TableBodyCell
+          >160 seats of 400 <Badge rounded color="green">Up 10 seats</Badge
+          ></TableBodyCell
+        >
       </TableBodyRow>
     </TableBody>
   </Table>
@@ -76,5 +92,15 @@
 <style>
   .headingColor {
     color: var(--color-white);
+  }
+  .resultsCell {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    width: 8rem;
   }
 </style>

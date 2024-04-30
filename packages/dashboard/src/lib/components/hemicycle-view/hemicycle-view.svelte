@@ -10,6 +10,7 @@
     seats2019Data,
     seats2024Data,
   } from "$lib/load-data";
+  import ResultsHeader from "$components/results-header/results-header.svelte";
 
   const isSmall = useMediaQuery("(max-width: 200px)");
   const isMedium = useMediaQuery("(min-width: 480px)");
@@ -126,8 +127,8 @@
 </script>
 
 <h1>National Elections</h1>
-<h2>{heading} Year Data</h2>
-<div class={$isSmall === true ? "toggleBar mobileSmall" : "toggleBar default"}>
+<h2>Hemicycle</h2>
+<div class="toggleBar default">
   <button type="button" on:click={() => loadData("2009")}>2009</button>
   <button type="button" on:click={() => loadData("2014")}>2014</button>
   <button type="button" on:click={() => loadData("2019")}>2019</button>
@@ -154,55 +155,4 @@
   </div>
 {/if}
 
-<style>
-  #hemicycle {
-    height: 400px;
-  }
-  .partyResultsInformation {
-    position: absolute;
-    top: calc((100vh / 2) + 80px);
-  }
-  .toggleBar {
-    margin-bottom: 2rem;
-  }
-  .default {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    justify-content: space-between;
-    width: 25vw;
-  }
-  .mobileSmall {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-  .mobileSmall > button {
-    margin-bottom: 4px;
-  }
-  .small {
-    width: fit-content;
-  }
-  button {
-    background-color: var(--color-bg-3);
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    color: var(--color-white);
-    transition: border-color 0.25s;
-  }
-  button:not([disabled]):hover {
-    border: 1px solid var(--color-white);
-  }
-  button[disabled] {
-    background-color: var(--color-white);
-    border-color: 1px solid var(--color-black);
-    color: var(--color-black);
-    cursor: not-allowed;
-  }
-  h1 {
-    width: 100%;
-  }
-</style>
+<style src="./hemicycle-view.styles.css"></style>

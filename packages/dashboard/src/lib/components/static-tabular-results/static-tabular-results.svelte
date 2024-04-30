@@ -10,11 +10,14 @@
     Badge,
   } from "flowbite-svelte";
   import { seats2014Data } from "$lib/load-data";
+  import ResultsHeader from "$components/results-header/results-header.svelte";
 
-  let seats;
+  let seats, isSmall;
+  let small = false;
+  isSmall = small;
+
   onMount(async () => {
     seats = await seats2014Data();
-    console.log(seats);
   });
   const oddRow = "bg-gray-800 border-b-0";
   const evenRow = "bg-gray-700 border-b-0";
@@ -89,18 +92,4 @@
   </Table>
 </main>
 
-<style>
-  .headingColor {
-    color: var(--color-white);
-  }
-  .resultsCell {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    justify-items: center;
-    justify-content: space-evenly;
-    align-content: center;
-    align-items: center;
-    width: 8rem;
-  }
-</style>
+<style src="./static-tabular-results.styles.css"></style>

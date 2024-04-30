@@ -1,11 +1,12 @@
 <script>
   import "./app.css";
-
-  import TabularData from "$tabular/tabular-results.svelte";
+  import Header from "$lib/components/Header.svelte";
   import HemicycleView from "$components/Hemicycle-view.svelte";
+  import TabularData from "$tabular/tabular-results.svelte";
 </script>
 
 <div class="app">
+  <Header></Header>
   <main>
     <section>
       <HemicycleView></HemicycleView>

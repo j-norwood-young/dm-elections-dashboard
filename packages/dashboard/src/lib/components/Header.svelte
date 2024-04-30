@@ -1,8 +1,8 @@
 <header></header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>

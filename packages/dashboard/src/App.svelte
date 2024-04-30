@@ -11,9 +11,8 @@
   <main>
     <section>
       <HemicycleView></HemicycleView>
-      <h2>Tabular Data</h2>
+      <h2>Results Breakdown</h2>
       <StaticTabularResults></StaticTabularResults>
-      <TabularData></TabularData>
     </section>
   </main>
 

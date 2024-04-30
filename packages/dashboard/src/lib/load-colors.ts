@@ -1,5 +1,5 @@
 import colors from "$common/color-scheme.json";
-import type { ElectionResults } from "$lib/load-data";
+import type { ElectionResults, ResultItem } from "$lib/load-data";
 
 export type ColorPalette = {
   1: string;
@@ -34,7 +34,7 @@ export const decorateWithColors = (
 ) => {
   const schemes = Object!.entries!(scheme!);
 
-  return data.map((item, index) => ({
+  return data.map((item: ResultItem, index: number) => ({
     ...item,
     color: schemes.at(index)![1],
   }));

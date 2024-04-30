@@ -5,10 +5,10 @@
 
   import { toggleColorScheme, decorateWithColors } from "$lib/load-colors";
   import {
-    fetch2009Data,
-    generateHemicycleInformation,
-    loadDefaultDataSet,
-    dataMapper,
+    seats2014Data,
+    seats2009Data,
+    seats2019Data,
+    seats2024Data,
   } from "$lib/load-data";
 
   const isSmall = useMediaQuery("(max-width: 200px)");
@@ -16,7 +16,8 @@
   const isBigger = useMediaQuery("(min-width: 720px)");
   const isRest = useMediaQuery("(min-width: 1024px)");
 
-  let current_party, defaultData;
+  let current_party, defaultData, mappedDefaultData;
+  let heading = "";
 
   const DEFAULT_COLOR_SCHEME = "high";
 
@@ -28,25 +29,35 @@
 
   let data,
     total_seats,
-    heading,
     selectedScheme,
     arc,
     className,
     hcWidth,
-    hcHeight;
+    hcHeight,
+    title,
+    inputData,
+    seats,
+    modified;
+
+  const manipulateHemicycle = (data) => {
+    selectedScheme = toggleColorScheme(DEFAULT_COLOR_SCHEME);
+    return selectedScheme && decorateWithColors(data, selectedScheme);
+  };
 
   onMount(async () => {
-    const manipulateHemicycle = (data) => {
-      selectedScheme = toggleColorScheme(DEFAULT_COLOR_SCHEME);
-      return selectedScheme && decorateWithColors(data, selectedScheme);
-    };
+    defaultData = await seats2014Data();
+    mappedDefaultData = defaultData.map((party, id) => {
+      return {
+        id: id,
+        text: party.Abbreviation,
+        count: party.Seats,
+      };
+    });
+    defaultData = manipulateHemicycle(mappedDefaultData);
 
-    defaultData = (await loadDefaultDataSet()).partyResults.map(dataMapper);
-    defaultData = manipulateHemicycle(defaultData);
-
-    data2009 = (await fetch2009Data()).partyResults.map(dataMapper);
-    data2019 = (await fetch2019Data()).partyResults.map(dataMapper);
-    data2024 = (await fetch2024Data()).partyResults.map(dataMapper);
+    data = defaultData;
+    total_seats = 400;
+    heading = "2014";
   });
 
   $: {
@@ -73,20 +84,51 @@
     }
   }
 
-  data = defaultData;
-  total_seats = 400;
-  heading = "2014";
-  const loadData = (year) => {
-    const { title, seats, modified } = generateHemicycleInformation(year);
+  const loadData = async (year) => {
+    const calculateSeats = (arr) =>
+      arr.reduce((partialSum, item) => partialSum + item.Seats, 0);
+    const prepareData = (arr) =>
+      arr.map((party, id) => {
+        return {
+          id: id,
+          text: party.Abbreviation,
+          count: party.Seats,
+        };
+      });
+    switch (year) {
+      case "2009":
+        inputData = await seats2009Data();
+        title = "2009";
+        break;
+      case "2014":
+        inputData = await seats2014Data();
+        title = "2014";
+        break;
+      case "2019":
+        inputData = await seats2019Data();
+        title = "2019";
+        break;
+      case "2024":
+        inputData = await seats2024Data();
+        title = "2024";
+        break;
+    }
+
+    seats = calculateSeats(inputData);
+    modified = prepareData(inputData);
+    modified = manipulateHemicycle(modified);
+
     heading = title;
     total_seats = seats;
     data = modified;
+    current_party = current_party;
   };
 </script>
 
-<h1>{heading} National Elections</h1>
-<h2>Year Data</h2>
+<h1>National Elections</h1>
+<h2>{heading} Year Data</h2>
 <div class={$isSmall === true ? "toggleBar mobileSmall" : "toggleBar default"}>
+  <button type="button" on:click={() => loadData("2009")}>2009</button>
   <button type="button" on:click={() => loadData("2014")}>2014</button>
   <button type="button" on:click={() => loadData("2019")}>2019</button>
   <button type="button" disabled={true} title="Not available yet!">2024</button>
@@ -107,13 +149,19 @@
   />
 </div>
 {#if current_party}
-  <div>
-    {current_party?.text}
-    {current_party?.count}
+  <div class="partyResultsInformation">
+    <p>Total Seats Count: {current_party?.count}</p>
   </div>
 {/if}
 
 <style>
+  #hemicycle {
+    height: 400px;
+  }
+  .partyResultsInformation {
+    position: absolute;
+    top: calc((100vh / 2) + 60px);
+  }
   .toggleBar {
     margin-bottom: 2rem;
   }

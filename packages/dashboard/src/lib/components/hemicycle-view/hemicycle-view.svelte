@@ -10,7 +10,7 @@
     seats2019Data,
     seats2024Data,
   } from "$lib/load-data";
-  import ResultsHeader from "$components/results-header/results-header.svelte";
+  import ResultsHeader from "$components/results-header";
 
   const isSmall = useMediaQuery("(max-width: 200px)");
   const isMedium = useMediaQuery("(min-width: 480px)");

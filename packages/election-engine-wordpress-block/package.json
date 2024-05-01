@@ -1,0 +1,42 @@
+{
+	"name": "@election-engine/wordpress-block",
+	"version": "0.0.1",
+	"description": "A WordPress plugin that provides a block for displaying election results.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "run-s build:*",
+		"format": "run-s format:*",
+		"lint": "run-s lint:*",
+		"packages-update": "run-s packages-update:*",
+		"plugin-zip": "run-s plugin-zip:*",
+		"start": "run-p start:wp-scripts start:vite",
+		"build:wp-scripts": "wp-scripts build",
+		"format:wp-scripts": "wp-scripts format",
+		"lint:css:wp-scripts": "wp-scripts lint-style",
+		"lint:js:wp-scripts": "wp-scripts lint-js",
+		"packages-update:wp-scripts": "wp-scripts packages-update",
+		"plugin-zip:wp-scripts": "wp-scripts plugin-zip",
+		"start:wp-scripts": "wp-scripts start",
+		"build:svelte": "vite build",
+		"dev:svelte": "vite",
+		"start:vite": "run-p start:vite:app start:vite:admin",
+		"start:vite:app": "vite build --watch",
+		"start:vite:admin": "vite build -c vite-admin.config.mjs --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "^3.1.0",
+		"@tsconfig/svelte": "^5.0.4",
+		"@wordpress/block-editor": "^12.24.0",
+		"@wordpress/scripts": "^27.7.0",
+		"npm-run-all": "^4.1.5",
+		"svelte": "^4.2.15",
+		"svelte-check": "^3.6.9",
+		"svelte-hemicycle": "^1.0.5",
+		"svelte-wordpress-components": "^0.3.3",
+		"tslib": "^2.6.2",
+		"typescript": "^5.4.5",
+		"vite": "^5.1.10"
+	}
+}

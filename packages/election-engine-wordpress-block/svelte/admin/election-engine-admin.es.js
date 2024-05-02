@@ -1,9 +1,9 @@
-var it = Object.defineProperty;
-var ct = (t, e, l) => e in t ? it(t, e, { enumerable: !0, configurable: !0, writable: !0, value: l }) : t[e] = l;
-var he = (t, e, l) => (ct(t, typeof e != "symbol" ? e + "" : e, l), l);
-function de() {
+var st = Object.defineProperty;
+var rt = (t, e, l) => e in t ? st(t, e, { enumerable: !0, configurable: !0, writable: !0, value: l }) : t[e] = l;
+var me = (t, e, l) => (rt(t, typeof e != "symbol" ? e + "" : e, l), l);
+function ge() {
 }
-function be(t, e) {
+function ye(t, e) {
   for (const l in e)
     t[l] = e[l];
   return (
@@ -11,55 +11,55 @@ function be(t, e) {
     t
   );
 }
-function Je(t) {
+function Xe(t) {
   return t();
 }
-function ve() {
+function we() {
   return /* @__PURE__ */ Object.create(null);
 }
-function x(t) {
-  t.forEach(Je);
+function ee(t) {
+  t.forEach(Xe);
 }
-function Xe(t) {
+function $e(t) {
   return typeof t == "function";
 }
-function ne(t, e) {
+function te(t, e) {
   return t != t ? e == e : t !== e || t && typeof t == "object" || typeof t == "function";
 }
-function ot(t) {
+function ft(t) {
   return Object.keys(t).length === 0;
 }
-function re(t, e, l, n) {
+function fe(t, e, l, n) {
   if (t) {
-    const c = $e(t, e, l, n);
-    return t[0](c);
+    const o = xe(t, e, l, n);
+    return t[0](o);
   }
 }
-function $e(t, e, l, n) {
-  return t[1] && n ? be(l.ctx.slice(), t[1](n(e))) : l.ctx;
+function xe(t, e, l, n) {
+  return t[1] && n ? ye(l.ctx.slice(), t[1](n(e))) : l.ctx;
 }
-function fe(t, e, l, n) {
+function ae(t, e, l, n) {
   if (t[2] && n) {
-    const c = t[2](n(l));
+    const o = t[2](n(l));
     if (e.dirty === void 0)
-      return c;
-    if (typeof c == "object") {
-      const i = [], o = Math.max(e.dirty.length, c.length);
-      for (let a = 0; a < o; a += 1)
-        i[a] = e.dirty[a] | c[a];
+      return o;
+    if (typeof o == "object") {
+      const i = [], c = Math.max(e.dirty.length, o.length);
+      for (let s = 0; s < c; s += 1)
+        i[s] = e.dirty[s] | o[s];
       return i;
     }
-    return e.dirty | c;
+    return e.dirty | o;
   }
   return e.dirty;
 }
-function ue(t, e, l, n, c, i) {
-  if (c) {
-    const o = $e(e, l, n, i);
-    t.p(o, c);
+function ue(t, e, l, n, o, i) {
+  if (o) {
+    const c = xe(e, l, n, i);
+    t.p(c, o);
   }
 }
-function ae(t) {
+function _e(t) {
   if (t.ctx.length > 32) {
     const e = [], l = t.ctx.length / 32;
     for (let n = 0; n < l; n++)
@@ -68,238 +68,238 @@ function ae(t) {
   }
   return -1;
 }
-function st(t) {
+function at(t) {
   const e = {};
   for (const l in t)
     l[0] !== "$" && (e[l] = t[l]);
   return e;
 }
-function we(t, e) {
+function Ne(t, e) {
   const l = {};
   e = new Set(e);
   for (const n in t)
     !e.has(n) && n[0] !== "$" && (l[n] = t[n]);
   return l;
 }
-function P(t, e) {
+function j(t, e) {
   t.appendChild(e);
 }
-function B(t, e, l) {
+function P(t, e, l) {
   t.insertBefore(e, l || null);
 }
-function q(t) {
+function M(t) {
   t.parentNode && t.parentNode.removeChild(t);
 }
-function z(t, e) {
+function X(t, e) {
   for (let l = 0; l < t.length; l += 1)
     t[l] && t[l].d(e);
 }
-function M(t) {
+function q(t) {
   return document.createElement(t);
 }
-function Y(t) {
+function z(t) {
   return document.createTextNode(t);
 }
 function T() {
-  return Y(" ");
+  return z(" ");
 }
-function xe() {
-  return Y("");
+function et() {
+  return z("");
 }
-function Z(t, e, l, n) {
+function U(t, e, l, n) {
   return t.addEventListener(e, l, n), () => t.removeEventListener(e, l, n);
 }
 function S(t, e, l) {
   l == null ? t.removeAttribute(e) : t.getAttribute(e) !== l && t.setAttribute(e, l);
 }
-function rt(t) {
+function ut(t) {
   return Array.from(t.childNodes);
 }
-function X(t, e) {
+function $(t, e) {
   e = "" + e, t.data !== e && (t.data = /** @type {string} */
   e);
 }
-function W(t, e, l) {
+function F(t, e, l) {
   t.classList.toggle(e, !!l);
 }
-function ft(t, e, { bubbles: l = !1, cancelable: n = !1 } = {}) {
+function _t(t, e, { bubbles: l = !1, cancelable: n = !1 } = {}) {
   return new CustomEvent(t, { detail: e, bubbles: l, cancelable: n });
 }
-let se;
-function oe(t) {
-  se = t;
+let re;
+function se(t) {
+  re = t;
 }
-function et() {
-  if (!se)
+function tt() {
+  if (!re)
     throw new Error("Function called outside component initialization");
-  return se;
+  return re;
 }
-function ut(t) {
-  et().$$.on_destroy.push(t);
+function dt(t) {
+  tt().$$.on_destroy.push(t);
 }
-function at() {
-  const t = et();
+function lt() {
+  const t = tt();
   return (e, l, { cancelable: n = !1 } = {}) => {
-    const c = t.$$.callbacks[e];
-    if (c) {
-      const i = ft(
+    const o = t.$$.callbacks[e];
+    if (o) {
+      const i = _t(
         /** @type {string} */
         e,
         l,
         { cancelable: n }
       );
-      return c.slice().forEach((o) => {
-        o.call(t, i);
+      return o.slice().forEach((c) => {
+        c.call(t, i);
       }), !i.defaultPrevented;
     }
     return !0;
   };
 }
-function _t(t, e) {
+function gt(t, e) {
   const l = t.$$.callbacks[e.type];
   l && l.slice().forEach((n) => n.call(this, e));
 }
-const te = [], D = [];
-let le = [];
-const ye = [], dt = /* @__PURE__ */ Promise.resolve();
-let ke = !1;
-function gt() {
-  ke || (ke = !0, dt.then(tt));
+const oe = [], O = [];
+let ce = [];
+const ke = [], ht = /* @__PURE__ */ Promise.resolve();
+let pe = !1;
+function mt() {
+  pe || (pe = !0, ht.then(nt));
 }
-function pe(t) {
-  le.push(t);
+function ve(t) {
+  ce.push(t);
 }
-function U(t) {
-  ye.push(t);
+function Z(t) {
+  ke.push(t);
 }
-const me = /* @__PURE__ */ new Set();
-let ee = 0;
-function tt() {
-  if (ee !== 0)
+const be = /* @__PURE__ */ new Set();
+let ie = 0;
+function nt() {
+  if (ie !== 0)
     return;
-  const t = se;
+  const t = re;
   do {
     try {
-      for (; ee < te.length; ) {
-        const e = te[ee];
-        ee++, oe(e), ht(e.$$);
+      for (; ie < oe.length; ) {
+        const e = oe[ie];
+        ie++, se(e), bt(e.$$);
       }
     } catch (e) {
-      throw te.length = 0, ee = 0, e;
+      throw oe.length = 0, ie = 0, e;
     }
-    for (oe(null), te.length = 0, ee = 0; D.length; )
-      D.pop()();
-    for (let e = 0; e < le.length; e += 1) {
-      const l = le[e];
-      me.has(l) || (me.add(l), l());
+    for (se(null), oe.length = 0, ie = 0; O.length; )
+      O.pop()();
+    for (let e = 0; e < ce.length; e += 1) {
+      const l = ce[e];
+      be.has(l) || (be.add(l), l());
     }
-    le.length = 0;
-  } while (te.length);
-  for (; ye.length; )
-    ye.pop()();
-  ke = !1, me.clear(), oe(t);
+    ce.length = 0;
+  } while (oe.length);
+  for (; ke.length; )
+    ke.pop()();
+  pe = !1, be.clear(), se(t);
 }
-function ht(t) {
+function bt(t) {
   if (t.fragment !== null) {
-    t.update(), x(t.before_update);
+    t.update(), ee(t.before_update);
     const e = t.dirty;
-    t.dirty = [-1], t.fragment && t.fragment.p(t.ctx, e), t.after_update.forEach(pe);
+    t.dirty = [-1], t.fragment && t.fragment.p(t.ctx, e), t.after_update.forEach(ve);
   }
 }
-function mt(t) {
+function yt(t) {
   const e = [], l = [];
-  le.forEach((n) => t.indexOf(n) === -1 ? e.push(n) : l.push(n)), l.forEach((n) => n()), le = e;
+  ce.forEach((n) => t.indexOf(n) === -1 ? e.push(n) : l.push(n)), l.forEach((n) => n()), ce = e;
 }
-const _e = /* @__PURE__ */ new Set();
-let $;
+const de = /* @__PURE__ */ new Set();
+let x;
 function K() {
-  $ = {
+  x = {
     r: 0,
     c: [],
-    p: $
+    p: x
     // parent group
   };
 }
-function V() {
-  $.r || x($.c), $ = $.p;
+function R() {
+  x.r || ee(x.c), x = x.p;
 }
-function w(t, e) {
-  t && t.i && (_e.delete(t), t.i(e));
+function N(t, e) {
+  t && t.i && (de.delete(t), t.i(e));
 }
 function A(t, e, l, n) {
   if (t && t.o) {
-    if (_e.has(t))
+    if (de.has(t))
       return;
-    _e.add(t), $.c.push(() => {
-      _e.delete(t), n && (l && t.d(1), n());
+    de.add(t), x.c.push(() => {
+      de.delete(t), n && (l && t.d(1), n());
     }), t.o(e);
   } else
     n && n();
 }
-function O(t) {
+function G(t) {
   return (t == null ? void 0 : t.length) !== void 0 ? t : Array.from(t);
 }
-function J(t, e, l) {
+function Q(t, e, l) {
   const n = t.$$.props[e];
   n !== void 0 && (t.$$.bound[n] = l, l(t.$$.ctx[n]));
 }
 function I(t) {
   t && t.c();
 }
-function F(t, e, l) {
-  const { fragment: n, after_update: c } = t.$$;
-  n && n.m(e, l), pe(() => {
-    const i = t.$$.on_mount.map(Je).filter(Xe);
-    t.$$.on_destroy ? t.$$.on_destroy.push(...i) : x(i), t.$$.on_mount = [];
-  }), c.forEach(pe);
+function V(t, e, l) {
+  const { fragment: n, after_update: o } = t.$$;
+  n && n.m(e, l), ve(() => {
+    const i = t.$$.on_mount.map(Xe).filter($e);
+    t.$$.on_destroy ? t.$$.on_destroy.push(...i) : ee(i), t.$$.on_mount = [];
+  }), o.forEach(ve);
 }
-function G(t, e) {
+function W(t, e) {
   const l = t.$$;
-  l.fragment !== null && (mt(l.after_update), x(l.on_destroy), l.fragment && l.fragment.d(e), l.on_destroy = l.fragment = null, l.ctx = []);
+  l.fragment !== null && (yt(l.after_update), ee(l.on_destroy), l.fragment && l.fragment.d(e), l.on_destroy = l.fragment = null, l.ctx = []);
 }
-function bt(t, e) {
-  t.$$.dirty[0] === -1 && (te.push(t), gt(), t.$$.dirty.fill(0)), t.$$.dirty[e / 31 | 0] |= 1 << e % 31;
+function kt(t, e) {
+  t.$$.dirty[0] === -1 && (oe.push(t), mt(), t.$$.dirty.fill(0)), t.$$.dirty[e / 31 | 0] |= 1 << e % 31;
 }
-function ie(t, e, l, n, c, i, o = null, a = [-1]) {
-  const g = se;
-  oe(t);
-  const h = t.$$ = {
+function le(t, e, l, n, o, i, c = null, s = [-1]) {
+  const u = re;
+  se(t);
+  const g = t.$$ = {
     fragment: null,
     ctx: [],
     // state
     props: i,
-    update: de,
-    not_equal: c,
-    bound: ve(),
+    update: ge,
+    not_equal: o,
+    bound: we(),
     // lifecycle
     on_mount: [],
     on_destroy: [],
     on_disconnect: [],
     before_update: [],
     after_update: [],
-    context: new Map(e.context || (g ? g.$$.context : [])),
+    context: new Map(e.context || (u ? u.$$.context : [])),
     // everything else
-    callbacks: ve(),
-    dirty: a,
+    callbacks: we(),
+    dirty: s,
     skip_bound: !1,
-    root: e.target || g.$$.root
+    root: e.target || u.$$.root
   };
-  o && o(h.root);
-  let s = !1;
-  if (h.ctx = l ? l(t, e.props || {}, (v, u, ...k) => {
-    const E = k.length ? k[0] : u;
-    return h.ctx && c(h.ctx[v], h.ctx[v] = E) && (!h.skip_bound && h.bound[v] && h.bound[v](E), s && bt(t, v)), u;
-  }) : [], h.update(), s = !0, x(h.before_update), h.fragment = n ? n(h.ctx) : !1, e.target) {
+  c && c(g.root);
+  let r = !1;
+  if (g.ctx = l ? l(t, e.props || {}, (p, f, ...k) => {
+    const y = k.length ? k[0] : f;
+    return g.ctx && o(g.ctx[p], g.ctx[p] = y) && (!g.skip_bound && g.bound[p] && g.bound[p](y), r && kt(t, p)), f;
+  }) : [], g.update(), r = !0, ee(g.before_update), g.fragment = n ? n(g.ctx) : !1, e.target) {
     if (e.hydrate) {
-      const v = rt(e.target);
-      h.fragment && h.fragment.l(v), v.forEach(q);
+      const p = ut(e.target);
+      g.fragment && g.fragment.l(p), p.forEach(M);
     } else
-      h.fragment && h.fragment.c();
-    e.intro && w(t.$$.fragment), F(t, e.target, e.anchor), tt();
+      g.fragment && g.fragment.c();
+    e.intro && N(t.$$.fragment), V(t, e.target, e.anchor), nt();
   }
-  oe(g);
+  se(u);
 }
-class ce {
+class ne {
   constructor() {
     /**
      * ### PRIVATE API
@@ -308,7 +308,7 @@ class ce {
      *
      * @type {any}
      */
-    he(this, "$$");
+    me(this, "$$");
     /**
      * ### PRIVATE API
      *
@@ -316,11 +316,11 @@ class ce {
      *
      * @type {any}
      */
-    he(this, "$$set");
+    me(this, "$$set");
   }
   /** @returns {void} */
   $destroy() {
-    G(this, 1), this.$destroy = de;
+    W(this, 1), this.$destroy = ge;
   }
   /**
    * @template {Extract<keyof Events, string>} K
@@ -329,12 +329,12 @@ class ce {
    * @returns {() => void}
    */
   $on(e, l) {
-    if (!Xe(l))
-      return de;
+    if (!$e(l))
+      return ge;
     const n = this.$$.callbacks[e] || (this.$$.callbacks[e] = []);
     return n.push(l), () => {
-      const c = n.indexOf(l);
-      c !== -1 && n.splice(c, 1);
+      const o = n.indexOf(l);
+      o !== -1 && n.splice(o, 1);
     };
   }
   /**
@@ -342,18 +342,18 @@ class ce {
    * @returns {void}
    */
   $set(e) {
-    this.$$set && !ot(e) && (this.$$.skip_bound = !0, this.$$set(e), this.$$.skip_bound = !1);
+    this.$$set && !ft(e) && (this.$$.skip_bound = !0, this.$$set(e), this.$$.skip_bound = !1);
   }
 }
-const yt = "4";
-typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(yt);
-function kt(t) {
-  let e, l, n, c, i;
-  const o = (
+const pt = "4";
+typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(pt);
+function vt(t) {
+  let e, l, n, o, i;
+  const c = (
     /*#slots*/
     t[16].default
-  ), a = re(
-    o,
+  ), s = fe(
+    c,
     t,
     /*$$scope*/
     t[15],
@@ -361,7 +361,7 @@ function kt(t) {
   );
   return {
     c() {
-      e = M("button"), a && a.c(), S(
+      e = q("button"), s && s.c(), S(
         e,
         "type",
         /*type*/
@@ -394,145 +394,145 @@ function kt(t) {
         "style",
         /*style*/
         t[12]
-      ), W(
+      ), F(
         e,
         "button-primary",
         /*primary*/
         t[4]
-      ), W(
+      ), F(
         e,
         "button-large",
         /*large*/
         t[5]
-      ), W(
+      ), F(
         e,
         "button-small",
         /*small*/
         t[6]
-      ), W(
+      ), F(
         e,
         "delete",
         /*warning*/
         t[7]
-      ), W(
+      ), F(
         e,
         "button-link",
         /*link*/
         t[8]
       );
     },
-    m(g, h) {
-      B(g, e, h), a && a.m(e, null), n = !0, c || (i = Z(
+    m(u, g) {
+      P(u, e, g), s && s.m(e, null), n = !0, o || (i = U(
         e,
         "click",
         /*click_handler*/
         t[17]
-      ), c = !0);
+      ), o = !0);
     },
-    p(g, [h]) {
-      a && a.p && (!n || h & /*$$scope*/
+    p(u, [g]) {
+      s && s.p && (!n || g & /*$$scope*/
       32768) && ue(
-        a,
-        o,
-        g,
+        s,
+        c,
+        u,
         /*$$scope*/
-        g[15],
-        n ? fe(
-          o,
+        u[15],
+        n ? ae(
+          c,
           /*$$scope*/
-          g[15],
-          h,
+          u[15],
+          g,
           null
-        ) : ae(
+        ) : _e(
           /*$$scope*/
-          g[15]
+          u[15]
         ),
         null
-      ), (!n || h & /*type*/
+      ), (!n || g & /*type*/
       1) && S(
         e,
         "type",
         /*type*/
-        g[0]
-      ), (!n || h & /*id*/
+        u[0]
+      ), (!n || g & /*id*/
       8) && S(
         e,
         "id",
         /*id*/
-        g[3]
-      ), (!n || h & /*title*/
+        u[3]
+      ), (!n || g & /*title*/
       2) && S(
         e,
         "title",
         /*title*/
-        g[1]
-      ), (!n || h & /*disabled*/
+        u[1]
+      ), (!n || g & /*disabled*/
       4) && (e.disabled = /*disabled*/
-      g[2]), (!n || h & /*aria_label*/
+      u[2]), (!n || g & /*aria_label*/
       512) && S(
         e,
         "aria-label",
         /*aria_label*/
-        g[9]
-      ), (!n || h & /*aria_hidden*/
+        u[9]
+      ), (!n || g & /*aria_hidden*/
       1024) && S(
         e,
         "aria-hidden",
         /*aria_hidden*/
-        g[10]
-      ), (!n || h & /*btn_class, $$restProps*/
+        u[10]
+      ), (!n || g & /*btn_class, $$restProps*/
       10240 && l !== (l = "button " + /*btn_class*/
-      g[11] + " " + /*$$restProps*/
-      (g[13].class || ""))) && S(e, "class", l), (!n || h & /*style*/
+      u[11] + " " + /*$$restProps*/
+      (u[13].class || ""))) && S(e, "class", l), (!n || g & /*style*/
       4096) && S(
         e,
         "style",
         /*style*/
-        g[12]
-      ), (!n || h & /*btn_class, $$restProps, primary*/
-      10256) && W(
+        u[12]
+      ), (!n || g & /*btn_class, $$restProps, primary*/
+      10256) && F(
         e,
         "button-primary",
         /*primary*/
-        g[4]
-      ), (!n || h & /*btn_class, $$restProps, large*/
-      10272) && W(
+        u[4]
+      ), (!n || g & /*btn_class, $$restProps, large*/
+      10272) && F(
         e,
         "button-large",
         /*large*/
-        g[5]
-      ), (!n || h & /*btn_class, $$restProps, small*/
-      10304) && W(
+        u[5]
+      ), (!n || g & /*btn_class, $$restProps, small*/
+      10304) && F(
         e,
         "button-small",
         /*small*/
-        g[6]
-      ), (!n || h & /*btn_class, $$restProps, warning*/
-      10368) && W(
+        u[6]
+      ), (!n || g & /*btn_class, $$restProps, warning*/
+      10368) && F(
         e,
         "delete",
         /*warning*/
-        g[7]
-      ), (!n || h & /*btn_class, $$restProps, link*/
-      10496) && W(
+        u[7]
+      ), (!n || g & /*btn_class, $$restProps, link*/
+      10496) && F(
         e,
         "button-link",
         /*link*/
-        g[8]
+        u[8]
       );
     },
-    i(g) {
-      n || (w(a, g), n = !0);
+    i(u) {
+      n || (N(s, u), n = !0);
     },
-    o(g) {
-      A(a, g), n = !1;
+    o(u) {
+      A(s, u), n = !1;
     },
-    d(g) {
-      g && q(e), a && a.d(g), c = !1, i();
+    d(u) {
+      u && M(e), s && s.d(u), o = !1, i();
     }
   };
 }
-function pt(t, e, l) {
+function wt(t, e, l) {
   const n = [
     "type",
     "title",
@@ -548,40 +548,40 @@ function pt(t, e, l) {
     "aria_hidden",
     "btn_class"
   ];
-  let c = we(e, n), { $$slots: i = {}, $$scope: o } = e, { type: a = "button" } = e, { title: g = null } = e, { disabled: h = !1 } = e, { id: s = null } = e, { primary: v = !1 } = e, { large: u = !1 } = e, { small: k = !1 } = e, { warning: E = !1 } = e, { danger: d = !1 } = e, { link: y = !1 } = e, { aria_label: C = null } = e, { aria_hidden: r = !1 } = e, { btn_class: N = "button" } = e, m = "";
-  function b(f) {
-    _t.call(this, t, f);
+  let o = Ne(e, n), { $$slots: i = {}, $$scope: c } = e, { type: s = "button" } = e, { title: u = null } = e, { disabled: g = !1 } = e, { id: r = null } = e, { primary: p = !1 } = e, { large: f = !1 } = e, { small: k = !1 } = e, { warning: y = !1 } = e, { danger: a = !1 } = e, { link: v = !1 } = e, { aria_label: C = null } = e, { aria_hidden: _ = !1 } = e, { btn_class: E = "button" } = e, h = "";
+  function m(d) {
+    gt.call(this, t, d);
   }
-  return t.$$set = (f) => {
-    e = be(be({}, e), st(f)), l(13, c = we(e, n)), "type" in f && l(0, a = f.type), "title" in f && l(1, g = f.title), "disabled" in f && l(2, h = f.disabled), "id" in f && l(3, s = f.id), "primary" in f && l(4, v = f.primary), "large" in f && l(5, u = f.large), "small" in f && l(6, k = f.small), "warning" in f && l(7, E = f.warning), "danger" in f && l(14, d = f.danger), "link" in f && l(8, y = f.link), "aria_label" in f && l(9, C = f.aria_label), "aria_hidden" in f && l(10, r = f.aria_hidden), "btn_class" in f && l(11, N = f.btn_class), "$$scope" in f && l(15, o = f.$$scope);
+  return t.$$set = (d) => {
+    e = ye(ye({}, e), at(d)), l(13, o = Ne(e, n)), "type" in d && l(0, s = d.type), "title" in d && l(1, u = d.title), "disabled" in d && l(2, g = d.disabled), "id" in d && l(3, r = d.id), "primary" in d && l(4, p = d.primary), "large" in d && l(5, f = d.large), "small" in d && l(6, k = d.small), "warning" in d && l(7, y = d.warning), "danger" in d && l(14, a = d.danger), "link" in d && l(8, v = d.link), "aria_label" in d && l(9, C = d.aria_label), "aria_hidden" in d && l(10, _ = d.aria_hidden), "btn_class" in d && l(11, E = d.btn_class), "$$scope" in d && l(15, c = d.$$scope);
   }, t.$$.update = () => {
     t.$$.dirty & /*warning*/
-    128 && E && l(12, m = "color: #a00; border-color: #a00;"), t.$$.dirty & /*danger*/
-    16384 && d && l(12, m = "background-color: #a00; border-color: #a00; color: #fff;");
+    128 && y && l(12, h = "color: #a00; border-color: #a00;"), t.$$.dirty & /*danger*/
+    16384 && a && l(12, h = "background-color: #a00; border-color: #a00; color: #fff;");
   }, [
-    a,
-    g,
-    h,
     s,
-    v,
     u,
-    k,
-    E,
-    y,
-    C,
+    g,
     r,
-    N,
-    m,
-    c,
-    d,
+    p,
+    f,
+    k,
+    y,
+    v,
+    C,
+    _,
+    E,
+    h,
     o,
+    a,
+    c,
     i,
-    b
+    m
   ];
 }
-class Q extends ce {
+class J extends ne {
   constructor(e) {
-    super(), ie(this, e, pt, kt, ne, {
+    super(), le(this, e, wt, vt, te, {
       type: 0,
       title: 1,
       disabled: 2,
@@ -598,43 +598,43 @@ class Q extends ce {
     });
   }
 }
-function Ne(t, e, l) {
+function Ee(t, e, l) {
   const n = t.slice();
   return n[9] = e[l], n;
 }
-function Ee(t, e, l) {
+function Ce(t, e, l) {
   const n = t.slice();
   return n[12] = e[l], n;
 }
-function Ce(t, e, l) {
+function Se(t, e, l) {
   const n = t.slice();
   return n[15] = e[l], n;
 }
-function vt(t) {
+function Nt(t) {
   let e = (
     /*year*/
     t[15] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*years*/
+    p(n, o) {
+      o & /*years*/
       8 && e !== (e = /*year*/
-      n[15] + "") && X(l, e);
+      n[15] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function Se(t) {
+function Ae(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler*/
       t[6](
@@ -643,68 +643,68 @@ function Se(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_year*/
         t[0] === /*year*/
         t[15]
       ),
-      $$slots: { default: [vt] },
+      $$slots: { default: [Nt] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_year, years*/
-      9 && (a.primary = /*selected_year*/
+      const s = {};
+      c & /*selected_year, years*/
+      9 && (s.primary = /*selected_year*/
       t[0] === /*year*/
-      t[15]), o & /*$$scope, years*/
-      262152 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[15]), c & /*$$scope, years*/
+      262152 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function wt(t) {
+function Et(t) {
   let e = (
     /*election*/
     t[12] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*elections*/
+    p(n, o) {
+      o & /*elections*/
       16 && e !== (e = /*election*/
-      n[12] + "") && X(l, e);
+      n[12] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function Ae(t) {
+function Le(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_1*/
       t[7](
@@ -713,126 +713,126 @@ function Ae(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_election*/
         t[1] === /*election*/
         t[12]
       ),
-      $$slots: { default: [wt] },
+      $$slots: { default: [Et] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_election, elections*/
-      18 && (a.primary = /*selected_election*/
+      const s = {};
+      c & /*selected_election, elections*/
+      18 && (s.primary = /*selected_election*/
       t[1] === /*election*/
-      t[12]), o & /*$$scope, elections*/
-      262160 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[12]), c & /*$$scope, elections*/
+      262160 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function Le(t) {
-  let e, l, n, c, i = O(
+function Be(t) {
+  let e, l, n, o, i = G(
     /*regions*/
     t[5]
-  ), o = [];
-  for (let g = 0; g < i.length; g += 1)
-    o[g] = qe(Ne(t, i, g));
-  const a = (g) => A(o[g], 1, 1, () => {
-    o[g] = null;
+  ), c = [];
+  for (let u = 0; u < i.length; u += 1)
+    c[u] = Me(Ee(t, i, u));
+  const s = (u) => A(c[u], 1, 1, () => {
+    c[u] = null;
   });
   return {
     c() {
-      e = M("h4"), e.textContent = "Select Province", l = T();
-      for (let g = 0; g < o.length; g += 1)
-        o[g].c();
-      n = xe();
+      e = q("h4"), e.textContent = "Select Province", l = T();
+      for (let u = 0; u < c.length; u += 1)
+        c[u].c();
+      n = et();
     },
-    m(g, h) {
-      B(g, e, h), B(g, l, h);
-      for (let s = 0; s < o.length; s += 1)
-        o[s] && o[s].m(g, h);
-      B(g, n, h), c = !0;
+    m(u, g) {
+      P(u, e, g), P(u, l, g);
+      for (let r = 0; r < c.length; r += 1)
+        c[r] && c[r].m(u, g);
+      P(u, n, g), o = !0;
     },
-    p(g, h) {
-      if (h & /*selected_region, regions*/
+    p(u, g) {
+      if (g & /*selected_region, regions*/
       36) {
-        i = O(
+        i = G(
           /*regions*/
-          g[5]
+          u[5]
         );
-        let s;
-        for (s = 0; s < i.length; s += 1) {
-          const v = Ne(g, i, s);
-          o[s] ? (o[s].p(v, h), w(o[s], 1)) : (o[s] = qe(v), o[s].c(), w(o[s], 1), o[s].m(n.parentNode, n));
+        let r;
+        for (r = 0; r < i.length; r += 1) {
+          const p = Ee(u, i, r);
+          c[r] ? (c[r].p(p, g), N(c[r], 1)) : (c[r] = Me(p), c[r].c(), N(c[r], 1), c[r].m(n.parentNode, n));
         }
-        for (K(), s = i.length; s < o.length; s += 1)
-          a(s);
-        V();
+        for (K(), r = i.length; r < c.length; r += 1)
+          s(r);
+        R();
       }
     },
-    i(g) {
-      if (!c) {
-        for (let h = 0; h < i.length; h += 1)
-          w(o[h]);
-        c = !0;
+    i(u) {
+      if (!o) {
+        for (let g = 0; g < i.length; g += 1)
+          N(c[g]);
+        o = !0;
       }
     },
-    o(g) {
-      o = o.filter(Boolean);
-      for (let h = 0; h < o.length; h += 1)
-        A(o[h]);
-      c = !1;
+    o(u) {
+      c = c.filter(Boolean);
+      for (let g = 0; g < c.length; g += 1)
+        A(c[g]);
+      o = !1;
     },
-    d(g) {
-      g && (q(e), q(l), q(n)), z(o, g);
+    d(u) {
+      u && (M(e), M(l), M(n)), X(c, u);
     }
   };
 }
-function Nt(t) {
+function Ct(t) {
   let e = (
     /*region*/
     t[9] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*regions*/
+    p(n, o) {
+      o & /*regions*/
       32 && e !== (e = /*region*/
-      n[9] + "") && X(l, e);
+      n[9] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function qe(t) {
+function Me(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_2*/
       t[8](
@@ -841,147 +841,147 @@ function qe(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_region*/
         t[2] === /*region*/
         t[9]
       ),
-      $$slots: { default: [Nt] },
+      $$slots: { default: [Ct] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_region, regions*/
-      36 && (a.primary = /*selected_region*/
+      const s = {};
+      c & /*selected_region, regions*/
+      36 && (s.primary = /*selected_region*/
       t[2] === /*region*/
-      t[9]), o & /*$$scope, regions*/
-      262176 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[9]), c & /*$$scope, regions*/
+      262176 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function Et(t) {
-  let e, l, n, c, i, o, a, g, h = O(
+function St(t) {
+  let e, l, n, o, i, c, s, u, g = G(
     /*years*/
     t[3]
-  ), s = [];
-  for (let y = 0; y < h.length; y += 1)
-    s[y] = Se(Ce(t, h, y));
-  const v = (y) => A(s[y], 1, 1, () => {
-    s[y] = null;
+  ), r = [];
+  for (let v = 0; v < g.length; v += 1)
+    r[v] = Ae(Se(t, g, v));
+  const p = (v) => A(r[v], 1, 1, () => {
+    r[v] = null;
   });
-  let u = O(
+  let f = G(
     /*elections*/
     t[4]
   ), k = [];
-  for (let y = 0; y < u.length; y += 1)
-    k[y] = Ae(Ee(t, u, y));
-  const E = (y) => A(k[y], 1, 1, () => {
-    k[y] = null;
+  for (let v = 0; v < f.length; v += 1)
+    k[v] = Le(Ce(t, f, v));
+  const y = (v) => A(k[v], 1, 1, () => {
+    k[v] = null;
   });
-  let d = (
+  let a = (
     /*selected_election*/
-    t[1] === "Provincial Legislature" && Le(t)
+    t[1] === "Provincial Legislature" && Be(t)
   );
   return {
     c() {
-      e = M("div"), l = M("h4"), l.textContent = "Select Year", n = T();
-      for (let y = 0; y < s.length; y += 1)
-        s[y].c();
-      c = T(), i = M("h4"), i.textContent = "Select Election", o = T();
-      for (let y = 0; y < k.length; y += 1)
-        k[y].c();
-      a = T(), d && d.c(), S(e, "class", "election-engine-selection-container svelte-1we73ve");
+      e = q("div"), l = q("h4"), l.textContent = "Select Year", n = T();
+      for (let v = 0; v < r.length; v += 1)
+        r[v].c();
+      o = T(), i = q("h4"), i.textContent = "Select Election", c = T();
+      for (let v = 0; v < k.length; v += 1)
+        k[v].c();
+      s = T(), a && a.c(), S(e, "class", "election-engine-selection-container svelte-1we73ve");
     },
-    m(y, C) {
-      B(y, e, C), P(e, l), P(e, n);
-      for (let r = 0; r < s.length; r += 1)
-        s[r] && s[r].m(e, null);
-      P(e, c), P(e, i), P(e, o);
-      for (let r = 0; r < k.length; r += 1)
-        k[r] && k[r].m(e, null);
-      P(e, a), d && d.m(e, null), g = !0;
+    m(v, C) {
+      P(v, e, C), j(e, l), j(e, n);
+      for (let _ = 0; _ < r.length; _ += 1)
+        r[_] && r[_].m(e, null);
+      j(e, o), j(e, i), j(e, c);
+      for (let _ = 0; _ < k.length; _ += 1)
+        k[_] && k[_].m(e, null);
+      j(e, s), a && a.m(e, null), u = !0;
     },
-    p(y, [C]) {
+    p(v, [C]) {
       if (C & /*selected_year, years*/
       9) {
-        h = O(
+        g = G(
           /*years*/
-          y[3]
+          v[3]
         );
-        let r;
-        for (r = 0; r < h.length; r += 1) {
-          const N = Ce(y, h, r);
-          s[r] ? (s[r].p(N, C), w(s[r], 1)) : (s[r] = Se(N), s[r].c(), w(s[r], 1), s[r].m(e, c));
+        let _;
+        for (_ = 0; _ < g.length; _ += 1) {
+          const E = Se(v, g, _);
+          r[_] ? (r[_].p(E, C), N(r[_], 1)) : (r[_] = Ae(E), r[_].c(), N(r[_], 1), r[_].m(e, o));
         }
-        for (K(), r = h.length; r < s.length; r += 1)
-          v(r);
-        V();
+        for (K(), _ = g.length; _ < r.length; _ += 1)
+          p(_);
+        R();
       }
       if (C & /*selected_election, elections*/
       18) {
-        u = O(
+        f = G(
           /*elections*/
-          y[4]
+          v[4]
         );
-        let r;
-        for (r = 0; r < u.length; r += 1) {
-          const N = Ee(y, u, r);
-          k[r] ? (k[r].p(N, C), w(k[r], 1)) : (k[r] = Ae(N), k[r].c(), w(k[r], 1), k[r].m(e, a));
+        let _;
+        for (_ = 0; _ < f.length; _ += 1) {
+          const E = Ce(v, f, _);
+          k[_] ? (k[_].p(E, C), N(k[_], 1)) : (k[_] = Le(E), k[_].c(), N(k[_], 1), k[_].m(e, s));
         }
-        for (K(), r = u.length; r < k.length; r += 1)
-          E(r);
-        V();
+        for (K(), _ = f.length; _ < k.length; _ += 1)
+          y(_);
+        R();
       }
       /*selected_election*/
-      y[1] === "Provincial Legislature" ? d ? (d.p(y, C), C & /*selected_election*/
-      2 && w(d, 1)) : (d = Le(y), d.c(), w(d, 1), d.m(e, null)) : d && (K(), A(d, 1, 1, () => {
-        d = null;
-      }), V());
+      v[1] === "Provincial Legislature" ? a ? (a.p(v, C), C & /*selected_election*/
+      2 && N(a, 1)) : (a = Be(v), a.c(), N(a, 1), a.m(e, null)) : a && (K(), A(a, 1, 1, () => {
+        a = null;
+      }), R());
     },
-    i(y) {
-      if (!g) {
-        for (let C = 0; C < h.length; C += 1)
-          w(s[C]);
-        for (let C = 0; C < u.length; C += 1)
-          w(k[C]);
-        w(d), g = !0;
+    i(v) {
+      if (!u) {
+        for (let C = 0; C < g.length; C += 1)
+          N(r[C]);
+        for (let C = 0; C < f.length; C += 1)
+          N(k[C]);
+        N(a), u = !0;
       }
     },
-    o(y) {
-      s = s.filter(Boolean);
-      for (let C = 0; C < s.length; C += 1)
-        A(s[C]);
+    o(v) {
+      r = r.filter(Boolean);
+      for (let C = 0; C < r.length; C += 1)
+        A(r[C]);
       k = k.filter(Boolean);
       for (let C = 0; C < k.length; C += 1)
         A(k[C]);
-      A(d), g = !1;
+      A(a), u = !1;
     },
-    d(y) {
-      y && q(e), z(s, y), z(k, y), d && d.d();
+    d(v) {
+      v && M(e), X(r, v), X(k, v), a && a.d();
     }
   };
 }
-function Ct(t, e, l) {
-  let { years: n = [2024, 2019, 2014] } = e, { selected_year: c = 2024 } = e, { elections: i = ["National Assembly", "Provincial Legislature"] } = e, { selected_election: o = "National Assembly" } = e, { regions: a = [
+function At(t, e, l) {
+  let { years: n = [2024, 2019, 2014] } = e, { selected_year: o = 2024 } = e, { elections: i = ["National Assembly", "Provincial Legislature"] } = e, { selected_election: c = "National Assembly" } = e, { regions: s = [
     "Gauteng",
     "Western Cape",
     "KwaZulu-Natal",
@@ -991,25 +991,25 @@ function Ct(t, e, l) {
     "Mpumalanga",
     "North West",
     "Northern Cape"
-  ] } = e, { selected_region: g = "Gauteng" } = e;
-  const h = (u) => l(0, c = u), s = (u) => l(1, o = u), v = (u) => l(2, g = u);
-  return t.$$set = (u) => {
-    "years" in u && l(3, n = u.years), "selected_year" in u && l(0, c = u.selected_year), "elections" in u && l(4, i = u.elections), "selected_election" in u && l(1, o = u.selected_election), "regions" in u && l(5, a = u.regions), "selected_region" in u && l(2, g = u.selected_region);
+  ] } = e, { selected_region: u = "Gauteng" } = e;
+  const g = (f) => l(0, o = f), r = (f) => l(1, c = f), p = (f) => l(2, u = f);
+  return t.$$set = (f) => {
+    "years" in f && l(3, n = f.years), "selected_year" in f && l(0, o = f.selected_year), "elections" in f && l(4, i = f.elections), "selected_election" in f && l(1, c = f.selected_election), "regions" in f && l(5, s = f.regions), "selected_region" in f && l(2, u = f.selected_region);
   }, [
-    c,
     o,
-    g,
+    c,
+    u,
     n,
     i,
-    a,
-    h,
     s,
-    v
+    g,
+    r,
+    p
   ];
 }
-class St extends ce {
+class Lt extends ne {
   constructor(e) {
-    super(), ie(this, e, Ct, Et, ne, {
+    super(), le(this, e, At, St, te, {
       years: 3,
       selected_year: 0,
       elections: 4,
@@ -1019,43 +1019,43 @@ class St extends ce {
     });
   }
 }
-function Be(t, e, l) {
+function Pe(t, e, l) {
   const n = t.slice();
   return n[9] = e[l], n;
 }
-function Me(t, e, l) {
+function qe(t, e, l) {
   const n = t.slice();
   return n[12] = e[l], n;
 }
-function Pe(t, e, l) {
+function je(t, e, l) {
   const n = t.slice();
   return n[15] = e[l], n;
 }
-function At(t) {
+function Bt(t) {
   let e = (
     /*year*/
     t[15] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*years*/
+    p(n, o) {
+      o & /*years*/
       8 && e !== (e = /*year*/
-      n[15] + "") && X(l, e);
+      n[15] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
 function Te(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler*/
       t[6](
@@ -1064,68 +1064,68 @@ function Te(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_year*/
         t[0] === /*year*/
         t[15]
       ),
-      $$slots: { default: [At] },
+      $$slots: { default: [Bt] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_year, years*/
-      9 && (a.primary = /*selected_year*/
+      const s = {};
+      c & /*selected_year, years*/
+      9 && (s.primary = /*selected_year*/
       t[0] === /*year*/
-      t[15]), o & /*$$scope, years*/
-      262152 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[15]), c & /*$$scope, years*/
+      262152 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function Lt(t) {
+function Mt(t) {
   let e = (
     /*election*/
     t[12] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*elections*/
+    p(n, o) {
+      o & /*elections*/
       16 && e !== (e = /*election*/
-      n[12] + "") && X(l, e);
+      n[12] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function je(t) {
+function De(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_1*/
       t[7](
@@ -1134,68 +1134,68 @@ function je(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_election*/
         t[1] === /*election*/
         t[12]
       ),
-      $$slots: { default: [Lt] },
+      $$slots: { default: [Mt] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_election, elections*/
-      18 && (a.primary = /*selected_election*/
+      const s = {};
+      c & /*selected_election, elections*/
+      18 && (s.primary = /*selected_election*/
       t[1] === /*election*/
-      t[12]), o & /*$$scope, elections*/
-      262160 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[12]), c & /*$$scope, elections*/
+      262160 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function qt(t) {
+function Pt(t) {
   let e = (
     /*region*/
     t[9] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*regions*/
+    p(n, o) {
+      o & /*regions*/
       32 && e !== (e = /*region*/
-      n[9] + "") && X(l, e);
+      n[9] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
 function He(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_2*/
       t[8](
@@ -1204,173 +1204,173 @@ function He(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_region*/
         t[2] === /*region*/
         t[9]
       ),
-      $$slots: { default: [qt] },
+      $$slots: { default: [Pt] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_region, regions*/
-      36 && (a.primary = /*selected_region*/
+      const s = {};
+      c & /*selected_region, regions*/
+      36 && (s.primary = /*selected_region*/
       t[2] === /*region*/
-      t[9]), o & /*$$scope, regions*/
-      262176 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[9]), c & /*$$scope, regions*/
+      262176 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function Bt(t) {
-  let e, l, n, c, i, o, a, g, h, s, v = O(
+function qt(t) {
+  let e, l, n, o, i, c, s, u, g, r, p = G(
     /*years*/
     t[3]
-  ), u = [];
-  for (let m = 0; m < v.length; m += 1)
-    u[m] = Te(Pe(t, v, m));
-  const k = (m) => A(u[m], 1, 1, () => {
-    u[m] = null;
+  ), f = [];
+  for (let h = 0; h < p.length; h += 1)
+    f[h] = Te(je(t, p, h));
+  const k = (h) => A(f[h], 1, 1, () => {
+    f[h] = null;
   });
-  let E = O(
+  let y = G(
     /*elections*/
     t[4]
-  ), d = [];
-  for (let m = 0; m < E.length; m += 1)
-    d[m] = je(Me(t, E, m));
-  const y = (m) => A(d[m], 1, 1, () => {
-    d[m] = null;
+  ), a = [];
+  for (let h = 0; h < y.length; h += 1)
+    a[h] = De(qe(t, y, h));
+  const v = (h) => A(a[h], 1, 1, () => {
+    a[h] = null;
   });
-  let C = O(
+  let C = G(
     /*regions*/
     t[5]
-  ), r = [];
-  for (let m = 0; m < C.length; m += 1)
-    r[m] = He(Be(t, C, m));
-  const N = (m) => A(r[m], 1, 1, () => {
-    r[m] = null;
+  ), _ = [];
+  for (let h = 0; h < C.length; h += 1)
+    _[h] = He(Pe(t, C, h));
+  const E = (h) => A(_[h], 1, 1, () => {
+    _[h] = null;
   });
   return {
     c() {
-      e = M("div"), l = M("h4"), l.textContent = "Select Year", n = T();
-      for (let m = 0; m < u.length; m += 1)
-        u[m].c();
-      c = T(), i = M("h4"), i.textContent = "Select Election", o = T();
-      for (let m = 0; m < d.length; m += 1)
-        d[m].c();
-      a = T(), g = M("h4"), g.textContent = "Select Region", h = T();
-      for (let m = 0; m < r.length; m += 1)
-        r[m].c();
+      e = q("div"), l = q("h4"), l.textContent = "Select Year", n = T();
+      for (let h = 0; h < f.length; h += 1)
+        f[h].c();
+      o = T(), i = q("h4"), i.textContent = "Select Election", c = T();
+      for (let h = 0; h < a.length; h += 1)
+        a[h].c();
+      s = T(), u = q("h4"), u.textContent = "Select Region", g = T();
+      for (let h = 0; h < _.length; h += 1)
+        _[h].c();
       S(e, "class", "election-engine-selection-container svelte-1we73ve");
     },
-    m(m, b) {
-      B(m, e, b), P(e, l), P(e, n);
-      for (let f = 0; f < u.length; f += 1)
-        u[f] && u[f].m(e, null);
-      P(e, c), P(e, i), P(e, o);
-      for (let f = 0; f < d.length; f += 1)
-        d[f] && d[f].m(e, null);
-      P(e, a), P(e, g), P(e, h);
-      for (let f = 0; f < r.length; f += 1)
-        r[f] && r[f].m(e, null);
-      s = !0;
+    m(h, m) {
+      P(h, e, m), j(e, l), j(e, n);
+      for (let d = 0; d < f.length; d += 1)
+        f[d] && f[d].m(e, null);
+      j(e, o), j(e, i), j(e, c);
+      for (let d = 0; d < a.length; d += 1)
+        a[d] && a[d].m(e, null);
+      j(e, s), j(e, u), j(e, g);
+      for (let d = 0; d < _.length; d += 1)
+        _[d] && _[d].m(e, null);
+      r = !0;
     },
-    p(m, [b]) {
-      if (b & /*selected_year, years*/
+    p(h, [m]) {
+      if (m & /*selected_year, years*/
       9) {
-        v = O(
+        p = G(
           /*years*/
-          m[3]
+          h[3]
         );
-        let f;
-        for (f = 0; f < v.length; f += 1) {
-          const H = Pe(m, v, f);
-          u[f] ? (u[f].p(H, b), w(u[f], 1)) : (u[f] = Te(H), u[f].c(), w(u[f], 1), u[f].m(e, c));
+        let d;
+        for (d = 0; d < p.length; d += 1) {
+          const H = je(h, p, d);
+          f[d] ? (f[d].p(H, m), N(f[d], 1)) : (f[d] = Te(H), f[d].c(), N(f[d], 1), f[d].m(e, o));
         }
-        for (K(), f = v.length; f < u.length; f += 1)
-          k(f);
-        V();
+        for (K(), d = p.length; d < f.length; d += 1)
+          k(d);
+        R();
       }
-      if (b & /*selected_election, elections*/
+      if (m & /*selected_election, elections*/
       18) {
-        E = O(
+        y = G(
           /*elections*/
-          m[4]
+          h[4]
         );
-        let f;
-        for (f = 0; f < E.length; f += 1) {
-          const H = Me(m, E, f);
-          d[f] ? (d[f].p(H, b), w(d[f], 1)) : (d[f] = je(H), d[f].c(), w(d[f], 1), d[f].m(e, a));
+        let d;
+        for (d = 0; d < y.length; d += 1) {
+          const H = qe(h, y, d);
+          a[d] ? (a[d].p(H, m), N(a[d], 1)) : (a[d] = De(H), a[d].c(), N(a[d], 1), a[d].m(e, s));
         }
-        for (K(), f = E.length; f < d.length; f += 1)
-          y(f);
-        V();
+        for (K(), d = y.length; d < a.length; d += 1)
+          v(d);
+        R();
       }
-      if (b & /*selected_region, regions*/
+      if (m & /*selected_region, regions*/
       36) {
-        C = O(
+        C = G(
           /*regions*/
-          m[5]
+          h[5]
         );
-        let f;
-        for (f = 0; f < C.length; f += 1) {
-          const H = Be(m, C, f);
-          r[f] ? (r[f].p(H, b), w(r[f], 1)) : (r[f] = He(H), r[f].c(), w(r[f], 1), r[f].m(e, null));
+        let d;
+        for (d = 0; d < C.length; d += 1) {
+          const H = Pe(h, C, d);
+          _[d] ? (_[d].p(H, m), N(_[d], 1)) : (_[d] = He(H), _[d].c(), N(_[d], 1), _[d].m(e, null));
         }
-        for (K(), f = C.length; f < r.length; f += 1)
-          N(f);
-        V();
+        for (K(), d = C.length; d < _.length; d += 1)
+          E(d);
+        R();
       }
     },
-    i(m) {
-      if (!s) {
-        for (let b = 0; b < v.length; b += 1)
-          w(u[b]);
-        for (let b = 0; b < E.length; b += 1)
-          w(d[b]);
-        for (let b = 0; b < C.length; b += 1)
-          w(r[b]);
-        s = !0;
+    i(h) {
+      if (!r) {
+        for (let m = 0; m < p.length; m += 1)
+          N(f[m]);
+        for (let m = 0; m < y.length; m += 1)
+          N(a[m]);
+        for (let m = 0; m < C.length; m += 1)
+          N(_[m]);
+        r = !0;
       }
     },
-    o(m) {
-      u = u.filter(Boolean);
-      for (let b = 0; b < u.length; b += 1)
-        A(u[b]);
-      d = d.filter(Boolean);
-      for (let b = 0; b < d.length; b += 1)
-        A(d[b]);
-      r = r.filter(Boolean);
-      for (let b = 0; b < r.length; b += 1)
-        A(r[b]);
-      s = !1;
+    o(h) {
+      f = f.filter(Boolean);
+      for (let m = 0; m < f.length; m += 1)
+        A(f[m]);
+      a = a.filter(Boolean);
+      for (let m = 0; m < a.length; m += 1)
+        A(a[m]);
+      _ = _.filter(Boolean);
+      for (let m = 0; m < _.length; m += 1)
+        A(_[m]);
+      r = !1;
     },
-    d(m) {
-      m && q(e), z(u, m), z(d, m), z(r, m);
+    d(h) {
+      h && M(e), X(f, h), X(a, h), X(_, h);
     }
   };
 }
-function Mt(t, e, l) {
-  let { years: n = [2024, 2019, 2014] } = e, { selected_year: c = 2024 } = e, { elections: i = ["National Assembly", "Provincial Legislature"] } = e, { selected_election: o = "National Assembly" } = e, { regions: a = [
+function jt(t, e, l) {
+  let { years: n = [2024, 2019, 2014] } = e, { selected_year: o = 2024 } = e, { elections: i = ["National Assembly", "Provincial Legislature"] } = e, { selected_election: c = "National Assembly" } = e, { regions: s = [
     "National",
     "Gauteng",
     "Western Cape",
@@ -1381,25 +1381,25 @@ function Mt(t, e, l) {
     "Mpumalanga",
     "North West",
     "Northern Cape"
-  ] } = e, { selected_region: g = "National" } = e;
-  const h = (u) => l(0, c = u), s = (u) => l(1, o = u), v = (u) => l(2, g = u);
-  return t.$$set = (u) => {
-    "years" in u && l(3, n = u.years), "selected_year" in u && l(0, c = u.selected_year), "elections" in u && l(4, i = u.elections), "selected_election" in u && l(1, o = u.selected_election), "regions" in u && l(5, a = u.regions), "selected_region" in u && l(2, g = u.selected_region);
+  ] } = e, { selected_region: u = "National" } = e;
+  const g = (f) => l(0, o = f), r = (f) => l(1, c = f), p = (f) => l(2, u = f);
+  return t.$$set = (f) => {
+    "years" in f && l(3, n = f.years), "selected_year" in f && l(0, o = f.selected_year), "elections" in f && l(4, i = f.elections), "selected_election" in f && l(1, c = f.selected_election), "regions" in f && l(5, s = f.regions), "selected_region" in f && l(2, u = f.selected_region);
   }, [
-    c,
     o,
-    g,
+    c,
+    u,
     n,
     i,
-    a,
-    h,
     s,
-    v
+    g,
+    r,
+    p
   ];
 }
-class Pt extends ce {
+class Tt extends ne {
   constructor(e) {
-    super(), ie(this, e, Mt, Bt, ne, {
+    super(), le(this, e, jt, qt, te, {
       years: 3,
       selected_year: 0,
       elections: 4,
@@ -1409,47 +1409,47 @@ class Pt extends ce {
     });
   }
 }
-function Oe(t, e, l) {
+function Ge(t, e, l) {
   const n = t.slice();
   return n[12] = e[l], n;
 }
-function We(t, e, l) {
+function Oe(t, e, l) {
   const n = t.slice();
   return n[15] = e[l], n;
 }
-function Fe(t, e, l) {
+function Ve(t, e, l) {
   const n = t.slice();
   return n[18] = e[l], n;
 }
-function Ge(t, e, l) {
+function We(t, e, l) {
   const n = t.slice();
   return n[21] = e[l], n;
 }
-function Tt(t) {
+function Dt(t) {
   let e = (
     /*year*/
     t[21] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*years*/
+    p(n, o) {
+      o & /*years*/
       16 && e !== (e = /*year*/
-      n[21] + "") && X(l, e);
+      n[21] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function Ke(t) {
+function Fe(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler*/
       t[8](
@@ -1458,68 +1458,68 @@ function Ke(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_year*/
         t[0] === /*year*/
         t[21]
       ),
-      $$slots: { default: [Tt] },
+      $$slots: { default: [Dt] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_year, years*/
-      17 && (a.primary = /*selected_year*/
+      const s = {};
+      c & /*selected_year, years*/
+      17 && (s.primary = /*selected_year*/
       t[0] === /*year*/
-      t[21]), o & /*$$scope, years*/
-      16777232 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[21]), c & /*$$scope, years*/
+      16777232 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function jt(t) {
+function Ht(t) {
   let e = (
     /*election*/
     t[18] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*elections*/
+    p(n, o) {
+      o & /*elections*/
       32 && e !== (e = /*election*/
-      n[18] + "") && X(l, e);
+      n[18] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function Ve(t) {
+function Ie(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_1*/
       t[9](
@@ -1528,68 +1528,68 @@ function Ve(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_election*/
         t[1] === /*election*/
         t[18]
       ),
-      $$slots: { default: [jt] },
+      $$slots: { default: [Ht] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_election, elections*/
-      34 && (a.primary = /*selected_election*/
+      const s = {};
+      c & /*selected_election, elections*/
+      34 && (s.primary = /*selected_election*/
       t[1] === /*election*/
-      t[18]), o & /*$$scope, elections*/
-      16777248 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[18]), c & /*$$scope, elections*/
+      16777248 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function Ht(t) {
+function Gt(t) {
   let e = (
     /*region*/
     t[15] + ""
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*regions*/
+    p(n, o) {
+      o & /*regions*/
       64 && e !== (e = /*region*/
-      n[15] + "") && X(l, e);
+      n[15] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function Ie(t) {
+function Ke(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_2*/
       t[10](
@@ -1598,40 +1598,40 @@ function Ie(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_region*/
         t[2] === /*region*/
         t[15]
       ),
-      $$slots: { default: [Ht] },
+      $$slots: { default: [Gt] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_region, regions*/
-      68 && (a.primary = /*selected_region*/
+      const s = {};
+      c & /*selected_region, regions*/
+      68 && (s.primary = /*selected_region*/
       t[2] === /*region*/
-      t[15]), o & /*$$scope, regions*/
-      16777280 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      t[15]), c & /*$$scope, regions*/
+      16777280 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
@@ -1642,24 +1642,24 @@ function Ot(t) {
   ), l;
   return {
     c() {
-      l = Y(e);
+      l = z(e);
     },
-    m(n, c) {
-      B(n, l, c);
+    m(n, o) {
+      P(n, l, o);
     },
-    p(n, c) {
-      c & /*fields*/
+    p(n, o) {
+      o & /*fields*/
       128 && e !== (e = /*field*/
-      n[12] + "") && X(l, e);
+      n[12] + "") && $(l, e);
     },
     d(n) {
-      n && q(l);
+      n && M(l);
     }
   };
 }
-function De(t) {
+function Re(t) {
   let e, l, n;
-  function c() {
+  function o() {
     return (
       /*click_handler_3*/
       t[11](
@@ -1668,7 +1668,7 @@ function De(t) {
       )
     );
   }
-  return l = new Q({
+  return l = new J({
     props: {
       primary: (
         /*selected_fields*/
@@ -1680,200 +1680,200 @@ function De(t) {
       $$slots: { default: [Ot] },
       $$scope: { ctx: t }
     }
-  }), l.$on("click", c), {
+  }), l.$on("click", o), {
     c() {
-      e = M("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
+      e = q("div"), I(l.$$.fragment), S(e, "class", "option svelte-1we73ve");
     },
-    m(i, o) {
-      B(i, e, o), F(l, e, null), n = !0;
+    m(i, c) {
+      P(i, e, c), V(l, e, null), n = !0;
     },
-    p(i, o) {
+    p(i, c) {
       t = i;
-      const a = {};
-      o & /*selected_fields, fields*/
-      136 && (a.primary = /*selected_fields*/
+      const s = {};
+      c & /*selected_fields, fields*/
+      136 && (s.primary = /*selected_fields*/
       t[3].includes(
         /*field*/
         t[12]
-      )), o & /*$$scope, fields*/
-      16777344 && (a.$$scope = { dirty: o, ctx: t }), l.$set(a);
+      )), c & /*$$scope, fields*/
+      16777344 && (s.$$scope = { dirty: c, ctx: t }), l.$set(s);
     },
     i(i) {
-      n || (w(l.$$.fragment, i), n = !0);
+      n || (N(l.$$.fragment, i), n = !0);
     },
     o(i) {
       A(l.$$.fragment, i), n = !1;
     },
     d(i) {
-      i && q(e), G(l);
+      i && M(e), W(l);
     }
   };
 }
-function Wt(t) {
-  let e, l, n, c, i, o, a, g, h, s, v, u, k, E = O(
+function Vt(t) {
+  let e, l, n, o, i, c, s, u, g, r, p, f, k, y = G(
     /*years*/
     t[4]
-  ), d = [];
-  for (let p = 0; p < E.length; p += 1)
-    d[p] = Ke(Ge(t, E, p));
-  const y = (p) => A(d[p], 1, 1, () => {
-    d[p] = null;
+  ), a = [];
+  for (let w = 0; w < y.length; w += 1)
+    a[w] = Fe(We(t, y, w));
+  const v = (w) => A(a[w], 1, 1, () => {
+    a[w] = null;
   });
-  let C = O(
+  let C = G(
     /*elections*/
     t[5]
-  ), r = [];
-  for (let p = 0; p < C.length; p += 1)
-    r[p] = Ve(Fe(t, C, p));
-  const N = (p) => A(r[p], 1, 1, () => {
-    r[p] = null;
+  ), _ = [];
+  for (let w = 0; w < C.length; w += 1)
+    _[w] = Ie(Ve(t, C, w));
+  const E = (w) => A(_[w], 1, 1, () => {
+    _[w] = null;
   });
-  let m = O(
+  let h = G(
     /*regions*/
     t[6]
-  ), b = [];
-  for (let p = 0; p < m.length; p += 1)
-    b[p] = Ie(We(t, m, p));
-  const f = (p) => A(b[p], 1, 1, () => {
-    b[p] = null;
+  ), m = [];
+  for (let w = 0; w < h.length; w += 1)
+    m[w] = Ke(Oe(t, h, w));
+  const d = (w) => A(m[w], 1, 1, () => {
+    m[w] = null;
   });
-  let H = O(
+  let H = G(
     /*fields*/
     t[7]
-  ), j = [];
-  for (let p = 0; p < H.length; p += 1)
-    j[p] = De(Oe(t, H, p));
-  const ge = (p) => A(j[p], 1, 1, () => {
-    j[p] = null;
+  ), D = [];
+  for (let w = 0; w < H.length; w += 1)
+    D[w] = Re(Ge(t, H, w));
+  const he = (w) => A(D[w], 1, 1, () => {
+    D[w] = null;
   });
   return {
     c() {
-      e = M("div"), l = M("h4"), l.textContent = "Select Year", n = T();
-      for (let p = 0; p < d.length; p += 1)
-        d[p].c();
-      c = T(), i = M("h4"), i.textContent = "Select Election", o = T();
-      for (let p = 0; p < r.length; p += 1)
-        r[p].c();
-      a = T(), g = M("h4"), g.textContent = "Select Region", h = T();
-      for (let p = 0; p < b.length; p += 1)
-        b[p].c();
-      s = T(), v = M("h4"), v.textContent = "Select Fields", u = T();
-      for (let p = 0; p < j.length; p += 1)
-        j[p].c();
+      e = q("div"), l = q("h4"), l.textContent = "Select Year", n = T();
+      for (let w = 0; w < a.length; w += 1)
+        a[w].c();
+      o = T(), i = q("h4"), i.textContent = "Select Election", c = T();
+      for (let w = 0; w < _.length; w += 1)
+        _[w].c();
+      s = T(), u = q("h4"), u.textContent = "Select Region", g = T();
+      for (let w = 0; w < m.length; w += 1)
+        m[w].c();
+      r = T(), p = q("h4"), p.textContent = "Select Fields", f = T();
+      for (let w = 0; w < D.length; w += 1)
+        D[w].c();
       S(e, "class", "election-engine-selection-container svelte-1we73ve");
     },
-    m(p, L) {
-      B(p, e, L), P(e, l), P(e, n);
-      for (let _ = 0; _ < d.length; _ += 1)
-        d[_] && d[_].m(e, null);
-      P(e, c), P(e, i), P(e, o);
-      for (let _ = 0; _ < r.length; _ += 1)
-        r[_] && r[_].m(e, null);
-      P(e, a), P(e, g), P(e, h);
-      for (let _ = 0; _ < b.length; _ += 1)
-        b[_] && b[_].m(e, null);
-      P(e, s), P(e, v), P(e, u);
-      for (let _ = 0; _ < j.length; _ += 1)
-        j[_] && j[_].m(e, null);
+    m(w, L) {
+      P(w, e, L), j(e, l), j(e, n);
+      for (let b = 0; b < a.length; b += 1)
+        a[b] && a[b].m(e, null);
+      j(e, o), j(e, i), j(e, c);
+      for (let b = 0; b < _.length; b += 1)
+        _[b] && _[b].m(e, null);
+      j(e, s), j(e, u), j(e, g);
+      for (let b = 0; b < m.length; b += 1)
+        m[b] && m[b].m(e, null);
+      j(e, r), j(e, p), j(e, f);
+      for (let b = 0; b < D.length; b += 1)
+        D[b] && D[b].m(e, null);
       k = !0;
     },
-    p(p, [L]) {
+    p(w, [L]) {
       if (L & /*selected_year, years*/
       17) {
-        E = O(
+        y = G(
           /*years*/
-          p[4]
+          w[4]
         );
-        let _;
-        for (_ = 0; _ < E.length; _ += 1) {
-          const R = Ge(p, E, _);
-          d[_] ? (d[_].p(R, L), w(d[_], 1)) : (d[_] = Ke(R), d[_].c(), w(d[_], 1), d[_].m(e, c));
+        let b;
+        for (b = 0; b < y.length; b += 1) {
+          const Y = We(w, y, b);
+          a[b] ? (a[b].p(Y, L), N(a[b], 1)) : (a[b] = Fe(Y), a[b].c(), N(a[b], 1), a[b].m(e, o));
         }
-        for (K(), _ = E.length; _ < d.length; _ += 1)
-          y(_);
-        V();
+        for (K(), b = y.length; b < a.length; b += 1)
+          v(b);
+        R();
       }
       if (L & /*selected_election, elections*/
       34) {
-        C = O(
+        C = G(
           /*elections*/
-          p[5]
+          w[5]
         );
-        let _;
-        for (_ = 0; _ < C.length; _ += 1) {
-          const R = Fe(p, C, _);
-          r[_] ? (r[_].p(R, L), w(r[_], 1)) : (r[_] = Ve(R), r[_].c(), w(r[_], 1), r[_].m(e, a));
+        let b;
+        for (b = 0; b < C.length; b += 1) {
+          const Y = Ve(w, C, b);
+          _[b] ? (_[b].p(Y, L), N(_[b], 1)) : (_[b] = Ie(Y), _[b].c(), N(_[b], 1), _[b].m(e, s));
         }
-        for (K(), _ = C.length; _ < r.length; _ += 1)
-          N(_);
-        V();
+        for (K(), b = C.length; b < _.length; b += 1)
+          E(b);
+        R();
       }
       if (L & /*selected_region, regions*/
       68) {
-        m = O(
+        h = G(
           /*regions*/
-          p[6]
+          w[6]
         );
-        let _;
-        for (_ = 0; _ < m.length; _ += 1) {
-          const R = We(p, m, _);
-          b[_] ? (b[_].p(R, L), w(b[_], 1)) : (b[_] = Ie(R), b[_].c(), w(b[_], 1), b[_].m(e, s));
+        let b;
+        for (b = 0; b < h.length; b += 1) {
+          const Y = Oe(w, h, b);
+          m[b] ? (m[b].p(Y, L), N(m[b], 1)) : (m[b] = Ke(Y), m[b].c(), N(m[b], 1), m[b].m(e, r));
         }
-        for (K(), _ = m.length; _ < b.length; _ += 1)
-          f(_);
-        V();
+        for (K(), b = h.length; b < m.length; b += 1)
+          d(b);
+        R();
       }
       if (L & /*selected_fields, fields*/
       136) {
-        H = O(
+        H = G(
           /*fields*/
-          p[7]
+          w[7]
         );
-        let _;
-        for (_ = 0; _ < H.length; _ += 1) {
-          const R = Oe(p, H, _);
-          j[_] ? (j[_].p(R, L), w(j[_], 1)) : (j[_] = De(R), j[_].c(), w(j[_], 1), j[_].m(e, null));
+        let b;
+        for (b = 0; b < H.length; b += 1) {
+          const Y = Ge(w, H, b);
+          D[b] ? (D[b].p(Y, L), N(D[b], 1)) : (D[b] = Re(Y), D[b].c(), N(D[b], 1), D[b].m(e, null));
         }
-        for (K(), _ = H.length; _ < j.length; _ += 1)
-          ge(_);
-        V();
+        for (K(), b = H.length; b < D.length; b += 1)
+          he(b);
+        R();
       }
     },
-    i(p) {
+    i(w) {
       if (!k) {
-        for (let L = 0; L < E.length; L += 1)
-          w(d[L]);
+        for (let L = 0; L < y.length; L += 1)
+          N(a[L]);
         for (let L = 0; L < C.length; L += 1)
-          w(r[L]);
-        for (let L = 0; L < m.length; L += 1)
-          w(b[L]);
+          N(_[L]);
+        for (let L = 0; L < h.length; L += 1)
+          N(m[L]);
         for (let L = 0; L < H.length; L += 1)
-          w(j[L]);
+          N(D[L]);
         k = !0;
       }
     },
-    o(p) {
-      d = d.filter(Boolean);
-      for (let L = 0; L < d.length; L += 1)
-        A(d[L]);
-      r = r.filter(Boolean);
-      for (let L = 0; L < r.length; L += 1)
-        A(r[L]);
-      b = b.filter(Boolean);
-      for (let L = 0; L < b.length; L += 1)
-        A(b[L]);
-      j = j.filter(Boolean);
-      for (let L = 0; L < j.length; L += 1)
-        A(j[L]);
+    o(w) {
+      a = a.filter(Boolean);
+      for (let L = 0; L < a.length; L += 1)
+        A(a[L]);
+      _ = _.filter(Boolean);
+      for (let L = 0; L < _.length; L += 1)
+        A(_[L]);
+      m = m.filter(Boolean);
+      for (let L = 0; L < m.length; L += 1)
+        A(m[L]);
+      D = D.filter(Boolean);
+      for (let L = 0; L < D.length; L += 1)
+        A(D[L]);
       k = !1;
     },
-    d(p) {
-      p && q(e), z(d, p), z(r, p), z(b, p), z(j, p);
+    d(w) {
+      w && M(e), X(a, w), X(_, w), X(m, w), X(D, w);
     }
   };
 }
-function Ft(t, e, l) {
-  let { years: n = [2024, 2019, 2014] } = e, { selected_year: c = 2024 } = e, { elections: i = ["National Assembly", "Provincial Legislature"] } = e, { selected_election: o = "National Assembly" } = e, { regions: a = [
+function Wt(t, e, l) {
+  let { years: n = [2024, 2019, 2014] } = e, { selected_year: o = 2024 } = e, { elections: i = ["National Assembly", "Provincial Legislature"] } = e, { selected_election: c = "National Assembly" } = e, { regions: s = [
     "National",
     "Gauteng",
     "Western Cape",
@@ -1884,30 +1884,30 @@ function Ft(t, e, l) {
     "Mpumalanga",
     "North West",
     "Northern Cape"
-  ] } = e, { selected_region: g = "National" } = e, { fields: h = ["Party", "Votes", "Seats"] } = e, { selected_fields: s = ["Party", "Votes", "Seats"] } = e;
-  const v = (d) => l(0, c = d), u = (d) => l(1, o = d), k = (d) => l(2, g = d), E = (d) => {
-    s.includes(d) ? l(3, s = s.filter((y) => y !== d)) : l(3, s = [...s, d]), l(3, s);
+  ] } = e, { selected_region: u = "National" } = e, { fields: g = ["Party", "Votes", "Seats"] } = e, { selected_fields: r = ["Party", "Votes", "Seats"] } = e;
+  const p = (a) => l(0, o = a), f = (a) => l(1, c = a), k = (a) => l(2, u = a), y = (a) => {
+    r.includes(a) ? l(3, r = r.filter((v) => v !== a)) : l(3, r = [...r, a]), l(3, r);
   };
-  return t.$$set = (d) => {
-    "years" in d && l(4, n = d.years), "selected_year" in d && l(0, c = d.selected_year), "elections" in d && l(5, i = d.elections), "selected_election" in d && l(1, o = d.selected_election), "regions" in d && l(6, a = d.regions), "selected_region" in d && l(2, g = d.selected_region), "fields" in d && l(7, h = d.fields), "selected_fields" in d && l(3, s = d.selected_fields);
+  return t.$$set = (a) => {
+    "years" in a && l(4, n = a.years), "selected_year" in a && l(0, o = a.selected_year), "elections" in a && l(5, i = a.elections), "selected_election" in a && l(1, c = a.selected_election), "regions" in a && l(6, s = a.regions), "selected_region" in a && l(2, u = a.selected_region), "fields" in a && l(7, g = a.fields), "selected_fields" in a && l(3, r = a.selected_fields);
   }, [
-    c,
     o,
-    g,
-    s,
+    c,
+    u,
+    r,
     n,
     i,
-    a,
-    h,
-    v,
-    u,
+    s,
+    g,
+    p,
+    f,
     k,
-    E
+    y
   ];
 }
-class Gt extends ce {
+class Ft extends ne {
   constructor(e) {
-    super(), ie(this, e, Ft, Wt, ne, {
+    super(), le(this, e, Wt, Vt, te, {
       years: 4,
       selected_year: 0,
       elections: 5,
@@ -1919,23 +1919,23 @@ class Gt extends ce {
     });
   }
 }
-const Kt = (t) => ({}), Re = (t) => ({}), Vt = (t) => ({}), Ye = (t) => ({});
-function It(t) {
-  let e, l, n, c, i, o, a, g, h, s, v, u;
+const It = (t) => ({}), Ye = (t) => ({}), Kt = (t) => ({}), Ze = (t) => ({});
+function Rt(t) {
+  let e, l, n, o, i, c, s, u, g, r, p, f;
   const k = (
     /*#slots*/
     t[5].title
-  ), E = re(
+  ), y = fe(
     k,
     t,
     /*$$scope*/
     t[4],
-    Ye
-  ), d = (
+    Ze
+  ), a = (
     /*#slots*/
     t[5].default
-  ), y = re(
-    d,
+  ), v = fe(
+    a,
     t,
     /*$$scope*/
     t[4],
@@ -1943,535 +1943,544 @@ function It(t) {
   ), C = (
     /*#slots*/
     t[5].footer
-  ), r = re(
+  ), _ = fe(
     C,
     t,
     /*$$scope*/
     t[4],
-    Re
+    Ye
   );
   return {
     c() {
-      e = M("div"), l = T(), n = M("div"), c = M("div"), i = M("h3"), E && E.c(), o = T(), a = M("div"), y && y.c(), g = T(), h = M("div"), r && r.c(), S(e, "role", "button"), S(e, "tabindex", "-1"), S(e, "class", "modal-background svelte-iqnkud"), S(c, "class", "election-engine-modal-title svelte-iqnkud"), S(a, "class", "election-engine-modal-content"), S(h, "class", "election-engine-modal-footer svelte-iqnkud"), S(n, "class", "modal svelte-iqnkud"), S(n, "role", "dialog"), S(n, "aria-modal", "true");
+      e = q("div"), l = T(), n = q("div"), o = q("div"), i = q("h3"), y && y.c(), c = T(), s = q("div"), v && v.c(), u = T(), g = q("div"), _ && _.c(), S(e, "role", "button"), S(e, "tabindex", "-1"), S(e, "class", "modal-background svelte-uku0eo"), S(o, "class", "election-engine-modal-title svelte-uku0eo"), S(s, "class", "election-engine-modal-content"), S(g, "class", "election-engine-modal-footer svelte-uku0eo"), S(n, "class", "modal svelte-uku0eo"), S(n, "role", "dialog"), S(n, "aria-modal", "true");
     },
-    m(N, m) {
-      B(N, e, m), t[6](e), B(N, l, m), B(N, n, m), P(n, c), P(c, i), E && E.m(i, null), P(n, o), P(n, a), y && y.m(a, null), P(n, g), P(n, h), r && r.m(h, null), t[7](n), s = !0, v || (u = [
-        Z(
+    m(E, h) {
+      P(E, e, h), t[6](e), P(E, l, h), P(E, n, h), j(n, o), j(o, i), y && y.m(i, null), j(n, c), j(n, s), v && v.m(s, null), j(n, u), j(n, g), _ && _.m(g, null), t[7](n), r = !0, p || (f = [
+        U(
           window,
           "keydown",
           /*handle_keydown*/
           t[3]
         ),
-        Z(
+        U(
           e,
           "click",
           /*close*/
           t[2]
         ),
-        Z(
+        U(
           e,
           "keypress",
           /*handle_keydown*/
           t[3]
         ),
-        Z(
+        U(
           n,
           "close",
           /*close*/
           t[2]
         )
-      ], v = !0);
+      ], p = !0);
     },
-    p(N, [m]) {
-      E && E.p && (!s || m & /*$$scope*/
-      16) && ue(
-        E,
-        k,
-        N,
-        /*$$scope*/
-        N[4],
-        s ? fe(
-          k,
-          /*$$scope*/
-          N[4],
-          m,
-          Vt
-        ) : ae(
-          /*$$scope*/
-          N[4]
-        ),
-        Ye
-      ), y && y.p && (!s || m & /*$$scope*/
+    p(E, [h]) {
+      y && y.p && (!r || h & /*$$scope*/
       16) && ue(
         y,
-        d,
-        N,
+        k,
+        E,
         /*$$scope*/
-        N[4],
-        s ? fe(
-          d,
+        E[4],
+        r ? ae(
+          k,
           /*$$scope*/
-          N[4],
-          m,
+          E[4],
+          h,
+          Kt
+        ) : _e(
+          /*$$scope*/
+          E[4]
+        ),
+        Ze
+      ), v && v.p && (!r || h & /*$$scope*/
+      16) && ue(
+        v,
+        a,
+        E,
+        /*$$scope*/
+        E[4],
+        r ? ae(
+          a,
+          /*$$scope*/
+          E[4],
+          h,
           null
-        ) : ae(
+        ) : _e(
           /*$$scope*/
-          N[4]
+          E[4]
         ),
         null
-      ), r && r.p && (!s || m & /*$$scope*/
+      ), _ && _.p && (!r || h & /*$$scope*/
       16) && ue(
-        r,
+        _,
         C,
-        N,
+        E,
         /*$$scope*/
-        N[4],
-        s ? fe(
+        E[4],
+        r ? ae(
           C,
           /*$$scope*/
-          N[4],
-          m,
-          Kt
-        ) : ae(
+          E[4],
+          h,
+          It
+        ) : _e(
           /*$$scope*/
-          N[4]
+          E[4]
         ),
-        Re
+        Ye
       );
     },
-    i(N) {
-      s || (w(E, N), w(y, N), w(r, N), s = !0);
+    i(E) {
+      r || (N(y, E), N(v, E), N(_, E), r = !0);
     },
-    o(N) {
-      A(E, N), A(y, N), A(r, N), s = !1;
+    o(E) {
+      A(y, E), A(v, E), A(_, E), r = !1;
     },
-    d(N) {
-      N && (q(e), q(l), q(n)), t[6](null), E && E.d(N), y && y.d(N), r && r.d(N), t[7](null), v = !1, x(u);
+    d(E) {
+      E && (M(e), M(l), M(n)), t[6](null), y && y.d(E), v && v.d(E), _ && _.d(E), t[7](null), p = !1, ee(f);
     }
   };
 }
-function Dt(t, e, l) {
-  let { $$slots: n = {}, $$scope: c } = e;
-  const i = at(), o = () => i("close");
-  let a, g;
-  const h = (k) => {
+function Yt(t, e, l) {
+  let { $$slots: n = {}, $$scope: o } = e;
+  const i = lt(), c = () => i("close");
+  let s, u;
+  const g = (k) => {
     if (k.key === "Escape") {
-      o();
+      c();
       return;
     }
     if (k.key === "Tab") {
-      const E = a.querySelectorAll("*"), d = Array.from(E).filter((C) => C.tabIndex >= 0);
-      let y = d.indexOf(document.activeElement);
-      y === -1 && k.shiftKey && (y = 0), y += d.length + (k.shiftKey ? -1 : 1), y %= d.length, d[y].focus(), k.preventDefault();
+      const y = s.querySelectorAll("*"), a = Array.from(y).filter((C) => C.tabIndex >= 0);
+      let v = a.indexOf(document.activeElement);
+      v === -1 && k.shiftKey && (v = 0), v += a.length + (k.shiftKey ? -1 : 1), v %= a.length, a[v].focus(), k.preventDefault();
     }
-  }, s = typeof document < "u" && document.activeElement;
-  s && ut(() => {
-    s.focus();
+  }, r = typeof document < "u" && document.activeElement;
+  r && dt(() => {
+    r.focus();
   });
-  function v(k) {
-    D[k ? "unshift" : "push"](() => {
-      g = k, l(1, g);
+  function p(k) {
+    O[k ? "unshift" : "push"](() => {
+      u = k, l(1, u);
     });
   }
-  function u(k) {
-    D[k ? "unshift" : "push"](() => {
-      a = k, l(0, a);
+  function f(k) {
+    O[k ? "unshift" : "push"](() => {
+      s = k, l(0, s);
     });
   }
   return t.$$set = (k) => {
-    "$$scope" in k && l(4, c = k.$$scope);
+    "$$scope" in k && l(4, o = k.$$scope);
   }, [
-    a,
+    s,
+    u,
+    c,
     g,
     o,
-    h,
-    c,
     n,
-    v,
-    u
+    p,
+    f
   ];
 }
-class Rt extends ce {
+class Zt extends ne {
   constructor(e) {
-    super(), ie(this, e, Dt, It, ne, {});
+    super(), le(this, e, Yt, Rt, te, {});
   }
 }
-function Ze(t) {
+function Qe(t) {
   let e, l;
-  return e = new Rt({
+  return e = new Zt({
     props: {
       $$slots: {
-        title: [Qt],
-        default: [Zt]
+        title: [Ut],
+        default: [zt]
       },
       $$scope: { ctx: t }
     }
   }), e.$on(
     "close",
     /*close_handler*/
-    t[23]
+    t[25]
+  ), e.$on(
+    "close",
+    /*onClose*/
+    t[4]
   ), {
     c() {
       I(e.$$.fragment);
     },
-    m(n, c) {
-      F(e, n, c), l = !0;
+    m(n, o) {
+      V(e, n, o), l = !0;
     },
-    p(n, c) {
+    p(n, o) {
       const i = {};
-      c & /*$$scope, show_modal, visualisation_data, visualisation*/
-      33554439 && (i.$$scope = { dirty: c, ctx: n }), e.$set(i);
+      o & /*$$scope, show_modal, visualisation_data, visualisation*/
+      268435463 && (i.$$scope = { dirty: o, ctx: n }), e.$set(i);
     },
     i(n) {
-      l || (w(e.$$.fragment, n), l = !0);
+      l || (N(e.$$.fragment, n), l = !0);
     },
     o(n) {
       A(e.$$.fragment, n), l = !1;
     },
     d(n) {
-      G(e, n);
+      W(e, n);
     }
   };
 }
-function Qe(t) {
-  let e, l, n, c, i;
-  function o(s) {
-    t[12](s);
-  }
-  function a(s) {
-    t[13](s);
-  }
-  function g(s) {
-    t[14](s);
-  }
-  let h = {};
-  return (
-    /*visualisation_data*/
-    t[1].hemicycle.selected_year !== void 0 && (h.selected_year = /*visualisation_data*/
-    t[1].hemicycle.selected_year), /*visualisation_data*/
-    t[1].hemicycle.selected_election !== void 0 && (h.selected_election = /*visualisation_data*/
-    t[1].hemicycle.selected_election), /*visualisation_data*/
-    t[1].hemicycle.selected_region !== void 0 && (h.selected_region = /*visualisation_data*/
-    t[1].hemicycle.selected_region), e = new St({ props: h }), D.push(() => J(e, "selected_year", o)), D.push(() => J(e, "selected_election", a)), D.push(() => J(e, "selected_region", g)), {
-      c() {
-        I(e.$$.fragment);
-      },
-      m(s, v) {
-        F(e, s, v), i = !0;
-      },
-      p(s, v) {
-        const u = {};
-        !l && v & /*visualisation_data*/
-        2 && (l = !0, u.selected_year = /*visualisation_data*/
-        s[1].hemicycle.selected_year, U(() => l = !1)), !n && v & /*visualisation_data*/
-        2 && (n = !0, u.selected_election = /*visualisation_data*/
-        s[1].hemicycle.selected_election, U(() => n = !1)), !c && v & /*visualisation_data*/
-        2 && (c = !0, u.selected_region = /*visualisation_data*/
-        s[1].hemicycle.selected_region, U(() => c = !1)), e.$set(u);
-      },
-      i(s) {
-        i || (w(e.$$.fragment, s), i = !0);
-      },
-      o(s) {
-        A(e.$$.fragment, s), i = !1;
-      },
-      d(s) {
-        G(e, s);
-      }
-    }
-  );
-}
 function ze(t) {
-  let e, l, n, c, i;
-  function o(s) {
-    t[15](s);
+  let e, l, n, o, i;
+  function c(r) {
+    t[14](r);
   }
-  function a(s) {
-    t[16](s);
+  function s(r) {
+    t[15](r);
   }
-  function g(s) {
-    t[17](s);
+  function u(r) {
+    t[16](r);
   }
-  let h = {};
+  let g = {};
   return (
     /*visualisation_data*/
-    t[1].carto.selected_year !== void 0 && (h.selected_year = /*visualisation_data*/
-    t[1].carto.selected_year), /*visualisation_data*/
-    t[1].carto.selected_election !== void 0 && (h.selected_election = /*visualisation_data*/
-    t[1].carto.selected_election), /*visualisation_data*/
-    t[1].carto.selected_region !== void 0 && (h.selected_region = /*visualisation_data*/
-    t[1].carto.selected_region), e = new Pt({ props: h }), D.push(() => J(e, "selected_year", o)), D.push(() => J(e, "selected_election", a)), D.push(() => J(e, "selected_region", g)), {
+    t[1].hemicycle.selected_year !== void 0 && (g.selected_year = /*visualisation_data*/
+    t[1].hemicycle.selected_year), /*visualisation_data*/
+    t[1].hemicycle.selected_election !== void 0 && (g.selected_election = /*visualisation_data*/
+    t[1].hemicycle.selected_election), /*visualisation_data*/
+    t[1].hemicycle.selected_region !== void 0 && (g.selected_region = /*visualisation_data*/
+    t[1].hemicycle.selected_region), e = new Lt({ props: g }), O.push(() => Q(e, "selected_year", c)), O.push(() => Q(e, "selected_election", s)), O.push(() => Q(e, "selected_region", u)), {
       c() {
         I(e.$$.fragment);
       },
-      m(s, v) {
-        F(e, s, v), i = !0;
+      m(r, p) {
+        V(e, r, p), i = !0;
       },
-      p(s, v) {
-        const u = {};
-        !l && v & /*visualisation_data*/
-        2 && (l = !0, u.selected_year = /*visualisation_data*/
-        s[1].carto.selected_year, U(() => l = !1)), !n && v & /*visualisation_data*/
-        2 && (n = !0, u.selected_election = /*visualisation_data*/
-        s[1].carto.selected_election, U(() => n = !1)), !c && v & /*visualisation_data*/
-        2 && (c = !0, u.selected_region = /*visualisation_data*/
-        s[1].carto.selected_region, U(() => c = !1)), e.$set(u);
+      p(r, p) {
+        const f = {};
+        !l && p & /*visualisation_data*/
+        2 && (l = !0, f.selected_year = /*visualisation_data*/
+        r[1].hemicycle.selected_year, Z(() => l = !1)), !n && p & /*visualisation_data*/
+        2 && (n = !0, f.selected_election = /*visualisation_data*/
+        r[1].hemicycle.selected_election, Z(() => n = !1)), !o && p & /*visualisation_data*/
+        2 && (o = !0, f.selected_region = /*visualisation_data*/
+        r[1].hemicycle.selected_region, Z(() => o = !1)), e.$set(f);
       },
-      i(s) {
-        i || (w(e.$$.fragment, s), i = !0);
+      i(r) {
+        i || (N(e.$$.fragment, r), i = !0);
       },
-      o(s) {
-        A(e.$$.fragment, s), i = !1;
+      o(r) {
+        A(e.$$.fragment, r), i = !1;
       },
-      d(s) {
-        G(e, s);
+      d(r) {
+        W(e, r);
       }
     }
   );
 }
 function Ue(t) {
-  let e, l, n, c, i, o;
-  function a(u) {
-    t[18](u);
+  let e, l, n, o, i;
+  function c(r) {
+    t[17](r);
   }
-  function g(u) {
-    t[19](u);
+  function s(r) {
+    t[18](r);
   }
-  function h(u) {
-    t[20](u);
+  function u(r) {
+    t[19](r);
   }
-  function s(u) {
-    t[21](u);
-  }
-  let v = {};
+  let g = {};
   return (
     /*visualisation_data*/
-    t[1].table.selected_year !== void 0 && (v.selected_year = /*visualisation_data*/
-    t[1].table.selected_year), /*visualisation_data*/
-    t[1].table.selected_election !== void 0 && (v.selected_election = /*visualisation_data*/
-    t[1].table.selected_election), /*visualisation_data*/
-    t[1].table.selected_region !== void 0 && (v.selected_region = /*visualisation_data*/
-    t[1].table.selected_region), /*visualisation_data*/
-    t[1].table.selected_fields !== void 0 && (v.selected_fields = /*visualisation_data*/
-    t[1].table.selected_fields), e = new Gt({ props: v }), D.push(() => J(e, "selected_year", a)), D.push(() => J(e, "selected_election", g)), D.push(() => J(e, "selected_region", h)), D.push(() => J(e, "selected_fields", s)), {
+    t[1].carto.selected_year !== void 0 && (g.selected_year = /*visualisation_data*/
+    t[1].carto.selected_year), /*visualisation_data*/
+    t[1].carto.selected_election !== void 0 && (g.selected_election = /*visualisation_data*/
+    t[1].carto.selected_election), /*visualisation_data*/
+    t[1].carto.selected_region !== void 0 && (g.selected_region = /*visualisation_data*/
+    t[1].carto.selected_region), e = new Tt({ props: g }), O.push(() => Q(e, "selected_year", c)), O.push(() => Q(e, "selected_election", s)), O.push(() => Q(e, "selected_region", u)), {
       c() {
         I(e.$$.fragment);
       },
-      m(u, k) {
-        F(e, u, k), o = !0;
+      m(r, p) {
+        V(e, r, p), i = !0;
       },
-      p(u, k) {
-        const E = {};
-        !l && k & /*visualisation_data*/
-        2 && (l = !0, E.selected_year = /*visualisation_data*/
-        u[1].table.selected_year, U(() => l = !1)), !n && k & /*visualisation_data*/
-        2 && (n = !0, E.selected_election = /*visualisation_data*/
-        u[1].table.selected_election, U(() => n = !1)), !c && k & /*visualisation_data*/
-        2 && (c = !0, E.selected_region = /*visualisation_data*/
-        u[1].table.selected_region, U(() => c = !1)), !i && k & /*visualisation_data*/
-        2 && (i = !0, E.selected_fields = /*visualisation_data*/
-        u[1].table.selected_fields, U(() => i = !1)), e.$set(E);
+      p(r, p) {
+        const f = {};
+        !l && p & /*visualisation_data*/
+        2 && (l = !0, f.selected_year = /*visualisation_data*/
+        r[1].carto.selected_year, Z(() => l = !1)), !n && p & /*visualisation_data*/
+        2 && (n = !0, f.selected_election = /*visualisation_data*/
+        r[1].carto.selected_election, Z(() => n = !1)), !o && p & /*visualisation_data*/
+        2 && (o = !0, f.selected_region = /*visualisation_data*/
+        r[1].carto.selected_region, Z(() => o = !1)), e.$set(f);
       },
-      i(u) {
-        o || (w(e.$$.fragment, u), o = !0);
+      i(r) {
+        i || (N(e.$$.fragment, r), i = !0);
       },
-      o(u) {
-        A(e.$$.fragment, u), o = !1;
+      o(r) {
+        A(e.$$.fragment, r), i = !1;
       },
-      d(u) {
-        G(e, u);
+      d(r) {
+        W(e, r);
       }
     }
   );
 }
-function Yt(t) {
-  let e;
-  return {
-    c() {
-      e = Y("Close");
-    },
-    m(l, n) {
-      B(l, e, n);
-    },
-    d(l) {
-      l && q(e);
+function Je(t) {
+  let e, l, n, o, i, c;
+  function s(f) {
+    t[20](f);
+  }
+  function u(f) {
+    t[21](f);
+  }
+  function g(f) {
+    t[22](f);
+  }
+  function r(f) {
+    t[23](f);
+  }
+  let p = {};
+  return (
+    /*visualisation_data*/
+    t[1].table.selected_year !== void 0 && (p.selected_year = /*visualisation_data*/
+    t[1].table.selected_year), /*visualisation_data*/
+    t[1].table.selected_election !== void 0 && (p.selected_election = /*visualisation_data*/
+    t[1].table.selected_election), /*visualisation_data*/
+    t[1].table.selected_region !== void 0 && (p.selected_region = /*visualisation_data*/
+    t[1].table.selected_region), /*visualisation_data*/
+    t[1].table.selected_fields !== void 0 && (p.selected_fields = /*visualisation_data*/
+    t[1].table.selected_fields), e = new Ft({ props: p }), O.push(() => Q(e, "selected_year", s)), O.push(() => Q(e, "selected_election", u)), O.push(() => Q(e, "selected_region", g)), O.push(() => Q(e, "selected_fields", r)), {
+      c() {
+        I(e.$$.fragment);
+      },
+      m(f, k) {
+        V(e, f, k), c = !0;
+      },
+      p(f, k) {
+        const y = {};
+        !l && k & /*visualisation_data*/
+        2 && (l = !0, y.selected_year = /*visualisation_data*/
+        f[1].table.selected_year, Z(() => l = !1)), !n && k & /*visualisation_data*/
+        2 && (n = !0, y.selected_election = /*visualisation_data*/
+        f[1].table.selected_election, Z(() => n = !1)), !o && k & /*visualisation_data*/
+        2 && (o = !0, y.selected_region = /*visualisation_data*/
+        f[1].table.selected_region, Z(() => o = !1)), !i && k & /*visualisation_data*/
+        2 && (i = !0, y.selected_fields = /*visualisation_data*/
+        f[1].table.selected_fields, Z(() => i = !1)), e.$set(y);
+      },
+      i(f) {
+        c || (N(e.$$.fragment, f), c = !0);
+      },
+      o(f) {
+        A(e.$$.fragment, f), c = !1;
+      },
+      d(f) {
+        W(e, f);
+      }
     }
-  };
-}
-function Zt(t) {
-  let e, l, n, c, i, o, a, g, h, s, v, u, k, E, d, y, C, r = (
-    /*visualisation*/
-    t[0] === "hemicycle" && Qe(t)
-  ), N = (
-    /*visualisation*/
-    t[0] === "carto" && ze(t)
-  ), m = (
-    /*visualisation*/
-    t[0] === "table" && Ue(t)
   );
-  return E = new Q({
-    props: {
-      secondary: !0,
-      $$slots: { default: [Yt] },
-      $$scope: { ctx: t }
-    }
-  }), E.$on(
-    "click",
-    /*click_handler_3*/
-    t[22]
-  ), {
-    c() {
-      e = M("div"), l = M("div"), l.innerHTML = "<p>Hemicycle</p>", n = T(), c = M("div"), c.innerHTML = "<p>Map</p>", i = T(), o = M("div"), o.innerHTML = "<p>Table</p>", a = T(), r && r.c(), g = T(), N && N.c(), h = T(), m && m.c(), s = T(), v = M("hr"), u = T(), k = M("div"), I(E.$$.fragment), S(l, "class", "election-engine-visualisation-item svelte-48878w"), S(l, "role", "button"), S(l, "tabindex", "0"), W(
-        l,
-        "selected",
-        /*visualisation*/
-        t[0] === "hemicycle"
-      ), S(c, "class", "election-engine-visualisation-item svelte-48878w"), S(c, "role", "button"), S(c, "tabindex", "0"), W(
-        c,
-        "selected",
-        /*visualisation*/
-        t[0] === "carto"
-      ), S(o, "class", "election-engine-visualisation-item svelte-48878w"), S(o, "role", "button"), S(o, "tabindex", "0"), W(
-        o,
-        "selected",
-        /*visualisation*/
-        t[0] === "table"
-      ), S(e, "class", "election-engine-visualisation-container svelte-48878w"), S(v, "class", "mt-4 svelte-48878w"), S(k, "class", "mt-4 svelte-48878w");
-    },
-    m(b, f) {
-      B(b, e, f), P(e, l), P(e, n), P(e, c), P(e, i), P(e, o), B(b, a, f), r && r.m(b, f), B(b, g, f), N && N.m(b, f), B(b, h, f), m && m.m(b, f), B(b, s, f), B(b, v, f), B(b, u, f), B(b, k, f), F(E, k, null), d = !0, y || (C = [
-        Z(
-          l,
-          "click",
-          /*click_handler*/
-          t[6]
-        ),
-        Z(
-          l,
-          "keypress",
-          /*keypress_handler*/
-          t[7]
-        ),
-        Z(
-          c,
-          "click",
-          /*click_handler_1*/
-          t[8]
-        ),
-        Z(
-          c,
-          "keypress",
-          /*keypress_handler_1*/
-          t[9]
-        ),
-        Z(
-          o,
-          "click",
-          /*click_handler_2*/
-          t[10]
-        ),
-        Z(
-          o,
-          "keypress",
-          /*keypress_handler_2*/
-          t[11]
-        )
-      ], y = !0);
-    },
-    p(b, f) {
-      (!d || f & /*visualisation*/
-      1) && W(
-        l,
-        "selected",
-        /*visualisation*/
-        b[0] === "hemicycle"
-      ), (!d || f & /*visualisation*/
-      1) && W(
-        c,
-        "selected",
-        /*visualisation*/
-        b[0] === "carto"
-      ), (!d || f & /*visualisation*/
-      1) && W(
-        o,
-        "selected",
-        /*visualisation*/
-        b[0] === "table"
-      ), /*visualisation*/
-      b[0] === "hemicycle" ? r ? (r.p(b, f), f & /*visualisation*/
-      1 && w(r, 1)) : (r = Qe(b), r.c(), w(r, 1), r.m(g.parentNode, g)) : r && (K(), A(r, 1, 1, () => {
-        r = null;
-      }), V()), /*visualisation*/
-      b[0] === "carto" ? N ? (N.p(b, f), f & /*visualisation*/
-      1 && w(N, 1)) : (N = ze(b), N.c(), w(N, 1), N.m(h.parentNode, h)) : N && (K(), A(N, 1, 1, () => {
-        N = null;
-      }), V()), /*visualisation*/
-      b[0] === "table" ? m ? (m.p(b, f), f & /*visualisation*/
-      1 && w(m, 1)) : (m = Ue(b), m.c(), w(m, 1), m.m(s.parentNode, s)) : m && (K(), A(m, 1, 1, () => {
-        m = null;
-      }), V());
-      const H = {};
-      f & /*$$scope*/
-      33554432 && (H.$$scope = { dirty: f, ctx: b }), E.$set(H);
-    },
-    i(b) {
-      d || (w(r), w(N), w(m), w(E.$$.fragment, b), d = !0);
-    },
-    o(b) {
-      A(r), A(N), A(m), A(E.$$.fragment, b), d = !1;
-    },
-    d(b) {
-      b && (q(e), q(a), q(g), q(h), q(s), q(v), q(u), q(k)), r && r.d(b), N && N.d(b), m && m.d(b), G(E), y = !1, x(C);
-    }
-  };
 }
 function Qt(t) {
   let e;
   return {
     c() {
-      e = M("div"), e.innerHTML = "<h2>Elections Engine</h2>", S(e, "slot", "title");
+      e = z("Done");
     },
     m(l, n) {
-      B(l, e, n);
+      P(l, e, n);
     },
-    p: de,
     d(l) {
-      l && q(e);
+      l && M(e);
     }
   };
 }
 function zt(t) {
-  let e, l, n = (
-    /*show_modal*/
-    t[2] && Ze(t)
+  let e, l, n, o, i, c, s, u, g, r, p, f, k, y, a, v, C, _ = (
+    /*visualisation*/
+    t[0] === "hemicycle" && ze(t)
+  ), E = (
+    /*visualisation*/
+    t[0] === "carto" && Ue(t)
+  ), h = (
+    /*visualisation*/
+    t[0] === "table" && Je(t)
   );
-  return {
+  return y = new J({
+    props: {
+      secondary: !0,
+      $$slots: { default: [Qt] },
+      $$scope: { ctx: t }
+    }
+  }), y.$on(
+    "click",
+    /*click_handler_3*/
+    t[24]
+  ), y.$on(
+    "click",
+    /*onClose*/
+    t[4]
+  ), {
     c() {
-      n && n.c(), e = xe();
+      e = q("div"), l = q("div"), l.innerHTML = "<p>Hemicycle</p>", n = T(), o = q("div"), o.innerHTML = "<p>Map</p>", i = T(), c = q("div"), c.innerHTML = "<p>Table</p>", s = T(), _ && _.c(), u = T(), E && E.c(), g = T(), h && h.c(), r = T(), p = q("hr"), f = T(), k = q("div"), I(y.$$.fragment), S(l, "class", "election-engine-visualisation-item svelte-48878w"), S(l, "role", "button"), S(l, "tabindex", "0"), F(
+        l,
+        "selected",
+        /*visualisation*/
+        t[0] === "hemicycle"
+      ), S(o, "class", "election-engine-visualisation-item svelte-48878w"), S(o, "role", "button"), S(o, "tabindex", "0"), F(
+        o,
+        "selected",
+        /*visualisation*/
+        t[0] === "carto"
+      ), S(c, "class", "election-engine-visualisation-item svelte-48878w"), S(c, "role", "button"), S(c, "tabindex", "0"), F(
+        c,
+        "selected",
+        /*visualisation*/
+        t[0] === "table"
+      ), S(e, "class", "election-engine-visualisation-container svelte-48878w"), S(p, "class", "mt-4 svelte-48878w"), S(k, "class", "mt-4 svelte-48878w");
     },
-    m(c, i) {
-      n && n.m(c, i), B(c, e, i), l = !0;
+    m(m, d) {
+      P(m, e, d), j(e, l), j(e, n), j(e, o), j(e, i), j(e, c), P(m, s, d), _ && _.m(m, d), P(m, u, d), E && E.m(m, d), P(m, g, d), h && h.m(m, d), P(m, r, d), P(m, p, d), P(m, f, d), P(m, k, d), V(y, k, null), a = !0, v || (C = [
+        U(
+          l,
+          "click",
+          /*click_handler*/
+          t[8]
+        ),
+        U(
+          l,
+          "keypress",
+          /*keypress_handler*/
+          t[9]
+        ),
+        U(
+          o,
+          "click",
+          /*click_handler_1*/
+          t[10]
+        ),
+        U(
+          o,
+          "keypress",
+          /*keypress_handler_1*/
+          t[11]
+        ),
+        U(
+          c,
+          "click",
+          /*click_handler_2*/
+          t[12]
+        ),
+        U(
+          c,
+          "keypress",
+          /*keypress_handler_2*/
+          t[13]
+        )
+      ], v = !0);
     },
-    p(c, [i]) {
-      /*show_modal*/
-      c[2] ? n ? (n.p(c, i), i & /*show_modal*/
-      4 && w(n, 1)) : (n = Ze(c), n.c(), w(n, 1), n.m(e.parentNode, e)) : n && (K(), A(n, 1, 1, () => {
-        n = null;
-      }), V());
+    p(m, d) {
+      (!a || d & /*visualisation*/
+      1) && F(
+        l,
+        "selected",
+        /*visualisation*/
+        m[0] === "hemicycle"
+      ), (!a || d & /*visualisation*/
+      1) && F(
+        o,
+        "selected",
+        /*visualisation*/
+        m[0] === "carto"
+      ), (!a || d & /*visualisation*/
+      1) && F(
+        c,
+        "selected",
+        /*visualisation*/
+        m[0] === "table"
+      ), /*visualisation*/
+      m[0] === "hemicycle" ? _ ? (_.p(m, d), d & /*visualisation*/
+      1 && N(_, 1)) : (_ = ze(m), _.c(), N(_, 1), _.m(u.parentNode, u)) : _ && (K(), A(_, 1, 1, () => {
+        _ = null;
+      }), R()), /*visualisation*/
+      m[0] === "carto" ? E ? (E.p(m, d), d & /*visualisation*/
+      1 && N(E, 1)) : (E = Ue(m), E.c(), N(E, 1), E.m(g.parentNode, g)) : E && (K(), A(E, 1, 1, () => {
+        E = null;
+      }), R()), /*visualisation*/
+      m[0] === "table" ? h ? (h.p(m, d), d & /*visualisation*/
+      1 && N(h, 1)) : (h = Je(m), h.c(), N(h, 1), h.m(r.parentNode, r)) : h && (K(), A(h, 1, 1, () => {
+        h = null;
+      }), R());
+      const H = {};
+      d & /*$$scope*/
+      268435456 && (H.$$scope = { dirty: d, ctx: m }), y.$set(H);
     },
-    i(c) {
-      l || (w(n), l = !0);
+    i(m) {
+      a || (N(_), N(E), N(h), N(y.$$.fragment, m), a = !0);
     },
-    o(c) {
-      A(n), l = !1;
+    o(m) {
+      A(_), A(E), A(h), A(y.$$.fragment, m), a = !1;
     },
-    d(c) {
-      c && q(e), n && n.d(c);
+    d(m) {
+      m && (M(e), M(s), M(u), M(g), M(r), M(p), M(f), M(k)), _ && _.d(m), E && E.d(m), h && h.d(m), W(y), v = !1, ee(C);
     }
   };
 }
-function Ut(t, e, l) {
-  let n = !1, c = "hemicycle", i = {
+function Ut(t) {
+  let e;
+  return {
+    c() {
+      e = q("div"), e.innerHTML = "<h2>Elections Engine</h2>", S(e, "slot", "title");
+    },
+    m(l, n) {
+      P(l, e, n);
+    },
+    p: ge,
+    d(l) {
+      l && M(e);
+    }
+  };
+}
+function Jt(t) {
+  let e, l, n = (
+    /*show_modal*/
+    t[2] && Qe(t)
+  );
+  return {
+    c() {
+      n && n.c(), e = et();
+    },
+    m(o, i) {
+      n && n.m(o, i), P(o, e, i), l = !0;
+    },
+    p(o, [i]) {
+      /*show_modal*/
+      o[2] ? n ? (n.p(o, i), i & /*show_modal*/
+      4 && N(n, 1)) : (n = Qe(o), n.c(), N(n, 1), n.m(e.parentNode, e)) : n && (K(), A(n, 1, 1, () => {
+        n = null;
+      }), R());
+    },
+    i(o) {
+      l || (N(n), l = !0);
+    },
+    o(o) {
+      A(n), l = !1;
+    },
+    d(o) {
+      o && M(e), n && n.d(o);
+    }
+  };
+}
+function Xt(t, e, l) {
+  const n = lt();
+  let { show_modal: o = !1 } = e, { is_block: i = !0 } = e, { visualisation: c = "hemicycle" } = e, { visualisation_data: s = {
     hemicycle: {
       selected_year: 2024,
       selected_election: "National Assembly",
@@ -2488,92 +2497,227 @@ function Ut(t, e, l) {
       selected_region: "National",
       selected_fields: ["Party", "Votes", "Seats"]
     }
-  }, o = null, a = null, g = null;
-  jQuery(document).on("election-engine-edit-block-click", (_, R, lt, nt) => {
-    o = R, l(4, a = lt), l(5, g = nt), a.visualisation && l(0, c = a.visualisation), l(1, i[c] = { ...a }, i), console.log("election-engine-edit-block-click", { props: o, attributes: a }), l(2, n = !0);
+  } } = e, u = null, g = null;
+  i && jQuery(document).on("election-engine-edit-block-click", (B, tl, ot, ct) => {
+    l(6, u = ot), l(7, g = ct), u.visualisation && l(0, c = u.visualisation), l(1, s[c] = { ...u }, s), l(2, o = !0);
   });
-  function h(_) {
-    l(0, c = _), l(4, a.visualisation = _, a);
+  function r(B) {
+    l(0, c = B), u && l(6, u.visualisation = B, u);
   }
-  const s = () => h("hemicycle"), v = () => h("hemicycle"), u = () => h("carto"), k = () => h("carto"), E = () => h("table"), d = () => h("table");
-  function y(_) {
-    t.$$.not_equal(i.hemicycle.selected_year, _) && (i.hemicycle.selected_year = _, l(1, i));
+  function p(B) {
+    B.preventDefault(), n("close");
   }
-  function C(_) {
-    t.$$.not_equal(i.hemicycle.selected_election, _) && (i.hemicycle.selected_election = _, l(1, i));
+  const f = () => r("hemicycle"), k = () => r("hemicycle"), y = () => r("carto"), a = () => r("carto"), v = () => r("table"), C = () => r("table");
+  function _(B) {
+    t.$$.not_equal(s.hemicycle.selected_year, B) && (s.hemicycle.selected_year = B, l(1, s));
   }
-  function r(_) {
-    t.$$.not_equal(i.hemicycle.selected_region, _) && (i.hemicycle.selected_region = _, l(1, i));
+  function E(B) {
+    t.$$.not_equal(s.hemicycle.selected_election, B) && (s.hemicycle.selected_election = B, l(1, s));
   }
-  function N(_) {
-    t.$$.not_equal(i.carto.selected_year, _) && (i.carto.selected_year = _, l(1, i));
+  function h(B) {
+    t.$$.not_equal(s.hemicycle.selected_region, B) && (s.hemicycle.selected_region = B, l(1, s));
   }
-  function m(_) {
-    t.$$.not_equal(i.carto.selected_election, _) && (i.carto.selected_election = _, l(1, i));
+  function m(B) {
+    t.$$.not_equal(s.carto.selected_year, B) && (s.carto.selected_year = B, l(1, s));
   }
-  function b(_) {
-    t.$$.not_equal(i.carto.selected_region, _) && (i.carto.selected_region = _, l(1, i));
+  function d(B) {
+    t.$$.not_equal(s.carto.selected_election, B) && (s.carto.selected_election = B, l(1, s));
   }
-  function f(_) {
-    t.$$.not_equal(i.table.selected_year, _) && (i.table.selected_year = _, l(1, i));
+  function H(B) {
+    t.$$.not_equal(s.carto.selected_region, B) && (s.carto.selected_region = B, l(1, s));
   }
-  function H(_) {
-    t.$$.not_equal(i.table.selected_election, _) && (i.table.selected_election = _, l(1, i));
+  function D(B) {
+    t.$$.not_equal(s.table.selected_year, B) && (s.table.selected_year = B, l(1, s));
   }
-  function j(_) {
-    t.$$.not_equal(i.table.selected_region, _) && (i.table.selected_region = _, l(1, i));
+  function he(B) {
+    t.$$.not_equal(s.table.selected_election, B) && (s.table.selected_election = B, l(1, s));
   }
-  function ge(_) {
-    t.$$.not_equal(i.table.selected_fields, _) && (i.table.selected_fields = _, l(1, i));
+  function w(B) {
+    t.$$.not_equal(s.table.selected_region, B) && (s.table.selected_region = B, l(1, s));
   }
-  const p = () => l(2, n = !1), L = () => l(2, n = !1);
-  return t.$$.update = () => {
-    t.$$.dirty & /*attributes, setAttributes, visualisation, visualisation_data*/
-    51 && a && g && (c === "hemicycle" ? g({
-      ...a,
-      ...i.hemicycle
+  function L(B) {
+    t.$$.not_equal(s.table.selected_fields, B) && (s.table.selected_fields = B, l(1, s));
+  }
+  const b = () => l(2, o = !1), Y = () => l(2, o = !1);
+  return t.$$set = (B) => {
+    "show_modal" in B && l(2, o = B.show_modal), "is_block" in B && l(5, i = B.is_block), "visualisation" in B && l(0, c = B.visualisation), "visualisation_data" in B && l(1, s = B.visualisation_data);
+  }, t.$$.update = () => {
+    t.$$.dirty & /*attributes, setAttributes, is_block, visualisation, visualisation_data*/
+    227 && u && g && i && (c === "hemicycle" ? g({
+      ...u,
+      ...s.hemicycle
     }) : c === "carto" ? g({
-      ...a,
-      ...i.carto
-    }) : c === "table" && (console.log("setting attributes", i.table), g({
-      ...a,
-      ...i.table
-    })));
+      ...u,
+      ...s.carto
+    }) : c === "table" && g({
+      ...u,
+      ...s.table
+    }));
   }, [
     c,
-    i,
-    n,
-    h,
-    a,
-    g,
     s,
-    v,
-    u,
-    k,
-    E,
-    d,
-    y,
-    C,
+    o,
     r,
-    N,
-    m,
-    b,
-    f,
-    H,
-    j,
-    ge,
     p,
-    L
+    i,
+    u,
+    g,
+    f,
+    k,
+    y,
+    a,
+    v,
+    C,
+    _,
+    E,
+    h,
+    m,
+    d,
+    H,
+    D,
+    he,
+    w,
+    L,
+    b,
+    Y
   ];
 }
-class Jt extends ce {
+class it extends ne {
   constructor(e) {
-    super(), ie(this, e, Ut, zt, ne, {});
+    super(), le(this, e, Xt, Jt, te, {
+      show_modal: 2,
+      is_block: 5,
+      visualisation: 0,
+      visualisation_data: 1
+    });
+  }
+}
+function $t(t) {
+  let e, l, n, o, i, c, s, u, g;
+  function r(y) {
+    t[5](y);
+  }
+  function p(y) {
+    t[6](y);
+  }
+  function f(y) {
+    t[7](y);
+  }
+  let k = { is_block: !1 };
+  return (
+    /*visualisation*/
+    t[1] !== void 0 && (k.visualisation = /*visualisation*/
+    t[1]), /*visualisation_data*/
+    t[2] !== void 0 && (k.visualisation_data = /*visualisation_data*/
+    t[2]), /*show_modal*/
+    t[0] !== void 0 && (k.show_modal = /*show_modal*/
+    t[0]), n = new it({ props: k }), O.push(() => Q(n, "visualisation", r)), O.push(() => Q(n, "visualisation_data", p)), O.push(() => Q(n, "show_modal", f)), n.$on(
+      "close",
+      /*onClose*/
+      t[4]
+    ), {
+      c() {
+        e = q("a"), e.innerHTML = '<span class="wp-media-buttons-icon dashicons dashicons-chart-bar"></span> Election Engine', l = T(), I(n.$$.fragment), S(e, "href", "#"), S(e, "class", "button"), S(e, "id", "electionengine_insert_shortcode_button"), S(e, "data-editor", "content");
+      },
+      m(y, a) {
+        P(y, e, a), P(y, l, a), V(n, y, a), s = !0, u || (g = U(
+          e,
+          "click",
+          /*clickShortcodeButton*/
+          t[3]
+        ), u = !0);
+      },
+      p(y, [a]) {
+        const v = {};
+        !o && a & /*visualisation*/
+        2 && (o = !0, v.visualisation = /*visualisation*/
+        y[1], Z(() => o = !1)), !i && a & /*visualisation_data*/
+        4 && (i = !0, v.visualisation_data = /*visualisation_data*/
+        y[2], Z(() => i = !1)), !c && a & /*show_modal*/
+        1 && (c = !0, v.show_modal = /*show_modal*/
+        y[0], Z(() => c = !1)), n.$set(v);
+      },
+      i(y) {
+        s || (N(n.$$.fragment, y), s = !0);
+      },
+      o(y) {
+        A(n.$$.fragment, y), s = !1;
+      },
+      d(y) {
+        y && (M(e), M(l)), W(n, y), u = !1, g();
+      }
+    }
+  );
+}
+function xt(t, e, l) {
+  let n = !1, o = "hemicycle", i = {
+    hemicycle: {
+      selected_year: 2024,
+      selected_election: "National Assembly",
+      selected_region: "Gauteng"
+    },
+    carto: {
+      selected_year: 2024,
+      selected_election: "National Assembly",
+      selected_region: "National"
+    },
+    table: {
+      selected_year: 2024,
+      selected_election: "National Assembly",
+      selected_region: "National",
+      selected_fields: ["Party", "Votes", "Seats"]
+    }
+  };
+  function c(p) {
+    p.preventDefault(), l(0, n = !0);
+  }
+  function s(p) {
+    p.preventDefault(), l(0, n = !1);
+    const f = {
+      visualisation: o,
+      selected_year: i[o].selected_year,
+      selected_election: i[o].selected_election,
+      selected_region: i[o].selected_region
+    };
+    o === "table" && (f.selected_fields = i[o].selected_fields.join(","));
+    let k = [];
+    for (const a in f)
+      k.push(`${a}="${f[a]}"`);
+    const y = `[election-engine ${k.join(" ")}]`;
+    wp.media.editor.insert(y);
+  }
+  function u(p) {
+    o = p, l(1, o);
+  }
+  function g(p) {
+    i = p, l(2, i);
+  }
+  function r(p) {
+    n = p, l(0, n);
+  }
+  return [
+    n,
+    o,
+    i,
+    c,
+    s,
+    u,
+    g,
+    r
+  ];
+}
+class el extends ne {
+  constructor(e) {
+    super(), le(this, e, xt, $t, te, {});
   }
 }
 jQuery(() => {
   const t = document.getElementById("ElectionsEngineAdminModal");
-  new Jt({
+  t && new it({
     target: t
+  });
+  const e = document.getElementById("ElectionsEngineShortcodeModal");
+  e && new el({
+    target: e
   });
 });

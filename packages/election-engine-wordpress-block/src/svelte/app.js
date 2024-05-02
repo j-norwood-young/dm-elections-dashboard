@@ -4,16 +4,17 @@ console.log("App")
 // Get "id" attribute from the div element in the block
 jQuery(() => {
 	const targets = document.querySelectorAll('.wp-block-tenlayer-election-engine');
-	console.log({targets})
 	targets.forEach(target => {
+		console.log(target);
 		let props = {
 			id: target.id,
-			visualisation: target.dataset.visualisation,
-			selected_year: target.dataset.selected_year,
-			selected_election: target.dataset.selected_election,
-			selected_region: target.dataset.selected_region,
-			selected_fields: target.dataset.selected_fields,
+			visualisation: jQuery(target).data("visualisation"),
+			selected_year: jQuery(target).data("selected_year"),
+			selected_election: jQuery(target).data("selected_election"),
+			selected_region: jQuery(target).data("selected_region"),
+			selected_fields: jQuery(target).data("selected_fields")
 		}
+		console.log(props)
 		new App({
 			target,
 			props

@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+define("ELECTIONENGINE_VERSION", '0.1.0');
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -77,3 +79,23 @@ function elections_engine_insert_div() {
 	<?php
 }
 add_action( 'admin_init', 'elections_engine_insert_div' );
+
+function electionengine_shortcode($atts) {
+	// print_r($atts);
+	$atts = shortcode_atts(array(
+		'visualisation' => 'hemicycle',
+		'selected_election' => 'National Assembly',
+		'selected_year' => '2019',
+		'selected_region' => 'National',
+		'selected_fields' => ['party', 'seats'],
+	), $atts);
+	require_once plugin_dir_path(  __FILE__ ).'packages/election-engine-wordpress-block/views/election-engine-shortcode-view.php';
+	$election_view = new ElectionEngineShortcodeView($atts);
+	return $election_view->generate();
+}
+add_shortcode('election-engine', 'electionengine_shortcode');
+
+function electionengine_media_button() {
+	require_once plugin_dir_path( __FILE__ ).'packages/election-engine-wordpress-block/views/election-engine-mediabutton.php';
+}
+add_action( 'media_buttons', 'electionengine_media_button' );

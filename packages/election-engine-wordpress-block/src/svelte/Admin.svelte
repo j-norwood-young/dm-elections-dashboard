@@ -4,9 +4,15 @@
 	import TableConfig from "@election-engine/wordpress-block/src/svelte/admin/TableConfig.svelte";
 	import Modal from "@election-engine/wordpress-block/src/svelte/components/Modal.svelte";
 	import Button from '@election-engine/wordpress-block/src/svelte/components/svelte-wordpress-button.svelte';
-	let show_modal = false;
-	let visualisation = 'hemicycle';
-	let visualisation_data = {
+
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
+	export let show_modal = false;
+	export let is_block = true;
+	export let visualisation = 'hemicycle';
+	export let visualisation_data = {
 		hemicycle: {
 			selected_year: 2024,
 			selected_election: 'National Assembly',
@@ -27,37 +33,42 @@
 	let props = null;
 	let attributes = null;
 	let setAttributes = null;
-	jQuery(document).on("election-engine-edit-block-click", (e, _props, _attributes, _setAttributes, ) => {
-		props = _props;
-		attributes = _attributes;
-		setAttributes = _setAttributes;
-		if (attributes.visualisation) {
-			visualisation = attributes.visualisation;
-		}
-		visualisation_data[visualisation] = { ...attributes }
-		console.log("election-engine-edit-block-click", { props, attributes })
-		show_modal = true;
-	})
+	if (is_block) {
+		jQuery(document).on("election-engine-edit-block-click", (e, _props, _attributes, _setAttributes, ) => {
+			props = _props;
+			attributes = _attributes;
+			setAttributes = _setAttributes;
+			if (attributes.visualisation) {
+				visualisation = attributes.visualisation;
+			}
+			visualisation_data[visualisation] = { ...attributes }
+			show_modal = true;
+		})
+	}
 
-	$: if (attributes && setAttributes) {
+	$: if (attributes && setAttributes && is_block) {
 		if (visualisation === 'hemicycle') {
 			setAttributes({ ...attributes, ...visualisation_data.hemicycle })
 		} else if (visualisation === 'carto') {
 			setAttributes({ ...attributes, ...visualisation_data.carto })
 		} else if (visualisation === 'table') {
-			console.log("setting attributes", visualisation_data.table)
 			setAttributes({ ...attributes, ...visualisation_data.table })
 		}
 	}
 
-	function selectVisualisation(component) {
-		visualisation = component;
-		attributes.visualisation = component;
+	function selectVisualisation(visualisation_name) {
+		visualisation = visualisation_name;
+		if (attributes) attributes.visualisation = visualisation_name;
+	}
+
+	function onClose(e) {
+		e.preventDefault();
+		dispatch('close');
 	}
 </script>
 {#if show_modal}
 
-<Modal on:close="{() => show_modal = false}">
+<Modal on:close="{() => show_modal = false}" on:close={onClose}>
 <div slot="title">
 	<h2>Elections Engine</h2>
 </div>
@@ -84,7 +95,7 @@
 {/if}
 <hr class="mt-4">
 <div class="mt-4">
-	<Button secondary on:click={() => show_modal = false}>Close</Button>
+	<Button secondary on:click={() => show_modal = false} on:click={onClose}>Done</Button>
 </div>
 </Modal>
 {/if}

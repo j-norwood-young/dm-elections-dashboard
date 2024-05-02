@@ -62,7 +62,7 @@
 		width: 100%;
 		height: 100%;
 		background: rgba(0,0,0,0.3);
-        z-index: 10000;
+        z-index: 2000;
 	}
 
 	.modal {
@@ -71,14 +71,14 @@
         left: 50%;
 		top: 50%;
 		width: calc(100vw - 4em);
-		max-width: 90%;
+		max-width: 70%;
 		max-height: calc(100vh - 6em);
 		overflow: auto;
 		transform: translate(-50%,-50%);
 		padding: 1em;
 		border-radius: 0.2em;
 		background: white;
-        z-index: 10001;
+        z-index: 90001;
 	}
 
 	.election-engine-modal-title {

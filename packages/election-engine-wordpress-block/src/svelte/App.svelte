@@ -3,6 +3,11 @@
 	import Hemicycle from 'svelte-hemicycle';
 
 	export let visualisation = 'hemicycle';
+	export let selected_year = 2024;
+	export let selected_election = 'National Assembly';
+	export let selected_region = 'Gauteng';
+	export let selected_fields = ['Party', 'Votes', 'Seats'];
+
 	let data = []
 	const colours = [
 		"#FF0000",
@@ -40,5 +45,22 @@
 </script>
 {#if visualisation === "hemicycle"}
 	<Hemicycle {data} {total_seats} {rows} />
+{/if}
+{#if visualisation === "carto"}
+	<h1>Carto</h1>
+	<ul>
+		<li>Year: {selected_year}</li>
+		<li>Election: {selected_election}</li>
+		<li>Region: {selected_region}</li>
+	</ul>
+{/if}
+{#if visualisation === "table"}
+	<h1>Table</h1>
+	<ul>
+		<li>Year: {selected_year}</li>
+		<li>Election: {selected_election}</li>
+		<li>Region: {selected_region}</li>
+		<li>Fields: {selected_fields}</li>
+	</ul>
 {/if}
 

@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import Hemicycle from 'svelte-hemicycle';
+	import Table from "@election-engine/wordpress-block/src/svelte/components/Table.svelte";
 
 	export let visualisation = 'hemicycle';
 	export let selected_year = 2024;
@@ -56,11 +57,6 @@
 {/if}
 {#if visualisation === "table"}
 	<h1>Table</h1>
-	<ul>
-		<li>Year: {selected_year}</li>
-		<li>Election: {selected_election}</li>
-		<li>Region: {selected_region}</li>
-		<li>Fields: {selected_fields}</li>
-	</ul>
+	<Table {selected_year} {selected_election} {selected_region} {selected_fields} />
 {/if}
 

@@ -1,31 +1,33 @@
 {
   "name": "@dm-elections-dashboard/iec-api",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Feed results from the IEC API to various services",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx index.ts",
+    "start": "tsx src/index.js",
     "test": "env NODE_ENV=test jest --detectOpenHandles",
-    "dev": "env NODE_ENV=development tsx --watch index.ts"
+    "test:watch": "env NODE_ENV=test jest --watch",
+    "dev": "env NODE_ENV=development tsx --watch src/index.ts"
   },
   "author": "Jason Norwood-Young <jason@10layer.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/preset-env": "^7.24.4",
     "dotenv": "^16.4.5",
-    "jest": "^29.7.0",
+    "fastify": "^4.26.2",
+    "@fastify/cors": "^9.0.1",
+    "iec-za": "^0.1.6",
     "redis": "^4.6.13",
-    "restify": "^11.1.0",
-    "restify-errors": "^8.0.2",
-    "supertest": "^6.3.4",
     "tsx": "^4.7.1"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.30",
+    "@types/node-fetch": "^2.6.11",
     "@types/redis": "^4.0.11",
-    "@types/restify": "^8.5.12",
-    "@types/supertest": "^6.0.2",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"

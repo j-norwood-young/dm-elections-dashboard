@@ -1,0 +1,55 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .election-engine-block-editor {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ddd;
+	text-align: center;
+	padding: 20px;
+	cursor: pointer;
+}
+
+.election-engine-block-editor h1 {
+	font-weight: bold;
+	color: grey;
+	font-size: 24px;
+}
+
+.election-engine-block-editor .pills {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.pill {
+		background-color: #f1f1f1;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 5px 10px;
+		margin: 0px 10px;
+		cursor: pointer;
+		font-size: 9pt;
+	}
+}
+
+.election-engine-visualisation-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.election-engine-visualisation-item {
+	background-color: #f1f1f1;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 0px 10px;
+	/* width: 30%; */
+}
+
+.election-engine-visualisation-item:hover {
+	background-color: #e1e1e1;
+}

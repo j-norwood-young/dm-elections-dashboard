@@ -1,0 +1,20 @@
+[x] color palette
+    [x] set up color palette requested by DM
+    [x] add to JSON
+    [x] share on Slack
+    [x] add to page and expose via button
+    [x] test with hemicycle and tweak, if necessary
+[ ] hemicycle
+    [x] link local hemicycle to dashboard pkg
+    [x] set up prop to handle shape wanted
+    [x] get hexagon working
+    [x] submit PR
+    [PENDING] test with data
+[ ] build + push to S3
+    [PENDING] try to link patched hemicycle branch
+    https://medium.com/@jonchurch/use-github-branch-as-dependency-in-package-json-5eb609c81f1a
+[ ] tabular data
+    [ ] get IEC API running
+    [ ] look at IEC API, identify data points
+    [ ] put together tabular data design
+    [ ] share on Slack

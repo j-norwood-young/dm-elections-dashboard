@@ -1,0 +1,88 @@
+{
+	"partyResults": [
+		{
+			"id": "AFRICAN NATIONAL CONGRESS",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+			"text": "ANC",
+			"count": 230
+		},
+		{
+			"id": "DEMOCRATIC ALLIANCE",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+			"text": "DA",
+			"count": 84
+		},
+		{
+			"id": "ECONOMIC FREEDOM FIGHTERS",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+			"text": "EFF",
+			"count": 44
+		},
+		{
+			"id": "INKATHA FREEDOM PARTY",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/IFP.png",
+			"text": "IFP",
+			"count": 14
+		},
+		{
+			"id": "VRYHEIDSFRONT PLUS",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+			"text": "VF PLUS",
+			"count": 10
+		},
+		{
+			"id": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+			"text": "ACDP",
+			"count": 4
+		},
+		{
+			"id": "AFRICAN INDEPENDENT CONGRESS",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+			"text": "AIC",
+			"count": 2
+		},
+		{
+			"id": "AFRICAN TRANSFORMATION MOVEMENT",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+			"text": "ATM",
+			"count": 2
+		},
+		{
+			"id": "CONGRESS  OF THE PEOPLE",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+			"text": "COPE",
+			"count": 2
+		},
+		{
+			"id": "GOOD",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+			"text": "GOOD",
+			"count": 2
+		},
+		{
+			"id": "NATIONAL FREEDOM PARTY",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/NFP.png",
+			"text": "NFP",
+			"count": 2
+		},
+		{
+			"id": "UNITED DEMOCRATIC MOVEMENT",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+			"text": "UDM",
+			"count": 2
+		},
+		{
+			"id": "AL JAMA-AH",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ALJAMA.png",
+			"text": "ALJAMA",
+			"count": 1
+		},
+		{
+			"id": "PAN AFRICANIST CONGRESS OF AZANIA",
+			"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+			"text": "PAC",
+			"count": 1
+		}
+	]
+}

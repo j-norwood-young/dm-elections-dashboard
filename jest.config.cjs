@@ -7,5 +7,5 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest',
     '^.+\\.js$': 'babel-jest',
   },
-  transformIgnorePatterns: [],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
 };

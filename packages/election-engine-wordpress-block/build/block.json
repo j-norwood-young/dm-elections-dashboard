@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tenlayer/election-engine",
+  "version": "0.1.0",
+  "title": "Election Engine",
+  "category": "widgets",
+  "icon": "chart-bar",
+  "description": "Embed live election results in your posts and pages.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "tenlayer-election-engine",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "visualisation": {
+      "type": "string",
+      "default": "hemicycle"
+    },
+    "selected_year": {
+      "type": "integer",
+      "default": 2024
+    },
+    "selected_election": {
+      "type": "string",
+      "default": "National Assembly"
+    },
+    "selected_region": {
+      "type": "string",
+      "default": "National"
+    },
+    "selected_fields": {
+      "type": "array",
+      "default": []
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-    "name": "@dm-elections-dashboard/common",
-    "version": "0.0.1",
-    "description": "Common files for the DM Elections Dashboard",
+    "name": "@election-engine/common",
+    "version": "0.1.0",
+    "description": "Common files for the Election Engine",
     "author": "Jason Norwood-Young <jason@10layer.com>",
     "license": "MIT",
     "type": "module"

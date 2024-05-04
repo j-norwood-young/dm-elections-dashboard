@@ -1,5 +1,5 @@
 <script>
-  import GautengPath from "./gautengPath.svelte";
+  import GautengPath from "./libs/gautengPath.svelte";
 
   export let node;
   export let grid;

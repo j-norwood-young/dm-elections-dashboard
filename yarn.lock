@@ -1109,10 +1109,6 @@
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dm-elections-dashboard/common@file:C:\\Users\\USER\\Desktop\\Gbenga\\Jason\\Projects\\dm-elections-dashboard\\packages\\common":
-  version "0.0.1"
-  resolved "file:packages/common"
-
 "@dm-elections-dashboard/iec-api@file:C:\\Users\\USER\\Desktop\\Gbenga\\Jason\\Projects\\dm-elections-dashboard\\packages\\iec-api":
   version "0.0.3"
   resolved "file:packages/iec-api"

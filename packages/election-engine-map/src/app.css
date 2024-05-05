@@ -29,8 +29,7 @@ p {
 	color:#797979;
 	font-size: 0.9rem;
 	max-width: 700px;
-	text-align: center;
-	margin: 0 auto;
+	margin: 0;
 }
 
 h1 {
@@ -48,18 +47,17 @@ h1 {
 }
 
 button {
-	border: 1px solid #ebebeb;
-	padding: 0.6em 1.2em;
-	font-size: 0.9rem;
+	border: 1px solid silver;
+	padding: 0.6em 0.9rem;
+	font-size: 0.8rem;
 	font-weight: 500;
 	font-family: inherit;
-	background-color: #f9f9f9;
+	background-color: #fffffff2;
 	cursor: pointer;
 	transition: border-color 0.25s;
 }
 button:hover {
 	outline: 4px auto -webkit-focus-ring-color
-	
 }
 button:focus,
 button:focus-visible {

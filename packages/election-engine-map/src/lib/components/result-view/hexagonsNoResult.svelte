@@ -11,7 +11,7 @@
   let isGauteng = data.region === "Gauteng" ? true : false;
 </script>
 
-<p class:gauteng={isGauteng}>{data.region}</p>
+<h2 class:gauteng={isGauteng}>{data.region}</h2>
 {#if isGauteng && !grid}
   <GautengLinePath />
 {/if}
@@ -80,29 +80,17 @@
     shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
   }
 
-  p {
+  h2 {
     margin: 0 auto;
     padding-bottom: 4px;
     text-align: center;
     font-size: 12px;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
+    font-family: "Heebo";
     color: #0c0c0c;
   }
 
-  p.gauteng {
+  h2.gauteng {
     transform: translate(-165%, -560%);
-    font-weight: 400;
   }
 
   .seat-wrapper.gauteng {
@@ -110,7 +98,7 @@
   }
 
   @media (width < 600px) {
-    h3.gauteng {
+    h2.gauteng {
       transform: translate(0%, 0%);
     }
 

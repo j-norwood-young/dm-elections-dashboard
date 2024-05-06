@@ -1,33 +1,11 @@
 <script>
   import GautengLinePath from "../gautengLinePath.svelte";
+  import { colors } from "../../libs/color-scheme";
 
   export let node;
   export let grid;
 
   //const seatArray = [...Array(seats.seat).keys()];
-
-  const colors = [
-    { party: "ANC", color: "#FF0000" },
-    { party: "DA", color: "#15616D" },
-    { party: "EFF", color: "#FCF6B1" },
-    { party: "UDM", color: "#F7B32B" },
-    { party: "ATM", color: "#2D1E2F" },
-    { party: "VF PLUS", color: "#FCE3B0" },
-    { party: "ACDP", color: "#B38FB7" },
-    { party: "AIC", color: "#C0ECCD" },
-    { party: "PAC", color: "#FF7D00" },
-    { party: "COPE", color: "#78290F" },
-    { party: "ATA", color: "#FFA047" },
-    { party: "SRWP", color: "#FFE6C2" },
-    { party: "GOOD", color: "#FFE6C2" },
-    { party: "ASC", color: "#ECCB83" },
-    { party: "ZACP", color: "#DDDDDD" },
-    { party: "ALJAMA", color: "#DDDDDD" },
-    { party: "BLF", color: "#DDDDDD" },
-    { party: "SRWP", color: "#DDDDDD" },
-    { party: "IFP", color: "#DDDDDD" },
-    { party: "NFP", color: "#DDDDDD" },
-  ];
 
   let seats = [];
 
@@ -51,7 +29,7 @@
   $: console.log(seats);
 </script>
 
-<p class:gauteng={isGauteng}>{node.provinceID}</p>
+<h2 class:gauteng={isGauteng}>{node.provinceID}</h2>
 {#if isGauteng && !grid}
   <GautengLinePath />
 {/if}
@@ -59,8 +37,8 @@
   <div class="container">
     {#each seats as seat, i}
       <div class="seat-container" on:mouseover={() => console.log(seat)}>
-        <div class="hexagon" style="background:{colors.filter((d) => seat.partyID === d.party)[0].color}"></div>
-        <div class="small-hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="small-hexagon" style="background:{colors.filter((d) => seat.partyID === d.party)[0].color}"></div>
       </div>
       <!-- {console.log(colors.filter((d) => d.party === seat.partyID)[0].color)} -->
     {/each}
@@ -120,27 +98,17 @@
     shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
   }
 
-  p {
+  h2 {
     margin: 0 auto;
     padding-bottom: 4px;
     text-align: center;
     font-size: 12px;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
+    font-family: "Heebo";
     color: #0c0c0c;
+    visibility: hidden;
   }
 
-  p.gauteng {
+  h2.gauteng {
     transform: translate(-165%, -560%);
   }
 
@@ -149,7 +117,7 @@
   }
 
   @media (width < 600px) {
-    p.gauteng {
+    h2.gauteng {
       transform: translate(0%, 0%);
     }
 

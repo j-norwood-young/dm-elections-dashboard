@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -23,6 +25,7 @@ a:hover {
 
 body {
 	margin: 0;
+	font-family: "Heebo";
 }
 
 p {
@@ -64,6 +67,8 @@ button:focus-visible {
 	background-color: #0c0c0c;
 	color: #fff;
 }
+
+
 
 @media (prefers-color-scheme: light) {
 	:root {

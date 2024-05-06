@@ -1,9 +1,12 @@
 <script>
   import BackgroundMap from "../backgroundMap.svelte";
+  import Legend from "../legend.svelte";
 
   export let data;
   export let innerWidth;
 </script>
+
+<Legend />
 
 <p>
   200 Regional Seats, divided between the regions* based on registered population, prior to the elections. The regions

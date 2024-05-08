@@ -26,7 +26,7 @@
 
   let isGauteng = node.provinceID === "Gauteng" ? true : false;
 
-  $: console.log(seats);
+  // $: console.log(seats);
 </script>
 
 <h2 class:gauteng={isGauteng}>{node.provinceID}</h2>
@@ -34,9 +34,9 @@
   <GautengLinePath />
 {/if}
 <div class="seat-wrapper" class:gauteng={isGauteng}>
-  <div class="container">
+  <div class="electionengine-container">
     {#each seats as seat, i}
-      <div class="seat-container" on:mouseover={() => console.log(seat)}>
+      <div class="seat-container">
         <div class="hexagon"></div>
         <div class="small-hexagon" style="background:{colors.filter((d) => seat.partyID === d.party)[0].color}"></div>
       </div>
@@ -53,12 +53,12 @@
     --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
   }
 
-  .container {
+  .electionengine-container {
     min-width: 100px;
     font-size: 0; /*disable white space between inline block element */
   }
 
-  .container .seat-container {
+  .electionengine-container .seat-container {
     position: relative;
     /* height: calc(var(--s) * 1.1547);
 		width: var(--s); */
@@ -66,7 +66,7 @@
     margin-bottom: calc(var(--m) - var(--s) * 0.2885);
   }
 
-  .container .hexagon {
+  .electionengine-container .hexagon {
     width: var(--s);
     margin: var(--m);
     height: calc(var(--s) * 1.1547);
@@ -87,10 +87,10 @@
     left: 0;
     clip-path: polygon(4% 28%, 4% 73%, 50% 95%, 96% 72%, 96% 28%, 50% 4%);
   }
-  /* .container div:nth-child(odd) {
+  /* .electionengine-container div:nth-child(odd) {
 		background: green;
 	} */
-  .container::before {
+  .electionengine-container::before {
     content: "";
     width: calc(var(--s) / 2 + var(--m));
     float: left;

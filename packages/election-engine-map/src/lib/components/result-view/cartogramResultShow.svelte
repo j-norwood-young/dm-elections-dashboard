@@ -33,7 +33,7 @@
 
 <div id="cartogram" class:mb-grid={grid}>
   {#each data2019 as node}
-    <div class="block" class:mb-grid={grid} style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;">
+    <div class="electionengine-block" class:mb-grid={grid} style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;">
       <Hexagons {node} {grid} />
     </div>
   {/each}
@@ -56,12 +56,12 @@
     grid-template-columns: 50% 50%;
   }
 
-  .block {
+  .electionengine-block {
     position: absolute;
     width: 100px;
   }
 
-  .block.mb-grid {
+  .electionengine-block.mb-grid {
     position: static;
     align-self: center;
     justify-self: center;

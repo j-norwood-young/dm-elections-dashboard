@@ -1,6 +1,4 @@
 <script>
-  import cartogramResultShow from "./result-view/cartogramResultShow.svelte";
-
   import geoData from "../../data/sa-province.json";
   import { geoArea, geoIdentity, geoPath } from "d3-geo";
   import CartogramResultShow from "./result-view/cartogramResultShow.svelte";
@@ -50,7 +48,7 @@
     </svg>
   {/if}
   <CartogramNoResult {path} {grid} {provinces} />
-  <CartogramResultShow {provinces} {path} {grid} {data} />
+  <CartogramResultShow {provinces} {path} {grid} bind:data={data} />
 </div>
 
 <style>

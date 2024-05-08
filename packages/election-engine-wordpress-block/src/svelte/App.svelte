@@ -1,5 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import Cartogram from '@election-engine/map/src/App.svelte';
+
 	import Hemicycle from 'svelte-hemicycle';
 	import Table from "@election-engine/wordpress-block/src/svelte/components/Table.svelte";
 
@@ -48,12 +50,7 @@
 	<Hemicycle {data} {total_seats} {rows} />
 {/if}
 {#if visualisation === "carto"}
-	<h1>Carto</h1>
-	<ul>
-		<li>Year: {selected_year}</li>
-		<li>Election: {selected_election}</li>
-		<li>Region: {selected_region}</li>
-	</ul>
+	<Cartogram {selected_year} {selected_election} {selected_region} />
 {/if}
 {#if visualisation === "table"}
 	<h1>Table</h1>

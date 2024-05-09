@@ -4,6 +4,7 @@
 
   export let node;
   export let grid;
+  export let tooltipData;
 
   //const seatArray = [...Array(seats.seat).keys()];
 
@@ -19,14 +20,14 @@
           percentage: node.provinceResult[0].PartyBallotResults[i].Percentage,
           totalVotes: node.provinceResult[0].PartyBallotResults[i].Votes,
           isIndepedendent: node.provinceResult[0].PartyBallotResults[i].IsIndependent,
+          partyColor: colors.filter((d) => node.provinceResult[0].PartyBallotResults[i].Abbreviation === d.party)[0]
+            .color,
         });
       }
     }
   }
 
   let isGauteng = node.provinceID === "Gauteng" ? true : false;
-
-  $: console.log(seats);
 </script>
 
 <h2 class:gauteng={isGauteng}>{node.provinceID}</h2>
@@ -36,9 +37,9 @@
 <div class="seat-wrapper" class:gauteng={isGauteng}>
   <div class="container">
     {#each seats as seat, i}
-      <div class="seat-container" on:mouseover={() => console.log(seat)}>
+      <div class="seat-container" on:mouseleave={() => (tooltipData = null)}>
         <div class="hexagon"></div>
-        <div class="small-hexagon" style="background:{colors.filter((d) => seat.partyID === d.party)[0].color}"></div>
+        <div class="small-hexagon" style="background:{seat.partyColor}" on:mouseover={() => (tooltipData = seat)}></div>
       </div>
       <!-- {console.log(colors.filter((d) => d.party === seat.partyID)[0].color)} -->
     {/each}

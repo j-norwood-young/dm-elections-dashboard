@@ -1,6 +1,7 @@
 <script>
   // import vote2019 from '$lib/data/votes-2019.json';
   import { regionalSeatAllocation } from "../../libs/seats.js";
+  import Tooltip from "../tooltip.svelte";
 
   import Hexagons from "./hexagonsResultShow.svelte";
 
@@ -8,6 +9,8 @@
   export let provinces;
   export let grid;
   export let data;
+
+  let tooltipData;
 
   $: data2019 = provinces.map((d) => {
     const coords = path.centroid(d);
@@ -34,10 +37,16 @@
 <div id="cartogram" class:mb-grid={grid}>
   {#each data2019 as node}
     <div class="block" class:mb-grid={grid} style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;">
-      <Hexagons {node} {grid} />
+      <Hexagons {node} {grid} bind:tooltipData />
     </div>
   {/each}
 </div>
+
+{console.log(tooltipData)}
+
+{#if tooltipData}
+  <Tooltip data={tooltipData} />
+{/if}
 
 <style>
   #cartogram {

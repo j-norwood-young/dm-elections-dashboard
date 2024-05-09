@@ -1,4 +1,24 @@
 {
+	"partyColors": {
+		"ACTIONSA": "#06B616",
+		"ANC": "#FFCA0B",
+		"BOSA": "#EA8484",
+		"DA": "#145FA2",
+		"EFF": "#EB2A2D",
+		"VF PLUS": "#25BDC8",
+		"GOOD": "#F36A14",
+		"IFP": "#FFF000",
+		"MK": "#A044AC",
+		"PA": "#774A17",
+		"RISE": "#000000",
+		"UDM": "#12F783"
+	},
+	"genericColors": [
+		"#15616D",
+		"#FCE3B0",
+		"#B38FB7",
+		"#C0ECCD"
+	],
 	"colorSchemes": [
 		{
 			"high": {

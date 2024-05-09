@@ -1,6 +1,7 @@
 <script>
+  // @ts-nocheck
   import GautengLinePath from "../gautengLinePath.svelte";
-  import { colors } from "../../libs/color-scheme";
+  import { partyColor } from "@election-engine/common/colors";
 
   export let node;
   export let grid;
@@ -35,13 +36,17 @@
   <GautengLinePath />
 {/if}
 <div class="seat-wrapper" class:gauteng={isGauteng}>
-  <div class="container">
+  <div class="electionengine-container">
     {#each seats as seat, i}
-      <div class="seat-container" on:mouseleave={() => (tooltipData = null)}>
+      <div class="seat-container">
         <div class="hexagon"></div>
-        <div class="small-hexagon" style="background:{seat.partyColor}" on:mouseover={() => (tooltipData = seat)}></div>
+        <div
+          data-party_id={seat.partyID}
+          class="small-hexagon"
+          style:background-color={partyColor(seat.partyID, i)}
+          on:mouseover={() => (tooltipData = seat)}
+        ></div>
       </div>
-      <!-- {console.log(colors.filter((d) => d.party === seat.partyID)[0].color)} -->
     {/each}
   </div>
 </div>
@@ -54,12 +59,12 @@
     --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
   }
 
-  .container {
+  .electionengine-container {
     min-width: 100px;
     font-size: 0; /*disable white space between inline block element */
   }
 
-  .container .seat-container {
+  .electionengine-container .seat-container {
     position: relative;
     /* height: calc(var(--s) * 1.1547);
 		width: var(--s); */
@@ -67,7 +72,7 @@
     margin-bottom: calc(var(--m) - var(--s) * 0.2885);
   }
 
-  .container .hexagon {
+  .electionengine-container .hexagon {
     width: var(--s);
     margin: var(--m);
     height: calc(var(--s) * 1.1547);
@@ -88,10 +93,10 @@
     left: 0;
     clip-path: polygon(4% 28%, 4% 73%, 50% 95%, 96% 72%, 96% 28%, 50% 4%);
   }
-  /* .container div:nth-child(odd) {
+  /* .electionengine-container div:nth-child(odd) {
 		background: green;
 	} */
-  .container::before {
+  .electionengine-container::before {
     content: "";
     width: calc(var(--s) / 2 + var(--m));
     float: left;

@@ -65,12 +65,12 @@
     grid-template-columns: 50% 50%;
   }
 
-  .block {
+  .electionengine-block {
     position: absolute;
     width: 100px;
   }
 
-  .block.mb-grid {
+  .electionengine-block.mb-grid {
     position: static;
     align-self: center;
     justify-self: center;

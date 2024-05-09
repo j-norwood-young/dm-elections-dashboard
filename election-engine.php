@@ -4,7 +4,7 @@
  * Description:       Visualisations for the South African general elections.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            10Layer
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -73,12 +73,12 @@ function elections_engine_enqueue_admin_script() {
 add_action('admin_enqueue_scripts', 'elections_engine_enqueue_admin_script', 9999);
 
 
-function elections_engine_insert_div() {
+function elections_engine_insert_admin_div() {
 	?>
 	<div id="ElectionsEngineAdminModal"></div>
 	<?php
 }
-add_action( 'admin_init', 'elections_engine_insert_div' );
+add_action( 'admin_init', 'elections_engine_insert_admin_div' );
 
 function electionengine_shortcode($atts) {
 	// print_r($atts);
@@ -89,13 +89,20 @@ function electionengine_shortcode($atts) {
 		'selected_region' => 'National',
 		'selected_fields' => ['party', 'seats'],
 	), $atts);
-	require_once plugin_dir_path(  __FILE__ ).'packages/election-engine-wordpress-block/views/election-engine-shortcode-view.php';
+	require_once plugin_dir_path(  __FILE__ ).'packages/election-engine-wordpress-block/php/views/election-engine-shortcode-view.php';
 	$election_view = new ElectionEngineShortcodeView($atts);
 	return $election_view->generate();
 }
 add_shortcode('election-engine', 'electionengine_shortcode');
 
 function electionengine_media_button() {
-	require_once plugin_dir_path( __FILE__ ).'packages/election-engine-wordpress-block/views/election-engine-mediabutton.php';
+	require_once plugin_dir_path( __FILE__ ).'packages/election-engine-wordpress-block/php/views/election-engine-mediabutton.php';
 }
 add_action( 'media_buttons', 'electionengine_media_button' );
+
+// Serve Embed
+function embed_init() {
+    require_once( plugin_dir_path( __FILE__ ) . 'packages/election-engine-wordpress-block/php/embed.php' );
+    new ElectionEngineEmbed();
+}
+add_action( 'init', 'embed_init' );

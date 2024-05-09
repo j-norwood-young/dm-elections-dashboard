@@ -1,19 +1,34 @@
 <script>
-  import { votes2009Data, votes2014Data, votes2019Data, votes2024Data } from "./lib/libs/loadData.js";
+  // @ts-nocheck
+
+  import { loadData } from "./lib/libs/loadData.js";
   import { onMount } from "svelte";
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
+  import years from "@election-engine/common/years.json";
+
+  // Parameters
+  export let selected_year = 2019; // 2024, 2019, 2014
+	export let selected_election = 'National Assembly'; // National Assembly, Provincial Legislature
+	export let selected_region = 'National'; // National, Gauteng, Western Cape, etc.
 
   let data;
-  let viewBox = "national";
-
+  
   onMount(async () => {
-    // const response = await fetch("https://iec-api.revengine.dailymaverick.co.za/results/votes/national/2019");
+    data = await loadData(selected_year);
+  })
 
-    // data = await response.json();
+  async function setYear(year) {
+    if (year === selected_year) return;
+    selected_year = year;
+    data = await loadData(selected_year);
+  }
 
-    data = await votes2019Data();
-  });
+  async function setElection(election) {
+    if (election === selected_election) return;
+    selected_election = election;
+    data = await loadData(selected_year);
+  }
 
   let innerWidth = 0;
 </script>
@@ -24,28 +39,26 @@
   <div class="select-wrapper">
     <div class="select-button-wrapper">
       <div class="region">
-        <button class:national={viewBox === "national"} on:click={() => (viewBox = "national")}>
+        <button class:selected={selected_election === "National Assembly"} on:click={() => setElection("National Assembly")}>
           National Assembly</button
         >
-        <button class:province={viewBox === "province"} on:click={() => (viewBox = "provincial")}>
+        <button class:selected={selected_election === "Provincial Legislature"} on:click={() => setElection("Provincial Legislature")}>
           Provincial Legislature
         </button>
       </div>
     </div>
     <div class="select-button-wrapper">
       <div class="election-year">
-        <button> 2009</button>
-        <button> 2014</button>
-        <button> 2019 </button>
-        <button> 2024</button>
+        {#each years as year}
+          <button class:selected={selected_year === year} on:click={() => setYear(year)}> {year}</button>
+        {/each}
       </div>
     </div>
   </div>
-
-  {#if viewBox === "national"}
-    <NationalView {data} {innerWidth} />
-  {:else if viewBox === "provincial"}
-    <ProvincialView />
+  {#if selected_election === "National Assembly"}
+    <NationalView bind:data={data} {innerWidth} />
+  {:else if selected_election === "Provincial Legislature"}
+    <ProvincialView bind:data={data} {innerWidth} {selected_region} />
   {/if}
 </div>
 
@@ -81,16 +94,9 @@
     transition: border-color 0.3s;
   }
 
-  .election-year button:focus,
-  .election-year button:focus-visible {
-    background-color: black;
-    color: white;
-    border-bottom: 4px solid black;
-  }
-
-  button.national,
-  button.province {
+  button.selected {
     background-color: #0c0c0c;
     color: #fff;
+    border-bottom: 4px solid black;
   }
 </style>

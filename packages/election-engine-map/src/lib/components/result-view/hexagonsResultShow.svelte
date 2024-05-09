@@ -1,6 +1,7 @@
 <script>
+  // @ts-nocheck
   import GautengLinePath from "../gautengLinePath.svelte";
-  import { colors } from "../../libs/color-scheme";
+  import { partyColor } from "@election-engine/common/colors"
 
   export let node;
   export let grid;
@@ -38,9 +39,8 @@
     {#each seats as seat, i}
       <div class="seat-container">
         <div class="hexagon"></div>
-        <div class="small-hexagon" style="background:{colors.filter((d) => seat.partyID === d.party)[0].color}"></div>
+        <div data-party_id="{seat.partyID}" class="small-hexagon" style:background-color={partyColor(seat.partyID, i)}></div>
       </div>
-      <!-- {console.log(colors.filter((d) => d.party === seat.partyID)[0].color)} -->
     {/each}
   </div>
 </div>

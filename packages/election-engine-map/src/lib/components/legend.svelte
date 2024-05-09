@@ -1,5 +1,11 @@
 <script>
-  import { colors } from "../libs/color-scheme";
+  // This needs to be rewritten to use the parties that are in the data
+  import { partyColors, genericColors } from "@election-engine/common/color-scheme.json";
+
+  let colors = [];
+  for (const [party, color] of Object.entries(partyColors)) {
+    colors.push({ party, color });
+  }
 </script>
 
 <div class="legend-wrapper">

@@ -3,6 +3,7 @@
 
   import { loadData } from "./lib/libs/loadData.js";
   import { onMount } from "svelte";
+  import Hexagons from "./lib/components/hexagons.svelte";
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
   import years from "@election-engine/common/years.json";
@@ -13,9 +14,11 @@
 	export let selected_region = 'National'; // National, Gauteng, Western Cape, etc.
 
   let data;
+  let province_seats = {};
   
   onMount(async () => {
     data = await loadData(selected_year);
+    // console.log(data)
   })
 
   async function setYear(year) {
@@ -28,6 +31,12 @@
     if (election === selected_election) return;
     selected_election = election;
     data = await loadData(selected_year);
+  }
+
+  $: if (data) {
+    for (let i in data) {
+      province_seats[data[i].Province] = data[i].PartyBallotResults.filter(p => p.NumberOfSeats > 0);
+    }
   }
 
   let innerWidth = 0;
@@ -59,6 +68,11 @@
     <NationalView bind:data={data} {innerWidth} />
   {:else if selected_election === "Provincial Legislature"}
     <ProvincialView bind:data={data} {innerWidth} {selected_region} />
+  {/if}
+  {#if (province_seats["Eastern Cape"])}
+  <svg width="140px" height="100">
+    <Hexagons seats={province_seats["Eastern Cape"]} total_seats={47} />
+  </svg>
   {/if}
 </div>
 

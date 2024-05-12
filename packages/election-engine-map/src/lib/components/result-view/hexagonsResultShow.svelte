@@ -21,8 +21,6 @@
           percentage: node.provinceResult[0].PartyBallotResults[i].Percentage,
           totalVotes: node.provinceResult[0].PartyBallotResults[i].Votes,
           isIndepedendent: node.provinceResult[0].PartyBallotResults[i].IsIndependent,
-          partyColor: colors.filter((d) => node.provinceResult[0].PartyBallotResults[i].Abbreviation === d.party)[0]
-            .color,
         });
       }
     }
@@ -36,7 +34,7 @@
   <GautengLinePath />
 {/if}
 <div class="seat-wrapper" class:gauteng={isGauteng}>
-  <div class="electionengine-container">
+  <div class="electionengine-container" on:mouseleave={() => (tooltipData = null)}>
     {#each seats as seat, i}
       <div class="seat-container">
         <div class="hexagon"></div>

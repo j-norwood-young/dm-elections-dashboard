@@ -36,7 +36,11 @@
 
 <div id="cartogram" class:mb-grid={grid}>
   {#each data2019 as node}
-    <div class="block" class:mb-grid={grid} style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;">
+    <div
+      class="electionengine-block"
+      class:mb-grid={grid}
+      style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;"
+    >
       <Hexagons {node} {grid} bind:tooltipData />
     </div>
   {/each}

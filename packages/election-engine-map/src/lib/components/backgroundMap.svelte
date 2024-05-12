@@ -27,7 +27,7 @@
         [20, 20],
         [width, height],
       ],
-      geoData,
+      geoData
     );
 
   // Geographic path generator based on the projection configured above.
@@ -47,8 +47,8 @@
       </g>
     </svg>
   {/if}
-  <CartogramNoResult {path} {grid} {provinces} />
-  <CartogramResultShow {provinces} {path} {grid} bind:data={data} />
+  <!-- <CartogramNoResult {path} {grid} {provinces} /> -->
+  <CartogramResultShow {provinces} {path} {grid} bind:data />
 </div>
 
 <style>

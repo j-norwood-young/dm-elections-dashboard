@@ -6,30 +6,30 @@
   <div class="container">
     <div>
       <p class="thead">Party:</p>
-      <p class="tdata" style="color:{data.partyColor}">{data.partyName}</p>
+      <p class="tdata" style="color:{data.color}">{data.party.Name}</p>
     </div>
     <div>
       <p class="thead">Percentage of Seats Won in Limpopo</p>
       <div class="range-wrapper tdata">
         <div class="range">
           <div class="outer">
-            <div class="inner" style="width:{data.percentage}px; background:{data.partyColor}"></div>
+            <div class="inner" style="width:{data.party.Percentage}px; background:{data.color}"></div>
           </div>
         </div>
-        <span> {Math.round(data.percentage)}</span>
+        <span> {Math.round(data.party.Percentage)}</span>
       </div>
     </div>
     <div>
       <p class="thead">Total Number of Seats</p>
-      <p class="tdata">{data.numberOfSeats}</p>
+      <p class="tdata">{data.party.NumberOfSeats}</p>
     </div>
     <div>
       <p class="thead">Total Number of Seats Won in Limpopo</p>
-      <p class="tdata">{data.numberOfSeats}</p>
+      <p class="tdata">{data.party.NumberOfSeats}</p>
     </div>
     <div>
       <p class="thead">Total Votes</p>
-      <p class="tdata">{data.totalVotes}</p>
+      <p class="tdata">{data.party.Votes}</p>
     </div>
   </div>
 </div>

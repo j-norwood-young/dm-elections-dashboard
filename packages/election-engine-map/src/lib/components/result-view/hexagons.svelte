@@ -10,6 +10,7 @@
   export let offset = true;
   export let grid;
   export let node;
+  export let tooltipData;
 
   let seatsData = [];
   let rows = 0;
@@ -67,6 +68,7 @@
   class:gauteng={isGauteng}
   width="140"
   height="100"
+  on:mouseleave={() => (tooltipData = null)}
 >
   <text dx="15" dy="-4" base>{node.provinceID}</text>
   <svg viewBox="0 0 {12 * cols} {12 * rows}">
@@ -78,7 +80,7 @@
           : seat.row * 11})
               "
       >
-        <svg width="12px" height="13px" viewBox="0 0 15 17">
+        <svg width="12px" height="13px" viewBox="0 0 15 17" on:mouseover={() => (tooltipData = seat)}>
           <g transform="translate(1, 1)" fill={seat.color} fill-rule="nonzero" stroke="#444444">
             <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
           </g>

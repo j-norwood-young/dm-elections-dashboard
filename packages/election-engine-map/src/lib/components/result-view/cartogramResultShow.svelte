@@ -52,8 +52,6 @@
   {/each}
 </div>
 
-{console.log(tooltipData)}
-
 {#if tooltipData}
   <Tooltip data={tooltipData} />
 {/if}

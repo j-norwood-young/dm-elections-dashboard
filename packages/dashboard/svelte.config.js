@@ -1,8 +1,8 @@
 import adapter from "@sveltejs/adapter-static";
-import preprocess from "svelte-preprocess";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 const config = {
-  preprocess: preprocess(),
+  preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({
       dir: "dm",

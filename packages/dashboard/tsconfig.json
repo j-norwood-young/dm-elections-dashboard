@@ -2,8 +2,8 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": false,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,

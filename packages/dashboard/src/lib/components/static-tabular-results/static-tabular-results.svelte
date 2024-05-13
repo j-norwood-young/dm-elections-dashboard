@@ -24,6 +24,9 @@
 </script>
 
 <main>
+  <ResultsHeader>
+    <h2>Results Breakdown</h2>
+  </ResultsHeader>
   <Table color="custom" class="text-white">
     <TableHead class="bg-gray-900 text-center">
       <TableHeadCell><span class="headingColor">Party</span></TableHeadCell>

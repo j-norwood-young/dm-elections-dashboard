@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import Hemicycle from "svelte-hemicycle";
-  import { useMediaQuery } from "svelte-breakpoints";
+  import {
+    CurrentScreenSize,
+    ResultsHeaderStore,
+  } from "$components/results-header";
 
   import { toggleColorScheme, decorateWithColors } from "$lib/load-colors";
   import {
@@ -10,14 +13,11 @@
     seats2019Data,
     seats2024Data,
   } from "$lib/load-data";
-  import ResultsHeader from "$components/results-header";
+  import { ResultsHeader } from "$components/results-header";
 
-  const isSmall = useMediaQuery("(max-width: 200px)");
-  const isMedium = useMediaQuery("(min-width: 480px)");
-  const isBigger = useMediaQuery("(min-width: 720px)");
-  const isRest = useMediaQuery("(min-width: 1024px)");
-
-  let current_party, defaultData, mappedDefaultData;
+  let current_party: { count: any };
+  let defaultData, mappedDefaultData;
+  let currentScreen: CurrentScreenSize;
   let heading = "";
 
   const DEFAULT_COLOR_SCHEME = "high";
@@ -62,23 +62,23 @@
   });
 
   $: {
-    if ($isSmall) {
-      arc = 360;
-      className = "small";
-      hcWidth = 10;
-      hcHeight = 10;
+    ResultsHeaderStore.subscribe((val) => {
+      currentScreen = val;
+    });
+    if (currentScreen.small.query) {
+      let { arc, className, hcWidth, hcHeight } = currentScreen;
     }
-    if ($isMedium) {
+    if (currentScreen.medium.query) {
       arc = 300;
       hcWidth = 220;
       hcHeight = 220;
     }
-    if ($isBigger) {
+    if (currentScreen.bigger.query) {
       arc = 270;
       hcWidth = 420;
       hcHeight = 420;
     }
-    if ($isRest) {
+    if (currentScreen.rest.query) {
       arc = 180;
       hcWidth = 620;
       hcHeight = 620;
@@ -128,12 +128,9 @@
 
 <h1>National Elections</h1>
 <h2>Hemicycle</h2>
-<div class="toggleBar default">
-  <button type="button" on:click={() => loadData("2009")}>2009</button>
-  <button type="button" on:click={() => loadData("2014")}>2014</button>
-  <button type="button" on:click={() => loadData("2019")}>2019</button>
-  <button type="button" disabled={true} title="Not available yet!">2024</button>
-</div>
+<ResultsHeader>
+  <h3>Results Breakdown</h3>
+</ResultsHeader>
 <div class={className} id="hemicycle">
   <Hemicycle
     bind:current_party

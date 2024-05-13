@@ -6,6 +6,8 @@
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
+import { select as wpDataSelect } from '@wordpress/data';
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -16,6 +18,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save({ attributes }) {
+	const site = wpDataSelect('core').getSite();
+	if (!site) {
+		return null;
+	}
+	const embed = `${site.url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}`;
 	const blockProps = useBlockProps.save();
 	return (
 		<>
@@ -26,7 +33,9 @@ export default function save({ attributes }) {
 			data-selected_election={ attributes.selected_election || "" }
 			data-selected_region={ attributes.selected_region || "" }
 			data-selected_fields={ attributes.selected_fields || "" }
-		>Elections Engine loading...</div>
+		>
+			<div class="election-engine-inline" data-inline={embed}></div>
+		</div>
 		<script src="/wp-content/plugins/election-engine/packages/election-engine-wordpress-block/svelte/app/election-engine.umd.js"></script>
 		</>
 	);

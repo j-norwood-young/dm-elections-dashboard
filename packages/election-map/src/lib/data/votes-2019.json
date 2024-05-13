@@ -1,0 +1,1792 @@
+[
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 1,
+		"Province": "Eastern Cape",
+		"RegisteredVoters": 3363161,
+		"SpoiltVotes": 32291,
+		"Section24AVotes": 0,
+		"SpecialVotes": 86329,
+		"PercVoterTurnout": 3.85,
+		"TotalVotesCast": 2052818,
+		"TotalValidVotes": 2020527,
+		"VDCount": 4791,
+		"VDWithResultsCaptured": 4790,
+		"bResultsComplete": false,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 1399455,
+				"Percentage": 69.261880688,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 18
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 303309,
+				"Percentage": 15.011380694,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 4
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 155899,
+				"Percentage": 7.715759304,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 2
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 46258,
+				"Percentage": 2.289402715,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 27935,
+				"Percentage": 1.382560094,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 17699,
+				"Percentage": 0.875959589,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 9947,
+				"Percentage": 0.492297307,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 8134,
+				"Percentage": 0.402568241,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 7844,
+				"Percentage": 0.38821555,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 4902,
+				"Percentage": 0.242609973,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "ALLIANCE FOR TRANSFORMATION FOR ALL",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATA.png",
+				"Abbreviation": "ATA",
+				"Votes": 4577,
+				"Percentage": 0.22652506,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 4448,
+				"Percentage": 0.220140587,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "GOOD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+				"Abbreviation": "GOOD",
+				"Votes": 4445,
+				"Percentage": 0.219992111,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 4427,
+				"Percentage": 0.219101254,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 3229,
+				"Percentage": 0.159809792,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 2,
+		"Province": "Free State",
+		"RegisteredVoters": 1462508,
+		"SpoiltVotes": 12337,
+		"Section24AVotes": 0,
+		"SpecialVotes": 50812,
+		"PercVoterTurnout": 1.72,
+		"TotalVotesCast": 919549,
+		"TotalValidVotes": 907212,
+		"VDCount": 1529,
+		"VDWithResultsCaptured": 1529,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 570980,
+				"Percentage": 62.93788001,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 8
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 154686,
+				"Percentage": 17.050700388,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 2
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 105228,
+				"Percentage": 11.599052923,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 33660,
+				"Percentage": 3.710268383,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 6100,
+				"Percentage": 0.672389695,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 4214,
+				"Percentage": 0.464500029,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 3790,
+				"Percentage": 0.417763433,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 3387,
+				"Percentage": 0.373341622,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PATRIOTIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PA.png",
+				"Abbreviation": "PA",
+				"Votes": 3383,
+				"Percentage": 0.372900711,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN DEMOCRATIC CHANGE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ADEC.png",
+				"Abbreviation": "ADEC",
+				"Votes": 3136,
+				"Percentage": 0.34567444,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 2404,
+				"Percentage": 0.264987677,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 1366,
+				"Percentage": 0.150571201,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 1359,
+				"Percentage": 0.149799606,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CONTENT MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACM.png",
+				"Abbreviation": "ACM",
+				"Votes": 1308,
+				"Percentage": 0.144177987,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN PEOPLE'S CONVENTION",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/APC.png",
+				"Abbreviation": "APC",
+				"Votes": 1196,
+				"Percentage": 0.131832471,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 1158,
+				"Percentage": 0.127643814,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 1036,
+				"Percentage": 0.11419602,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AGANG SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AGANG SA.png",
+				"Abbreviation": "AGANG SA",
+				"Votes": 1004,
+				"Percentage": 0.11066873,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 3,
+		"Province": "Gauteng",
+		"RegisteredVoters": 6381220,
+		"SpoiltVotes": 42883,
+		"Section24AVotes": 0,
+		"SpecialVotes": 95853,
+		"PercVoterTurnout": 8.58,
+		"TotalVotesCast": 4580285,
+		"TotalValidVotes": 4537402,
+		"VDCount": 2771,
+		"VDWithResultsCaptured": 2771,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 2413979,
+				"Percentage": 53.20178816,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 26
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 1112990,
+				"Percentage": 24.529235012,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 12
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 613704,
+				"Percentage": 13.525449145,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 7
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 175152,
+				"Percentage": 3.860182545,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 2
+			},
+			{
+				"Name": "INKATHA FREEDOM PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/IFP.png",
+				"Abbreviation": "IFP",
+				"Votes": 45840,
+				"Percentage": 1.010269753,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 36249,
+				"Percentage": 0.798893287,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 13160,
+				"Percentage": 0.290033812,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 12358,
+				"Percentage": 0.272358499,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 10842,
+				"Percentage": 0.238947309,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "GOOD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+				"Abbreviation": "GOOD",
+				"Votes": 9983,
+				"Percentage": 0.220015771,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 9948,
+				"Percentage": 0.219244405,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 9715,
+				"Percentage": 0.214109307,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CAPITALIST PARTY OF SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ZACP.png",
+				"Abbreviation": "ZACP",
+				"Votes": 7515,
+				"Percentage": 0.165623412,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AL JAMA-AH",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ALJAMA.png",
+				"Abbreviation": "ALJAMA",
+				"Votes": 7064,
+				"Percentage": 0.155683803,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "BLACK FIRST LAND FIRST",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/BLF.png",
+				"Abbreviation": "BLF",
+				"Votes": 7009,
+				"Percentage": 0.154471656,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 5903,
+				"Percentage": 0.130096474,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 4,
+		"Province": "KwaZulu-Natal",
+		"RegisteredVoters": 5524666,
+		"SpoiltVotes": 63408,
+		"Section24AVotes": 0,
+		"SpecialVotes": 78033,
+		"PercVoterTurnout": 6.96,
+		"TotalVotesCast": 3715985,
+		"TotalValidVotes": 3652577,
+		"VDCount": 4885,
+		"VDWithResultsCaptured": 4885,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 2026069,
+				"Percentage": 55.469576685,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 24
+			},
+			{
+				"Name": "INKATHA FREEDOM PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/IFP.png",
+				"Abbreviation": "IFP",
+				"Votes": 532563,
+				"Percentage": 14.58047291,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 6
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 520169,
+				"Percentage": 14.241150837,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 6
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 363832,
+				"Percentage": 9.960967284,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 4
+			},
+			{
+				"Name": "NATIONAL FREEDOM PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/NFP.png",
+				"Abbreviation": "NFP",
+				"Votes": 52431,
+				"Percentage": 1.435452285,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 17524,
+				"Percentage": 0.479770858,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 16460,
+				"Percentage": 0.450640739,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 16109,
+				"Percentage": 0.441031086,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 10118,
+				"Percentage": 0.277009903,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "MINORITY FRONT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/MF.png",
+				"Abbreviation": "MF",
+				"Votes": 9792,
+				"Percentage": 0.268084697,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 8493,
+				"Percentage": 0.232520765,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "BLACK FIRST LAND FIRST",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/BLF.png",
+				"Abbreviation": "BLF",
+				"Votes": 7998,
+				"Percentage": 0.21896869,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "DEMOCRATIC LIBERAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DLC.png",
+				"Abbreviation": "DLC",
+				"Votes": 7181,
+				"Percentage": 0.19660092,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AL JAMA-AH",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ALJAMA.png",
+				"Abbreviation": "ALJAMA",
+				"Votes": 5731,
+				"Percentage": 0.156902921,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 5101,
+				"Percentage": 0.139654825,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 5099,
+				"Percentage": 0.139600069,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 4173,
+				"Percentage": 0.114248105,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 3677,
+				"Percentage": 0.100668651,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 5,
+		"Province": "Mpumalanga",
+		"RegisteredVoters": 1951776,
+		"SpoiltVotes": 18929,
+		"Section24AVotes": 0,
+		"SpecialVotes": 56466,
+		"PercVoterTurnout": 2.42,
+		"TotalVotesCast": 1290908,
+		"TotalValidVotes": 1271979,
+		"VDCount": 1772,
+		"VDWithResultsCaptured": 1772,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 918756,
+				"Percentage": 72.230437767,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 12
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 146426,
+				"Percentage": 11.511668039,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 2
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 116050,
+				"Percentage": 9.123578298,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 33842,
+				"Percentage": 2.660578516,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "BETTER RESIDENTS ASSOCIATION",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/BRAMP325.png",
+				"Abbreviation": "BRA",
+				"Votes": 6971,
+				"Percentage": 0.548043639,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 6375,
+				"Percentage": 0.50118752,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 5982,
+				"Percentage": 0.470290783,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "INKATHA FREEDOM PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/IFP.png",
+				"Abbreviation": "IFP",
+				"Votes": 5786,
+				"Percentage": 0.454881724,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 3945,
+				"Percentage": 0.31014663,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN PEOPLE'S CONVENTION",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/APC.png",
+				"Abbreviation": "APC",
+				"Votes": 3358,
+				"Percentage": 0.263998069,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOUTH AFRICAN NATIONAL CONGRESS OF TRADITIONAL AUTHORITIES",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SANCOTA.png",
+				"Abbreviation": "SANCOTA",
+				"Votes": 2336,
+				"Percentage": 0.183650831,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 2207,
+				"Percentage": 0.173509154,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 1947,
+				"Percentage": 0.153068565,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 1797,
+				"Percentage": 0.141275917,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 1591,
+				"Percentage": 0.125080681,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 1516,
+				"Percentage": 0.119184358,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "NATIONAL FREEDOM PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/NFP.png",
+				"Abbreviation": "NFP",
+				"Votes": 1499,
+				"Percentage": 0.117847858,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 6,
+		"Province": "Northern Cape",
+		"RegisteredVoters": 626471,
+		"SpoiltVotes": 6406,
+		"Section24AVotes": 0,
+		"SpecialVotes": 44497,
+		"PercVoterTurnout": 0.78,
+		"TotalVotesCast": 417248,
+		"TotalValidVotes": 410842,
+		"VDCount": 707,
+		"VDWithResultsCaptured": 707,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 239221,
+				"Percentage": 58.227006976,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 3
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 99977,
+				"Percentage": 24.334659066,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 39879,
+				"Percentage": 9.706651219,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 13522,
+				"Percentage": 3.291289596,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 3413,
+				"Percentage": 0.830732983,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 3143,
+				"Percentage": 0.765014288,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "GOOD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+				"Abbreviation": "GOOD",
+				"Votes": 3088,
+				"Percentage": 0.751627146,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 1597,
+				"Percentage": 0.388713909,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 612,
+				"Percentage": 0.148962375,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AZANIAN PEOPLE'S ORGANISATION",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AZAPO.png",
+				"Abbreviation": "AZAPO",
+				"Votes": 586,
+				"Percentage": 0.142633908,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 574,
+				"Percentage": 0.139713077,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 527,
+				"Percentage": 0.128273156,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 464,
+				"Percentage": 0.112938794,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 417,
+				"Percentage": 0.101498873,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 7,
+		"Province": "Limpopo",
+		"RegisteredVoters": 2608460,
+		"SpoiltVotes": 20269,
+		"Section24AVotes": 0,
+		"SpecialVotes": 67274,
+		"PercVoterTurnout": 2.87,
+		"TotalVotesCast": 1530837,
+		"TotalValidVotes": 1510568,
+		"VDCount": 3157,
+		"VDWithResultsCaptured": 3157,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 1163091,
+				"Percentage": 76.996930956,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 15
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 198439,
+				"Percentage": 13.136714137,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 3
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 81066,
+				"Percentage": 5.36659058,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 24042,
+				"Percentage": 1.591586741,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 5241,
+				"Percentage": 0.346955582,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN PEOPLE'S CONVENTION",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/APC.png",
+				"Abbreviation": "APC",
+				"Votes": 4403,
+				"Percentage": 0.291479761,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 3999,
+				"Percentage": 0.264734855,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 3233,
+				"Percentage": 0.214025453,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 3134,
+				"Percentage": 0.207471627,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 2839,
+				"Percentage": 0.187942549,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AZANIAN PEOPLE'S ORGANISATION",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AZAPO.png",
+				"Abbreviation": "AZAPO",
+				"Votes": 2215,
+				"Percentage": 0.146633584,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOUTH AFRICAN MAINTANANCE AND ESTATE BENEFICIARIES ASSOCIATI",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SAMEBA.png",
+				"Abbreviation": "SAMEBA",
+				"Votes": 1809,
+				"Percentage": 0.119756277,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 1745,
+				"Percentage": 0.11551946,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AGANG SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AGANG SA.png",
+				"Abbreviation": "AGANG SA",
+				"Votes": 1607,
+				"Percentage": 0.106383824,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 1592,
+				"Percentage": 0.10539082,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 8,
+		"Province": "North West",
+		"RegisteredVoters": 1702728,
+		"SpoiltVotes": 18030,
+		"Section24AVotes": 0,
+		"SpecialVotes": 44474,
+		"PercVoterTurnout": 1.9,
+		"TotalVotesCast": 1012250,
+		"TotalValidVotes": 994220,
+		"VDCount": 1733,
+		"VDWithResultsCaptured": 1733,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 633223,
+				"Percentage": 63.690430689,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 9
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 169880,
+				"Percentage": 17.086761481,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 2
+			},
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 112417,
+				"Percentage": 11.307054777,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 2
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 40225,
+				"Percentage": 4.045885217,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 4084,
+				"Percentage": 0.410774275,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 4076,
+				"Percentage": 0.409969624,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 3420,
+				"Percentage": 0.343988252,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "FORUM 4 SERVICE DELIVERY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/F4SD.png",
+				"Abbreviation": "F4SD",
+				"Votes": 2868,
+				"Percentage": 0.288467341,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 2809,
+				"Percentage": 0.282533041,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 2535,
+				"Percentage": 0.254973748,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN SECURITY CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ASC.png",
+				"Abbreviation": "ASC",
+				"Votes": 1831,
+				"Percentage": 0.184164471,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 1736,
+				"Percentage": 0.174609241,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AGANG SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AGANG SA.png",
+				"Abbreviation": "AGANG SA",
+				"Votes": 1418,
+				"Percentage": 0.142624369,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRIKAN ALLIANCE OF SOCIAL DEMOCRATS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AASD.png",
+				"Abbreviation": "AASD",
+				"Votes": 1270,
+				"Percentage": 0.127738328,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "GOOD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+				"Abbreviation": "GOOD",
+				"Votes": 1094,
+				"Percentage": 0.110036008,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 1007,
+				"Percentage": 0.10128543,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 9,
+		"Province": "Western Cape",
+		"RegisteredVoters": 3128567,
+		"SpoiltVotes": 20892,
+		"Section24AVotes": 0,
+		"SpecialVotes": 46935,
+		"PercVoterTurnout": 4,
+		"TotalVotesCast": 2133062,
+		"TotalValidVotes": 2112170,
+		"VDCount": 1579,
+		"VDWithResultsCaptured": 1579,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 1107065,
+				"Percentage": 52.413631479,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 13
+			},
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 659548,
+				"Percentage": 31.226085022,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 7
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 88428,
+				"Percentage": 4.186594829,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 59354,
+				"Percentage": 2.810095778,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 59147,
+				"Percentage": 2.800295431,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 1
+			},
+			{
+				"Name": "GOOD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+				"Abbreviation": "GOOD",
+				"Votes": 47283,
+				"Percentage": 2.238598219,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AL JAMA-AH",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ALJAMA.png",
+				"Abbreviation": "ALJAMA",
+				"Votes": 15866,
+				"Percentage": 0.751170597,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 9726,
+				"Percentage": 0.460474299,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "INDEPENDENT CIVIC ORGANISATION OF SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ICOSA.png",
+				"Abbreviation": "ICOSA",
+				"Votes": 9033,
+				"Percentage": 0.42766444,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 7650,
+				"Percentage": 0.362186756,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "ALLIANCE FOR TRANSFORMATION FOR ALL",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATA.png",
+				"Abbreviation": "ATA",
+				"Votes": 5378,
+				"Percentage": 0.254619657,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "LAND PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/LAND.png",
+				"Abbreviation": "LAND",
+				"Votes": 5348,
+				"Percentage": 0.253199316,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN TRANSFORMATION MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ATM.png",
+				"Abbreviation": "ATM",
+				"Votes": 4761,
+				"Percentage": 0.225407993,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 4183,
+				"Percentage": 0.198042771,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CAPITALIST PARTY OF SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ZACP.png",
+				"Abbreviation": "ZACP",
+				"Votes": 3822,
+				"Percentage": 0.180951344,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 3201,
+				"Percentage": 0.151550301,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN INDEPENDENT CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AIC.png",
+				"Abbreviation": "AIC",
+				"Votes": 3133,
+				"Percentage": 0.148330864,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "NATIONAL FREEDOM PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/NFP.png",
+				"Abbreviation": "NFP",
+				"Votes": 2245,
+				"Percentage": 0.106288793,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	},
+	{
+		"ElectoralEventID": 699,
+		"ElectoralEvent": "2019 NATIONAL ELECTION",
+		"ProvinceID": 99,
+		"Province": "Out of Country",
+		"RegisteredVoters": 7092,
+		"SpoiltVotes": 27,
+		"Section24AVotes": 0,
+		"SpecialVotes": 0,
+		"PercVoterTurnout": 0.04,
+		"TotalVotesCast": 19909,
+		"TotalValidVotes": 19882,
+		"VDCount": 1,
+		"VDWithResultsCaptured": 1,
+		"bResultsComplete": true,
+		"PartyBallotResults": [
+			{
+				"Name": "DEMOCRATIC ALLIANCE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/DA.png",
+				"Abbreviation": "DA",
+				"Votes": 14802,
+				"Percentage": 74.449250578,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN NATIONAL CONGRESS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ANC.png",
+				"Abbreviation": "ANC",
+				"Votes": 2153,
+				"Percentage": 10.828890454,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "VRYHEIDSFRONT PLUS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/VF Plus.png",
+				"Abbreviation": "VF PLUS",
+				"Votes": 908,
+				"Percentage": 4.566944975,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "ECONOMIC FREEDOM FIGHTERS",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/EFF.png",
+				"Abbreviation": "EFF",
+				"Votes": 765,
+				"Percentage": 3.847701438,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ACDP.png",
+				"Abbreviation": "ACDP",
+				"Votes": 338,
+				"Percentage": 1.700030178,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CAPITALIST PARTY OF SOUTH AFRICA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ZACP.png",
+				"Abbreviation": "ZACP",
+				"Votes": 232,
+				"Percentage": 1.166884619,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "CONGRESS  OF THE PEOPLE",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/COPE.png",
+				"Abbreviation": "COPE",
+				"Votes": 182,
+				"Percentage": 0.915400865,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "UNITED DEMOCRATIC MOVEMENT",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/UDM.png",
+				"Abbreviation": "UDM",
+				"Votes": 118,
+				"Percentage": 0.59350166,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "GOOD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/GOOD.png",
+				"Abbreviation": "GOOD",
+				"Votes": 110,
+				"Percentage": 0.553264259,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "FRONT NASIONAAL/FRONT NATIONAL",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/AFRSP.png",
+				"Abbreviation": "FN",
+				"Votes": 47,
+				"Percentage": 0.236394729,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "WOMEN FORWARD",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/WF.png",
+				"Abbreviation": "WF",
+				"Votes": 34,
+				"Percentage": 0.171008953,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "PAN AFRICANIST CONGRESS OF AZANIA",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/PAC.png",
+				"Abbreviation": "PAC",
+				"Votes": 33,
+				"Percentage": 0.165979278,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "AL JAMA-AH",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/ALJAMA.png",
+				"Abbreviation": "ALJAMA",
+				"Votes": 30,
+				"Percentage": 0.150890252,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			},
+			{
+				"Name": "SOCIALIST REVOLUTIONARY WORKERS PARTY",
+				"LogoUrl": "https://results.elections.org.za/dashboards/npe/app/imgs/parties/SRWP.png",
+				"Abbreviation": "SRWP",
+				"Votes": 22,
+				"Percentage": 0.110652852,
+				"BallotType": "National",
+				"IsIndependent": false,
+				"NumberOfSeats": 0
+			}
+		]
+	}
+]

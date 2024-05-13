@@ -3,20 +3,23 @@
 
   import { loadData } from "./lib/libs/loadData.js";
   import { onMount } from "svelte";
+  // import Hexagons from "./lib/components/result-view/hexagons.svelte";
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
   import years from "@election-engine/common/years.json";
 
   // Parameters
   export let selected_year = 2019; // 2024, 2019, 2014
-	export let selected_election = 'National Assembly'; // National Assembly, Provincial Legislature
-	export let selected_region = 'National'; // National, Gauteng, Western Cape, etc.
+  export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
+  export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
 
   let data;
-  
+  let province_seats = {};
+
   onMount(async () => {
     data = await loadData(selected_year);
-  })
+    // console.log(data)
+  });
 
   async function setYear(year) {
     if (year === selected_year) return;
@@ -30,6 +33,12 @@
     data = await loadData(selected_year);
   }
 
+  // $: if (data) {
+  //   for (let i in data) {
+  //     province_seats[data[i].Province] = data[i].PartyBallotResults.filter((p) => p.NumberOfSeats > 0);
+  //   }
+  // }
+
   let innerWidth = 0;
 </script>
 
@@ -39,10 +48,16 @@
   <div class="select-wrapper">
     <div class="select-button-wrapper">
       <div class="region">
-        <button class:selected={selected_election === "National Assembly"} on:click={() => setElection("National Assembly")}>
+        <button
+          class:selected={selected_election === "National Assembly"}
+          on:click={() => setElection("National Assembly")}
+        >
           National Assembly</button
         >
-        <button class:selected={selected_election === "Provincial Legislature"} on:click={() => setElection("Provincial Legislature")}>
+        <button
+          class:selected={selected_election === "Provincial Legislature"}
+          on:click={() => setElection("Provincial Legislature")}
+        >
           Provincial Legislature
         </button>
       </div>
@@ -56,10 +71,15 @@
     </div>
   </div>
   {#if selected_election === "National Assembly"}
-    <NationalView bind:data={data} {innerWidth} />
+    <NationalView bind:data {innerWidth} />
   {:else if selected_election === "Provincial Legislature"}
-    <ProvincialView bind:data={data} {innerWidth} {selected_region} />
+    <ProvincialView bind:data {innerWidth} {selected_region} />
   {/if}
+  <!-- {#if province_seats["Gauteng"]}
+    <svg width="140px" height="100">
+      <Hexagons seats={province_seats["Gauteng"]} total_seats={48} />
+    </svg>
+  {/if} -->
 </div>
 
 <style>

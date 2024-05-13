@@ -2,7 +2,8 @@
   import { onMount } from "svelte";
   import Hemicycle from "svelte-hemicycle";
   import {
-    CurrentScreenSize,
+    type CurrentScreenSize,
+    currentScreenSize,
     ResultsHeaderStore,
   } from "$components/results-header";
 

@@ -22,7 +22,7 @@ type CurrentScreenData = Record<
   screenData
 >;
 
-const currentScreenSize: CurrentScreenSize = writable({
+export const currentScreenSize: CurrentScreenSize = writable({
   small: {
     arc: 360,
     className: "small",

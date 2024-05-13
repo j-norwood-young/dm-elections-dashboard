@@ -39,7 +39,10 @@
     title,
     inputData,
     seats,
-    modified;
+    modified,
+    selected_year,
+    selected_election,
+    selected_region;
 
   const manipulateHemicycle = (data) => {
     selectedScheme = toggleColorScheme(DEFAULT_COLOR_SCHEME);

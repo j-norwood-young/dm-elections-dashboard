@@ -13,7 +13,7 @@
 			if (is_array($selected_fields)) {
 				$selected_fields = implode(",", $selected_fields);
 			}
-			$embed = get_site_url() . '/election-engine/embed/' . $this->id .
+			$embed = get_site_url() . '/election-engine/embed/' .
 			"?visualisation=" . urlencode($visualisation) .
 			"&selected_year=" . urlencode($selected_year) .
 			"&selected_election=" . urlencode($selected_election) .

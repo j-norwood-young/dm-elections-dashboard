@@ -34,15 +34,13 @@
       y: coords[1],
     };
   });
-
-  $: console.log(data2019);
 </script>
 
-<div id="cartogram" class:mb-grid={grid}>
+<div id="electionengine-cartogram" class:electionengine-mb-grid={grid}>
   {#each data2019 as node}
     <div
       class="electionengine-block"
-      class:mb-grid={grid}
+      class:electionengine-grid-aligncenter={grid}
       style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;"
     >
       {#if node.provinceResult}
@@ -52,21 +50,18 @@
   {/each}
 </div>
 
-{#if tooltipData}
+{#if tooltipData && !grid}
   <Tooltip data={tooltipData} />
 {/if}
 
 <style>
-  #cartogram {
+  #electionengine-cartogram {
     width: 600px;
     height: 600px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
-  #cartogram.mb-grid {
+  #electionengine-cartogram.electionengine-mb-grid {
     width: 100%;
     height: 450px;
     display: grid;
@@ -78,7 +73,7 @@
     display: block;
   }
 
-  .electionengine-block.mb-grid {
+  .electionengine-block.electionengine-grid-aligncenter {
     position: static;
     align-self: center;
     justify-self: center;

@@ -2,11 +2,15 @@ const baseUrl = "https://iec-api.revengine.dailymaverick.co.za";
 const votesUrl = "/results/votes/national";
 const seatsUrl = "/results/seats/national";
 
+
 /**
- * Loads data for a specific year.
- *
- * @param {number} year - The year for which to load the data.
- * @returns {Promise<any>} - A promise that resolves to the loaded data.
+ * Loads data for a specific election year, type, region, and election.
+ * @param {Object} options - The options for loading the data.
+ * @param {number} [options.year=2024] - The year of the election.
+ * @param {string} [options.election="National Assembly"] - The type of election.
+ * @param {string} [options.region="National"] - The region of the election.
+ * @param {string} [options.type="votes"] - The type of data to load (votes or seats).
+ * @returns {Promise<any>} - A promise that resolves with the loaded data.
  */
 export async function loadData({year = 2024, election = "National Assembly", region = "National", type="votes"}) {
     // const url = `${baseUrl}/data/${election}/${region}/${year}`;

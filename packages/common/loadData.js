@@ -13,13 +13,17 @@ const seatsUrl = "/results/seats/national";
  * @returns {Promise<any>} - A promise that resolves with the loaded data.
  */
 export async function loadData({year = 2024, election = "National Assembly", region = "National", type="votes"}) {
-    // const url = `${baseUrl}/data/${election}/${region}/${year}`;
     if (type === "votes") {
         const url = `${baseUrl}${votesUrl}/${year}`;
-        return await load(url);
+        const result = await load(url);
+        if (region !== "National") {
+            return result.filter(d => d.Province === region);
+        }
+        return result;
     } else if (type === "seats") {
-        const url = `${baseUrl}${seatsUrl}/${year}`;
-        return await load(url);
+        const url = region === "National" ? `${baseUrl}${seatsUrl}/${year}` : `${baseUrl}${seatsUrl}/${year}/${region}`;
+        const result = await load(url);
+        return result;
     }
 }
 

@@ -1,14 +1,13 @@
 
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import dotenv from 'dotenv';
 import { getCache, setCache } from './cache.js';
 import * as ElectionResults from './election_results.js';
+import years from "@election-engine/common/years.json"
+import provinces from "@election-engine/common/provinces.json"
 
-dotenv.config();
-
-const YEARS = ["2019", "2014", "2009"];
-const PROVINCES = ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "Mpumalanga", "North West", "Northern Cape", "Western Cape", "Out of Country"]
+const YEARS = years;
+const PROVINCES = provinces;
 
 export const server = Fastify({
     logger: true
@@ -189,3 +188,26 @@ server.get("/results/votes/national/:year", async (req, res) => {
     }
     res.send(result);
 });
+
+server.get("/data/:election/:region/:year", async (req, res) => {
+    const { election, region, year } = req.params;
+    if (!election) {
+        return res.status(412).send({ status: "error", msg: "Election is required" })
+    }
+    if (!region) {
+        return res.status(412).send({ status: "error", msg: "Region is required" })
+    }
+    if (!year) {
+        return res.status(412).send({ status: "error", msg: "Year is required" })
+    }
+    if (!YEARS.includes(year)) {
+        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
+    }
+    if (!["National Assembly", "Provincial Legislature"].includes(election)) {
+        return res.status(412).send({ status: "error", msg: `Election must be one of "National Assembly", "Provincial Legislature"` });
+    }
+    if (!PROVINCES.includes(region)) {
+        return res.status(412).send({ status: "error", msg: `Region must be one of ${PROVINCES.join(", ")}` });
+    }
+
+})

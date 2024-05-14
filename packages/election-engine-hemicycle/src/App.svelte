@@ -1,7 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import Hemicycle from "svelte-hemicycle";
-
-  import "./app.css";
 
   import { partyColor } from "@election-engine/common/colors.js";
   import YEARS from "@election-engine/common/years.json";
@@ -9,30 +8,21 @@
 
   import ResultsHeader from "$lib/components/results-header/results-header.svelte";
 
+  import "./app.css";
+
   export let selected_year = 2024; // 2024, 2019, 2014
   export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
   export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
 
-  import { onMount } from "svelte";
   import {
     type CurrentScreenSize,
     currentScreenSize,
     ResultsHeaderStore,
   } from "$components/results-header";
 
-  import {
-    seats2014Data,
-    seats2009Data,
-    seats2019Data,
-    seats2024Data,
-  } from "$lib/load-data";
-
   let current_party: { count: any };
-  let defaultData, mappedDefaultData;
   let currentScreen: CurrentScreenSize;
   let heading = "";
-
-  const DEFAULT_COLOR_SCHEME = "high";
 
   const rows = 12;
   const display = ["points", "text"];
@@ -51,17 +41,7 @@
     modified;
 
   onMount(async () => {
-    defaultData = await seats2014Data();
-    mappedDefaultData = defaultData.map((party, id) => {
-      return {
-        id: id,
-        text: party.Abbreviation,
-        count: party.Seats,
-      };
-    });
-    defaultData = manipulateHemicycle(mappedDefaultData);
-
-    data = defaultData;
+    data = null;
     total_seats = 400;
     heading = "2014";
   });

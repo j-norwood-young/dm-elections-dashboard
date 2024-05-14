@@ -7,7 +7,7 @@
   export let data;
   export let innerWidth;
 
-  $: grid = innerWidth < 600 ? true : false;
+  $: grid = innerWidth < 630 ? true : false;
 
   let width = 600;
   let height = 600;
@@ -32,13 +32,11 @@
 
   // Geographic path generator based on the projection configured above.
   const path = geoPath(projection);
-
-  //console.log(data);
 </script>
 
-<div class="svg-wrapper">
+<div class="electionengine-svg-wrapper">
   {#if !grid}
-    <svg class:grid={innerWidth < 400 ? false : true} {width} {height}>
+    <svg class="electionengine-map-svg" {width} {height}>
       <!-- Countries -->
       <g id="saMap">
         {#each provinces as province}
@@ -52,16 +50,21 @@
 </div>
 
 <style>
-  .svg-wrapper {
+  .electionengine-svg-wrapper {
     position: relative;
     height: 100vh;
-    margin-top: -5.75rem;
+    margin-top: -1.75rem;
+    transform: translate(-30px, 10px);
   }
 
-  svg {
+  .electionengine-map-svg {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  }
+
+  @media (width < 630px) {
+    .electionengine-svg-wrapper {
+      margin-top: 1rem;
+      transform: translate(0, 0);
+    }
   }
 </style>

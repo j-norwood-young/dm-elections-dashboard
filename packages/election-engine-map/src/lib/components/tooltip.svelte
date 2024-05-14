@@ -1,78 +1,80 @@
 <script>
+  import { numberWithCommas } from "../libs/utils";
   export let data;
 </script>
 
-<div class="tooltip-wrapper">
-  <div class="container">
+<div class="electionengine-tooltip-wrapper" style="top:{60}px; left:{20}px">
+  <div class="electionengine-tooltip-container">
     <div>
-      <p class="thead">Party:</p>
-      <p class="tdata" style="color:{data.color}">{data.party.Name}</p>
+      <div class="electionengine-partyname-wrapper">
+        <div class="electionengine-partyrectcolor" style="background: {data.color};"></div>
+        <p class="electionengine-tooltip-thead">Party:</p>
+      </div>
+      <p class="electionengine-tooltip-tdata">{data.party.Name}</p>
     </div>
     <div>
-      <p class="thead">Percentage of Seats Won in Limpopo</p>
-      <div class="range-wrapper tdata">
-        <div class="range">
-          <div class="outer">
-            <div class="inner" style="width:{data.party.Percentage}px; background:{data.color}"></div>
+      <p class="electionengine-tooltip-thead">Percentage of Seats Won in Limpopo</p>
+      <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
+        <div class="electionengine-tooltip-range">
+          <div class="electionengine-tooltip-outer">
+            <div
+              class="electionengine-tooltip-inner"
+              style="width:{data.party.Percentage}%; background:{data.color}"
+            ></div>
           </div>
         </div>
-        <span> {Math.round(data.party.Percentage)}</span>
+        <span> {Math.round(data.party.Percentage)}%</span>
       </div>
     </div>
     <div>
-      <p class="thead">Total Number of Seats</p>
-      <p class="tdata">{data.party.NumberOfSeats}</p>
+      <p class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</p>
+      <p class="electionengine-tooltip-tdata">{data.party.NumberOfSeats} / {data.total_seats}</p>
     </div>
     <div>
-      <p class="thead">Total Number of Seats Won in Limpopo</p>
-      <p class="tdata">{data.party.NumberOfSeats}</p>
-    </div>
-    <div>
-      <p class="thead">Total Votes</p>
-      <p class="tdata">{data.party.Votes}</p>
+      <p class="electionengine-tooltip-thead">Total Votes</p>
+      <p class="electionengine-tooltip-tdata">{numberWithCommas(data.party.Votes)}</p>
     </div>
   </div>
 </div>
 
 <style>
-  .tooltip-wrapper {
+  .electionengine-tooltip-wrapper {
+    width: 200px;
     position: absolute;
-    top: 15%;
-    left: 15%;
     background: #fffff9;
     padding: 0.55rem;
     border: 1px solid #c7c4c4;
   }
 
-  .container > div {
+  .electionengine-tooltip-container > div {
     padding-bottom: 4px;
   }
-  .thead {
+  .electionengine-tooltip-thead {
     font-size: 11px;
     color: #999494;
   }
 
-  .tdata {
+  .electionengine-tooltip-tdata {
     font-size: 13px;
     color: #2a2a2a;
     font-weight: bold;
     border-bottom: 1px solid #c7c4c4;
   }
 
-  .range-wrapper {
+  .electionengine-tooltip-range-wrapper {
     display: flex;
     gap: 12px;
     justify-content: space-between;
     align-items: center;
   }
 
-  .range {
+  .electionengine-tooltip-range {
     position: relative;
     width: 100%;
     height: 12px;
   }
 
-  .outer {
+  .electionengine-tooltip-outer {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -80,14 +82,26 @@
     border-radius: 12px;
   }
 
-  .inner {
+  .electionengine-tooltip-inner {
     height: 100%;
     width: 73%;
     position: absolute;
     border-radius: inherit;
   }
 
-  .container > div:last-child .tdata {
+  .electionengine-partyname-wrapper {
+    display: flex;
+    gap: 6px;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .electionengine-partyrectcolor {
+    width: 10px;
+    height: 10px;
+  }
+
+  .electionengine-tooltip-container > div:last-child .electionengine-tooltip-tdata {
     border-bottom: none;
   }
 </style>

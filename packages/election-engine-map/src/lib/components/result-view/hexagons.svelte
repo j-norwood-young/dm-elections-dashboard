@@ -1,5 +1,6 @@
 <script>
   // @ts-nocheck
+  import { onMount } from "svelte";
   import GautengLinePath from "../gautengLinePath.svelte";
   import { partyColor } from "@election-engine/common/colors";
 
@@ -14,6 +15,7 @@
 
   let seatsData = [];
   let rows = 0;
+  let seatHexagon;
 
   $: isGauteng = node.provinceID === "Gauteng" ? true : false;
 
@@ -38,6 +40,9 @@
       for (let j = 0; j < seat.NumberOfSeats; j++) {
         data[x].party = seat;
         data[x].color = partyColor(seat.Abbreviation, x);
+        data[x].cord_x = node.x;
+        data[x].cord_y = node.y;
+        data[x].total_seats = total_seats;
         x++;
       }
     }
@@ -50,8 +55,19 @@
     seatsData = calculateSeats();
   }
 
+  onMount(async () => {
+    let cord = seatHexagon.getBoundingClientRect();
+    for (let x of seatsData) {
+      x.x = cord.x;
+      x.y = cord.y;
+    }
+  });
+
   init();
   $: init();
+
+  //console.log(seats);
+  $: console.log(seatsData);
 </script>
 
 {#if node.provinceID === "Gauteng" || node.provinceID === "KwaZulu-Natal"}
@@ -80,7 +96,13 @@
           : seat.row * 11})
               "
       >
-        <svg width="12px" height="13px" viewBox="0 0 15 17" on:mouseover={() => (tooltipData = seat)}>
+        <svg
+          bind:this={seatHexagon}
+          width="12px"
+          height="13px"
+          viewBox="0 0 15 17"
+          on:mouseover={() => (tooltipData = seat)}
+        >
           <g transform="translate(1, 1)" fill={seat.color} fill-rule="nonzero" stroke="#444444">
             <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
           </g>
@@ -119,7 +141,7 @@
     transform: translate(-125%, -125%);
   }
 
-  @media (width < 600px) {
+  @media (width < 630px) {
     .electionengine-pr-head.gauteng-heading {
       transform: translate(0%, 0%);
       text-align: center;

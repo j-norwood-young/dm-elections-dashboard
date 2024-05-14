@@ -1,9 +1,9 @@
 <script>
   // import vote2019 from '$lib/data/votes-2019.json';
   import { regionalSeatAllocation } from "../../libs/seats.js";
-  import Tooltip from "../tooltip.svelte";
 
-  import Hexagons from "./hexagonsResultShow.svelte";
+  import Hexagons from "./hexagons.svelte";
+  import Tooltip from "../tooltip.svelte";
 
   export let path;
   export let provinces;
@@ -15,7 +15,9 @@
   $: data2019 = provinces.map((d) => {
     const coords = path.centroid(d);
     const regionSeat = regionalSeatAllocation.filter((e) => d.properties.PROVINCE === e.region)[0];
-    const provinceResult = data.filter((e) => d.properties.PROVINCE === e.Province);
+    const provinceResult = data
+      .filter((e) => d.properties.PROVINCE === e.Province)[0]
+      .PartyBallotResults.filter((p) => p.NumberOfSeats > 0);
     const provinceID = d.properties.PROVINCE;
     const provinceTotalSeats = regionSeat.seat;
     const height = 50;
@@ -34,35 +36,32 @@
   });
 </script>
 
-<div id="cartogram" class:mb-grid={grid}>
+<div id="electionengine-cartogram" class:electionengine-mb-grid={grid}>
   {#each data2019 as node}
     <div
       class="electionengine-block"
-      class:mb-grid={grid}
+      class:electionengine-grid-aligncenter={grid}
       style="left:{node.x - node.width / 2}px; top:{node.y - node.height / 2}px;"
     >
-      <Hexagons {node} {grid} bind:tooltipData />
+      {#if node.provinceResult}
+        <Hexagons seats={node.provinceResult} total_seats={node.provinceTotalSeats} {node} {grid} bind:tooltipData />
+      {/if}
     </div>
   {/each}
 </div>
 
-{console.log(tooltipData)}
-
-{#if tooltipData}
+{#if tooltipData && !grid}
   <Tooltip data={tooltipData} />
 {/if}
 
 <style>
-  #cartogram {
+  #electionengine-cartogram {
     width: 600px;
     height: 600px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
-  #cartogram.mb-grid {
+  #electionengine-cartogram.electionengine-mb-grid {
     width: 100%;
     height: 450px;
     display: grid;
@@ -71,10 +70,10 @@
 
   .electionengine-block {
     position: absolute;
-    width: 100px;
+    display: block;
   }
 
-  .electionengine-block.mb-grid {
+  .electionengine-block.electionengine-grid-aligncenter {
     position: static;
     align-self: center;
     justify-self: center;

@@ -3,9 +3,11 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+COPY packages/common/package*.json ./packages/common/
+COPY packages/iec-api/package*.json ./packages/iec-api/
 
 # Install dependencies
-RUN npm install
+RUN yarn
 
 # Copy the rest of the application code to the working directory
 COPY . .

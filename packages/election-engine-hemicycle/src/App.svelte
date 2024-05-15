@@ -1,249 +1,214 @@
-<script lang="ts">
-  import { onMount } from "svelte";
-  import Hemicycle from "svelte-hemicycle";
+<script>
+    import { onMount } from "svelte";
+    import Hemicycle from "../../hemicycle/src/lib/Hemicycle.svelte";
 
-  import { partyColor } from "@election-engine/common/colors.js";
-  import YEARS from "@election-engine/common/years.json";
-  import PROVINCES from "@election-engine/common/provinces.json";
+    import { loadData } from "@election-engine/common/loadData.js";
+    import { partyColor } from "@election-engine/common/colors.js";
+    import YEARS from "@election-engine/common/years.json";
+    import PROVINCES from "@election-engine/common/provinces.json";
 
-  import ResultsHeader from "$lib/components/results-header/results-header.svelte";
+    import "./app.css";
 
-  import "./app.css";
+    export let selected_year = 2024; // 2024, 2019, 2014
+    export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
+    export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
+    export let show_buttons = false;
+    export let show_title = true;
 
-  export let selected_year = 2024; // 2024, 2019, 2014
-  export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
-  export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
+    let current_party;
 
-  import {
-    type CurrentScreenSize,
-    currentScreenSize,
-    ResultsHeaderStore,
-  } from "$components/results-header";
+    const rows = 12;
+    const display = ["points"];
+    const color = "black";
+    const font_size = "20";
+    const selectedShape = "hexagon";
+    export let total_seats = 400;
 
-  let current_party: { count: any };
-  let currentScreen: CurrentScreenSize;
-  let heading = "";
+    let data, arc;
 
-  const rows = 12;
-  const display = ["points", "text"];
-  const color = "black";
-  const font_size = "20";
-  const selectedShape = "hexagon";
-
-  let data,
-    total_seats,
-    selectedScheme,
-    arc,
-    className,
-    hcWidth,
-    hcHeight,
-    seats,
-    modified;
-
-  onMount(async () => {
-    data = null;
-    total_seats = 400;
-    heading = "2014";
-  });
-
-  $: {
-    ResultsHeaderStore.subscribe((val) => {
-      currentScreen = val;
+    onMount(async () => {
+        data = await processData();
+        console.log(data);
     });
-    if (currentScreen.small.query) {
-      let { arc, className, hcWidth, hcHeight } = currentScreen;
-    }
-    if (currentScreen.medium.query) {
-      arc = 300;
-      hcWidth = 220;
-      hcHeight = 220;
-    }
-    if (currentScreen.bigger.query) {
-      arc = 270;
-      hcWidth = 420;
-      hcHeight = 420;
-    }
-    if (currentScreen.rest.query) {
-      arc = 180;
-      hcWidth = 620;
-      hcHeight = 620;
-    }
-  }
 
-  const loadData = async (year) => {
-    seats = null;
-    modified = null;
+    async function setYear(year) {
+        if (year === selected_year) return;
+        selected_year = year;
+        data = await processData();
+    }
 
-    heading = title;
-    total_seats = seats;
-    data = modified;
-    current_party = current_party;
-  };
+    async function processData() {
+        const data = await loadData({
+            year: selected_year,
+            election: selected_election,
+            region: selected_region,
+            type: "seats",
+        });
+        const mappedData = data.PartyResults.map((party, i) => {
+            return {
+                id: party.Abbreviation,
+                text: party.Name,
+                count: party.Seats,
+                color: partyColor(party.Abbreviation, i),
+                percentage: (party.Seats / total_seats) * 100,
+            };
+        });
+        return mappedData;
+    }
+
+    $: {
+    }
 </script>
 
 <div class="election-engine-hemicycle-app">
-  <main class="election-engine-hemicycle-app-main">
-    <section class="election-engine-hemicycle-section">
-      <h1>National Elections</h1>
-      <h2>Hemicycle</h2>
-      <ResultsHeader>
-        <h3>Results Breakdown</h3>
-      </ResultsHeader>
-      <div id="hemicycle">
-        <Hemicycle
-          bind:current_party
-          {hcWidth}
-          {hcHeight}
-          {data}
-          {rows}
-          {display}
-          {color}
-          {font_size}
-          {selectedShape}
-          {arc}
-          {total_seats}
-        />
-      </div>
-      {#if current_party}
-        <div class="partyResultsInformation">
-          <p>Total Seats Count: {current_party?.count}</p>
+    {#if show_buttons}
+        {#each YEARS as year}
+            <button on:click={() => setYear(year)}>{year}</button>
+        {/each}
+    {/if}
+    {#if show_title}
+        <div class="electionengine-title">
+            {selected_region === "National"
+                ? `General Asssembly seat allocation for ${selected_year}`
+                : `Provincial Legislature seat allocation for ${selected_year}`}
         </div>
-      {/if}
-    </section>
-  </main>
+    {/if}
+    <div class="election-engine-hemicycle-section">
+        <div class="electionengine-hemicycle-container">
+            <Hemicycle
+                bind:current_party
+                displayHeight={"640px"}
+                {data}
+                {rows}
+                {display}
+                {color}
+                {font_size}
+                {selectedShape}
+                {arc}
+                {total_seats}
+            />
+        </div>
+        {#if current_party}
+            <div class="electionengine-party-results-information-container">
+                <div
+                    class="electionengine-party-results-information"
+                    style:border-left="6px {current_party?.color} solid"
+                >
+                    <div class="electionengine-party-name">
+                        {current_party?.text}
+                    </div>
+                    <div class="electionengine-seat-count">
+                        {current_party?.count} seats
+                    </div>
+                    <div
+                        class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata"
+                    >
+                        <div class="electionengine-tooltip-range">
+                            <div class="electionengine-tooltip-outer">
+                                <div
+                                    class="electionengine-tooltip-inner"
+                                    style="width:{current_party.percentage}%; background:{current_party.color}"
+                                ></div>
+                            </div>
+                        </div>
+                        <span>
+                            {Math.round(current_party.percentage) ||
+                                "<1"}%</span
+                        >
+                    </div>
+                </div>
+            </div>
+        {/if}
+    </div>
 </div>
 
 <style>
-  .election-engine-hemicycle-main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .election-engine-hemicycle-app h1,
-  .election-engine-hemicycle-app h2,
-  .election-engine-hemicycle-app p {
-    color: var(--color-bg-3x);
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-
-  .election-engine-hemicycle-app p {
-    line-height: 1.5;
-  }
-
-  .election-engine-hemicycle-app a {
-    color: var(--color-theme-1);
-    text-decoration: none;
-  }
-
-  .election-engine-hemicycle-app a:hover {
-    text-decoration: underline;
-  }
-
-  .election-engine-hemicycle-app h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .election-engine-hemicycle-app h2 {
-    font-size: 1.5rem;
-  }
-
-  .election-engine-hemicycle-app pre {
-    font-size: 16px;
-    font-family: var(--font-mono);
-    background-color: rgba(255, 255, 255, 0.45);
-    border-radius: 3px;
-    box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-    padding: 0.5em;
-    overflow-x: auto;
-    color: var(--color-text);
-  }
-
-  .election-engine-hemicycle-app .text-column {
-    display: flex;
-    max-width: 48rem;
-    flex: 0.6;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
-  .election-engine-hemicycle-app input,
-  .election-engine-hemicycle-app button {
-    font-size: inherit;
-    font-family: inherit;
-  }
-
-  .election-engine-hemicycle-app button:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  @media (min-width: 720px) {
-    .election-engine-hemicycle-app h1 {
-      font-size: 2.4rem;
+    .electionengine-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 10px;
+        line-height: 1.2;
+        width: 100%;
+        text-align: center;
     }
-  }
 
-  .election-engine-hemicycle-app .visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: auto;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    white-space: nowrap;
-  }
-
-  .election-engine-hemicycle-app .small > main > svg {
-    min-width: 100%;
-    max-width: 80%;
-  }
-
-  .election-engine-hemicycle-app section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0.4;
-  }
-
-  .election-engine-hemicycle-app main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    width: 100%;
-    max-width: 64rem;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-
-  .election-engine-hemicycle-app footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-  }
-
-  #hemicycle {
-    height: 400px;
-  }
-  .partyResultsInformation {
-    position: absolute;
-    top: calc((100vh / 2) + 80px);
-  }
-  h1 {
-    width: 100%;
-  }
-
-  @media (min-width: 480px) {
-    .election-engine-hemicycle-app footer {
-      padding: 12px 0;
+    .election-engine-hemicycle-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: top;
+        flex: 0.4;
+        /* min-height: 500px; */
+        position: relative;
     }
-  }
+
+    .electionengine-hemicycle-container {
+        height: 320px;
+        overflow-y: hidden;
+    }
+
+    .electionengine-party-results-information-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: white;
+    }
+
+    .electionengine-party-results-information {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+        width: 200px;
+        font-size: 12px;
+    }
+
+    .electionengine-party-name {
+        font-weight: bold;
+    }
+
+    .electionengine-tooltip-tdata {
+        font-size: 12px;
+        color: #2a2a2a;
+        font-weight: bold;
+        border-bottom: 1px solid #c7c4c4;
+    }
+
+    .electionengine-tooltip-range-wrapper {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .electionengine-tooltip-range {
+        position: relative;
+        width: 100%;
+        height: 12px;
+    }
+
+    .electionengine-tooltip-outer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #f2f2f2;
+        border-radius: 12px;
+    }
+
+    .electionengine-tooltip-inner {
+        height: 100%;
+        width: 73%;
+        position: absolute;
+        border-radius: inherit;
+    }
+
+    .electionengine-tooltip-container
+        > div:last-child
+        .electionengine-tooltip-tdata {
+        border-bottom: none;
+    }
 </style>

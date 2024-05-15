@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { svelte } from "@sveltejs/vite-plugin-svelte";
+import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
@@ -11,6 +11,7 @@ export default defineConfig({
 			filename: "stats.html",
 		}),
 	],
+	preprocess: vitePreprocess(),
 	base: "",
 	build: {
 		lib: {

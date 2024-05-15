@@ -1,14 +1,13 @@
 
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import dotenv from 'dotenv';
 import { getCache, setCache } from './cache.js';
 import * as ElectionResults from './election_results.js';
+import years from "@election-engine/common/years.json"
+import provinces from "@election-engine/common/provinces.json"
 
-dotenv.config();
-
-const YEARS = ["2019", "2014", "2009"];
-const PROVINCES = ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "Mpumalanga", "North West", "Northern Cape", "Western Cape", "Out of Country"]
+const YEARS = years;
+const PROVINCES = provinces;
 
 export const server = Fastify({
     logger: true
@@ -96,14 +95,19 @@ const resultsData = async (year) => {
     if (!parties) {
         throw(`Parties for National Election for year ${year} not found`);
     }
+    const provinces = await getCache(`provinces_${national_event.ID}`);
+    if (!provinces) {
+        throw(`Provinces for National Election for year ${year} not found`);
+    }
     return {
         national_event,
-        parties
+        parties,
+        provinces
     };
 }
 
 server.get("/results/seats/national/:year", async (req, res) => {
-    const year = req.params.year;
+    const year = parseInt(req.params.year);
     if (!year) {
         return res.status(412).send({ status: "error", msg: "Year is required" })
     }
@@ -115,7 +119,7 @@ server.get("/results/seats/national/:year", async (req, res) => {
     if (!seats) {
         return res.status(404).send({ status: "error", msg: `Seats for National Election for year ${year} not found` });
     }
-    const partyResults = seats.PartyResults
+    const PartyResults = seats.PartyResults
         .filter((pr) => pr.Overall > 0)
         .map((pr) => {
             const party = parties.find((p) => p.Name === pr.Name);
@@ -127,11 +131,12 @@ server.get("/results/seats/national/:year", async (req, res) => {
             };
         })
         .sort((a, b) => b.Seats - a.Seats);
-    res.send({partyResults});
+    res.send({PartyResults});
 });
 
 server.get("/results/seats/national/:year/:province", async (req, res) => {
-    const year = req.params.year;
+    const year = parseInt(req.params.year);
+    console.log(year)
     if (!year) {
         return res.status(412).send({ status: "error", msg: "Year is required" })
     }
@@ -145,11 +150,34 @@ server.get("/results/seats/national/:year/:province", async (req, res) => {
     if (!PROVINCES.includes(province)) {
         return res.status(412).send({ status: "error", msg: `Province must be one of ${PROVINCES.join(", ")}` });
     }
-
+    const {national_event, provinces, parties} = await resultsData(year);
+    const province_id = provinces.find((p) => p.Province === province).ProvinceID;
+    let seats = null;
+    // let seats = await getCache(`seats_${national_event.ID}_${province}`);
+    if (!seats) {
+        seats = await ElectionResults.seatsByProvince(national_event.ID, province_id);
+        await setCache(`seats_${national_event.ID}_${province}`, seats);
+    }
+    if (!seats) {
+        return res.status(404).send({ status: "error", msg: `Seats for National Election for province ${province} for year ${year} not found` });
+    }
+    const PartyResults = seats.PartyResults
+        .filter((pr) => pr.NumberOfSeats > 0)
+        .map((pr) => {
+            const party = parties.find((p) => p.Name === pr.Name);
+            return {
+                Name: pr.Name,
+                LogoUrl: `https://results.elections.org.za/dashboards/npe/app/imgs/parties/${party.LogoUrl.replace(/jpg$/, "png")}`,
+                Abbreviation: party.Abbreviation,
+                Seats: pr.NumberOfSeats
+            };
+        })
+        .sort((a, b) => b.Seats - a.Seats);
+    res.send({PartyResults});
 })
 
 server.get("/results/votes/national/:year", async (req, res) => {
-    const year = req.params.year;
+    const year = parseInt(req.params.year);
     if (!year) {
         return res.status(412).send({ status: "error", msg: "Year is required" })
     }
@@ -189,3 +217,26 @@ server.get("/results/votes/national/:year", async (req, res) => {
     }
     res.send(result);
 });
+
+server.get("/data/:election/:region/:year", async (req, res) => {
+    const { election, region, year } = req.params;
+    if (!election) {
+        return res.status(412).send({ status: "error", msg: "Election is required" })
+    }
+    if (!region) {
+        return res.status(412).send({ status: "error", msg: "Region is required" })
+    }
+    if (!year) {
+        return res.status(412).send({ status: "error", msg: "Year is required" })
+    }
+    if (!YEARS.includes(year)) {
+        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
+    }
+    if (!["National Assembly", "Provincial Legislature"].includes(election)) {
+        return res.status(412).send({ status: "error", msg: `Election must be one of "National Assembly", "Provincial Legislature"` });
+    }
+    if (!PROVINCES.includes(region)) {
+        return res.status(412).send({ status: "error", msg: `Region must be one of ${PROVINCES.join(", ")}` });
+    }
+
+})

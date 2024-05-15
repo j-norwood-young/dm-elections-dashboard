@@ -1,0 +1,32 @@
+[
+    {
+        "ID": 699,
+        "Description": "2019 NATIONAL ELECTION",
+        "IsActive": false,
+        "Year": "2019"
+    },
+    {
+        "ID": 291,
+        "Description": "2014 National Election",
+        "IsActive": false,
+        "Year": "2014"
+    },
+    {
+        "ID": 146,
+        "Description": "22 Apr 2009 National Election",
+        "IsActive": false,
+        "Year": "2009"
+    },
+    {
+        "ID": 45,
+        "Description": "14 Apr 2004 National Election",
+        "IsActive": false,
+        "Year": "2004"
+    },
+    {
+        "ID": 1,
+        "Description": "National Elections 1999",
+        "IsActive": false,
+        "Year": "1999"
+    }
+]

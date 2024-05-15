@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "resolvePackageJsonImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "$common/*": ["../common/*"],
+      "$tabular/*": ["../tabular-data/*"],
+      "$lib/*": ["./src/lib/*"],
+      "$components/*": ["./src/lib/components/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

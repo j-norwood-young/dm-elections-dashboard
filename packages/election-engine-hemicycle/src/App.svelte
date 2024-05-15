@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import Hemicycle from "../../hemicycle/src/lib/Hemicycle.svelte";
+    import Hemicycle from "svelte-hemicycle";
 
     import { loadData } from "@election-engine/common/loadData.js";
     import { partyColor } from "@election-engine/common/colors.js";

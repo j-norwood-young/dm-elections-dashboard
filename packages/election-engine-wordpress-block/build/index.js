@@ -156,6 +156,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -163,6 +165,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
+
 
 
 /**
@@ -177,6 +180,11 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
+  const site = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core').getSite();
+  if (!site) {
+    return null;
+  }
+  const embed = `${site.url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}`;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps,
@@ -185,7 +193,10 @@ function save({
     "data-selected_election": attributes.selected_election || "",
     "data-selected_region": attributes.selected_region || "",
     "data-selected_fields": attributes.selected_fields || ""
-  }, "Elections Engine loading..."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "election-engine-inline",
+    "data-inline": embed
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
     src: "/wp-content/plugins/election-engine/packages/election-engine-wordpress-block/svelte/app/election-engine.umd.js"
   }));
 }
@@ -243,6 +254,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
 
 /***/ }),
 

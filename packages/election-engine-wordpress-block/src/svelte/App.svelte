@@ -1,17 +1,16 @@
 <script>
-	import { onMount } from 'svelte';
-	import Cartogram from '@election-engine/map/src/App.svelte';
+	import { onMount } from "svelte";
+	import Cartogram from "@election-engine/map/src/App.svelte";
+	import Table from "@election-engine/table/src/App.svelte";
+	import Hemicycle from "@election-engine/hemicycle/src/App.svelte";
 
-	import Hemicycle from 'svelte-hemicycle';
-	import Table from "@election-engine/wordpress-block/src/svelte/components/Table.svelte";
-
-	export let visualisation = 'hemicycle';
+	export let visualisation = "hemicycle";
 	export let selected_year = 2024;
-	export let selected_election = 'National Assembly';
-	export let selected_region = 'Gauteng';
-	export let selected_fields = ['Party', 'Votes', 'Seats'];
+	export let selected_election = "National Assembly";
+	export let selected_region = "Gauteng";
+	export let selected_fields = ["Party", "Votes", "Seats"];
 
-	let data = []
+	let data = [];
 	const colours = [
 		"#FF0000",
 		"#0000FF",
@@ -29,12 +28,14 @@
 		"#800080",
 		"#000080",
 		"#808000",
-		"#008000"
-	]
+		"#008000",
+	];
 	const total_seats = 400;
-	const rows= 12;
+	const rows = 12;
 	onMount(async () => {
-		const live_results = await fetch("https://iec-api.revengine.dailymaverick.co.za/results/seats/national/2019");
+		const live_results = await fetch(
+			"https://iec-api.revengine.dailymaverick.co.za/results/seats/national/2019",
+		);
 		const live_results_json = await live_results.json();
 		data = live_results_json.partyResults.map((party, id) => {
 			return {
@@ -46,14 +47,19 @@
 		});
 	});
 </script>
+
 {#if visualisation === "hemicycle"}
-	<Hemicycle {data} {total_seats} {rows} />
+	<Hemicycle {selected_year} {selected_election} {selected_region} />
 {/if}
 {#if visualisation === "carto"}
 	<Cartogram {selected_year} {selected_election} {selected_region} />
 {/if}
 {#if visualisation === "table"}
 	<h1>Table</h1>
-	<Table {selected_year} {selected_election} {selected_region} {selected_fields} />
+	<Table
+		{selected_year}
+		{selected_election}
+		{selected_region}
+		{selected_fields}
+	/>
 {/if}
-

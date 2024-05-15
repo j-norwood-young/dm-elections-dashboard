@@ -3,16 +3,13 @@
   export let data;
 </script>
 
-<div class="electionengine-tooltip-wrapper" style="top:{60}px; left:{20}px">
+<div class="electionengine-tooltip-wrapper" style="border-left-color:{data.color}; top:{60}px; left:{20}px">
   <div class="electionengine-tooltip-container">
-    <div>
-      <div class="electionengine-partyname-wrapper">
-        <div class="electionengine-partyrectcolor" style="background: {data.color};"></div>
-        <p class="electionengine-tooltip-thead">Party:</p>
-      </div>
+    <div class="electionengine-tooltip-section">
+      <p class="electionengine-tooltip-thead">Party:</p>
       <p class="electionengine-tooltip-tdata">{data.party.Name}</p>
     </div>
-    <div>
+    <div class="electionengine-tooltip-section">
       <p class="electionengine-tooltip-thead">Percentage of Seats Won in Limpopo</p>
       <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
         <div class="electionengine-tooltip-range">
@@ -26,11 +23,11 @@
         <span> {Math.round(data.party.Percentage)}%</span>
       </div>
     </div>
-    <div>
+    <div class="electionengine-tooltip-section">
       <p class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</p>
       <p class="electionengine-tooltip-tdata">{data.party.NumberOfSeats} / {data.total_seats}</p>
     </div>
-    <div>
+    <div class="electionengine-tooltip-section">
       <p class="electionengine-tooltip-thead">Total Votes</p>
       <p class="electionengine-tooltip-tdata">{numberWithCommas(data.party.Votes)}</p>
     </div>
@@ -44,9 +41,11 @@
     background: #fffff9;
     padding: 0.55rem;
     border: 1px solid #c7c4c4;
+    border-left-width: 6px;
+    border-left-style: solid;
   }
 
-  .electionengine-tooltip-container > div {
+  .electionengine-tooltip-section {
     padding-bottom: 4px;
   }
   .electionengine-tooltip-thead {
@@ -87,18 +86,6 @@
     width: 73%;
     position: absolute;
     border-radius: inherit;
-  }
-
-  .electionengine-partyname-wrapper {
-    display: flex;
-    gap: 6px;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .electionengine-partyrectcolor {
-    width: 10px;
-    height: 10px;
   }
 
   .electionengine-tooltip-container > div:last-child .electionengine-tooltip-tdata {

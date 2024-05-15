@@ -6,6 +6,8 @@
   for (const [party, color] of Object.entries(partyColors)) {
     colors.push({ party, color });
   }
+
+  console.log(partyColors);
 </script>
 
 <div class="legend-wrapper">

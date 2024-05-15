@@ -3,11 +3,10 @@
 
   import { loadData } from "@election-engine/common/loadData.js";
   import { onMount } from "svelte";
-  // import Hexagons from "./lib/components/result-view/hexagons.svelte";
+
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
   import years from "@election-engine/common/years.json";
-  import { get } from "svelte/store";
 
   // Parameters
   export let selected_year = 2019; // 2024, 2019, 2014

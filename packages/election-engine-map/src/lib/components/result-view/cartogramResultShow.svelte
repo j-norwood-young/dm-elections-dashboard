@@ -50,7 +50,7 @@
   {/each}
 </div>
 
-{#if tooltipData && !grid}
+{#if tooltipData}
   <Tooltip data={tooltipData} />
 {/if}
 

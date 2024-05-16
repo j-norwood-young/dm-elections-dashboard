@@ -6,7 +6,9 @@
   export let innerWidth;
 </script>
 
-<Legend />
+{#if data}
+  <Legend bind:data />
+{/if}
 
 <p>
   200 Regional Seats, divided between the regions* based on registered population, prior to the elections. The regions
@@ -14,7 +16,7 @@
 </p>
 
 {#if data}
-  <BackgroundMap {innerWidth} bind:data={data} />
+  <BackgroundMap {innerWidth} bind:data />
 {:else}
   <p>..Loading</p>
 {/if}

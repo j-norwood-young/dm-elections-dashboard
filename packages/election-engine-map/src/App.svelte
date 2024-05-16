@@ -1,9 +1,9 @@
 <script>
   // @ts-nocheck
 
-  import { loadData } from "./lib/libs/loadData.js";
+  import { loadData } from "@election-engine/common/loadData.js";
   import { onMount } from "svelte";
-  // import Hexagons from "./lib/components/result-view/hexagons.svelte";
+
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
   import years from "@election-engine/common/years.json";
@@ -17,27 +17,29 @@
   let province_seats = {};
 
   onMount(async () => {
-    data = await loadData(selected_year);
+    data = await getData(selected_year);
     // console.log(data)
   });
 
   async function setYear(year) {
     if (year === selected_year) return;
     selected_year = year;
-    data = await loadData(selected_year);
+    data = await getData(selected_year);
   }
 
   async function setElection(election) {
     if (election === selected_election) return;
     selected_election = election;
-    data = await loadData(selected_year);
+    data = await getData(selected_year);
   }
 
-  // $: if (data) {
-  //   for (let i in data) {
-  //     province_seats[data[i].Province] = data[i].PartyBallotResults.filter((p) => p.NumberOfSeats > 0);
-  //   }
-  // }
+  async function getData(year) {
+    const results = await loadData({
+      year,
+    });
+
+    return results;
+  }
 
   let innerWidth = 0;
 </script>
@@ -83,9 +85,6 @@
 </div>
 
 <style>
-  .map-section {
-    padding: 1rem 1rem;
-  }
   .select-wrapper {
     position: relative;
     z-index: 3;

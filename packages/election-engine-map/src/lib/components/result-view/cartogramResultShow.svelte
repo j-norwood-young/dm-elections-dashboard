@@ -51,7 +51,7 @@
 </div>
 
 {#if tooltipData}
-  <Tooltip data={tooltipData} />
+  <Tooltip data={tooltipData} {grid} />
 {/if}
 
 <style>

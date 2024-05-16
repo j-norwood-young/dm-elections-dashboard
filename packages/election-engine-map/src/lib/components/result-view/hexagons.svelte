@@ -104,7 +104,11 @@
           width="12px"
           height="13px"
           viewBox="0 0 15 17"
-          on:mouseover={() => (tooltipData = seat)}
+          on:mouseover={(e) => {
+            tooltipData = { ...seat };
+            tooltipData["x"] = e.x;
+            tooltipData["y"] = e.y;
+          }}
           on:focus
           role="img"
         >

@@ -55,18 +55,18 @@
     seatsData = calculateSeats();
   }
 
-  onMount(async () => {
-    let cord = seatHexagon.getBoundingClientRect();
-    for (let x of seatsData) {
-      x.x = cord.x;
-      x.y = cord.y;
-    }
-  });
+  // onMount(async () => {
+  //   let cord = seatHexagon.getBoundingClientRect();
+  //   for (let x of seatsData) {
+  //     x.x = cord.x;
+  //     x.y = cord.y;
+  //   }
+  // });
 
   init();
   $: init();
 
-  //console.log(seats); on:mouseleave={() => (tooltipData = null)}
+  //console.log(seats);
   //$: console.log(seatsData);
 </script>
 
@@ -87,6 +87,7 @@
   width="140"
   height="100"
   role="img"
+  on:mouseleave={() => (tooltipData = null)}
 >
   <text dx="15" dy="-4" base>{node.provinceID}</text>
   <svg viewBox="0 0 {12 * cols} {12 * rows}">

@@ -1,9 +1,34 @@
 <script>
+  import { fly, fade } from "svelte/transition";
   import { numberWithCommas } from "../libs/utils";
   export let data;
+  // export let width;
+
+  let tooltipWidth;
+  let tooltipHeight;
+  let winY;
+  let width;
+  let height;
+
+  const xNudge = 65;
+  const yNudge = 60;
+
+  // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
+  $: xPosition =
+    data.cord_x + tooltipWidth + xNudge > width ? data.cord_x - tooltipWidth - xNudge : data.cord_x + xNudge;
+  $: yPosition =
+    data.cord_y + tooltipHeight + yNudge > height ? data.cord_y - tooltipHeight - yNudge : data.cord_y + yNudge;
 </script>
 
-<div class="electionengine-tooltip-wrapper" style="border-left-color:{data.color}; top:{60}px; left:{20}px">
+<svelte:window bind:scrollY={winY} bind:innerWidth={width} bind:innerHeight={height} />
+<div
+  in:fly={{ y: 10, duration: 200, delay: 200 }}
+  out:fade
+  bind:clientWidth={tooltipWidth}
+  bind:clientHeight={tooltipHeight}
+  class="electionengine-tooltip-wrapper"
+  style="border-left-color:{data.color}; top:{yPosition}px; left:{xPosition}px"
+>
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
       <p class="electionengine-tooltip-thead">Party:</p>

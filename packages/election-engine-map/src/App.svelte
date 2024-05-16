@@ -85,9 +85,6 @@
 </div>
 
 <style>
-  .map-section {
-    padding: 1rem 1rem;
-  }
   .select-wrapper {
     position: relative;
     z-index: 3;

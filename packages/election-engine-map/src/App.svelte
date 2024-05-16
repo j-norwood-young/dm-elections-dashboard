@@ -82,35 +82,6 @@
   {/if}
 </div>
 
-<div>
-  In the vast landscape of deep learning, the pursuit of efficiency and compactness fuels the development of advanced
-  techniques. At the forefront is Quantized Neural Networks (QNNs), a transformative approach that addresses the
-  ever-growing demand for models with reduced footprints without sacrificing predictive accuracy. Quantization
-  introduces a novel perspective, akin to refining the resolution of neural network parameters. This technique becomes
-  the cornerstone for achieving streamlined models capable of traversing the complexities of real-world applications.
-</div>
-<div>
-  In the vast landscape of deep learning, the pursuit of efficiency and compactness fuels the development of advanced
-  techniques. At the forefront is Quantized Neural Networks (QNNs), a transformative approach that addresses the
-  ever-growing demand for models with reduced footprints without sacrificing predictive accuracy. Quantization
-  introduces a novel perspective, akin to refining the resolution of neural network parameters. This technique becomes
-  the cornerstone for achieving streamlined models capable of traversing the complexities of real-world applications.
-</div>
-<div>
-  In the vast landscape of deep learning, the pursuit of efficiency and compactness fuels the development of advanced
-  techniques. At the forefront is Quantized Neural Networks (QNNs), a transformative approach that addresses the
-  ever-growing demand for models with reduced footprints without sacrificing predictive accuracy. Quantization
-  introduces a novel perspective, akin to refining the resolution of neural network parameters. This technique becomes
-  the cornerstone for achieving streamlined models capable of traversing the complexities of real-world applications.
-</div>
-<div>
-  In the vast landscape of deep learning, the pursuit of efficiency and compactness fuels the development of advanced
-  techniques. At the forefront is Quantized Neural Networks (QNNs), a transformative approach that addresses the
-  ever-growing demand for models with reduced footprints without sacrificing predictive accuracy. Quantization
-  introduces a novel perspective, akin to refining the resolution of neural network parameters. This technique becomes
-  the cornerstone for achieving streamlined models capable of traversing the complexities of real-world applications.
-</div>
-
 <style>
   .select-wrapper {
     position: relative;

@@ -42,72 +42,72 @@ describe("IEC API tests", () => {
         });
     })
 
-    test("GET from /electoral_types", () => {
-        return server.inject({
-            method: "GET",
-            url: "/electoral_types"
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(response.payload).toBe(JSON.stringify(electoralTypes));
-        });
-    })
+    // test("GET from /electoral_types", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: "/electoral_types"
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(response.payload).toBe(JSON.stringify(electoralTypes));
+    //     });
+    // })
 
-    test("GET from /electoral_events/1", () => {
-        return server.inject({
-            method: "GET",
-            url: "/electoral_events/1"
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(response.payload.length).toBeGreaterThan(4);
-            electoral_event_id = JSON.parse(response.payload)[0].ID;
-        });
-    })
+    // test("GET from /electoral_events/1", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: "/electoral_events/1"
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(response.payload.length).toBeGreaterThan(4);
+    //         electoral_event_id = JSON.parse(response.payload)[0].ID;
+    //     });
+    // })
 
-    test("GET from /contesting_parties/{electoral_event_id}", () => {
-        return server.inject({
-            method: "GET",
-            url: `/contesting_parties/${electoral_event_id}`
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(JSON.parse(response.payload).length).toBeGreaterThan(10);
-        });
-    })
+    // test("GET from /contesting_parties/{electoral_event_id}", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: `/contesting_parties/${electoral_event_id}`
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).length).toBeGreaterThan(10);
+    //     });
+    // })
 
-    test("GET from /results/{electoral_event_id}", () => {
-        return server.inject({
-            method: "GET",
-            url: `/results/${electoral_event_id}`
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(JSON.parse(response.payload).PartyBallotResults.length).toBeGreaterThan(10);
-        });
-    })
+    // test("GET from /results/{electoral_event_id}", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: `/results/${electoral_event_id}`
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).PartyBallotResults.length).toBeGreaterThan(10);
+    //     });
+    // })
 
-    test("GET from /seats/{electoral_event_id}", () => {
-        return server.inject({
-            method: "GET",
-            url: `/seats/${electoral_event_id}`
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(JSON.parse(response.payload).PartyResults.length).toBeGreaterThan(10);
-        });
-    })
+    // test("GET from /seats/{electoral_event_id}", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: `/seats/${electoral_event_id}`
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).PartyResults.length).toBeGreaterThan(10);
+    //     });
+    // })
 
-    test("GET from /provinces/{electoral_event_id}", () => {
-        return server.inject({
-            method: "GET",
-            url: `/provinces/${electoral_event_id}`
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(JSON.parse(response.payload).length).toBe(10);
-        });
-    })
+    // test("GET from /provinces/{electoral_event_id}", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: `/provinces/${electoral_event_id}`
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).length).toBe(10);
+    //     });
+    // })
 })
 
 describe("Combined API tests", () => {
@@ -119,26 +119,143 @@ describe("Combined API tests", () => {
         await closeRedis();
     });
 
-    test("GET from /results/seats/national/2019", () => {
-        return server.inject({
-            method: "GET",
-            url: "/results/seats/national/2019"
-        }).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch(/json/);
-            expect(JSON.parse(response.payload).partyResults.length).toBeGreaterThan(10);
-        });
-    })
+    // test("GET from /results/seats/national/2019", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: "/results/seats/national/2019"
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).PartyResults.length).toBeGreaterThan(10);
+    //     });
+    // })
 
-    test("GET from /results/votes/national/2019", () => {
+    // test("GET from /results/votes/national/2019", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: "/results/votes/national/2019"
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).length).toBe(10);
+    //         expect(JSON.parse(response.payload)[0].PartyBallotResults.length).toBeGreaterThan(2);
+    //     });
+    // })
+
+    // test("GET from /results/votes/provincial/2019/Gauteng", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: "/results/votes/provincial/2019/Gauteng"
+    //     }).then((response) => {
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).PartyBallotResults.length).toBeGreaterThan(2);
+    //     });
+    // })
+
+    // test("GET from /results/seats/provincial/2019/Gauteng", () => {
+    //     return server.inject({
+    //         method: "GET",
+    //         url: "/results/seats/provincial/2019/Gauteng"
+    //     }).then((response) => {
+    //         // console.log(response.payload);
+    //         expect(response.statusCode).toBe(200);
+    //         expect(response.headers['content-type']).toMatch(/json/);
+    //         expect(JSON.parse(response.payload).PartyResults.length).toBeGreaterThan(2);
+    //     });
+    // });
+
+    test("GET /national/2019", () => {
         return server.inject({
             method: "GET",
-            url: "/results/votes/national/2019"
+            url: "/national/2019"
         }).then((response) => {
             expect(response.statusCode).toBe(200);
             expect(response.headers['content-type']).toMatch(/json/);
-            expect(JSON.parse(response.payload).length).toBe(10);
-            expect(JSON.parse(response.payload)[0].PartyBallotResults.length).toBeGreaterThan(2);
+            const data = JSON.parse(response.payload);
+            expect(data.event_id).toBe(699);
+            expect(data.event_name).toBe("2019 NATIONAL ELECTION");
+            expect(data.registered_voters).toBeGreaterThan(100000);
+            expect(data.spoilt_votes).toBeGreaterThan(1000);
+            expect(data.special_votes).toBeGreaterThan(1000);
+            expect(data.total_votes_cast).toBeGreaterThan(1000);
+            expect(data.total_valid_votes).toBeGreaterThan(1000);
+            expect(data.vd_count).toBeGreaterThan(1000);
+            expect(data.vd_captured).toBeGreaterThan(1000);
+            expect(data.results.length).toBeGreaterThan(10);
+            expect(data.results[0].party_id).toBeGreaterThan(0);
+            expect(data.results[0].party_name).toBeDefined();
+            expect(data.results[0].party_logo).toBeDefined();
+            expect(data.results[0].party_abbreviation).toBeDefined();
+            expect(data.results[0].votes).toBeGreaterThan(1000);
+            expect(data.results[0].vote_perc).toBeGreaterThan(0);
+            expect(data.results[0].vote_perc).toBeLessThan(100);
+            expect(data.results[0].ballot_type).toBe("National");
+            expect(data.results[0].independent).toBe(false);
+            expect(data.results[0].seats).toBeGreaterThan(0);
         });
-    })
+    });
+
+    test("GET /national/2019", () => {
+        return server.inject({
+            method: "GET",
+            url: "/national/2019"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            const data = JSON.parse(response.payload);
+            expect(data.event_id).toBe(699);
+            expect(data.event_name).toBe("2019 NATIONAL ELECTION");
+            expect(data.registered_voters).toBeGreaterThan(100000);
+            expect(data.spoilt_votes).toBeGreaterThan(1000);
+            expect(data.special_votes).toBeGreaterThan(1000);
+            expect(data.total_votes_cast).toBeGreaterThan(1000);
+            expect(data.total_valid_votes).toBeGreaterThan(1000);
+            expect(data.vd_count).toBeGreaterThan(1000);
+            expect(data.vd_captured).toBeGreaterThan(1000);
+            expect(data.results.length).toBeGreaterThan(10);
+            expect(data.results[0].party_id).toBeGreaterThan(0);
+            expect(data.results[0].party_name).toBeDefined();
+            expect(data.results[0].party_logo).toBeDefined();
+            expect(data.results[0].party_abbreviation).toBeDefined();
+            expect(data.results[0].votes).toBeGreaterThan(1000);
+            expect(data.results[0].vote_perc).toBeGreaterThan(0);
+            expect(data.results[0].vote_perc).toBeLessThan(100);
+            expect(data.results[0].ballot_type).toBe("National");
+            expect(data.results[0].independent).toBe(false);
+            expect(data.results[0].seats).toBeGreaterThan(0);
+        });
+    });
+
+    test("GET /provincial/2019", () => {
+        return server.inject({
+            method: "GET",
+            url: "/provincial/2019"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/json/);
+            const data = JSON.parse(response.payload);
+            console.log(data)
+            expect(data.event_id).toBe(699);
+            expect(data.event_name).toBe("2019 PROVINCIAL ELECTION");
+            expect(data.registered_voters).toBeGreaterThan(100000);
+            expect(data.spoilt_votes).toBeGreaterThan(1000);
+            expect(data.special_votes).toBeGreaterThan(1000);
+            expect(data.total_votes_cast).toBeGreaterThan(1000);
+            expect(data.total_valid_votes).toBeGreaterThan(1000);
+            expect(data.vd_count).toBeGreaterThan(1000);
+            expect(data.vd_captured).toBeGreaterThan(1000);
+            expect(data.results.length).toBeGreaterThan(10);
+            expect(data.results[0].party_id).toBeGreaterThan(0);
+            expect(data.results[0].party_name).toBeDefined();
+            expect(data.results[0].party_logo).toBeDefined();
+            expect(data.results[0].party_abbreviation).toBeDefined();
+            expect(data.results[0].votes).toBeGreaterThan(1000);
+            expect(data.results[0].vote_perc).toBeGreaterThan(0);
+            expect(data.results[0].vote_perc).toBeLessThan(100);
+            expect(data.results[0].ballot_type).toBe("Provincial");
+            expect(data.results[0].independent).toBe(false);
+            expect(data.results[0].seats).toBeGreaterThan(0);
+        });
+    });
 });

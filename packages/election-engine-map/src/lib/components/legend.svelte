@@ -40,10 +40,12 @@
   }
 
   init();
+
+  console.log(sortedPartySeats);
 </script>
 
 <div class="legend-wrapper">
-  <h2>Legend: Party Colors</h2>
+  <div class="electionengine-legend-heading">Legend: Party Colors</div>
   <div class="legend">
     {#each sortedPartySeats as seat}
       <div class="party-wrapper">
@@ -52,7 +54,7 @@
             <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
           </g>
         </svg>
-        <p>{seat.name}</p>
+        <div class="electionengine-legend-partyname">{seat.name} [{seat.seats}]</div>
       </div>
     {/each}
   </div>
@@ -83,21 +85,15 @@
     flex-shrink: 0;
   }
 
-  h2 {
+  .electionengine-legend-heading {
     font-size: 12px;
     margin: 0;
     padding-bottom: 2px;
   }
 
-  p {
-    color: #828282;
+  .electionengine-legend-partyname {
+    color: #292929;
     font-size: 10px;
-  }
-
-  .hexagon {
-    width: 12px;
-    height: 12px;
-    background: black;
-    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+    font-weight: 600;
   }
 </style>

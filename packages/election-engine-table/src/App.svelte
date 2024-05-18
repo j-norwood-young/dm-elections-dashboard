@@ -4,12 +4,14 @@
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
-    
+
     export let selected_year = 2019; // 2024, 2019, 2014
     export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
+
+    let provinces = PROVINCES;
 
     let data;
 
@@ -32,77 +34,63 @@
     async function setElection(election) {
         if (election === selected_election) return;
         selected_election = election;
+        if (election === "Provincial Legislature") {
+            provinces = PROVINCES.filter(
+                (p) => !["National", "Out of Country"].includes(p)
+            );
+            console.log(provinces);
+        } else {
+            provinces = PROVINCES;
+        }
         data = await processData(selected_year);
     }
 
     async function getData(year) {
-        console.log({ year, selected_election, selected_region })
-        const vote_results = await loadData({
-            year, 
-            election: selected_election, 
-            region: selected_region, 
-            type: "votes"
-        });
-        const parties = {};
-        let total_votes = 0;
-        for(let province_result of vote_results) {
-            for (let party_result of province_result.PartyBallotResults) {
-                if (parties[party_result.Abbreviation]) {
-                    parties[party_result.Abbreviation].votes += party_result.Votes;
-                } else {
-                    parties[party_result.Abbreviation] = {
-                        name: party_result.Name,
-                        partyID: party_result.Abbreviation,
-                        votes: party_result.Votes,
-                        perc: party_result.Percentage,
-                        seats: 0
-                    };
-                }
-                total_votes += party_result.Votes;
+        console.log({ year, selected_election, selected_region });
+
+        if (selected_election === "National Assembly") {
+            const vote_results = await loadData({
+                year,
+                election: selected_election,
+                region: selected_region,
+            });
+            if (selected_region !== "National") {
+                const result = vote_results.provincial_results.find(
+                    (r) => r.province_name === selected_region
+                );
+                return result;
             }
-        }
-        for (let party in parties) {
-            parties[party].perc_votes = Math.round(parties[party].votes / total_votes * 1000) / 10;
-        }
-        let total_seats = 0;
-        const seat_results = await loadData({
-            year, 
-            election: selected_election, 
-            region: selected_region, 
-            type: "seats"
-        });
-        for (let party_result of seat_results.PartyResults) {
-            if (parties[party_result.Abbreviation]) {
-                parties[party_result.Abbreviation].seats += party_result.Seats || party_result.NumberOfSeats;
-            } else {
-                parties[party_result.Abbreviation] = {
-                    name: party_result.PartyName,
-                    partyID: party_result.Abbreviation,
-                    votes: 0,
-                    seats: party_result.Seats || party_result.NumberOfSeats
+            return vote_results;
+        } else {
+            if (["National", "Out of Country"].includes(selected_region)) {
+                return {
+                    party_ballot_results: [],
                 };
             }
-            total_seats += party_result.Seats || party_result.NumberOfSeats;
+            const vote_results = await loadData({
+                year,
+                election: selected_election,
+                region: "National",
+            });
+            return vote_results.provincial_results.find(
+                (r) => r.province_name === selected_region
+            );
         }
-        const party_results = [];
-        for (let party in parties) {
-            party_results.push(parties[party]);
-        }
-        party_results.sort((a, b) => b.votes - a.votes);
-        if (selected_region !== "National") {
-            return party_results;
-        }
-        return party_results.filter(party => party.seats > 0);
     }
 
     async function processData(year) {
         const current_year = await getData(year);
         if (year > YEARS[0]) {
             const previous_year = await getData(year - 5);
-            for (let party of current_year) {
-                const previous_party = previous_year.find(p => p.partyID === party.partyID);
+            for (let party of current_year.party_ballot_results) {
+                const previous_party = previous_year.party_ballot_results.find(
+                    (p) => p.party_id === party.party_id
+                );
                 if (previous_party) {
-                    party.change = Math.round((party.perc_votes - previous_party.perc_votes) * 10) / 10;
+                    party.change =
+                        Math.round(
+                            (party.vote_perc - previous_party.vote_perc) * 10
+                        ) / 10;
                 } else {
                     party.change = null;
                 }
@@ -115,6 +103,22 @@
 <div>
     {#if show_buttons}
         <div class="electionengine-years-buttons">
+            <button
+                class="electionengine-year-button"
+                on:click={() => setElection("National Assembly")}
+                class:active={selected_election === "National Assembly"}
+            >
+                National Assembly
+            </button>
+            <button
+                class="electionengine-year-button"
+                on:click={() => setElection("Provincial Legislature")}
+                class:active={selected_election === "Provincial Legislature"}
+            >
+                Provincial Legislature
+            </button>
+        </div>
+        <div class="electionengine-years-buttons">
             {#each YEARS as year}
                 <button
                     class="electionengine-year-button"
@@ -126,14 +130,16 @@
             {/each}
         </div>
         <div class="electionengine-years-buttons">
-            <button 
-                class="electionengine-year-button"
-                on:click={() => setRegion("National")}
-                class:active={selected_region === "National"}
-            >
-                National
-            </button>
-            {#each PROVINCES as province}
+            {#if selected_election === "National Assembly"}
+                <button
+                    class="electionengine-year-button"
+                    on:click={() => setRegion("National")}
+                    class:active={selected_region === "National"}
+                >
+                    National
+                </button>
+            {/if}
+            {#each provinces as province}
                 <button
                     class="electionengine-year-button"
                     on:click={() => setRegion(province)}
@@ -145,9 +151,16 @@
         </div>
     {/if}
     {#if show_title}
-        <div class="electionengine-title">General Election {selected_region} results for {selected_election}  {selected_year}</div>
-        
+        <div class="electionengine-title">
+            Results for
+            {selected_year}
+            {selected_election}
+            {selected_region} General Election
+        </div>
     {/if}
+    <pre>
+    <!-- {JSON.stringify(data)} -->
+    </pre>
     <div class="electionengine-table-container">
         <table class="electionengine-table">
             <thead>
@@ -160,22 +173,56 @@
             </thead>
             <tbody>
                 {#if data}
-                    {#each data as row, i}
-                        <tr style:border-left="6px {partyColor(row.partyID, i)} solid" style:background-color={i % 2 ? "#f1f1f1" : "#FFFFFF" }>
-                            <td class="electionengine-party-column">{row.name}</td>
-                            <td class="electionengine-seats-column">{row.seats}</td>
-                            <td class="electionengine-votes-column">{Intl.NumberFormat("en-US").format(row.votes)}</td>
+                    {#each data.party_ballot_results as row, i}
+                        <tr
+                            style:border-left="6px {partyColor(
+                                row.party_abbreviation,
+                                i
+                            )}
+                            solid"
+                            style:background-color={i % 2
+                                ? "#f1f1f1"
+                                : "#FFFFFF"}
+                        >
+                            <td class="electionengine-party-column"
+                                >{row.party_name}</td
+                            >
+                            <td class="electionengine-seats-column"
+                                >{row.seats}</td
+                            >
+                            <td class="electionengine-votes-column"
+                                >{Intl.NumberFormat("en-US").format(
+                                    row.votes
+                                )}</td
+                            >
                             <td class="electionengine-change-column">
                                 {#if row.change > 0}
-                                    <div class="electionengine-label electionengine-change-up">+{row.change}%</div>
+                                    <div
+                                        class="electionengine-label electionengine-change-up"
+                                    >
+                                        +{row.change}%
+                                    </div>
                                 {:else if row.change === 0}
-                                    <div class="electionengine-label electionengine-change-nochange">0%</div>
+                                    <div
+                                        class="electionengine-label electionengine-change-nochange"
+                                    >
+                                        0%
+                                    </div>
                                 {:else if row.change < 0}
-                                    <div class="electionengine-label electionengine-change-down">{row.change}%</div>
+                                    <div
+                                        class="electionengine-label electionengine-change-down"
+                                    >
+                                        {row.change}%
+                                    </div>
                                 {:else}
-                                    <div class="electionengine-label electionengine-change-na">N/A</div>
+                                    <div
+                                        class="electionengine-label electionengine-change-na"
+                                    >
+                                        N/A
+                                    </div>
                                 {/if}
-                        </tr>
+                            </td></tr
+                        >
                     {/each}
                 {/if}
             </tbody>
@@ -205,11 +252,13 @@
     }
 
     table.electionengine-table {
-        width: 550px;
+        width: 500px;
         border-collapse: collapse;
+        font-size: 14px;
     }
 
-    table.electionengine-table th, table.electionengine-table td {
+    table.electionengine-table th,
+    table.electionengine-table td {
         border: 1px solid #ddd;
         padding: 8px;
     }
@@ -250,7 +299,7 @@
         width: 40px;
         background-color: #444;
     }
-    
+
     .electionengine-change-up {
         background-color: #4caf50;
     }

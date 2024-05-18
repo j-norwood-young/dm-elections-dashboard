@@ -1,7 +1,5 @@
+// const baseUrl = "http://localhost:9001";
 const baseUrl = "https://iec-api.revengine.dailymaverick.co.za";
-const votesUrl = "/results/votes/national";
-const seatsUrl = "/results/seats/national";
-
 
 /**
  * Loads data for a specific election year, type, region, and election.
@@ -12,19 +10,17 @@ const seatsUrl = "/results/seats/national";
  * @param {string} [options.type="votes"] - The type of data to load (votes or seats).
  * @returns {Promise<any>} - A promise that resolves with the loaded data.
  */
-export async function loadData({year = 2024, election = "National Assembly", region = "National", type="votes"}) {
-    if (type === "votes") {
-        const url = `${baseUrl}${votesUrl}/${year}`;
-        const result = await load(url);
-        if (region !== "National") {
-            return result.filter(d => d.Province === region);
-        }
-        return result;
-    } else if (type === "seats") {
-        const url = region === "National" ? `${baseUrl}${seatsUrl}/${year}` : `${baseUrl}${seatsUrl}/${year}/${region}`;
-        const result = await load(url);
-        return result;
+export async function loadData({ year = 2024, election = "National Assembly", region = "National" }) {
+    let url = `${baseUrl}/national/${year}`;
+    if (election === "National Assembly") {
+        return await load(url);
     }
+    if (region === "National") {
+        url = `${baseUrl}/provincial/${year}`;
+    } else {
+        url = `${baseUrl}/provincial/${year}/${region}`;
+    }
+    return await load(url);
 }
 
 /**

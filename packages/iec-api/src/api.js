@@ -5,6 +5,9 @@ import { getCache, setCache } from './cache.js';
 import * as ElectionResults from './election_results.js';
 import YEARS from "@election-engine/common/years.json" with { type: 'json' };
 import PROVINCES from "@election-engine/common/provinces.json" with { type: 'json' };
+import path from 'path';
+import { fastifyStatic } from '@fastify/static';
+import fs from 'fs';
 
 export const server = Fastify({
     logger: true
@@ -13,6 +16,18 @@ export const server = Fastify({
 server.register(cors, {
     origin: "*"
 });
+
+const dirname = path.resolve(path.dirname(''));
+const maps_dir = path.join(dirname, "./", "maps");
+
+if (!fs.existsSync(maps_dir)) {
+    throw new Error(`Public directory ${maps_dir} not found`);
+}
+
+server.register(fastifyStatic, {
+    root: maps_dir,
+    prefix: '/maps/',
+})
 
 server.get('/', async (req, res) => {
     res.send({ msg: 'Hello, world!' });

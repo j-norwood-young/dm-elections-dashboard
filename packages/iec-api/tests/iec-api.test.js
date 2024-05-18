@@ -291,3 +291,26 @@ describe("Combined API tests", () => {
         });
     })
 });
+
+describe("Maps download tests", () => {
+    test("GET /maps/sa-munic-ec.geojson", () => {
+        return server.inject({
+            method: "GET",
+            url: "/maps/sa-munic-ec.geojson"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch("geo+json");
+        });
+    });
+
+    test("GET /maps/sa-province.json", () => {
+        return server.inject({
+            method: "GET",
+            url: "/maps/sa-province.json"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/application\/json/);
+        });
+    });
+
+});

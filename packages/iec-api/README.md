@@ -24,17 +24,24 @@ Environmental variables:
 
 ## Endpoint Structure
 
-/{election}/{year}/{province_name?}
+/{election}/{level?}/{year}/{province_name?}
 
 -   election: national, provincial
+-   level: national (default), provincial
 -   year: 2009, 2014, 2019
 
 ## Example
 
-Get the results for the 2019 national elections:
+Get the top-level results for the 2019 national elections:
 
 ```
 GET /national/2019
+```
+
+Get the results for the 2019 national elections in the Western Cape:
+
+```
+GET /national/2019/Western%20Cape
 ```
 
 Get the results for the 2019 provincial elections in the Western Cape:

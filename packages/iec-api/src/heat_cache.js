@@ -1,9 +1,7 @@
 import * as ElectionResults from "./election_results.js";
 import { setCache } from "./cache.js";
 import assert from "assert";
-import YEARS from "@election-engine/common/years.json";
-import PROVINCES from "@election-engine/common/provinces.json";
-import NATIONAL_ELECTIONS from "@election-engine/common/national_elections.json";
+import YEARS from "@election-engine/common/years.json" with { type: "json" };
 
 /**
  * Caches electoral data for specified years and election type.

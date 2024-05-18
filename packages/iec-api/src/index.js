@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import { server } from './api.js';
 import { heatCache } from './heat_cache.js';
-import years from '@election-engine/common/years.json';
+import YEARS from '@election-engine/common/years.json' assert { type: 'json' };
 dotenv.config();
 
 const port = process.env.PORT || 8080;
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 async function main() {
-    await heatCache(years);
+    await heatCache(YEARS);
     console.log("Cache is hot!")
 }
 

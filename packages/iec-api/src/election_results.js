@@ -39,8 +39,18 @@ export async function provinces(eventID) {
     return provinces;
 }
 
+export async function municipalities(eventID, provinceID) {
+    const municipalities = await iec.delimitationsProvince(eventID, provinceID);
+    return municipalities;
+}
+
 export async function votesByProvince(eventID, provinceID) {
     const votes = await iec.NPEBallotResultsProvince(eventID, provinceID);
+    return votes;
+}
+
+export async function votesByMunicipality(eventID, provinceID, municipalityID) {
+    const votes = await iec.NPEBallotResultsMunicipality(eventID, provinceID, municipalityID);
     return votes;
 }
 

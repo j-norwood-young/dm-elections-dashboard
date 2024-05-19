@@ -38,7 +38,6 @@
             provinces = PROVINCES.filter(
                 (p) => !["National", "Out of Country"].includes(p)
             );
-            console.log(provinces);
         } else {
             provinces = PROVINCES;
         }
@@ -46,8 +45,6 @@
     }
 
     async function getData(year) {
-        console.log({ year, selected_election, selected_region });
-
         if (selected_election === "National Assembly") {
             const vote_results = await loadData({
                 year,
@@ -158,9 +155,6 @@
             {selected_region} General Election
         </div>
     {/if}
-    <pre>
-    <!-- {JSON.stringify(data)} -->
-    </pre>
     <div class="electionengine-table-container">
         <table class="electionengine-table">
             <thead>

@@ -43,6 +43,8 @@
   }
 
   let innerWidth = 0;
+
+  $: console.log(data);
 </script>
 
 <svelte:window bind:innerWidth />
@@ -75,8 +77,11 @@
       </div>
     </div>
   {/if}
+
   {#if selected_election === "National Assembly"}
-    <NationalView bind:data {innerWidth} />
+    {#if data}
+      <NationalView data={data.provincial_results} {innerWidth} />
+    {/if}
   {:else if selected_election === "Provincial Legislature"}
     <ProvincialView bind:data {innerWidth} {selected_region} />
   {/if}
@@ -99,21 +104,21 @@
     margin-bottom: 1rem;
   }
 
-  .election-year button {
+  /* .election-year button {
     border: none;
     border-bottom: 4px solid silver;
     width: 75px;
-  }
+  } */
 
-  .election-year button:hover {
+  /* .election-year button:hover {
     outline: 4px auto black;
     border-bottom: 4px solid black;
     transition: border-color 0.3s;
-  }
+  } */
 
-  button.selected {
+  /* button.selected {
     background-color: #0c0c0c;
     color: #fff;
     border-bottom: 4px solid black;
-  }
+  } */
 </style>

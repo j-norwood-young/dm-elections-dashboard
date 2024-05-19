@@ -37,9 +37,9 @@
     }
     let x = 0;
     for (let seat of seats) {
-      for (let j = 0; j < seat.NumberOfSeats; j++) {
+      for (let j = 0; j < seat.seats; j++) {
         data[x].party = seat;
-        data[x].color = partyColor(seat.Abbreviation, x);
+        data[x].color = partyColor(seat.party_abbreviation, x);
         data[x].cord_x = node.x;
         data[x].cord_y = node.y;
         data[x].total_seats = total_seats;

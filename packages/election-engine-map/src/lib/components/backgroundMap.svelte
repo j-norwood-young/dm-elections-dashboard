@@ -2,7 +2,7 @@
   import geoData from "../../data/sa-province.smallest.min.json";
   import { geoArea, geoIdentity, geoPath } from "d3-geo";
   import CartogramResultShow from "./result-view/cartogramResultShow.svelte";
-  import CartogramNoResult from "./result-view/cartogramNoResult.svelte";
+  // import CartogramNoResult from "./result-view/cartogramNoResult.svelte";
 
   export let data;
   export let innerWidth;

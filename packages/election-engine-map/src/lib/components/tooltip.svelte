@@ -34,7 +34,7 @@
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Party:</div>
-      <div class="electionengine-tooltip-tdata">{data.party.Name}</div>
+      <div class="electionengine-tooltip-tdata">{data.party.party_name}</div>
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Percentage of Seats Won in Limpopo</div>
@@ -43,20 +43,20 @@
           <div class="electionengine-tooltip-outer">
             <div
               class="electionengine-tooltip-inner"
-              style="width:{data.party.Percentage}%; background:{data.color}"
+              style="width:{data.party.vote_perc}%; background:{data.color}"
             ></div>
           </div>
         </div>
-        <span> {Math.round(data.party.Percentage)}%</span>
+        <span> {Math.round(data.party.vote_perc)}%</span>
       </div>
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</div>
-      <div class="electionengine-tooltip-tdata">{data.party.NumberOfSeats} / {data.total_seats}</div>
+      <div class="electionengine-tooltip-tdata">{data.party.seats} / {data.total_seats}</div>
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Total Votes</div>
-      <div class="electionengine-tooltip-tdata">{numberWithCommas(data.party.Votes)}</div>
+      <div class="electionengine-tooltip-tdata">{numberWithCommas(data.party.votes)}</div>
     </div>
   </div>
 </div>

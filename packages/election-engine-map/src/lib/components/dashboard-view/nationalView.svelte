@@ -4,6 +4,8 @@
 
   export let data;
   export let innerWidth;
+
+  console.log(data);
 </script>
 
 {#if data}

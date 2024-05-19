@@ -16,8 +16,8 @@
     const coords = path.centroid(d);
     const regionSeat = regionalSeatAllocation.filter((e) => d.properties.PROVINCE === e.region)[0];
     const provinceResult = data
-      .filter((e) => d.properties.PROVINCE === e.Province)[0]
-      .PartyBallotResults.filter((p) => p.NumberOfSeats > 0);
+      .filter((e) => d.properties.PROVINCE === e.province_name)[0]
+      .party_ballot_results.filter((p) => p.seats > 0);
     const provinceID = d.properties.PROVINCE;
     const provinceTotalSeats = regionSeat.seat;
     const height = 50;

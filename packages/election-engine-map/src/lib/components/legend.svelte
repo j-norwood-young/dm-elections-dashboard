@@ -5,6 +5,7 @@
   import { partyColor } from "@election-engine/common/colors";
 
   export let data;
+  console.log(data);
 
   let sortedPartySeats;
 
@@ -17,11 +18,11 @@
     const partySeats = {};
 
     data.forEach((province) => {
-      province.PartyBallotResults.forEach((party) => {
-        if (partySeats[party.Abbreviation]) {
-          partySeats[party.Abbreviation] += party.NumberOfSeats;
+      province.party_ballot_results.forEach((party) => {
+        if (partySeats[party.party_abbreviation]) {
+          partySeats[party.party_abbreviation] += party.seats;
         } else {
-          partySeats[party.Abbreviation] = party.NumberOfSeats;
+          partySeats[party.party_abbreviation] = party.seats;
         }
       });
     });

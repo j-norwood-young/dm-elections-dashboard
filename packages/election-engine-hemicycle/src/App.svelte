@@ -6,6 +6,9 @@
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
+    import SEAT_COUNTS from "@election-engine/common/seat_counts.json";
+
+    let provinces = PROVINCES.filter((p) => p !== "Out of Country");
 
     import "./app.css";
 
@@ -14,21 +17,21 @@
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
+    export let displayHeight = 640;
+    export let r = 300;
 
     let current_party;
 
-    const rows = 12;
-    const display = ["points"];
     const color = "black";
     const font_size = "20";
     const selectedShape = "hexagon";
     export let total_seats = 400;
-
+    export let rows = 12;
+    export let display = ["points"];
     let data, arc;
 
     onMount(async () => {
         data = await processData();
-        console.log(data);
     });
 
     async function setYear(year) {
@@ -37,34 +40,129 @@
         data = await processData();
     }
 
-    async function processData() {
-        const data = await loadData({
-            year: selected_year,
-            election: selected_election,
-            region: selected_region,
-            type: "seats",
-        });
-        const mappedData = data.PartyResults.map((party, i) => {
-            return {
-                id: party.Abbreviation,
-                text: party.Name,
-                count: party.Seats,
-                color: partyColor(party.Abbreviation, i),
-                percentage: (party.Seats / total_seats) * 100,
-            };
-        });
-        return mappedData;
+    async function setElection(election) {
+        if (election === selected_election) return;
+        selected_election = election;
+        data = await processData();
     }
 
-    $: {
+    async function setRegion(region) {
+        if (region === selected_region) return;
+        selected_region = region;
+        if (region === "National") total_seats = 400;
+        data = await processData();
+    }
+
+    async function processData() {
+        data = [];
+        if (
+            selected_region === "National" &&
+            selected_election === "Provincial Legislature"
+        ) {
+            selected_region = "Gauteng";
+        }
+        const loaded_data = await loadData({
+            year: selected_year,
+            election: selected_election,
+            region: "National",
+        });
+        if (selected_election === "National Assembly") {
+            selected_region = "National";
+            const mappedData = loaded_data.party_ballot_results.map(
+                (party, i) => {
+                    return {
+                        id: party.party_id,
+                        text: party.party_name,
+                        count: party.seats,
+                        color: partyColor(party.party_abbreviation, i),
+                        percentage: party.vote_perc,
+                    };
+                }
+            );
+            total_seats = 400;
+            rows = 13;
+            r = 300;
+            return mappedData;
+        } else {
+            const province_data = loaded_data.provincial_results.find(
+                (province) => province.province_name === selected_region
+            );
+            const mappedData = province_data.party_ballot_results
+                .filter((party) => party.seats > 0)
+                .map((party, i) => {
+                    return {
+                        id: party.party_id,
+                        text: party.party_name,
+                        count: party.seats,
+                        color: partyColor(party.party_abbreviation, i),
+                        percentage: party.vote_perc,
+                    };
+                });
+            if (selected_year === 2024) {
+                total_seats = SEAT_COUNTS[selected_region];
+            } else {
+                total_seats = mappedData.reduce(
+                    (acc, party) => acc + party.count,
+                    0
+                );
+            }
+            rows = Math.ceil(total_seats / 15);
+            r = 200;
+            return mappedData;
+        }
     }
 </script>
 
 <div class="election-engine-hemicycle-app">
     {#if show_buttons}
-        {#each YEARS as year}
-            <button on:click={() => setYear(year)}>{year}</button>
-        {/each}
+        <div class="electionengine-years-buttons">
+            <button
+                class="electionengine-year-button"
+                on:click={() => setElection("National Assembly")}
+                class:active={selected_election === "National Assembly"}
+            >
+                National Assembly
+            </button>
+            <button
+                class="electionengine-year-button"
+                on:click={() => setElection("Provincial Legislature")}
+                class:active={selected_election === "Provincial Legislature"}
+            >
+                Provincial Legislature
+            </button>
+        </div>
+        <div class="electionengine-years-buttons">
+            {#each YEARS as year}
+                <button
+                    class="electionengine-year-button"
+                    on:click={() => setYear(year)}
+                    class:active={selected_year === year}
+                >
+                    {year}
+                </button>
+            {/each}
+        </div>
+        <div class="electionengine-years-buttons">
+            {#if selected_election === "National Assembly"}
+                <button
+                    class="electionengine-year-button"
+                    on:click={() => setRegion("National")}
+                    class:active={selected_region === "National"}
+                >
+                    National
+                </button>
+            {:else}
+                {#each provinces as province}
+                    <button
+                        class="electionengine-year-button"
+                        on:click={() => setRegion(province)}
+                        class:active={selected_region === province}
+                    >
+                        {province}
+                    </button>
+                {/each}
+            {/if}
+        </div>
     {/if}
     {#if show_title}
         <div class="electionengine-title">
@@ -77,7 +175,7 @@
         <div class="electionengine-hemicycle-container">
             <Hemicycle
                 bind:current_party
-                displayHeight={"640px"}
+                {displayHeight}
                 {data}
                 {rows}
                 {display}
@@ -86,6 +184,7 @@
                 {selectedShape}
                 {arc}
                 {total_seats}
+                {r}
             />
         </div>
         {#if current_party}
@@ -123,6 +222,21 @@
 </div>
 
 <style>
+    .electionengine-year-button {
+        background-color: #e4e4e4;
+        border: 1px solid #ccc;
+        color: black;
+        padding: 10px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .electionengine-year-button.active {
+        background-color: #4caf50;
+        color: white;
+    }
+
     .electionengine-title {
         font-size: 20px;
         font-weight: 700;

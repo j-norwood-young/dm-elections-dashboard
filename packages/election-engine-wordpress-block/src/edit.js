@@ -31,26 +31,24 @@ import './editor.scss';
  */
 
 export default function Edit({ attributes, setAttributes }) {
-    const props = useBlockProps();
-	console.log({attributes, props})
+	const props = useBlockProps();
 	function clickHandler() {
-		console.log("ElectionsEngineEditBlock Clicked")
 		jQuery(document).trigger('election-engine-edit-block-click', [props, attributes, setAttributes]);
 	}
-    return (
-        <>
-            <p {...props}>
-                <div id="ElectionsEngineEditBlock" class="election-engine-block-editor" onClick={clickHandler}>
+	return (
+		<>
+			<p {...props}>
+				<div id="ElectionsEngineEditBlock" class="election-engine-block-editor" onClick={clickHandler}>
 					<h1>Click to Edit your Elections Block</h1>
 					<div className='pills'>
-					{ attributes.visualisation && <div className='pill'>{ attributes.visualisation }</div> }
-					{ attributes.selected_year && <div className='pill'>{ attributes.selected_year }</div> }
-					{ attributes.selected_election && <div className='pill'>{ attributes.selected_election }</div> }
-					{ attributes.selected_region && <div className='pill'>{ attributes.selected_region }</div> }
-					{ attributes.selected_fields && <div className='pill'>{ attributes.selected_fields }</div> }
+						{attributes.visualisation && <div className='pill'>{attributes.visualisation}</div>}
+						{attributes.selected_year && <div className='pill'>{attributes.selected_year}</div>}
+						{attributes.selected_election && <div className='pill'>{attributes.selected_election}</div>}
+						{attributes.selected_region && <div className='pill'>{attributes.selected_region}</div>}
+						{attributes.selected_fields && <div className='pill'>{attributes.selected_fields}</div>}
 					</div>
 				</div>
-            </p>
-        </>
-    );
+			</p>
+		</>
+	);
 }

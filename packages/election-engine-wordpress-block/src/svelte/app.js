@@ -1,6 +1,5 @@
 // import './app.css'
 import App from './App.svelte'
-console.log("App")
 // Get "id" attribute from the div element in the block
 jQuery(() => {
 	const targets = document.querySelectorAll('.wp-block-tenlayer-election-engine');

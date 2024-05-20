@@ -16,9 +16,6 @@
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition = data.x + tooltipWidth + xNudge > width ? data.x - tooltipWidth - xNudge : data.x + xNudge;
   $: yPosition = data.y + tooltipHeight + yNudge > height ? data.y - tooltipHeight - yNudge : data.y - yNudge;
-
-  //$: console.log(data);
-  console.log(grid);
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />

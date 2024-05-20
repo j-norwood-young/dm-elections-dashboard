@@ -1,7 +1,8 @@
 <script>
   import geoData from "../../data/sa-province.smallest.min.json";
-  import { geoArea, geoIdentity, geoPath } from "d3-geo";
+  import { geoIdentity, geoPath } from "d3-geo";
   import CartogramResultShow from "./result-view/cartogramResultShow.svelte";
+  import { onMount } from "svelte";
   // import CartogramNoResult from "./result-view/cartogramNoResult.svelte";
 
   export let data;
@@ -11,8 +12,22 @@
 
   let width = 600;
   let height = 600;
+  let provinces;
+  let gd;
 
-  let provinces = geoData.features;
+  async function getMap() {
+    const d = await fetch("https://iec-api.revengine.dailymaverick.co.za/maps/sa-province.smallest.min.json");
+    return d.json();
+  }
+
+  onMount(async () => {
+    gd = await getMap();
+    provinces = geoData.features;
+  });
+
+  // $: console.log(gd);
+
+  // let provinces = geoData.features;
 
   /**
    * geoIdentity - new geographic projection with an identity transformation
@@ -20,34 +35,38 @@
    * [width, height] - set the map dimensions
    * data - Data to fit the extent
    */
-  const projection = geoIdentity()
+  $: projection = geoIdentity()
     .reflectY(true)
     .fitExtent(
       [
         [20, 20],
         [width, height],
       ],
-      geoData
+      gd
     );
 
   // Geographic path generator based on the projection configured above.
-  const path = geoPath(projection);
+  $: path = geoPath(projection);
+
+  // $: console.log(gd);
 </script>
 
-<div class="electionengine-svg-wrapper">
-  {#if !grid}
-    <svg class="electionengine-map-svg" {width} {height}>
-      <!-- Countries -->
-      <g id="saMap">
-        {#each provinces as province}
-          <path d={path(province)} fill="#ECECEC" stroke="white" stroke-width="0.94" />
-        {/each}
-      </g>
-    </svg>
-  {/if}
-  <!-- <CartogramNoResult {path} {grid} {provinces} /> -->
-  <CartogramResultShow {provinces} {path} {grid} bind:data />
-</div>
+{#if provinces}
+  <div class="electionengine-svg-wrapper">
+    {#if !grid}
+      <svg class="electionengine-map-svg" {width} {height}>
+        <!-- Countries -->
+        <g id="saMap">
+          {#each provinces as province}
+            <path d={path(province)} fill="#ECECEC" stroke="white" stroke-width="0.94" />
+          {/each}
+        </g>
+      </svg>
+    {/if}
+
+    <CartogramResultShow {provinces} {path} {grid} bind:data />
+  </div>
+{/if}
 
 <style>
   .electionengine-svg-wrapper {

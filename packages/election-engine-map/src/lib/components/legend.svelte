@@ -5,7 +5,6 @@
   import { partyColor } from "@election-engine/common/colors";
 
   export let data;
-  console.log(data);
 
   let sortedPartySeats;
 
@@ -41,8 +40,6 @@
   }
 
   init();
-
-  console.log(sortedPartySeats);
 </script>
 
 <div class="legend-wrapper">

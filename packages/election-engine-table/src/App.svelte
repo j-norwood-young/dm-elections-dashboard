@@ -160,9 +160,13 @@
             <thead>
                 <tr style:border-left="6px #ccc solid">
                     <th class="electionengine-party-column">Party</th>
-                    <th class="electionengine-seats-column">Seats</th>
+                    {#if selected_region !== "Out of Country"}
+                        <th class="electionengine-seats-column">Seats</th>
+                    {/if}
                     <th class="electionengine-votes-column">Votes</th>
-                    <th class="electionengine-change-column">Change</th>
+                    {#if selected_year > 2009}
+                        <th class="electionengine-change-column">Change</th>
+                    {/if}
                 </tr>
             </thead>
             <tbody>
@@ -181,42 +185,46 @@
                             <td class="electionengine-party-column"
                                 >{row.party_name}</td
                             >
-                            <td class="electionengine-seats-column"
-                                >{row.seats}</td
-                            >
+                            {#if selected_region !== "Out of Country"}
+                                <td class="electionengine-seats-column"
+                                    >{row.seats}</td
+                                >
+                            {/if}
                             <td class="electionengine-votes-column"
                                 >{Intl.NumberFormat("en-US").format(
                                     row.votes
                                 )}</td
                             >
-                            <td class="electionengine-change-column">
-                                {#if row.change > 0}
-                                    <div
-                                        class="electionengine-label electionengine-change-up"
-                                    >
-                                        +{row.change}%
-                                    </div>
-                                {:else if row.change === 0}
-                                    <div
-                                        class="electionengine-label electionengine-change-nochange"
-                                    >
-                                        0%
-                                    </div>
-                                {:else if row.change < 0}
-                                    <div
-                                        class="electionengine-label electionengine-change-down"
-                                    >
-                                        {row.change}%
-                                    </div>
-                                {:else}
-                                    <div
-                                        class="electionengine-label electionengine-change-na"
-                                    >
-                                        N/A
-                                    </div>
-                                {/if}
-                            </td></tr
-                        >
+                            {#if selected_year > 2009}
+                                <td class="electionengine-change-column">
+                                    {#if row.change > 0}
+                                        <div
+                                            class="electionengine-label electionengine-change-up"
+                                        >
+                                            +{row.change}%
+                                        </div>
+                                    {:else if row.change === 0}
+                                        <div
+                                            class="electionengine-label electionengine-change-nochange"
+                                        >
+                                            0%
+                                        </div>
+                                    {:else if row.change < 0}
+                                        <div
+                                            class="electionengine-label electionengine-change-down"
+                                        >
+                                            {row.change}%
+                                        </div>
+                                    {:else}
+                                        <div
+                                            class="electionengine-label electionengine-change-na"
+                                        >
+                                            N/A
+                                        </div>
+                                    {/if}
+                                </td>
+                            {/if}
+                        </tr>
                     {/each}
                 {/if}
             </tbody>
@@ -243,6 +251,7 @@
     .electionengine-table-container {
         display: flex;
         justify-content: center;
+        margin-bottom: 20px;
     }
 
     table.electionengine-table {
@@ -309,9 +318,9 @@
     .electionengine-title {
         font-size: 20px;
         font-weight: bold;
-        margin: 10px;
+        margin: 20px auto;
         line-height: 1.2;
-        width: 100%;
+        /* width: 100%; */
         text-align: center;
     }
 </style>

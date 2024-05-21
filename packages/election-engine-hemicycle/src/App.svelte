@@ -28,6 +28,7 @@
     export let total_seats = 400;
     export let rows = 12;
     export let display = ["points"];
+    export let blurb = null;
     let data, arc;
 
     onMount(async () => {
@@ -67,6 +68,8 @@
             region: "National",
         });
         if (selected_election === "National Assembly") {
+            blurb =
+                "The 400 seats of the National Assembly are calculated by assigning 200 from the provincial ballot and 200 from the national list. In 2024, the provincial ballot includes independent candidates.";
             selected_region = "National";
             const mappedData = loaded_data.party_ballot_results.map(
                 (party, i) => {
@@ -106,6 +109,7 @@
                     0
                 );
             }
+            blurb = `Each Provincial Legislature has a different number of seats. In ${selected_year}, the ${selected_region} Legislature has ${total_seats} seats.`;
             rows = Math.ceil(total_seats / 15);
             r = 200;
             return mappedData;
@@ -187,6 +191,9 @@
                 {r}
             />
         </div>
+        {#if blurb}
+            <div class="electionengine-blurb">{blurb}</div>
+        {/if}
         {#if current_party}
             <div class="electionengine-party-results-information-container">
                 <div
@@ -240,9 +247,9 @@
     .electionengine-title {
         font-size: 20px;
         font-weight: 700;
-        margin: 10px;
+        margin: 20px auto;
         line-height: 1.2;
-        width: 100%;
+        /* width: 100%; */
         text-align: center;
     }
 
@@ -259,6 +266,17 @@
     .electionengine-hemicycle-container {
         height: 320px;
         overflow-y: hidden;
+        margin-bottom: 20px;
+    }
+
+    .electionengine-blurb {
+        font-size: 12px;
+        color: #2a2a2a;
+        font-weight: normal;
+        border-bottom: 1px solid #c7c4c4;
+        padding: 10px;
+        margin: 0px auto 20px auto;
+        max-width: 400px;
     }
 
     .electionengine-party-results-information-container {
@@ -270,6 +288,19 @@
         top: 0px;
         left: 0px;
         background-color: white;
+        @media screen and (min-width: 1280px) {
+            left: 20%;
+        }
+        @media screen and (min-width: 900px) and (max-width: 1280px) {
+            left: 10%;
+        }
+        @media screen and (max-width: 900px) and (min-width: 500px) {
+            left: 0%;
+        }
+        @media screen and (max-width: 500px) {
+            left: 0px;
+            right: 0px;
+        }
     }
 
     .electionengine-party-results-information {

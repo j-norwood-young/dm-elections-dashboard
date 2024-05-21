@@ -296,10 +296,10 @@ describe("Maps download tests", () => {
     test("GET /maps/sa-munic-ec.geojson", () => {
         return server.inject({
             method: "GET",
-            url: "/maps/sa-munic-ec.geojson"
+            url: "/maps/2024/sa-munic-ec.geojson.min.json"
         }).then((response) => {
             expect(response.statusCode).toBe(200);
-            expect(response.headers['content-type']).toMatch("geo+json");
+            expect(response.headers['content-type']).toMatch(/application\/json/);
         });
     });
 

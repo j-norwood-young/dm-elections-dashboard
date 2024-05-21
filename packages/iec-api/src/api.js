@@ -27,6 +27,9 @@ if (!fs.existsSync(maps_dir)) {
 server.register(fastifyStatic, {
     root: maps_dir,
     prefix: '/maps/',
+    maxAge: 604800,
+    cacheControl: "public",
+    preCompressed: true
 })
 
 server.get('/', async (req, res) => {

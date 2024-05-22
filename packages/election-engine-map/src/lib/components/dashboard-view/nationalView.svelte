@@ -2,11 +2,8 @@
   import BackgroundMap from "../backgroundMap.svelte";
   import Legend from "../legend.svelte";
 
-  export let election_results_data;
+  export let data;
   export let innerWidth;
-
-  let data;
-  $: data = election_results_data;
 </script>
 
 {#if data}
@@ -20,8 +17,6 @@
 
 {#if data}
   <BackgroundMap {innerWidth} bind:data />
-{:else}
-  <p>..Loading</p>
 {/if}
 
 <style>

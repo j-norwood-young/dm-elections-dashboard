@@ -10,20 +10,19 @@
   // export let margin = 1;
   export let offset = true;
   export let grid;
-  export let node;
+  export let hexagon_data;
   export let tooltipData;
 
   let seatsData = [];
   let rows = 0;
-  let seatHexagon;
 
-  $: isGauteng = node.provinceID === "Gauteng" ? true : false;
+  $: isGauteng = hexagon_data.province_id === "Gauteng" ? true : false;
 
   function calculateRows() {
     return Math.ceil(total_seats / cols);
   }
 
-  function calculateSeats() {
+  $: calculateSeats = () => {
     let data = [];
     for (let i = 0; i < total_seats; i++) {
       const d = {
@@ -40,39 +39,24 @@
       for (let j = 0; j < seat.seats; j++) {
         data[x].party = seat;
         data[x].color = partyColor(seat.party_abbreviation, x);
-        data[x].cord_x = node.x;
-        data[x].cord_y = node.y;
         data[x].total_seats = total_seats;
         x++;
       }
     }
     return data;
-  }
+  };
 
-  function init() {
+  $: init = () => {
     rows = calculateRows();
-    // console.log({rows})
     seatsData = calculateSeats();
-  }
+  };
 
-  // onMount(async () => {
-  //   let cord = seatHexagon.getBoundingClientRect();
-  //   for (let x of seatsData) {
-  //     x.x = cord.x;
-  //     x.y = cord.y;
-  //   }
-  // });
-
-  init();
   $: init();
-
-  //console.log(seats);
-  //$: console.log(seatsData);
 </script>
 
-{#if node.provinceID === "Gauteng" || node.provinceID === "KwaZulu-Natal"}
+{#if hexagon_data.province_id === "Gauteng" || hexagon_data.province_id === "KwaZulu-Natal"}
   <div class="electionengine-pr-head" class:gauteng-heading={isGauteng}>
-    {node.provinceID}
+    {hexagon_data.province_id}
   </div>
 {/if}
 
@@ -89,7 +73,7 @@
   role="img"
   on:mouseleave={() => (tooltipData = null)}
 >
-  <text dx="15" dy="-4" base>{node.provinceID}</text>
+  <text dx="15" dy="-4" base>{hexagon_data.province_id}</text>
   <svg viewBox="0 0 {12 * cols} {12 * rows}">
     {#each seatsData as seat}
       <g
@@ -100,7 +84,6 @@
               "
       >
         <svg
-          bind:this={seatHexagon}
           width="12px"
           height="13px"
           viewBox="0 0 15 17"

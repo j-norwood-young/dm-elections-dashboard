@@ -3,7 +3,7 @@ export const maps_endpoint = [
 	{ region: 'Free State', endpoint: "fs" },
 	{ region: 'Gauteng', endpoint: "gp" },
 	{ region: 'KwaZulu-Natal', endpoint: "kzn" },
-	{ region: 'Limpopo', endpoint: "lm" },
+	{ region: 'Limpopo', endpoint: "lp" },
 	{ region: 'Mpumalanga', endpoint: "mp" },
 	{ region: 'North West', endpoint: "nw" },
 	{ region: 'Northern Cape', endpoint: "nc" },

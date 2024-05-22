@@ -29,7 +29,7 @@
     return partySeats;
   }
 
-  function init() {
+  $: init = () => {
     const seats = calculateTotalSeats(data);
     sortedPartySeats = Object.keys(seats)
       .sort((a, b) => seats[b] - seats[a])
@@ -37,9 +37,9 @@
       .filter((party) => party.seats > 0);
 
     return sortedPartySeats;
-  }
+  };
 
-  init();
+  $: init();
 </script>
 
 <div class="legend-wrapper">

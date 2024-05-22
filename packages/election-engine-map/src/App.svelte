@@ -7,6 +7,7 @@
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
   import years from "@election-engine/common/years.json";
+  import PROVINCES from "@election-engine/common/provinces.json";
 
   // Parameters
   export let selected_year = 2019; // 2024, 2019, 2014
@@ -14,41 +15,63 @@
   export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
   export let show_buttons = false;
 
-  let election_results_data;
+  let provinces = PROVINCES;
+  let loading = false;
+
+  let data;
 
   onMount(async () => {
-    election_results_data = await getData(selected_year);
+    data = await getData(selected_year);
+    loading = true;
   });
 
   async function setYear(year) {
     if (year === selected_year) return;
     selected_year = year;
-    election_results_data = await getData(selected_year);
+    data = await getData(selected_year);
   }
 
   async function setElection(election) {
     if (election === selected_election) return;
     selected_election = election;
-    // election_results_data = await getData(selected_year);
+    if (election === "Provincial Legislature") {
+      provinces = PROVINCES.filter((p) => !["National", "Out of Country"].includes(p));
+    } else {
+      provinces = PROVINCES;
+    }
+    data = await getData(selected_year, selected_election, selected_region);
+  }
+
+  async function setRegion(region) {
+    if (region === selected_region) return;
+    selected_region = region;
+    data = await getData(selected_year, selected_election, selected_region);
   }
 
   async function getData(year) {
+    // console.log(year, selected_election, selected_region);
     if (selected_election === "National Assembly") {
-      const national_seats_results = await loadData({
+      const national_seats_result = await loadData({
         year,
-        selected_election,
+        selected_region,
       });
 
-      if (selected_region === "National") {
-        return national_seats_results.provincial_results;
-      }
+      return national_seats_result.provincial_results;
+    }
+
+    if (selected_region !== "National") {
+      const provincial_seats_result = await loadData({
+        year,
+        election: selected_election,
+        region: selected_region,
+      });
+
+      return provincial_seats_result.municipal_results;
     }
   }
 
   // window width definition
   let innerWidth = 0;
-
-  // $: console.log(election_results_data);
 </script>
 
 <svelte:window bind:innerWidth />
@@ -77,12 +100,16 @@
     </div>
   {/if}
 
-  {#if selected_election === "National Assembly"}
-    {#if election_results_data}
-      <NationalView bind:election_results_data {innerWidth} />
+  {#if loading}
+    {#if selected_election === "National Assembly"}
+      {#if data}
+        <NationalView bind:data {innerWidth} />
+      {/if}
+    {:else if selected_election === "Provincial Legislature"}
+      <ProvincialView bind:selected_year bind:selected_region bind:provinces bind:data />
     {/if}
-  {:else if selected_election === "Provincial Legislature"}
-    <ProvincialView year={selected_year} />
+  {:else}
+    <div>...Loading</div>
   {/if}
 </div>
 

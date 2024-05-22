@@ -1,67 +1,116 @@
 <script>
   import { onMount } from "svelte";
+
   import { geoIdentity, geoPath } from "d3-geo";
-  import PROVINCES from "@election-engine/common/provinces.json";
+  import { scaleLinear } from "d3-scale";
+  import { extent } from "d3-array";
+
   import { loadData } from "@election-engine/common/loadData";
   import { maps_endpoint } from "../../libs/maps";
-  import { scaleOrdinal } from "d3-scale";
+  import { partyColor } from "@election-engine/common/colors";
 
-  export let year;
+  export let selected_year = 2024;
+  export let selected_region = "Eastern Cape";
+  export let provinces;
 
-  const baseUrl = "https://iec-api.revengine.dailymaverick.co.za";
+  export let data;
 
-  let color_range = ["low", "medium", "high"];
-  let provinces = PROVINCES;
-  let region = "Eastern Cape";
-  let election = "Provincial Legislature";
+  let selected_election = "Provincial Legislature";
 
+  // API base url
+  const base_url = "https://iec-api.revengine.dailymaverick.co.za";
+
+  // short code for map url API endpoint - set to eastern cape
   let province_map_code = "ec";
-  let map_url = `${baseUrl}/maps/sa-munic-${province_map_code}.geojson.min.json`;
-  let data;
-  let geoData;
-  let provincesMap;
+
+  // map API url endpoint
+  let map_url = `${base_url}/maps/${selected_year}/sa-munic-${province_map_code}.geojson.min.json`;
+
+  // municipal geographical data;
+  let geo_data;
+
+  // municipal geographical features data;
+  let provinces_geo_data;
+
+  // map width and height dimension
   let width = 600;
   let height = 600;
-  let total_results = [];
 
-  let color_scale = scaleOrdinal().domain(color_range).range(["#CF251E", "#f77f00", "#fcbf49"]);
+  // array of parties with the highest votes in all municipalities from a province
+  let provinces_array;
+  let getTotalParty;
 
-  async function setData(province) {
-    region = province;
-    province_map_code = maps_endpoint.filter((d) => d.region === province)[0].endpoint;
-    map_url = `${baseUrl}/maps/sa-munic-${province_map_code}.geojson.min.json`;
-    geoData = await getMapData(map_url);
-    provincesMap = geoData.features;
-    data = await getData({ year, election, province });
-  }
+  onMount(async () => {
+    selected_region = "Eastern Cape";
+    geo_data = await getMapData(map_url);
+    provinces_geo_data = geo_data.features;
+    data = await getData(selected_year, selected_region);
 
-  async function getMapData(map_url) {
-    const d = await fetch(map_url);
+    getTotalParty = (data) => {
+      const municipal = [];
+      for (let item in data) {
+        const municipal_name = { municipal_code: data[item].municipality_name.split(" ")[0] };
+        const highestVotePercParty = data[item].party_ballot_results.reduce(
+          (max, party) => (party.vote_perc > max.vote_perc ? party : max),
+          data[item].party_ballot_results[0]
+        );
+
+        municipal.push(Object.assign(highestVotePercParty, municipal_name));
+      }
+
+      const result = provinces_geo_data.map((feature) => {
+        const matchingPartyResult = municipal.find((party) => party.municipal_code === feature.properties.MUNI_CODE);
+        if (matchingPartyResult) {
+          feature.properties.highest_party_result = matchingPartyResult;
+        }
+        return feature;
+      });
+
+      return result;
+    };
+
+    provinces_array = getTotalParty(data);
+  });
+
+  async function getMapData(url) {
+    const d = await fetch(url);
     return d.json();
   }
 
-  onMount(async () => {
-    geoData = await getMapData(map_url);
-    data = await loadData({ year, election, region });
-    provincesMap = geoData.features;
-    total_results = data.municipal_results.map((d) => {
-      const municipal = d.municipality_name;
-      const votes = d.total_votes_cast;
-      const range =
-        d.total_votes_cast <= 100000
-          ? "low"
-          : d.total_votes_cast <= 400000
-          ? "medium"
-          : d.total_votes_cast > 400000
-          ? "high"
-          : null;
-      return {
-        municipal,
-        votes,
-        range,
-      };
-    });
-  });
+  async function getData(year, selected_region) {
+    // console.log(year, selected_election, selected_region);
+    if (selected_region !== "National") {
+      const provincial_seats_result = await loadData({
+        year,
+        election: selected_election,
+        region: selected_region,
+      });
+
+      return provincial_seats_result.municipal_results;
+    }
+  }
+
+  async function setData(province) {
+    selected_region = province;
+    data = await getData(selected_year, province);
+    province_map_code = maps_endpoint.filter((d) => d.region === province)[0].endpoint;
+    map_url = `${base_url}/maps/${selected_year}/sa-munic-${province_map_code}.geojson.min.json`;
+    geo_data = await getMapData(map_url);
+    provinces_geo_data = geo_data.features;
+    provinces_array = getTotalParty(data);
+  }
+
+  // $: console.log(getTotalParty());
+
+  // $: color_scale = scaleLinear()
+  //   .domain(extent(party_total, (d) => d.vote_perc))
+  //   .range([40, 100]);
+
+  // $: colorFill = (municipal, index) => {
+  //   let check = party_total.filter((d) => d.id === municipal.properties.Municipali);
+  //   //console.log(check);
+  //   return partyColor(check[0]?.party_name, index);
+  // };
 
   $: projection = geoIdentity()
     .reflectY(true)
@@ -70,37 +119,44 @@
         [20, 20],
         [width, height],
       ],
-      geoData
+      geo_data
     );
 
   // Geographic path generator based on the projection configured above.
   $: path = geoPath(projection);
-
-  $: console.log(total_results);
 </script>
 
-{#each provinces as province}
-  <button class="electionengine-year-button" class:selected={region === province} on:click={() => setData(province)}>
-    {province}
-  </button>
-{/each}
+<div class="electionengine-button-wrapper">
+  {#each provinces as province}
+    <button
+      class="electionengine-year-button"
+      class:selected={selected_region === province}
+      on:click={() => setData(province)}
+    >
+      {province}
+    </button>
+  {/each}
+</div>
 
-{#if provincesMap}
+{#if provinces_array}
   <div class="electionengine-svg-wrapper">
     <svg class="electionengine-map-svg" {width} {height}>
-      <!-- Countries -->
+      <!-- Municipalities Group -->
       <g id="saMap">
-        {#each provincesMap as province}
+        {#each provinces_array as municipality, index}
           <path
-            d={path(province)}
-            fill={color_scale(total_results.filter((d) => d.municipal === province.properties.Municipali)[0].range)}
+            d={path(municipality)}
+            fill={partyColor(municipality.properties.highest_party_result.party_abbreviation, index)}
             stroke="white"
             stroke-width="0.94"
           />
+          <!-- {console.log(municipality.properties.highest_party_result.party_name)} -->
         {/each}
       </g>
     </svg>
   </div>
+{:else}
+  <p>checking out</p>
 {/if}
 
 <style>

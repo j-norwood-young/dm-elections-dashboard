@@ -1,9 +1,7 @@
 <script>
-  import geoData from "../../data/sa-province.smallest.min.json";
   import { geoIdentity, geoPath } from "d3-geo";
   import CartogramResultShow from "./result-view/cartogramResultShow.svelte";
   import { onMount } from "svelte";
-  // import CartogramNoResult from "./result-view/cartogramNoResult.svelte";
 
   export let data;
   export let innerWidth;
@@ -13,21 +11,17 @@
   let width = 600;
   let height = 600;
   let provinces;
-  let gd;
+  let geo_data;
 
   async function getMap() {
-    const d = await fetch("https://iec-api.revengine.dailymaverick.co.za/maps/sa-province.smallest.min.json");
-    return d.json();
+    const response = await fetch("https://iec-api.revengine.dailymaverick.co.za/maps/sa-province.smallest.min.json");
+    return response.json();
   }
 
   onMount(async () => {
-    gd = await getMap();
-    provinces = geoData.features;
+    geo_data = await getMap();
+    provinces = geo_data.features;
   });
-
-  // $: console.log(gd);
-
-  // let provinces = geoData.features;
 
   /**
    * geoIdentity - new geographic projection with an identity transformation
@@ -42,13 +36,11 @@
         [20, 20],
         [width, height],
       ],
-      gd
+      geo_data
     );
 
   // Geographic path generator based on the projection configured above.
   $: path = geoPath(projection);
-
-  // $: console.log(gd);
 </script>
 
 {#if provinces}

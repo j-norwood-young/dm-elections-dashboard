@@ -50,6 +50,7 @@
 
   async function getData(year) {
     // console.log(year, selected_election, selected_region);
+
     if (selected_election === "National Assembly") {
       const national_seats_result = await loadData({
         year,
@@ -103,10 +104,10 @@
   {#if loading}
     {#if selected_election === "National Assembly"}
       {#if data}
-        <NationalView bind:data {innerWidth} />
+        <NationalView {data} {innerWidth} />
       {/if}
     {:else if selected_election === "Provincial Legislature"}
-      <ProvincialView bind:selected_year bind:selected_region bind:provinces bind:data />
+      <ProvincialView {selected_year} bind:selected_region bind:provinces {data} />
     {/if}
   {:else}
     <div>...Loading</div>

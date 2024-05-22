@@ -1,9 +1,11 @@
 <script>
+  // @ts-nocheck
   import { onMount } from "svelte";
 
   import { geoIdentity, geoPath } from "d3-geo";
   import { scaleLinear } from "d3-scale";
   import { extent } from "d3-array";
+  import { hsl, rgb } from "d3-color";
 
   import { loadData } from "@election-engine/common/loadData";
   import { maps_endpoint } from "../../libs/maps";
@@ -39,6 +41,7 @@
   // array of parties with the highest votes in all municipalities from a province
   let provinces_array;
   let getTotalParty;
+  let highParty = [];
 
   onMount(async () => {
     selected_region = "Eastern Cape";
@@ -54,9 +57,11 @@
           (max, party) => (party.vote_perc > max.vote_perc ? party : max),
           data[item].party_ballot_results[0]
         );
-
+        console.log(highestVotePercParty);
         municipal.push(Object.assign(highestVotePercParty, municipal_name));
       }
+
+      highParty = municipal;
 
       const result = provinces_geo_data.map((feature) => {
         const matchingPartyResult = municipal.find((party) => party.municipal_code === feature.properties.MUNI_CODE);
@@ -100,17 +105,17 @@
     provinces_array = getTotalParty(data);
   }
 
-  // $: console.log(getTotalParty());
+  $: color_scale = scaleLinear()
+    .domain(extent(highParty, (d) => d.vote_perc))
+    .range([40, 100]);
 
-  // $: color_scale = scaleLinear()
-  //   .domain(extent(party_total, (d) => d.vote_perc))
-  //   .range([40, 100]);
-
-  // $: colorFill = (municipal, index) => {
-  //   let check = party_total.filter((d) => d.id === municipal.properties.Municipali);
-  //   //console.log(check);
-  //   return partyColor(check[0]?.party_name, index);
-  // };
+  $: colorFill = (municipal, index) => {
+    const hex = partyColor(municipal.properties.highest_party_result.party_abbreviation, index);
+    let { r, g, b } = rgb(hsl(hex));
+    const opacity = color_scale(municipal.properties.highest_party_result.vote_perc) / 100;
+    // console.log(light);
+    return rgb(r, g, b, opacity);
+  };
 
   $: projection = geoIdentity()
     .reflectY(true)
@@ -145,12 +150,12 @@
       <g id="saMap">
         {#each provinces_array as municipality, index}
           <path
+            data-perc={municipality.properties.highest_party_result.vote_perc}
             d={path(municipality)}
-            fill={partyColor(municipality.properties.highest_party_result.party_abbreviation, index)}
+            fill={colorFill(municipality, index)}
             stroke="white"
             stroke-width="0.94"
           />
-          <!-- {console.log(municipality.properties.highest_party_result.party_name)} -->
         {/each}
       </g>
     </svg>

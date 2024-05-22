@@ -17,11 +17,11 @@
     const partySeats = {};
 
     data.forEach((province) => {
-      province.PartyBallotResults.forEach((party) => {
-        if (partySeats[party.Abbreviation]) {
-          partySeats[party.Abbreviation] += party.NumberOfSeats;
+      province.party_ballot_results.forEach((party) => {
+        if (partySeats[party.party_abbreviation]) {
+          partySeats[party.party_abbreviation] += party.seats;
         } else {
-          partySeats[party.Abbreviation] = party.NumberOfSeats;
+          partySeats[party.party_abbreviation] = party.seats;
         }
       });
     });
@@ -29,7 +29,7 @@
     return partySeats;
   }
 
-  function init() {
+  $: init = () => {
     const seats = calculateTotalSeats(data);
     sortedPartySeats = Object.keys(seats)
       .sort((a, b) => seats[b] - seats[a])
@@ -37,11 +37,9 @@
       .filter((party) => party.seats > 0);
 
     return sortedPartySeats;
-  }
+  };
 
-  init();
-
-  console.log(sortedPartySeats);
+  $: init();
 </script>
 
 <div class="legend-wrapper">

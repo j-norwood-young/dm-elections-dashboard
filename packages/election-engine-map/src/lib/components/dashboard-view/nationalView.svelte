@@ -17,8 +17,6 @@
 
 {#if data}
   <BackgroundMap {innerWidth} bind:data />
-{:else}
-  <p>..Loading</p>
 {/if}
 
 <style>

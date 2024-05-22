@@ -51,24 +51,15 @@ h1 {
 }
 
 button {
-	border: 1px solid silver;
-	padding: 0.6em 0.9rem;
-	font-size: 0.8rem;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: #fffffff2;
-	cursor: pointer;
+	background-color: #e4e4e4;
+    border: 1px solid #ccc;
+    color: black;
+    padding: 10px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
 	transition: border-color 0.25s;
 }
-button:hover {
-	outline: 4px auto -webkit-focus-ring-color
-}
-button:focus,
-button:focus-visible {
-	background-color: #0c0c0c;
-	color: #fff;
-}
-
 
 
 @media (prefers-color-scheme: light) {

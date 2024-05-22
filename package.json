@@ -1,6 +1,6 @@
 {
   "name": "election-engine",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A South African elections Wordpress plugin written for Daily Maverick",
   "private": true,
   "workspaces": [

@@ -75,6 +75,8 @@ function elections_engine_enqueue_admin_script()
 		array(),
 		filemtime(ELECTIONENGINE_DIST_DIR . "admin/election-engine-admin.css")
 	);
+	// Add site_url to the script
+	wp_localize_script('election-engine-admin', 'election_engine_admin', array('site_url' => site_url()));
 }
 add_action('admin_enqueue_scripts', 'elections_engine_enqueue_admin_script', 9999);
 

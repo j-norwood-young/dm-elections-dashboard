@@ -18,25 +18,22 @@ import { select as wpDataSelect } from '@wordpress/data';
  * @return {Element} Element to render.
  */
 export default function save({ attributes }) {
-	const site = wpDataSelect('core').getSite();
-	if (!site) {
-		return null;
-	}
-	const embed = `${site.url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}`;
+	const site_url = election_engine_admin.site_url;
+	const embed = `${site_url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}`;
 	const blockProps = useBlockProps.save();
-	return (
+	const result = (
 		<>
-		<div
-			{ ...blockProps }
-			data-visualisation={ attributes.visualisation || "" }
-			data-selected_year={ attributes.selected_year || "" }
-			data-selected_election={ attributes.selected_election || "" }
-			data-selected_region={ attributes.selected_region || "" }
-			data-selected_fields={ attributes.selected_fields || "" }
-		>
-			<div class="election-engine-inline" data-inline={embed}></div>
-		</div>
-		<script src="/wp-content/plugins/election-engine/packages/election-engine-wordpress-block/svelte/app/election-engine.umd.js"></script>
+			<div
+				{...blockProps}
+				data-visualisation={attributes.visualisation || ""}
+				data-selected_year={attributes.selected_year || ""}
+				data-selected_election={attributes.selected_election || ""}
+				data-selected_region={attributes.selected_region || ""}
+				data-selected_fields={attributes.selected_fields || ""}
+			>
+				<div class="election-engine-inline" data-inline={embed}></div>
+			</div>
 		</>
 	);
+	return result;
 }

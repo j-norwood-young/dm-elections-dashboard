@@ -24,7 +24,7 @@
 
     const color = "black";
     const font_size = "20";
-    const selectedShape = "hexagon";
+    const shape = "hexagon";
     export let total_seats = 400;
     export let rows = 12;
     export let display = ["points"];
@@ -172,7 +172,7 @@
         <div class="electionengine-title">
             {selected_region === "National"
                 ? `General Asssembly seat allocation for ${selected_year}`
-                : `Provincial Legislature seat allocation for ${selected_year}`}
+                : `${selected_region} Provincial Legislature seat allocation for ${selected_year}`}
         </div>
     {/if}
     <div class="election-engine-hemicycle-section">
@@ -185,7 +185,7 @@
                 {display}
                 {color}
                 {font_size}
-                {selectedShape}
+                {shape}
                 {arc}
                 {total_seats}
                 {r}
@@ -264,9 +264,11 @@
     }
 
     .electionengine-hemicycle-container {
-        height: 320px;
+        /* height: 320px; */
         overflow-y: hidden;
         margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
     }
 
     .electionengine-blurb {
@@ -308,8 +310,11 @@
         padding: 10px;
         border: 1px solid #ddd;
         text-align: center;
-        width: 200px;
+        width: 100px;
         font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .electionengine-party-name {

@@ -19,6 +19,9 @@ if (!defined('ABSPATH')) {
 }
 
 define("ELECTIONENGINE_VERSION", '0.3.2');
+define("ELECTIONENGINE_DIST_DIR", __DIR__ . '/packages/election-engine-wordpress-block/dist/');
+define("ELECTIONENGINE_DIST_URL", plugins_url('packages/election-engine-wordpress-block/dist/', __FILE__));
+define("ELECTIONENGINE_BLOCK_NAME", 'tenlayer/election-engine');
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -35,16 +38,16 @@ function election_engine_init()
 	// if ( has_block( $block_name ) ) {
 	wp_register_script(
 		'election-engine-app',
-		plugins_url('packages/election-engine-wordpress-block/dist/app/election-engine.umd.js', __FILE__),
+		ELECTIONENGINE_DIST_URL . "app/election-engine.umd.js",
 		array('wp-blocks', 'wp-element', 'wp-editor', 'jquery'),
-		filemtime("$dir/packages/election-engine-wordpress-block/dist/app/election-engine.umd.js")
+		filemtime(ELECTIONENGINE_DIST_DIR . "app/election-engine.umd.js")
 	);
 
 	wp_register_script(
 		'election-engine-admin',
-		plugins_url('packages/election-engine-wordpress-block/dist/admin/election-engine-admin.umd.js', __FILE__),
+		ELECTIONENGINE_DIST_URL . "admin/election-engine-admin.umd.js",
 		array('wp-blocks', 'wp-element', 'wp-editor', 'jquery'),
-		filemtime("$dir/packages/election-engine-wordpress-block/dist/admin/election-engine-admin.umd.js")
+		filemtime(ELECTIONENGINE_DIST_DIR . "admin/election-engine-admin.umd.js")
 	);
 	register_block_type($dir . '/packages/election-engine-wordpress-block/build');
 }
@@ -52,26 +55,25 @@ add_action('init', 'election_engine_init');
 
 function elections_engine_enqueue_script()
 {
-	$dir = __DIR__;
-	wp_enqueue_script('election-engine-editor');
+	if (!has_block(ELECTIONENGINE_BLOCK_NAME)) return;
+	wp_enqueue_script('election-engine-app');
 	wp_enqueue_style(
-		'election-engine-editor',
-		plugins_url('packages/election-engine-wordpress-block/dist/app/style.css', __FILE__),
+		'election-engine-app',
+		ELECTIONENGINE_DIST_URL . "app/style.css",
 		array(),
-		filemtime("$dir/packages/election-engine-wordpress-block/dist/app/style.css")
+		filemtime(ELECTIONENGINE_DIST_DIR . "app/style.css")
 	);
 }
 add_action('wp_enqueue_scripts', 'elections_engine_enqueue_script', 9999);
 
 function elections_engine_enqueue_admin_script()
 {
-	$dir = __DIR__;
 	wp_enqueue_script('election-engine-admin');
 	wp_enqueue_style(
 		'election-engine-admin',
-		plugins_url('packages/election-engine-wordpress-block/dist/admin/election-engine-admin.css', __FILE__),
+		ELECTIONENGINE_DIST_URL . "admin/election-engine-admin.css",
 		array(),
-		filemtime("$dir/packages/election-engine-wordpress-block/dist/admin/election-engine-admin.css")
+		filemtime(ELECTIONENGINE_DIST_DIR . "admin/election-engine-admin.css")
 	);
 }
 add_action('admin_enqueue_scripts', 'elections_engine_enqueue_admin_script', 9999);

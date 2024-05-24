@@ -1,23 +1,23 @@
 <script>
+  // @ts-nocheck
   import { fly, fade } from "svelte/transition";
   import { numberWithCommas } from "../libs/utils";
   export let tooltipData;
-  export let grid;
   // export let width;
 
-  let tooltipWidth;
-  let tooltipHeight;
+  let tooltipWidth = 200;
+  let tooltipHeight = 200;
   let width;
   let height;
 
-  const xNudge = grid ? 5 : 65;
-  const yNudge = grid ? 45 : 95;
+  const xNudge = 30;
+  const yNudge = 15;
 
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition =
     tooltipData.x + tooltipWidth + xNudge > width ? tooltipData.x - tooltipWidth - xNudge : tooltipData.x + xNudge;
   $: yPosition =
-    tooltipData.y + tooltipHeight + yNudge > height ? tooltipData.y - tooltipHeight - yNudge : tooltipData.y - 25;
+    tooltipData.y + tooltipHeight + yNudge > height ? tooltipData.y - tooltipHeight - yNudge : tooltipData.y - yNudge;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -28,12 +28,14 @@
   bind:clientWidth={tooltipWidth}
   bind:clientHeight={tooltipHeight}
   class="electionengine-tooltip-wrapper"
-  style="border-left-color:{tooltipData.color}; top:{yPosition}px; left:{xPosition}px"
+  style="border-left-color:{tooltipData.color}; top:{yPosition}px; left:{xPosition}px; position:fixed"
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Party:</div>
-      <div class="electionengine-tooltip-tdata">{tooltipData.party.party_name}</div>
+      <div class="electionengine-tooltip-tdata">
+        {tooltipData.party.party_name}
+      </div>
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Percentage of Seats Won in Limpopo</div>
@@ -51,12 +53,24 @@
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</div>
-      <div class="electionengine-tooltip-tdata">{tooltipData.party.seats} / {tooltipData.total_seats}</div>
+      <div class="electionengine-tooltip-tdata">
+        {tooltipData.party.seats} / {tooltipData.total_seats}
+      </div>
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Total Votes</div>
-      <div class="electionengine-tooltip-tdata">{Intl.NumberFormat("en-US").format(tooltipData.party.votes)}</div>
+      <div class="electionengine-tooltip-tdata">
+        {numberWithCommas(tooltipData.party.votes)}
+      </div>
     </div>
+  </div>
+  <div class="electionengine-tooltip-section">
+    <div class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</div>
+    <div class="electionengine-tooltip-tdata">{tooltipData.party.seats} / {tooltipData.total_seats}</div>
+  </div>
+  <div class="electionengine-tooltip-section">
+    <div class="electionengine-tooltip-thead">Total Votes</div>
+    <div class="electionengine-tooltip-tdata">{Intl.NumberFormat("en-US").format(tooltipData.party.votes)}</div>
   </div>
 </div>
 

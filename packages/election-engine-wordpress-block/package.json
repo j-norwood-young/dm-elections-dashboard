@@ -20,6 +20,7 @@
 		"plugin-zip:wp-scripts": "wp-scripts plugin-zip",
 		"start:wp-scripts": "wp-scripts start",
 		"build:svelte": "vite build",
+		"build:admin": "vite build -c vite-admin.config.mjs",
 		"dev:svelte": "vite",
 		"start:vite": "run-p start:vite:app start:vite:admin",
 		"start:vite:app": "vite build --watch",

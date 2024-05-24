@@ -1,7 +1,7 @@
 {
   "name": "@election-engine/hemicycle",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,7 @@
     "@fontsource-variable/rubik": "^5.0.21",
     "@popperjs/core": "^2.11.8",
     "svelte-breakpoints": "^0.3.0",
-    "svelte-hemicycle": "^2.0.0",
+    "svelte-hemicycle": "^2.1.0",
     "svelte-preprocess": "^5.1.4"
   },
   "devDependencies": {

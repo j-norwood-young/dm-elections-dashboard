@@ -6,7 +6,6 @@
 
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
-  import SelectButton from "./lib/components/selectButton.svelte";
   import years from "@election-engine/common/years.json";
   import PROVINCES from "@election-engine/common/provinces.json";
 
@@ -43,27 +42,20 @@
     data = await getData(selected_year, selected_election, selected_region);
   }
 
-  async function setRegion(region) {
-    if (region === selected_region) return;
-    selected_region = region;
-    data = await getData(selected_year, selected_election, selected_region);
-  }
-
-  async function getData(year) {
-    // console.log(year, selected_election, selected_region);
+  async function getData() {
+    console.log(selected_year, selected_election, selected_region);
 
     if (selected_election === "National Assembly") {
       const national_seats_result = await loadData({
-        year,
-        selected_region,
+        year: selected_year,
+        region: selected_region,
       });
-
       return national_seats_result.provincial_results;
     }
 
     if (selected_region !== "National") {
       const provincial_seats_result = await loadData({
-        year,
+        year: selected_year,
         election: selected_election,
         region: selected_region,
       });
@@ -80,6 +72,7 @@
 
 <div class="electionengine-mapsection">
   {#if show_buttons}
+    <!-- svelte-ignore missing-declaration -->
     <SelectButton>
       <div class="electionengine-selectbutton-wrapper">
         <button
@@ -98,6 +91,7 @@
       </div>
     </SelectButton>
 
+    <!-- svelte-ignore missing-declaration -->
     <SelectButton>
       <div class="electionengine-selectbutton-wrapper">
         {#each years as year}
@@ -110,7 +104,7 @@
   {#if loading}
     {#if selected_election === "National Assembly"}
       {#if data}
-        <NationalView {data} {innerWidth} />
+        <NationalView {data} {innerWidth} bind:selected_year />
       {/if}
     {:else if selected_election === "Provincial Legislature"}
       <ProvincialView {selected_year} bind:selected_region bind:provinces {data} bind:innerWidth />

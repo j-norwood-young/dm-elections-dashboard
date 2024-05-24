@@ -78,6 +78,10 @@
     $: attach_data_to_map();
 </script>
 
+<div class="electionengine-title">
+    National Assembly seats by province for {selected_year}
+</div>
+
 {#if data}
     <Legend bind:data />
 {/if}
@@ -112,7 +116,7 @@
                             <text
                                 x="0"
                                 y="0"
-                                font-size="0.8rem"
+                                font-size="1.2rem"
                                 font-weight="bold"
                                 fill="black"
                                 text-anchor="left"
@@ -158,7 +162,7 @@
                             <text
                                 x="0"
                                 y="0"
-                                font-size="0.8rem"
+                                font-size="1.2rem"
                                 font-weight="bold"
                                 fill="black"
                                 text-anchor="left"
@@ -187,9 +191,12 @@
     .electionengine-svg-wrapper {
         width: 100%;
     }
-    @media (width < 400px) {
-        p {
-            font-size: 0.8rem;
-        }
+
+    .electionengine-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 20px auto;
+        line-height: 1.2;
+        text-align: center;
     }
 </style>

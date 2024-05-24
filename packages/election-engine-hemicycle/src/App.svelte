@@ -165,7 +165,7 @@
     {#if show_title}
         <div class="electionengine-title">
             {selected_region === "National"
-                ? `General Asssembly seat allocation for ${selected_year}`
+                ? `National Assembly seats for ${selected_year}`
                 : `${selected_region} Provincial Legislature seat allocation for ${selected_year}`}
         </div>
     {/if}

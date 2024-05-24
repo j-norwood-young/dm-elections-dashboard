@@ -101,14 +101,7 @@
                         percentage: party.vote_perc,
                     };
                 });
-            if (selected_year === 2024) {
-                total_seats = SEAT_COUNTS[selected_region];
-            } else {
-                total_seats = mappedData.reduce(
-                    (acc, party) => acc + party.count,
-                    0
-                );
-            }
+            total_seats = SEAT_COUNTS["national"]["2024"][selected_region];
             blurb = `Each Provincial Legislature has a different number of seats. In ${selected_year}, the ${selected_region} Legislature has ${total_seats} seats.`;
             rows = Math.ceil(total_seats / 15);
             r = 200;

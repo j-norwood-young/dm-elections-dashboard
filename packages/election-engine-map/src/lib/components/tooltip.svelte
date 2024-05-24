@@ -17,7 +17,7 @@
   $: xPosition =
     tooltipData.x + tooltipWidth + xNudge > width ? tooltipData.x - tooltipWidth - xNudge : tooltipData.x + xNudge;
   $: yPosition =
-    tooltipData.y + tooltipHeight + yNudge > height ? tooltipData.y - tooltipHeight - yNudge : tooltipData.y - yNudge;
+    tooltipData.y + tooltipHeight + yNudge > height ? tooltipData.y - tooltipHeight - yNudge : tooltipData.y - 25;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -55,7 +55,7 @@
     </div>
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Total Votes</div>
-      <div class="electionengine-tooltip-tdata">{numberWithCommas(tooltipData.party.votes)}</div>
+      <div class="electionengine-tooltip-tdata">{Intl.NumberFormat("en-US").format(tooltipData.party.votes)}</div>
     </div>
   </div>
 </div>

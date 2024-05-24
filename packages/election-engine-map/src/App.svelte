@@ -6,6 +6,7 @@
 
   import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
+  import SelectButton from "./lib/components/selectButton.svelte";
   import years from "@election-engine/common/years.json";
   import PROVINCES from "@election-engine/common/provinces.json";
 
@@ -79,26 +80,31 @@
 
 <div class="electionengine-mapsection">
   {#if show_buttons}
-    <div class="electionengine-selectbutton-wrapper">
-      <button
-        class:selected={selected_election === "National Assembly"}
-        on:click={() => setElection("National Assembly")}
-      >
-        National Assembly</button
-      >
-      <button
-        class:selected={selected_election === "Provincial Legislature"}
-        on:click={() => setElection("Provincial Legislature")}
-      >
-        Provincial Legislature
-      </button>
-    </div>
+    <SelectButton>
+      <div class="electionengine-selectbutton-wrapper">
+        <button
+          class:selected={selected_election === "National Assembly"}
+          on:click={() => setElection("National Assembly")}
+        >
+          National Assembly</button
+        >
+        <div class="partition"></div>
+        <button
+          class:selected={selected_election === "Provincial Legislature"}
+          on:click={() => setElection("Provincial Legislature")}
+        >
+          Provincial Legislature
+        </button>
+      </div>
+    </SelectButton>
 
-    <div class="electionengine-selectbutton-wrapper">
-      {#each years as year}
-        <button class:selected={selected_year === year} on:click={() => setYear(year)}> {year}</button>
-      {/each}
-    </div>
+    <SelectButton>
+      <div class="electionengine-selectbutton-wrapper">
+        {#each years as year}
+          <button class:selected={selected_year === year} on:click={() => setYear(year)}> {year}</button>
+        {/each}
+      </div>
+    </SelectButton>
   {/if}
 
   {#if loading}
@@ -107,7 +113,7 @@
         <NationalView {data} {innerWidth} />
       {/if}
     {:else if selected_election === "Provincial Legislature"}
-      <ProvincialView {selected_year} bind:selected_region bind:provinces {data} />
+      <ProvincialView {selected_year} bind:selected_region bind:provinces {data} bind:innerWidth />
     {/if}
   {:else}
     <div>...Loading</div>
@@ -116,11 +122,34 @@
 
 <style>
   .electionengine-selectbutton-wrapper {
-    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 6px;
   }
 
-  button.selected {
+  .electionengine-selectbutton-wrapper button {
+    color: #cbcbcb;
+    background-color: white;
+    border: none;
+  }
+
+  .electionengine-selectbutton-wrapper button.selected {
     background-color: #4caf50;
     color: white;
+  }
+
+  .electionengine-selectbutton-wrapper .partition {
+    display: inline;
+    border: 1px solid #cbcbcb;
+    width: 2px;
+    background: #cbcbcb;
+    margin: 8px 0;
+  }
+
+  @media (width < 420px) {
+    .electionengine-selectbutton-wrapper {
+      font-size: 11px;
+      border: 0.76px solid #cbcbcb;
+      border-radius: 6.85px;
+    }
   }
 </style>

@@ -38,7 +38,7 @@ export async function loadData({ year = 2024, election = "National Assembly", re
 async function load(url) {
     const response = await fetch(url);
     if (!response.ok) {
-        throw new Error(`Failed to load data from ${url}`);
+        throw new Error(`Failed to load data from ${url}: ${response.status} ${response.statusText}`);
     }
     try {
         return await response.json();

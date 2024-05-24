@@ -8,6 +8,7 @@
   import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
   import years from "@election-engine/common/years.json";
   import PROVINCES from "@election-engine/common/provinces.json";
+  import SelectButton from "./lib/components/selectButton.svelte";
 
   // Parameters
   export let selected_year = 2019; // 2024, 2019, 2014

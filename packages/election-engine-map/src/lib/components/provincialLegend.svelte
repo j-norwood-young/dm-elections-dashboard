@@ -47,6 +47,8 @@
 
 <style>
   .legend-wrapper {
+    min-width: 5rem;
+    min-height: 2rem;
     position: relative;
     z-index: 99;
   }

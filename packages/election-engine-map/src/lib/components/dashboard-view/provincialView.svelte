@@ -196,11 +196,10 @@
 {/if}
 
 <ProvincialLegend bind:highParty />
-
 {#if provinces_array}
   <div class="electionengine-svg-wrapper">
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <svg class="electionengine-map-svg" {width} {height} viewBox="0 0 {width} {height}">
+    <svg class="electionengine-map-svg" width="100%" viewBox="0 0 {width} {height}">
       <!-- Municipalities Group -->
       <g id="saMap" on:mouseleave={() => (provincialPopOverData = null)}>
         {#each provinces_array as municipality, index}
@@ -210,8 +209,8 @@
             <path
               on:mouseover={(e) => {
                 provincialPopOverData = { ...municipality.properties };
-                provincialPopOverData["x"] = e.x;
-                provincialPopOverData["y"] = e.y;
+                provincialPopOverData["x"] = e.clientX;
+                provincialPopOverData["y"] = e.clientY;
                 provincialPopOverData["index"] = index;
                 provincialPopOverData["color"] = partyColor(
                   municipality.properties.highest_parties[0].party_abbreviation,

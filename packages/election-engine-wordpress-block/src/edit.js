@@ -35,20 +35,14 @@ export default function Edit({ attributes, setAttributes }) {
 	function clickHandler() {
 		jQuery(document).trigger('election-engine-edit-block-click', [props, attributes, setAttributes]);
 	}
+	const site_url = election_engine_admin.site_url;
+	const embed = `${site_url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}`;
 	return (
-		<>
+		<div class="election-engine-block-editor">
 			<p {...props}>
-				<div id="ElectionsEngineEditBlock" class="election-engine-block-editor" onClick={clickHandler}>
-					<h1>Click to Edit your Elections Block</h1>
-					<div className='pills'>
-						{attributes.visualisation && <div className='pill'>{attributes.visualisation}</div>}
-						{attributes.selected_year && <div className='pill'>{attributes.selected_year}</div>}
-						{attributes.selected_election && <div className='pill'>{attributes.selected_election}</div>}
-						{attributes.selected_region && <div className='pill'>{attributes.selected_region}</div>}
-						{attributes.selected_fields && <div className='pill'>{attributes.selected_fields}</div>}
-					</div>
-				</div>
+				<iframe src={embed} width="100%" height="500px" title="Election Engine" />
+				<button class="components-button is-primary is-compact" onClick={clickHandler}>Edit</button>
 			</p>
-		</>
+		</div>
 	);
 }

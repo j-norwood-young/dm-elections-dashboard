@@ -9,9 +9,7 @@
 	justify-content: center;
 	align-items: center;
 	border: 1px solid #ddd;
-	text-align: center;
-	padding: 20px;
-	cursor: pointer;
+	padding: 5px;
 }
 
 .election-engine-block-editor h1 {
@@ -52,4 +50,15 @@
 
 .election-engine-visualisation-item:hover {
 	background-color: #e1e1e1;
+}
+
+.election-engine-edit-button {
+	background-color: #2e6c30;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin: 0px 10px;
+	cursor: pointer;
+	font-size: 9pt;
+	cursor: pointer;
 }

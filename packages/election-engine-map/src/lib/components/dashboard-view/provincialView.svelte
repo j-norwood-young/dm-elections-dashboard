@@ -1,6 +1,7 @@
 <script>
   // @ts-nocheck
   import { onMount } from "svelte";
+  import { slide } from "svelte/transition";
 
   import { geoIdentity, geoPath } from "d3-geo";
   import { scaleLinear } from "d3-scale";
@@ -10,10 +11,14 @@
   import { loadData } from "@election-engine/common/loadData";
   import { maps_endpoint } from "../../libs/maps";
   import { partyColor } from "@election-engine/common/colors";
+  import ProvincialPopOver from "../provincialPopOver.svelte";
+  import ProvincialLegend from "../provincialLegend.svelte";
+  import SelectButton from "../selectButton.svelte";
 
   export let selected_year = 2024;
   export let selected_region = "Eastern Cape";
   export let provinces;
+  export let innerWidth;
 
   export let data;
 
@@ -42,6 +47,12 @@
   let provinces_array;
   let getTotalParty;
   let highParty = [];
+  let selected;
+
+  $: isMediaScreenSmall = innerWidth < 630 ? true : false;
+  let isExpanded = false;
+
+  let provincialPopOverData;
 
   onMount(async () => {
     selected_region = "Eastern Cape";
@@ -53,20 +64,30 @@
       const municipal = [];
       for (let item in data) {
         const municipal_name = { municipal_code: data[item].municipality_name.split(" ")[0] };
-        const highestVotePercParty = data[item].party_ballot_results.reduce(
-          (max, party) => (party.vote_perc > max.vote_perc ? party : max),
-          data[item].party_ballot_results[0]
-        );
-        console.log(highestVotePercParty);
+        const highestVotePercParty = data[item].party_ballot_results.sort((a, b) => b.vote_perc - a.vote_perc)[0];
         municipal.push(Object.assign(highestVotePercParty, municipal_name));
       }
 
-      highParty = municipal;
+      const getTopParties = (data) => {
+        return data.map((municipality) => {
+          const topParties = municipality.party_ballot_results.sort((a, b) => b.vote_perc - a.vote_perc).slice(0, 3);
+
+          return {
+            municipality_id: municipality.municipality_name.split(" ")[0],
+            municipality_name: municipality.municipality_name,
+            top_parties: topParties,
+          };
+        });
+      };
+
+      const topParties = getTopParties(data);
+      highParty = topParties.map((d) => d.top_parties[0]);
 
       const result = provinces_geo_data.map((feature) => {
-        const matchingPartyResult = municipal.find((party) => party.municipal_code === feature.properties.MUNI_CODE);
+        const matchingPartyResult = topParties.find((party) => party.municipality_id === feature.properties.MUNI_CODE);
+
         if (matchingPartyResult) {
-          feature.properties.highest_party_result = matchingPartyResult;
+          feature.properties.highest_parties = matchingPartyResult.top_parties;
         }
         return feature;
       });
@@ -110,12 +131,16 @@
     .range([40, 100]);
 
   $: colorFill = (municipal, index) => {
-    const hex = partyColor(municipal.properties.highest_party_result.party_abbreviation, index);
+    const hex = partyColor(municipal.properties.highest_parties[0].party_abbreviation, index);
     let { r, g, b } = rgb(hsl(hex));
-    const opacity = color_scale(municipal.properties.highest_party_result.vote_perc) / 100;
+    const opacity = color_scale(municipal.properties.highest_parties[0].vote_perc) / 100;
     // console.log(light);
     return rgb(r, g, b, opacity);
   };
+
+  function changeExpandable() {
+    isExpanded = !isExpanded;
+  }
 
   $: projection = geoIdentity()
     .reflectY(true)
@@ -131,42 +156,152 @@
   $: path = geoPath(projection);
 </script>
 
-<div class="electionengine-button-wrapper">
-  {#each provinces as province}
+<!--  DESKTOP DOWN TAKE NOTE REMOVE COMMENT ON LARGE SCREEN -->
+{#if isMediaScreenSmall}
+  <div class="electionengine-selectdropdown-wrapper electionengine-dropdown-form">
     <button
-      class="electionengine-year-button"
-      class:selected={selected_region === province}
-      on:click={() => setData(province)}
+      class="electionengine-dropdown-select"
+      class:electionengine-provincial-dropdown={isExpanded}
+      on:click={changeExpandable}>{selected_region}</button
     >
-      {province}
-    </button>
-  {/each}
-</div>
+    {#if isExpanded}
+      <div transition:slide class="electionengine-selectbutton-dropdown-wrapper">
+        {#each provinces as province}
+          <button
+            class="electionengine-year-button electionengine-dropdown-button"
+            class:selected={selected_region === province}
+            on:click={() => {
+              setData(province);
+              isExpanded = !isExpanded;
+            }}
+          >
+            {province}
+          </button>
+        {/each}
+      </div>
+    {/if}
+  </div>
+{:else}
+  <div class="electionengine-selectbutton-wrapper">
+    {#each provinces as province}
+      <button
+        class="electionengine-year-button"
+        class:selected={selected_region === province}
+        on:click={() => setData(province)}
+      >
+        {province}
+      </button>
+    {/each}
+  </div>
+{/if}
+
+<ProvincialLegend bind:highParty />
 
 {#if provinces_array}
   <div class="electionengine-svg-wrapper">
-    <svg class="electionengine-map-svg" {width} {height}>
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <svg class="electionengine-map-svg" {width} {height} viewBox="0 0 {width} {height}">
       <!-- Municipalities Group -->
-      <g id="saMap">
+      <g id="saMap" on:mouseleave={() => (provincialPopOverData = null)}>
         {#each provinces_array as municipality, index}
-          <path
-            data-perc={municipality.properties.highest_party_result.vote_perc}
-            d={path(municipality)}
-            fill={colorFill(municipality, index)}
-            stroke="white"
-            stroke-width="0.94"
-          />
+          <g>
+            <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <path
+              on:mouseover={(e) => {
+                provincialPopOverData = { ...municipality.properties };
+                provincialPopOverData["x"] = e.x;
+                provincialPopOverData["y"] = e.y;
+                provincialPopOverData["index"] = index;
+                provincialPopOverData["color"] = partyColor(
+                  municipality.properties.highest_parties[0].party_abbreviation,
+                  index
+                );
+              }}
+              d={path(municipality)}
+              fill={colorFill(municipality, index)}
+              stroke="white"
+              stroke-width="0.94"
+            />
+          </g>
         {/each}
       </g>
     </svg>
   </div>
+  {#if provincialPopOverData}
+    <ProvincialPopOver bind:provincialPopOverData />
+  {/if}
 {:else}
   <p>checking out</p>
 {/if}
 
 <style>
-  button.selected {
+  .electionengine-selectbutton-dropdown-wrapper {
+    margin-top: 0.3rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #cbcbcb;
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+  }
+
+  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button {
+    width: 100%;
+    display: block;
+    color: #cbcbcb;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+  }
+
+  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button:hover {
+    background: #f1fff1;
+  }
+
+  .electionengine-selectbutton-wrapper .electionengine-year-button.selected,
+  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button.selected,
+  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button:active {
     background-color: #4caf50;
     color: white;
+  }
+
+  .electionengine-dropdown-form {
+    position: relative;
+    width: 300px;
+  }
+
+  .electionengine-dropdown-select:hover,
+  .electionengine-dropdown-select:focus {
+    outline: 1px solid limegreen;
+    cursor: pointer;
+  }
+
+  .electionengine-dropdown-select {
+    position: relative;
+    width: 100%;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: 1px solid #cbcbcb;
+    color: #cbcbcb;
+    margin: 0;
+  }
+
+  .electionengine-year-button {
+    border: 0;
+    background-color: white;
+    border-radius: 0px;
+    border-bottom: 2px solid #cbcbcb;
+  }
+
+  @media (width < 420px) {
+    .electionengine-selectbutton-wrapper {
+      font-size: 11px;
+      border: 0.76px solid #cbcbcb;
+      border-radius: 6.85px;
+    }
   }
 </style>

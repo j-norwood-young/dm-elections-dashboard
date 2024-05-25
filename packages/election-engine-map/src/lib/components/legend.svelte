@@ -1,6 +1,7 @@
 <script>
   // @ts-nocheck
   // This needs to be rewritten to use the parties that are in the data
+  import SelectButton from "./selectButton.svelte";
   import { partyColors, genericColors } from "@election-engine/common/color-scheme.json";
   import { partyColor } from "@election-engine/common/colors";
 
@@ -42,36 +43,38 @@
   $: init();
 </script>
 
-<div class="legend-wrapper">
-  <div class="electionengine-legend-heading">Legend: Party Colors</div>
-  <div class="legend">
-    {#each sortedPartySeats as seat}
-      <div class="party-wrapper">
-        <svg width="12px" height="13px">
-          <g transform="translate(1, 1)" fill={seat.color} fill-rule="nonzero" stroke="#444444">
-            <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
-          </g>
-        </svg>
-        <div class="electionengine-legend-partyname">{seat.name} [{seat.seats}]</div>
-      </div>
-    {/each}
+<div class="electionengine-legend-heading">Party Colors Legend</div>
+<SelectButton>
+  <div class="legend-wrapper">
+    <div class="legend">
+      {#each sortedPartySeats as seat}
+        <div class="party-wrapper">
+          <svg width="12px" height="13px">
+            <g transform="translate(1, 1)" fill={seat.color} fill-rule="nonzero" stroke="#444444">
+              <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
+            </g>
+          </svg>
+          <div class="electionengine-legend-partyname">{seat.name} [{seat.seats}]</div>
+        </div>
+      {/each}
+    </div>
   </div>
-</div>
+</SelectButton>
 
 <style>
   .legend-wrapper {
     position: relative;
-    margin-bottom: 1rem;
+    padding: 10px;
     z-index: 99;
   }
+
   .legend {
     display: flex;
     gap: 1rem;
     padding: 10px 10px;
-    background: #f4f0f0;
     border-radius: 4px;
     width: 360px;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow-x: scroll;
   }
 
@@ -85,6 +88,8 @@
 
   .electionengine-legend-heading {
     font-size: 12px;
+    font-weight: 600;
+    color: #232323;
     margin: 0;
     padding-bottom: 2px;
   }

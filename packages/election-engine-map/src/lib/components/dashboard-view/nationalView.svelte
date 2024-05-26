@@ -46,6 +46,10 @@
     }
   }
 
+  function filterPartiesWithSeats(data) {
+    return data.filter(party => party.seats > 0);
+}
+
   /**
    * geoIdentity - new geographic projection with an identity transformation
    * [20, 20] - Minimum X and Y coordinates for the map
@@ -82,17 +86,31 @@
       <Tooltip bind:tooltipData grid={false} />
     {/if}
     <div class="electionengine-svg-wrapper">
-      <svg class="electionengine-map-svg" viewBox="0 0 800 800" width="100%">
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      <svg class="electionengine-map-svg" viewBox="0 0 800 800" width="100%" on:mouseleave={() => tooltipData = null} >
         <!-- Countries -->
         <g id="saMap">
           {#each provinces as province}
-            <g class="province">
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+            <g class="province" >
               <path d={path(province)} fill="#ECECEC" stroke="white" stroke-width="0.94" />
             </g>
           {/each}
           {#each provinces as province}
             {#if province.properties.PROVINCE === "Gauteng"}
-              <g transform="translate({[350, 150]})">
+              <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+              <g
+                on:mouseover={(e) => {
+                      tooltipData = {}
+                      tooltipData["province"] = province.properties.PROVINCE;
+                      tooltipData["registered_voters"] = province.properties.registered_voters;
+                      tooltipData["total_valid_votes"] = province.properties.total_valid_votes;
+                      tooltipData["party"] = filterPartiesWithSeats(province.properties.party_ballot_results) ;
+                      tooltipData["x"] = e.clientX;
+                      tooltipData["y"] = e.clientY;
+                                }} 
+               transform="translate({[350, 150]})">
                 <text x="0" y="0" font-size="1.2rem" font-weight="bold" fill="black" text-anchor="left">
                   {province.properties.PROVINCE}
                 </text>
@@ -101,7 +119,6 @@
                     bind:seats={province.properties.party_ballot_results}
                     bind:total_seats={province.properties.total_seats}
                     bind:hexagon_data={province.properties}
-                    bind:tooltipData
                   />
                 </g>
                 <!-- Draw a line to Gauteng -->
@@ -117,19 +134,34 @@
                 <circle cx={path.centroid(province)[0] - 350} cy={path.centroid(province)[1] - 150} r="5" fill="black" />
               </g>
             {:else}
-              <g transform={position_hexagons(province)}>
-                <text x="0" y="0" font-size="1.2rem" font-weight="bold" fill="black" text-anchor="left">
-                  {province.properties.PROVINCE}
-                </text>
-                <g transform="translate(0, 8)">
-                  <Hexagons
-                    bind:seats={province.properties.party_ballot_results}
-                    bind:total_seats={province.properties.total_seats}
-                    bind:hexagon_data={province.properties}
-                    bind:tooltipData
-                  />
-                </g>
+              <!-- svelte-ignore a11y-no-static-element-interactions -->
+              <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+              <g>
+                <g 
+                  on:mouseover={(e) => {
+                      tooltipData = {}
+                      tooltipData["province"] = province.properties.PROVINCE;
+                      tooltipData["registered_voters"] = province.properties.registered_voters;
+                      tooltipData["total_valid_votes"] = province.properties.total_valid_votes;
+                      tooltipData["party"] = filterPartiesWithSeats(province.properties.party_ballot_results) ;
+                      tooltipData["x"] = e.clientX;
+                      tooltipData["y"] = e.clientY;
+                                }} 
+                  transform={position_hexagons(province)}>
+                  <text x="0" y="0" font-size="1.2rem" font-weight="bold" fill="black" text-anchor="left">
+                    {province.properties.PROVINCE}
+                  </text>
+                  <g transform="translate(0, 8)">
+                    <Hexagons
+                      bind:seats={province.properties.party_ballot_results}
+                      bind:total_seats={province.properties.total_seats}
+                      bind:hexagon_data={province.properties}
+                      bind:tooltipData
+                    />
+                  </g>
+                  </g>
               </g>
+              
             {/if}
           {/each}
         </g>

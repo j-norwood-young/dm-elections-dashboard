@@ -8,9 +8,8 @@
   // export let margin = 1;
   export let offset = true;
   export let hexagon_data;
-  export let tooltipData;
 
-  // console.log(hexagon_data);
+  //console.log(hexagon_data);
 
   let seatsData = [];
   let rows = 0;
@@ -34,12 +33,14 @@
       data.push(d);
     }
     let x = 0;
+    
     for (let seat of seats) {
       for (let j = 0; j < seat.seats; j++) {
         data[x].party = seat;
         data[x].color = partyColor(seat.party_abbreviation, x);
         data[x].total_seats = total_seats;
         data[x].full_data = hexagon_data;
+        
         x++;
       }
     }
@@ -52,6 +53,8 @@
   };
 
   $: init();
+
+  //$: console.log(seats, "seats")
 </script>
 
 {#if hexagon_data.province_id === "Gauteng" || hexagon_data.province_id === "KwaZulu-Natal"}
@@ -59,33 +62,42 @@
     {hexagon_data.province_id}
   </div>
 {/if}
-<!--  -->
+<!-- 
+    // mouseover
+    on:mouseover={(e) => {
+          tooltipData = { ...seat };
+          tooltipData["x"] = e.clientX;
+          tooltipData["y"] = e.clientY;
+        }}
+
+    // mouseleave
+    on:mouseleave={() => (tooltipData = null)}
+
+ -->
 <svg
   viewBox="0 0 {12 * cols} {10 * rows}"
   class="electionengine-seatwrapper"
   class:gauteng={isGauteng}
   width={18 * cols}
   height={18 * rows}
-  on:mouseleave={() => (tooltipData = null)}
   role="img"
 >
   {#each seatsData as seat}
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- svelte-ignore a11y-mouse-events-have-key-events -->
     <g
       transform="
                   translate({offset && seat.row % 2 ? seat.col * 11 + 5 : seat.col * 11} {offset
         ? seat.row * 9
         : seat.row * 11})
               "
+             
     >
       <svg
+        class="electionengine-seat-hexagons"
         width="12px"
         height="13px"
         viewBox="0 0 15 17"
-        on:mouseover={(e) => {
-          tooltipData = { ...seat };
-          tooltipData["x"] = e.clientX;
-          tooltipData["y"] = e.clientY;
-        }}
         on:focus
         role="img"
       >
@@ -114,6 +126,10 @@
 
   .electionengine-seatwrapper.gauteng {
     transform: translate(-125%, -125%);
+  }
+
+  .electionengine-seat-hexagons {
+    outline: none;
   }
 
   @media (width < 630px) {

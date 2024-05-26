@@ -11,8 +11,8 @@
   let width;
   let height;
 
-  const xNudge = 65;
-  const yNudge = 55;
+  const xNudge = 25;
+  const yNudge = 30;
 
   function firstLetterCap(string) {
     return string
@@ -28,9 +28,11 @@
       ? provincialPopOverData.x - tooltipWidth - xNudge
       : provincialPopOverData.x + xNudge;
   $: yPosition =
-    provincialPopOverData.y + tooltipHeight + yNudge > height
-      ? provincialPopOverData.y - tooltipHeight - yNudge
+    provincialPopOverData.y + tooltipHeight > height
+      ? height - tooltipHeight
       : provincialPopOverData.y - yNudge;
+
+ // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />

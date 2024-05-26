@@ -1,4 +1,5 @@
 <script>
+  // @ts-nocheck
   import { fly, fade } from "svelte/transition";
 
   import { partyColor } from "@election-engine/common/colors";

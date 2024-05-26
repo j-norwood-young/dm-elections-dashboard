@@ -5,7 +5,6 @@ import { getCache, setCache, clearCache } from './cache.js';
 import { heatCache } from './heat_cache.js';
 import * as ElectionResults from './election_results.js';
 import YEARS from "@election-engine/common/years.json" with { type: 'json' };
-import PROVINCES from "@election-engine/common/provinces.json" with { type: 'json' };
 import path from 'path';
 import { fastifyStatic } from '@fastify/static';
 import fs from 'fs';
@@ -77,16 +76,6 @@ server.get("/provinces/:eventID", async (req, res) => {
     res.send(provinces);
 })
 
-server.get("/contesting_parties/:eventID", async (req, res) => {
-    const eventID = req.params.eventID;
-    let parties = await getCache(`contesting_parties_${eventID}`);
-    if (!parties) {
-        parties = await ElectionResults.contestingParties(eventID);
-        setCache(`contesting_parties_${eventID}`, parties);
-    }
-    res.send(parties);
-});
-
 server.get("/results/:eventID", async (req, res) => {
     const eventID = req.params.eventID;
     let results = await getCache(`results_${eventID}`);
@@ -118,17 +107,12 @@ const getNationalData = async (year) => {
     if (!national_event) {
         throw (`National Election for year ${year} not found`);
     }
-    let parties = await getCache(`contesting_parties_${national_event.ID}`);
-    if (!parties) {
-        throw (`Parties for National Election for year ${year} not found`);
-    }
     const provinces = await getCache(`provinces_${national_event.ID}`);
     if (!provinces) {
         throw (`Provinces for National Election for year ${year} not found`);
     }
     return {
         national_event,
-        parties,
         provinces
     };
 }
@@ -155,8 +139,6 @@ const getProvincialData = async (year) => {
     return { provincial_event, provinces };
 }
 
-
-
 const getMunicipalities = async (eventID, provinceID) => {
     let municipalities = await getCache(`municipalities_${eventID}_${provinceID}`);
     if (!municipalities) {
@@ -165,225 +147,6 @@ const getMunicipalities = async (eventID, provinceID) => {
     }
     return municipalities;
 }
-
-server.get("/results/seats/national/:year", async (req, res) => {
-    const year = parseInt(req.params.year);
-    if (!year) {
-        return res.status(412).send({ status: "error", msg: "Year is required" })
-    }
-    if (!YEARS.includes(year)) {
-        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
-    }
-    const { national_event, parties } = await getNationalData(year);
-    let seats = await getCache(`seats_${national_event.ID}`);
-    if (!seats) {
-        seats = await ElectionResults.seats(national_event.ID);
-        await setCache(`seats_${national_event.ID}`, seats);
-        // return res.status(404).send({ status: "error", msg: `Seats for National Election for year ${year} not found` });
-    }
-    const PartyResults = seats.PartyResults
-        .filter((pr) => pr.Overall > 0)
-        .map((pr) => {
-            const party = parties.find((p) => p.Name === pr.Name);
-            return {
-                Name: pr.Name,
-                LogoUrl: `https://results.elections.org.za/dashboards/npe/app/imgs/parties/${party.LogoUrl.replace(/jpg$/, "png")}`,
-                Abbreviation: party.Abbreviation,
-                Seats: pr.Overall
-            };
-        })
-        .sort((a, b) => b.Seats - a.Seats);
-    res.send({ PartyResults });
-});
-
-server.get("/results/seats/national/:year/:province", async (req, res) => {
-    const year = parseInt(req.params.year);
-    if (!year) {
-        return res.status(412).send({ status: "error", msg: "Year is required" })
-    }
-    if (!YEARS.includes(year)) {
-        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
-    }
-    const province = req.params.province;
-    if (!province) {
-        return res.status(412).send({ status: "error", msg: "Province is required" })
-    }
-    if (!PROVINCES.includes(province)) {
-        return res.status(412).send({ status: "error", msg: `Province must be one of ${PROVINCES.join(", ")}` });
-    }
-    const { national_event, provinces, parties } = await getNationalData(year);
-    const province_id = provinces.find((p) => p.Province === province).ProvinceID;
-    let seats = null;
-    // let seats = await getCache(`seats_${national_event.ID}_${province}`);
-    if (!seats) {
-        seats = await ElectionResults.seatsByProvince(national_event.ID, province_id);
-        await setCache(`seats_${national_event.ID}_${province}`, seats);
-    }
-    if (!seats) {
-        return res.status(404).send({ status: "error", msg: `Seats for National Election for province ${province} for year ${year} not found` });
-    }
-    const PartyResults = seats.PartyResults
-        .filter((pr) => pr.NumberOfSeats > 0)
-        .map((pr) => {
-            const party = parties.find((p) => p.Name === pr.Name);
-            return {
-                Name: pr.Name,
-                LogoUrl: `https://results.elections.org.za/dashboards/npe/app/imgs/parties/${party.LogoUrl.replace(/jpg$/, "png")}`,
-                Abbreviation: party.Abbreviation,
-                Seats: pr.NumberOfSeats
-            };
-        })
-        .sort((a, b) => b.Seats - a.Seats);
-    res.send({ PartyResults });
-})
-
-server.get("/results/votes/national/:year", async (req, res) => {
-    const year = parseInt(req.params.year);
-    if (!year) {
-        return res.status(412).send({ status: "error", msg: "Year is required" })
-    }
-    if (!YEARS.includes(year)) {
-        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
-    }
-    const { national_event, parties } = await getNationalData(year);
-    const provinces = await getCache(`provinces_${national_event.ID}`);
-    const result = [];
-    for (const province of provinces) {
-        const province_results = await getCache(`votes_${national_event.ID}_${province.ProvinceID}`);
-        if (!province_results) {
-            return res.status(404).send({ status: "error", msg: `Province Votes for National Election for province ${province.Name} for year ${year} not found` });
-        }
-        const seat_results = await getCache(`seats_${national_event.ID}_${province.ProvinceID}`);
-        if (!seat_results) {
-            return res.status(404).send({ status: "error", msg: `Province Seats for National Election for province ${province.Name} for year ${year} not found` });
-        }
-        province_results.PartyBallotResults = province_results.PartyBallotResults
-            .filter((pr) => pr.PercOfVotes > 0.1)
-            .map((pr) => {
-                const party = parties.find((p) => p.Name === pr.Name);
-                const seats = seat_results.PartyResults.find((sr) => sr.Name === pr.Name);
-                return {
-                    Name: pr.Name,
-                    LogoUrl: `https://results.elections.org.za/dashboards/npe/app/imgs/parties/${party.LogoUrl.replace(/jpg$/, "png")}`,
-                    Abbreviation: party.Abbreviation,
-                    Votes: pr.ValidVotes,
-                    Percentage: pr.PercOfVotes,
-                    BallotType: pr.BallotType,
-                    IsIndependent: pr.bIsIndependent,
-                    NumberOfSeats: seats?.NumberOfSeats || 0
-                };
-            })
-            .sort((a, b) => b.Votes - a.Votes);
-        result.push(province_results);
-    }
-    res.send(result);
-});
-
-server.get("/results/votes/province/:year/:province", async (req, res) => {
-    const year = parseInt(req.params.year);
-    if (!year) {
-        return res.status(412).send({ status: "error", msg: "Year is required" })
-    }
-    if (!YEARS.includes(year)) {
-        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
-    }
-    const province = req.params.province;
-    if (!province) {
-        return res.status(412).send({ status: "error", msg: "Province is required" })
-    }
-    if (!PROVINCES.includes(province)) {
-        return res.status(412).send({ status: "error", msg: `Province must be one of ${PROVINCES.join(", ")}` });
-    }
-    const { provincial_event, provinces, parties } = await getNationalData(year);
-    if (!provincial_event) {
-        return res.status(404).send({ status: "error", msg: `Provincial Election for year ${year} not found` });
-    }
-    const province_id = provinces.find((p) => p.Province === province).ProvinceID;
-    if (!province_id) {
-        return res.status(404).send({ status: "error", msg: `Province ID for ${province} not found` });
-    }
-    const municipalities = await getMunicipalities(provincial_event.ID, province_id);
-    if (!municipalities) {
-        return res.status(404).send({ status: "error", msg: `Municipalities for Provincial Election for province ${province} for year ${year} not found` });
-    }
-    const result = [];
-    for (const municipality of municipalities) {
-        let municipality_results = await getCache(`provincial_votes_${provincial_event.ID}_${province_id}_${municipality.MunicipalityID}`);
-        if (!municipality_results) {
-            municipality_results = await ElectionResults.votesByMunicipality(provincial_event.ID, province_id, municipality.MunicipalityID);
-            await setCache(`provincial_votes_${provincial_event.ID}_${province_id}_${municipality.MunicipalityID}`, municipality_results);
-        }
-        result.push(municipality_results);
-    }
-    let province_results = await getCache(`provincial_votes_${provincial_event.ID}_${province_id}`);
-    if (!province_results) {
-        province_results = await ElectionResults.votesByProvince(provincial_event.ID, province_id);
-        await setCache(`provincial_votes_${provincial_event.ID}_${province_id}`, province_results);
-    }
-    let seat_results = await getCache(`provincial_seats_${provincial_event.ID}_${province_id}`);
-    if (!seat_results) {
-        seat_results = await ElectionResults.seatsByProvince(provincial_event.ID, province_id);
-        await setCache(`provincial_seats_${provincial_event.ID}_${province_id}`, seat_results);
-    }
-    province_results.PartyBallotResults = province_results.PartyBallotResults
-        .filter((pr) => pr.PercOfVotes > 0.1)
-        .map((pr) => {
-            const party = parties.find((p) => p.Name === pr.Name);
-            const seats = seat_results.PartyResults.find((sr) => sr.Name === pr.Name);
-            return {
-                Name: pr.Name,
-                LogoUrl: `https://results.elections.org.za/dashboards/npe/app/imgs/parties/${party.LogoUrl.replace(/jpg$/, "png")}`,
-                Abbreviation: party.Abbreviation,
-                Votes: pr.ValidVotes,
-                Percentage: pr.PercOfVotes,
-                BallotType: pr.BallotType,
-                IsIndependent: pr.bIsIndependent,
-                NumberOfSeats: seats?.NumberOfSeats || 0
-            };
-        }
-        )
-        .sort((a, b) => b.Votes - a.Votes);
-    province_results.Municipalities = result;
-    res.send(province_results);
-});
-
-server.get("/results/seats/provincial/:year/:province", async (req, res) => {
-    const year = parseInt(req.params.year);
-    if (!year) {
-        return res.status(412).send({ status: "error", msg: "Year is required" })
-    }
-    if (!YEARS.includes(year)) {
-        return res.status(412).send({ status: "error", msg: `Year must be one of ${YEARS.join(", ")}` });
-    }
-    const province = req.params.province;
-    if (!province) {
-        return res.status(412).send({ status: "error", msg: "Province is required" })
-    }
-    if (!PROVINCES.includes(province)) {
-        return res.status(412).send({ status: "error", msg: `Province must be one of ${PROVINCES.join(", ")}` });
-    }
-    const { provincial_event, provinces, parties } = await getNationalData(year);
-    const province_id = provinces.find((p) => p.Province === province).ProvinceID;
-    let seats = await getCache(`seats_${provincial_event.ID}_${province_id}`);
-    if (!seats) {
-        seats = await ElectionResults.seatsByProvince(provincial_event.ID, province_id);
-        await setCache(`seats_${provincial_event.ID}_${province_id}`, seats);
-        // return res.status(404).send({ status: "error", msg: `Seats for National Election for province ${province} for year ${year} not found` });
-    }
-    seats.PartyResults = seats.PartyResults
-        .filter((pr) => pr.NumberOfSeats > 0)
-        .map((pr) => {
-            const party = parties.find((p) => p.Name === pr.Name);
-            return {
-                Name: pr.Name,
-                LogoUrl: `https://results.elections.org.za/dashboards/npe/app/imgs/parties/${party.LogoUrl.replace(/jpg$/, "png")}`,
-                Abbreviation: party.Abbreviation,
-                NumberOfSeats: pr.NumberOfSeats
-            };
-        })
-        .sort((a, b) => b.NumberOfSeats - a.NumberOfSeats);
-    res.send(seats);
-})
 
 const parse_year = (year) => {
     if (!year) {
@@ -431,15 +194,15 @@ server.get("/national/:year", async (req, res) => {
     const provincial_results = [];
     for (const province of provinces) {
         const province_id = province.ProvinceID;
-        let province_results = await getCache(`votes_${national_event.ID}_${province_id}`);
+        let province_results = await getCache(`national_votes_${national_event.ID}_${province_id}`);
         if (!province_results) {
             province_results = await ElectionResults.votesByProvince(national_event.ID, province_id);
-            await setCache(`votes_${national_event.ID}_${province_id}`, province_results);
+            await setCache(`national_votes_${national_event.ID}_${province_id}`, province_results);
         }
-        let seat_results = await getCache(`seats_${national_event.ID}_${province_id}`);
+        let seat_results = await getCache(`national_seats_${national_event.ID}_${province_id}`);
         if (!seat_results) {
             seat_results = await ElectionResults.seatsByProvince(national_event.ID, province_id);
-            await setCache(`seats_${national_event.ID}_${province_id}`, seat_results);
+            await setCache(`national_seats_${national_event.ID}_${province_id}`, seat_results);
             // return res.status(404).send({ status: "error", msg: `Province Seats for National Election for province ${province} for year ${year} not found` });
         }
         const party_ballot_results = province_results.PartyBallotResults
@@ -494,15 +257,15 @@ server.get("/provincial/:year", async (req, res) => {
     const result = [];
     for (const province of provinces) {
         const province_id = province.ProvinceID;
-        let province_results = await getCache(`votes_${provincial_event.ID}_${province_id}`);
+        let province_results = await getCache(`provincial_votes_${provincial_event.ID}_${province_id}`);
         if (!province_results) {
             province_results = await ElectionResults.votesByProvince(provincial_event.ID, province_id);
-            await setCache(`votes_${provincial_event.ID}_${province_id}`, province_results);
+            await setCache(`provincial_votes_${provincial_event.ID}_${province_id}`, province_results);
         }
-        let seat_results = await getCache(`seats_${provincial_event.ID}_${province_id}`);
+        let seat_results = await getCache(`provincial_seats_${provincial_event.ID}_${province_id}`);
         if (!seat_results) {
             seat_results = await ElectionResults.seatsByProvince(provincial_event.ID, province_id);
-            await setCache(`seats_${provincial_event.ID}_${province_id}`, seat_results);
+            await setCache(`provincial_seats_${provincial_event.ID}_${province_id}`, seat_results);
         }
         const party_ballot_results = province_results.PartyBallotResults
             .filter((pr) => pr.PercOfVotes > 0.1)
@@ -568,15 +331,15 @@ server.get("/provincial/:year/:province", async (req, res) => {
     const province = req.params.province;
     const { provincial_event, provinces } = await getProvincialData(year);
     const province_id = provinces.find((p) => p.Province === province).ProvinceID;
-    let province_results = await getCache(`votes_${provincial_event.ID}_${province_id}`);
+    let province_results = await getCache(`provincial_votes_${provincial_event.ID}_${province_id}`);
     if (!province_results) {
         province_results = await ElectionResults.votesByProvince(provincial_event.ID, province_id);
-        await setCache(`votes_${provincial_event.ID}_${province_id}`, province_results);
+        await setCache(`provincial_votes_${provincial_event.ID}_${province_id}`, province_results);
     }
-    let seat_results = await getCache(`seats_${provincial_event.ID}_${province_id}`);
+    let seat_results = await getCache(`provincial_seats_${provincial_event.ID}_${province_id}`);
     if (!seat_results) {
         seat_results = await ElectionResults.seatsByProvince(provincial_event.ID, province_id);
-        await setCache(`seats_${provincial_event.ID}_${province_id}`, seat_results);
+        await setCache(`provincial_seats_${provincial_event.ID}_${province_id}`, seat_results);
     }
     const party_ballot_results = province_results.PartyBallotResults
         .filter((pr) => pr.PercOfVotes > 0.1)

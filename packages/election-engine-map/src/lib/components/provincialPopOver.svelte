@@ -40,7 +40,7 @@
   bind:clientWidth={tooltipWidth}
   bind:clientHeight={tooltipHeight}
   class="electionengine-tooltip-wrapper"
-  style="border-left-color:{provincialPopOverData.color}; top:{yPosition}px; left:{xPosition}px; position:fixed"
+  style="border-left-color:{provincialPopOverData.color}; top:{yPosition}px; left:{xPosition}px; position:fixed; z-index:1000;"
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">

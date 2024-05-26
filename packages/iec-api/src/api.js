@@ -1,7 +1,8 @@
 
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import { getCache, setCache } from './cache.js';
+import { getCache, setCache, clearCache } from './cache.js';
+import { heatCache } from './heat_cache.js';
 import * as ElectionResults from './election_results.js';
 import YEARS from "@election-engine/common/years.json" with { type: 'json' };
 import PROVINCES from "@election-engine/common/provinces.json" with { type: 'json' };
@@ -36,17 +37,14 @@ server.get('/', async (req, res) => {
     res.send({ msg: 'Hello, world!' });
 });
 
-server.get("/flush_cache", (req, res) => {
+server.get("/flush_cache", async (req, res) => {
     const api_key = req.query.api_key;
     if (!api_key || api_key !== process.env.API_KEY) {
         return res.status(401).send({ status: "error", msg: "Unauthorized" });
     }
-    setCache("electoral_types", null);
-    setCache("electoral_events", null);
-    setCache("provinces", null);
-    setCache("contesting_parties", null);
-    setCache("results", null);
-    setCache("seats", null);
+    console.log("Flushing cache");
+    await clearCache();
+    await heatCache();
     res.send({ status: "success", msg: "Cache flushed" });
 });
 

@@ -16,18 +16,6 @@
   let provinces;
   let tooltipData;
 
-  async function getMap() {
-    map_loading = true;
-    try {
-      const response = await fetch("https://iec-api.revengine.dailymaverick.co.za/maps/sa-province.smallest.min.json");
-      return response.json();
-    } catch (error) {
-      console.error(error);
-    } finally {
-      map_loading = false;
-    }
-  }
-
   onMount(async () => {
     attach_data_to_map();
   });

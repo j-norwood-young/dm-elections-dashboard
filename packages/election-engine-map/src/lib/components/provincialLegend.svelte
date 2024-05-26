@@ -10,10 +10,10 @@
     const seenAbbreviations = new Set();
 
     return data.filter((item) => {
-      if (seenAbbreviations.has(item.party_abbreviation)) {
+      if (seenAbbreviations.has(item?.party_abbreviation)) {
         return false;
       } else {
-        seenAbbreviations.add(item.party_abbreviation);
+        seenAbbreviations.add(item?.party_abbreviation);
         return true;
       }
     });
@@ -28,7 +28,7 @@
       <svg width="12px" height="13px">
         <g
           transform="translate(1, 1)"
-          fill={partyColor(seat.party_abbreviation, index)}
+          fill={partyColor(seat?.party_abbreviation || "grey", index)}
           fill-rule="nonzero"
           stroke="#444444"
         >
@@ -36,7 +36,7 @@
         </g>
       </svg>
       <div class="electionengine-legend-partyname">
-        {seat.party_abbreviation} ({seat.seats} seats)
+        {seat?.party_abbreviation || "Unknown"} ({seat?.seats} seat{seat?.seats !== 1 ? "s" : ""})
       </div>
     </div>
   {/each}

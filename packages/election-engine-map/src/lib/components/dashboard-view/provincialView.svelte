@@ -1,284 +1,223 @@
 <script>
-  // @ts-nocheck
-  import { onMount } from "svelte";
-  import { slide } from "svelte/transition";
+    // @ts-nocheck
+    import { geoIdentity, geoPath } from "d3-geo";
+    import { scaleLinear } from "d3-scale";
+    import { extent } from "d3-array";
+    import { hsl, rgb } from "d3-color";
 
-  import { geoIdentity, geoPath } from "d3-geo";
-  import { scaleLinear } from "d3-scale";
-  import { extent } from "d3-array";
-  import { hsl, rgb } from "d3-color";
+    import { partyColor } from "@election-engine/common/colors";
+    import ProvincialPopOver from "../provincialPopOver.svelte";
+    import ProvincialLegend from "../provincialLegend.svelte";
+    import Loading from "@election-engine/common/loading.svelte";
 
-  import { loadData } from "@election-engine/common/loadData";
-  import { maps_endpoint } from "../../libs/maps";
-  import { partyColor } from "@election-engine/common/colors";
-  import ProvincialPopOver from "../provincialPopOver.svelte";
-  import ProvincialLegend from "../provincialLegend.svelte";
+    export let data;
+    export let provincial_map;
+    export let national_map;
+    export let selected_region;
 
-  export let selected_year = 2024;
-  export let selected_region = "Eastern Cape";
-  export let provinces;
-  export let innerWidth;
+    // municipal geographical features data;
+    let provinces_geo_data;
 
-  export let data;
+    // map width and height dimension
+    let width = 600;
+    let height = 600;
 
-  // API base url
-  const base_url = "https://iec-api.revengine.dailymaverick.co.za";
+    // array of parties with the highest votes in all municipalities from a province
+    let provinces_array;
+    let highParty = [];
+    let topParties = [];
 
-  // municipal geographical data;
-  let geo_data;
+    let loading = false;
 
-  // municipal geographical features data;
-  let provinces_geo_data;
+    let provincialPopOverData;
 
-  // map width and height dimension
-  let width = 600;
-  let height = 600;
+    let colorFill;
+    let provincial_path;
+    let national_path;
+    let bounding_box;
 
-  // array of parties with the highest votes in all municipalities from a province
-  let provinces_array;
-  let highParty = [];
-  let topParties = [];
-
-  $: isMediaScreenSmall = innerWidth < 630 ? true : false;
-  let isExpanded = false;
-
-  let provincialPopOverData;
-
-  function getTotalParty(data) {
-    const municipal = [];
-    for (let item in data) {
-      const municipal_name = {
-        municipal_code: data[item].municipality_name.split(" ")[0],
-      };
-      const highestVotePercParty = data[item].party_ballot_results.sort((a, b) => b.vote_perc - a.vote_perc)[0];
-      municipal.push(Object.assign(highestVotePercParty, municipal_name));
+    const INSET_POS = {
+        "Eastern Cape": [450, 0],
+        "Free State": [450, 0],
+        "Gauteng": [100, 100],
+        "KwaZulu-Natal": [400, 400],
+        "Limpopo": [450, 0],
+        "Mpumalanga": [200, 50],
+        "North West": [450, 0],
+        "Northern Cape": [450, 0],
+        "Western Cape": [450, 0],
     }
-    const result = provinces_geo_data.map((feature) => {
-      const matchingPartyResult = topParties.find((party) => party.municipality_id === feature.properties.MUNI_CODE);
-      if (matchingPartyResult) {
-        feature.properties.highest_parties = matchingPartyResult.top_parties;
-      }
-      return feature;
-    });
-    return result;
-  }
 
-  function getTopParties(data) {
-    return data.map((municipality) => {
-      const topParties = municipality.party_ballot_results.sort((a, b) => b.vote_perc - a.vote_perc).slice(0, 3);
-      return {
-        municipality_id: municipality.municipality_name.split(" ")[0],
-        municipality_name: municipality.municipality_name,
-        top_parties: topParties,
-      };
-    });
-  }
+    function getTotalParty(data) {
+        const municipal = [];
+        for (let item in data) {
+            const municipal_name = {
+                municipal_code: data[item].municipality_name.split(" ")[0],
+            };
+            if (!data[item].party_ballot_results?.length) continue;
+            const highestVotePercParty = data[item].party_ballot_results.sort(
+                (a, b) => b.vote_perc - a.vote_perc
+            )[0];
+            municipal.push(Object.assign(highestVotePercParty, municipal_name));
+        }
+        const result = provinces_geo_data.map((feature) => {
+            const matchingPartyResult = topParties.find(
+                (party) =>
+                    party.municipality_id === feature.properties.MUNI_CODE
+            );
+            
+            if (matchingPartyResult) {
+                feature.properties.highest_parties =
+                    matchingPartyResult.top_parties;
+            }
+            return feature;
+        });
+        return result;
+    }
 
-  onMount(async () => {
-    setData({ year: selected_year, region: selected_region });
-  });
+    function getTopParties(data) {
+        return data.map((municipality) => {
+            const topParties = municipality.party_ballot_results
+                .sort((a, b) => b.vote_perc - a.vote_perc)
+                .slice(0, 3);
+            return {
+                municipality_id: municipality.municipality_name.split(" ")[0],
+                municipality_name: municipality.municipality_name,
+                top_parties: topParties,
+            };
+        });
+    }
 
-  async function getMapData(url) {
-    const d = await fetch(url);
-    return d.json();
-  }
+    $: {
+        provinces_geo_data = provincial_map.features;
+        topParties = getTopParties(data);
+        highParty = topParties.map((d) => d.top_parties[0]);
+        provinces_array = getTotalParty(data);
+        const color_scale = scaleLinear()
+            .domain(extent(highParty, (d) => d?.vote_perc || 0))
+            .range([40, 100]);
+        colorFill = (municipal, index) => {
+            if (!municipal.properties.highest_parties[0]) {
+                return "grey";
+            }
+            const hex = partyColor(
+                municipal.properties.highest_parties[0].party_abbreviation,
+                index
+            );
+            let { r, g, b } = rgb(hsl(hex));
+            const opacity =
+                color_scale(municipal.properties.highest_parties[0]?.vote_perc) /
+                100;
+            return rgb(r, g, b, opacity);
+        };
+        const projection = geoIdentity()
+            .reflectY(true)
+            .fitExtent(
+                [
+                    [20, 20],
+                    [width, height],
+                ],
+                provincial_map
+            );
+        provincial_path = geoPath(projection);
+    }
 
-  async function getData({ year, region }) {
-    const provincial_seats_result = await loadData({
-      year,
-      region,
-      election: "Provincial Legislature",
-    });
-    return provincial_seats_result.municipal_results;
-  }
-
-  async function setData({ year, region }) {
-    selected_region = region;
-    data = await getData({ year, region });
-    const province_map_code = maps_endpoint.filter((d) => d.region === region)[0].endpoint;
-    const map_url = `${base_url}/maps/${selected_year}/sa-munic-${province_map_code}.geojson.min.json`;
-    geo_data = await getMapData(map_url);
-    provinces_geo_data = geo_data.features;
-    provinces_array = getTotalParty(data);
-    topParties = getTopParties(data);
-    highParty = topParties.map((d) => d.top_parties[0]);
-    provinces_array = getTotalParty(data);
-  }
-
-  $: color_scale = scaleLinear()
-    .domain(extent(highParty, (d) => d.vote_perc))
-    .range([40, 100]);
-
-  $: colorFill = (municipal, index) => {
-    const hex = partyColor(municipal.properties.highest_parties[0].party_abbreviation, index);
-    let { r, g, b } = rgb(hsl(hex));
-    const opacity = color_scale(municipal.properties.highest_parties[0].vote_perc) / 100;
-    return rgb(r, g, b, opacity);
-  };
-
-  function changeExpandable() {
-    isExpanded = !isExpanded;
-  }
-
-  $: projection = geoIdentity()
-    .reflectY(true)
-    .fitExtent(
-      [
-        [20, 20],
-        [width, height],
-      ],
-      geo_data
-    );
-
-  // Geographic path generator based on the projection configured above.
-  $: path = geoPath(projection);
+    $: {
+        const projection = geoIdentity()
+            .reflectY(true)
+            .fitExtent(
+                [
+                    [0, 0],
+                    [width, height],
+                ],
+                national_map
+            );
+        national_path = geoPath(projection);
+        const geo_bounding_box = national_path.bounds(provincial_map)
+        bounding_box = {
+            x: geo_bounding_box[0][0],
+            y: geo_bounding_box[0][1],
+            width: geo_bounding_box[1][0] - geo_bounding_box[0][0],
+            height: geo_bounding_box[1][1] - geo_bounding_box[0][1],
+        };
+    };
 </script>
 
-<!--  DESKTOP DOWN TAKE NOTE REMOVE COMMENT ON LARGE SCREEN -->
-{#if isMediaScreenSmall}
-  <div class="electionengine-selectdropdown-wrapper electionengine-dropdown-form">
-    <button
-      class="electionengine-dropdown-select"
-      class:electionengine-provincial-dropdown={isExpanded}
-      on:click={changeExpandable}>{selected_region}</button
-    >
-    {#if isExpanded}
-      <div transition:slide class="electionengine-selectbutton-dropdown-wrapper">
-        {#each provinces as province}
-          <button
-            class="electionengine-year-button electionengine-dropdown-button"
-            class:selected={selected_region === province}
-            on:click={() => {
-              setData({ year: selected_year, region: province });
-              isExpanded = !isExpanded;
-            }}
-          >
-            {province}
-          </button>
-        {/each}
-      </div>
+<div class="electionengine-provincial-map">
+    <Loading bind:loading />
+    <ProvincialLegend bind:highParty />
+    {#if provinces_array}
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <svg
+            class="electionengine-map-svg"
+            width="100%"
+            viewBox="0 0 {width} {height}"
+        >
+            <!-- Municipalities Group -->
+            <g on:mouseleave={() => (provincialPopOverData = null)} >
+                {#each provinces_array as municipality, index}
+                    <g>
+                        <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+                        <!-- svelte-ignore a11y-no-static-element-interactions -->
+                        <path
+                            on:mouseover={(e) => {
+                                provincialPopOverData = {
+                                    ...municipality.properties,
+                                };
+                                provincialPopOverData["x"] = e.clientX;
+                                provincialPopOverData["y"] = e.clientY;
+                                provincialPopOverData["index"] = index;
+                                provincialPopOverData["color"] = partyColor(
+                                    municipality.properties
+                                        .highest_parties[0]
+                                        .party_abbreviation,
+                                    index
+                                );
+                            }}
+                            d={provincial_path(municipality)}
+                            fill={colorFill(municipality, index)}
+                            stroke="white"
+                            stroke-width="0.94"
+                        />
+                    </g>
+                {/each}
+            </g>
+            <g transform="translate({INSET_POS[selected_region]})">
+                <svg class="electionengine-national-map-inset" width="120" height="100" viewBox="0 0 500 600" >
+                    <g class="national_map">
+                        <path
+                            d={national_path(national_map)}
+                            fill="none"
+                            stroke="#444444"
+                            stroke-width="0.8"
+                        />
+                    </g>
+                    <g class="bounding-box">
+                        <rect
+                            x={bounding_box.x}
+                            y={bounding_box.y}
+                            width={bounding_box.width}
+                            height={bounding_box.height}
+                            fill="red"
+                            stroke="black"
+                            stroke-width="1"
+                            opacity="0.5"
+                        />
+                    </g>
+                </svg>
+            </g>
+        </svg>
+        
+        {#if provincialPopOverData}
+            <ProvincialPopOver bind:provincialPopOverData />
+        {/if}
     {/if}
-  </div>
-{:else}
-  <div class="electionengine-selectbutton-wrapper">
-    {#each provinces as province}
-      <button
-        class="electionengine-year-button"
-        class:selected={selected_region === province}
-        on:click={() => setData({ year: selected_year, region: province })}
-      >
-        {province}
-      </button>
-    {/each}
-  </div>
-{/if}
-
-<ProvincialLegend bind:highParty />
-{#if provinces_array}
-  <div class="electionengine-svg-wrapper">
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <svg class="electionengine-map-svg" width="100%" viewBox="0 0 {width} {height}">
-      <!-- Municipalities Group -->
-      <g id="saMap" on:mouseleave={() => (provincialPopOverData = null)}>
-        {#each provinces_array as municipality, index}
-          <g>
-            <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-            <!-- svelte-ignore a11y-no-static-element-interactions -->
-            <path
-              on:mouseover={(e) => {
-                provincialPopOverData = { ...municipality.properties };
-                provincialPopOverData["x"] = e.clientX;
-                provincialPopOverData["y"] = e.clientY;
-                provincialPopOverData["index"] = index;
-                provincialPopOverData["color"] = partyColor(
-                  municipality.properties.highest_parties[0].party_abbreviation,
-                  index
-                );
-              }}
-              d={path(municipality)}
-              fill={colorFill(municipality, index)}
-              stroke="white"
-              stroke-width="0.94"
-            />
-          </g>
-        {/each}
-      </g>
-    </svg>
-  </div>
-  {#if provincialPopOverData}
-    <ProvincialPopOver bind:provincialPopOverData />
-  {/if}
-{:else}
-  <p>checking out</p>
-{/if}
+</div>
 
 <style>
-  .electionengine-selectbutton-dropdown-wrapper {
-    margin-top: 0.3rem;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    background: #ffffff;
-    border-radius: 6px;
-    border: 1px solid #cbcbcb;
-    position: absolute;
-    z-index: 9999;
-    width: 100%;
-  }
-
-  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button {
-    width: 100%;
-    display: block;
-    color: #cbcbcb;
-    background-color: transparent;
-    border-radius: 0;
-    border: none;
-    margin: 0;
-  }
-
-  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button:hover {
-    background: #f1fff1;
-  }
-
-  .electionengine-selectbutton-wrapper .electionengine-year-button.selected,
-  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button.selected,
-  .electionengine-selectbutton-dropdown-wrapper .electionengine-dropdown-button:active {
-    background-color: #4caf50;
-    color: white;
-  }
-
-  .electionengine-dropdown-form {
-    position: relative;
-    width: 300px;
-  }
-
-  .electionengine-dropdown-select:hover,
-  .electionengine-dropdown-select:focus {
-    outline: 1px solid limegreen;
-    cursor: pointer;
-  }
-
-  .electionengine-dropdown-select {
-    position: relative;
-    width: 100%;
-    padding: 10px 24px;
-    border-radius: 6px;
-    border: 1px solid #cbcbcb;
-    color: #cbcbcb;
-    margin: 0;
-  }
-
-  .electionengine-year-button {
-    border: 0;
-    background-color: white;
-    border-radius: 0px;
-    border-bottom: 2px solid #cbcbcb;
-  }
-
-  @media (width < 420px) {
-    .electionengine-selectbutton-wrapper {
-      font-size: 11px;
-      border: 0.76px solid #cbcbcb;
-      border-radius: 6.85px;
+    .electionengine-provincial-map {
+        position: relative;
+        width: 100%;
+        min-height: 320px;
     }
-  }
 </style>

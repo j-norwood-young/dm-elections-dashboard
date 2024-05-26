@@ -39,7 +39,7 @@
     const INSET_POS = {
         "Eastern Cape": [450, 0],
         "Free State": [450, 0],
-        "Gauteng": [100, 100],
+        "Gauteng": [140, 0],
         "KwaZulu-Natal": [400, 400],
         "Limpopo": [450, 0],
         "Mpumalanga": [200, 50],

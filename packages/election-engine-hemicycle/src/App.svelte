@@ -7,6 +7,7 @@
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
     import SEAT_COUNTS from "@election-engine/common/seat_counts.json";
+    import Loading from "@election-engine/common/loading.svelte";
 
     let provinces = PROVINCES.filter((p) => p !== "Out of Country");
 
@@ -17,7 +18,7 @@
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
-    export let displayHeight = 640;
+    export let displayHeight = "auto";
     export let r = 300;
 
     let current_party;
@@ -30,6 +31,7 @@
     export let display = ["points"];
     export let blurb = null;
     let data, arc;
+    let loading = false;
 
     onMount(async () => {
         data = await processData();
@@ -55,63 +57,73 @@
     }
 
     async function processData() {
-        data = [];
-        if (
-            selected_region === "National" &&
-            selected_election === "Provincial Legislature"
-        ) {
-            selected_region = "Gauteng";
-        }
-        const loaded_data = await loadData({
-            year: selected_year,
-            election: selected_election,
-            region: "National",
-        });
-        if (selected_election === "National Assembly") {
-            blurb =
-                "The 400 seats of the National Assembly are calculated by assigning 200 from the provincial ballot and 200 from the national list. In 2024, the provincial ballot includes independent candidates.";
-            selected_region = "National";
-            const mappedData = loaded_data.party_ballot_results.map(
-                (party, i) => {
-                    return {
-                        id: party.party_id,
-                        text: party.party_name,
-                        count: party.seats,
-                        color: partyColor(party.party_abbreviation, i),
-                        percentage: party.vote_perc,
-                    };
-                }
-            );
-            total_seats = 400;
-            rows = 13;
-            r = 300;
-            return mappedData;
-        } else {
-            const province_data = loaded_data.provincial_results.find(
-                (province) => province.province_name === selected_region
-            );
-            const mappedData = province_data.party_ballot_results
-                .filter((party) => party.seats > 0)
-                .map((party, i) => {
-                    return {
-                        id: party.party_id,
-                        text: party.party_name,
-                        count: party.seats,
-                        color: partyColor(party.party_abbreviation, i),
-                        percentage: party.vote_perc,
-                    };
-                });
-            total_seats =
-                SEAT_COUNTS["provincial"][selected_year][selected_region];
-            blurb = `Each Provincial Legislature has a different number of seats. In ${selected_year}, the ${selected_region} Legislature has ${total_seats} seats.`;
-            rows = Math.ceil(total_seats / 15);
-            r = 200;
-            return mappedData;
+        loading = true;
+        try {
+            data = [];
+            if (
+                selected_region === "National" &&
+                selected_election === "Provincial Legislature"
+            ) {
+                selected_region = "Gauteng";
+            }
+            const loaded_data = await loadData({
+                year: selected_year,
+                election: selected_election,
+                region: "National",
+            });
+            if (selected_election === "National Assembly") {
+                blurb =
+                    "The 400 seats of the National Assembly are calculated by assigning 200 from the provincial ballot and 200 from the national list. In 2024, the provincial ballot includes independent candidates.";
+                selected_region = "National";
+                const mappedData = loaded_data.party_ballot_results.map(
+                    (party, i) => {
+                        return {
+                            id: party.party_id,
+                            text: party.party_name,
+                            count: party.seats,
+                            color: partyColor(party.party_abbreviation, i),
+                            percentage: party.vote_perc,
+                        };
+                    }
+                );
+                total_seats = 400;
+                rows = 13;
+                r = 300;
+                return mappedData;
+            } else {
+                const province_data = loaded_data.provincial_results.find(
+                    (province) => province.province_name === selected_region
+                );
+                const mappedData = province_data.party_ballot_results
+                    .filter((party) => party.seats > 0)
+                    .map((party, i) => {
+                        return {
+                            id: party.party_id,
+                            text: party.party_name,
+                            count: party.seats,
+                            color: partyColor(party.party_abbreviation, i),
+                            percentage: party.vote_perc,
+                        };
+                    });
+                total_seats =
+                    SEAT_COUNTS["provincial"][selected_year][selected_region];
+                blurb = `Each Provincial Legislature has a different number of seats. In ${selected_year}, the ${selected_region} Legislature has ${total_seats} seats.`;
+                rows = Math.ceil(total_seats / 15);
+                r = 200;
+                return mappedData;
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            loading = false;
         }
     }
 </script>
 
 <div class="election-engine-hemicycle-app">
+    {#if loading}
+        <Loading bind:loading />
+    {/if}
     {#if show_buttons}
         <div class="electionengine-years-buttons">
             <button
@@ -173,7 +185,8 @@
         <div class="electionengine-hemicycle-container">
             <Hemicycle
                 bind:current_party
-                {displayHeight}
+                display_height="320px"
+                display_width="100%"
                 {data}
                 {rows}
                 {display}
@@ -223,6 +236,13 @@
 </div>
 
 <style>
+    .election-engine-hemicycle-app {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+    }
+
     .electionengine-year-button {
         background-color: #e4e4e4;
         border: 1px solid #ccc;
@@ -251,18 +271,18 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: top;
-        flex: 0.4;
-        /* min-height: 500px; */
+        /* flex: 0.4; */
         position: relative;
+        width: 100%;
     }
 
     .electionengine-hemicycle-container {
         /* height: 320px; */
         overflow-y: hidden;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .electionengine-blurb {

@@ -2,7 +2,7 @@
   // @ts-nocheck
   import { fly, fade } from "svelte/transition";
   import { numberWithCommas } from "../libs/utils";
-  export let tooltipData;
+  export let tooltipData = {};
   // export let width;
   //$: console.log(tooltipData);
   let tooltipWidth = 200;
@@ -13,77 +13,63 @@
   const xNudge = 30;
   const yNudge = 15;
 
+  function firstLetterCap(string) {
+    return string
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition =
     tooltipData.x + tooltipWidth + xNudge > width ? tooltipData.x - tooltipWidth - xNudge : tooltipData.x + xNudge;
   $: yPosition =
-    tooltipData.y + tooltipHeight + yNudge > height ? tooltipData.y - tooltipHeight - yNudge : tooltipData.y - yNudge;
+    tooltipData.y + tooltipHeight + yNudge > height ? height - tooltipHeight : tooltipData.y - yNudge;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
-
+<!-- in:fly={{ y: 10, duration: 200, delay: 200 }}
+  out:fade -->
 <div
-  in:fly={{ y: 10, duration: 200, delay: 200 }}
-  out:fade
+  
   bind:clientWidth={tooltipWidth}
   bind:clientHeight={tooltipHeight}
   class="electionengine-tooltip-wrapper"
-  style="border-left-color:{tooltipData.color}; top:{yPosition}px; left:{xPosition}px; position:fixed"
+  style="border-left-color:#ececec; top:{yPosition}px; left:{xPosition}px; position:fixed"
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Province:</div>
       <div class="electionengine-tooltip-tdata">
-        {tooltipData.full_data.PROVINCE}
+        {tooltipData.province}
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Voters Turnout in {tooltipData.full_data.PROVINCE}</div>
+      <div class="electionengine-tooltip-thead">Voters Turnout in {tooltipData.province}</div>
       <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
         <div class="electionengine-tooltip-range">
           <div class="electionengine-tooltip-outer">
             <div
               class="electionengine-tooltip-inner"
-              style="width:{(tooltipData.full_data.total_votes_cast / tooltipData.full_data.registered_voters) *
+              style="width:{(tooltipData.total_valid_votes / tooltipData.registered_voters) *
                 100}%; background:#4CAF50"
             ></div>
           </div>
         </div>
         <span>
-          {Math.round((tooltipData.full_data.total_votes_cast / tooltipData.full_data.registered_voters) * 100)}%</span
+          {Math.round((tooltipData.total_valid_votes / tooltipData.registered_voters) * 100)}%</span
         >
       </div>
     </div>
-    <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Party:</div>
-      <div class="electionengine-tooltip-tdata">
-        {tooltipData.party.party_name}
-      </div>
-    </div>
-    <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">
-        Percentage of Seats {tooltipData.party.party_abbreviation} Won in {tooltipData.full_data.PROVINCE}
-      </div>
-      <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
-        <div class="electionengine-tooltip-range">
-          <div class="electionengine-tooltip-outer">
-            <div
-              class="electionengine-tooltip-inner"
-              style="width:{tooltipData.party.vote_perc}%; background:#939292"
-            ></div>
-          </div>
+    {#each tooltipData.party as party}
+      <div class="electionengine-tooltip-section">
+        <div class="electionengine-tooltip-thead">Party: {firstLetterCap(party.party_name)}</div>
+        <div class="electionengine-tooltip-tdata">
+          {party.seats}
         </div>
-        <span> {Math.round(tooltipData.party.vote_perc)}%</span>
       </div>
-    </div>
-    <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">
-        Number of Seats {tooltipData.party.party_abbreviation} Won in Limpopo
-      </div>
-      <div class="electionengine-tooltip-tdata">
-        {tooltipData.party.seats} / {tooltipData.total_seats}
-      </div>
-    </div>
+    {/each}
   </div>
 </div>
 

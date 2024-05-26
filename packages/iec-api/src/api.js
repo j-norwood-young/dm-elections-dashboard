@@ -36,6 +36,20 @@ server.get('/', async (req, res) => {
     res.send({ msg: 'Hello, world!' });
 });
 
+server.get("/flush_cache", (req, res) => {
+    const api_key = req.query.api_key;
+    if (!api_key || api_key !== process.env.API_KEY) {
+        return res.status(401).send({ status: "error", msg: "Unauthorized" });
+    }
+    setCache("electoral_types", null);
+    setCache("electoral_events", null);
+    setCache("provinces", null);
+    setCache("contesting_parties", null);
+    setCache("results", null);
+    setCache("seats", null);
+    res.send({ status: "success", msg: "Cache flushed" });
+});
+
 server.get("/electoral_types", async (req, res) => {
     let electoralTypes = await getCache("electoral_types");
     if (!electoralTypes) {

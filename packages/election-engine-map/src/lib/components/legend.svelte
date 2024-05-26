@@ -43,55 +43,41 @@
   $: init();
 </script>
 
-<div class="electionengine-legend-heading">Party Colors Legend</div>
-<SelectButton>
-  <div class="legend-wrapper">
-    <div class="legend">
-      {#each sortedPartySeats as seat}
-        <div class="party-wrapper">
-          <svg width="12px" height="13px">
-            <g transform="translate(1, 1)" fill={seat.color} fill-rule="nonzero" stroke="#444444">
-              <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
-            </g>
-          </svg>
-          <div class="electionengine-legend-partyname">{seat.name} [{seat.seats}]</div>
-        </div>
-      {/each}
+<div class="legend">
+  {#each sortedPartySeats as seat}
+    <div class="party-wrapper">
+      <svg width="12px" height="13px">
+        <g transform="translate(1, 1)" fill={seat.color} fill-rule="nonzero" stroke="#444444">
+          <polygon points="5,0 10,2.75 10,8.25 5,11 0,8.25 0,2.75"></polygon>
+        </g>
+      </svg>
+      <div class="electionengine-legend-partyname">{seat.name} ({seat.seats} seats)</div>
     </div>
-  </div>
-</SelectButton>
+  {/each}
+</div>
 
 <style>
-  .legend-wrapper {
-    position: relative;
-    padding: 10px;
-    z-index: 99;
-  }
-
   .legend {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 99;
     display: flex;
-    gap: 1rem;
-    padding: 10px 10px;
+    gap: 5px;
+    padding: 5px;
+    margin: 10px 0px;
     border-radius: 4px;
-    width: 360px;
     justify-content: flex-start;
-    overflow-x: scroll;
+    flex-direction: column;
   }
 
   .party-wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: left;
     align-items: center;
     flex-shrink: 0;
-  }
-
-  .electionengine-legend-heading {
-    font-size: 12px;
-    font-weight: 600;
-    color: #232323;
-    margin: 0;
-    padding-bottom: 2px;
   }
 
   .electionengine-legend-partyname {

@@ -4,7 +4,7 @@
   import { numberWithCommas } from "../libs/utils";
   export let tooltipData;
   // export let width;
-
+  //$: console.log(tooltipData);
   let tooltipWidth = 200;
   let tooltipHeight = 200;
   let width;
@@ -32,19 +32,44 @@
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
+      <div class="electionengine-tooltip-thead">Province:</div>
+      <div class="electionengine-tooltip-tdata">
+        {tooltipData.full_data.PROVINCE}
+      </div>
+    </div>
+    <div class="electionengine-tooltip-section">
+      <div class="electionengine-tooltip-thead">Voters Turnout in {tooltipData.full_data.PROVINCE}</div>
+      <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
+        <div class="electionengine-tooltip-range">
+          <div class="electionengine-tooltip-outer">
+            <div
+              class="electionengine-tooltip-inner"
+              style="width:{(tooltipData.full_data.total_votes_cast / tooltipData.full_data.registered_voters) *
+                100}%; background:#4CAF50"
+            ></div>
+          </div>
+        </div>
+        <span>
+          {Math.round((tooltipData.full_data.total_votes_cast / tooltipData.full_data.registered_voters) * 100)}%</span
+        >
+      </div>
+    </div>
+    <div class="electionengine-tooltip-section">
       <div class="electionengine-tooltip-thead">Party:</div>
       <div class="electionengine-tooltip-tdata">
         {tooltipData.party.party_name}
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Percentage of Seats Won in Limpopo</div>
+      <div class="electionengine-tooltip-thead">
+        Percentage of Seats {tooltipData.party.party_abbreviation} Won in {tooltipData.full_data.PROVINCE}
+      </div>
       <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
         <div class="electionengine-tooltip-range">
           <div class="electionengine-tooltip-outer">
             <div
               class="electionengine-tooltip-inner"
-              style="width:{tooltipData.party.vote_perc}%; background:{tooltipData.color}"
+              style="width:{tooltipData.party.vote_perc}%; background:#939292"
             ></div>
           </div>
         </div>
@@ -52,25 +77,13 @@
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</div>
+      <div class="electionengine-tooltip-thead">
+        Number of Seats {tooltipData.party.party_abbreviation} Won in Limpopo
+      </div>
       <div class="electionengine-tooltip-tdata">
         {tooltipData.party.seats} / {tooltipData.total_seats}
       </div>
     </div>
-    <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Total Votes</div>
-      <div class="electionengine-tooltip-tdata">
-        {numberWithCommas(tooltipData.party.votes)}
-      </div>
-    </div>
-  </div>
-  <div class="electionengine-tooltip-section">
-    <div class="electionengine-tooltip-thead">Total Number of Seats Won in Limpopo</div>
-    <div class="electionengine-tooltip-tdata">{tooltipData.party.seats} / {tooltipData.total_seats}</div>
-  </div>
-  <div class="electionengine-tooltip-section">
-    <div class="electionengine-tooltip-thead">Total Votes</div>
-    <div class="electionengine-tooltip-tdata">{Intl.NumberFormat("en-US").format(tooltipData.party.votes)}</div>
   </div>
 </div>
 

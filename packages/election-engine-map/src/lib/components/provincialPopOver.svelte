@@ -5,8 +5,8 @@
 
   export let provincialPopOverData;
 
-  let tooltipWidth;
-  let tooltipHeight;
+  let tooltipWidth = 200;
+  let tooltipHeight = 200;
   let width;
   let height;
 
@@ -14,21 +14,22 @@
   const yNudge = 55;
 
   function firstLetterCap(string) {
-    const str = string.toLowerCase();
-    const word = str.charAt(0).toUpperCase() + str.slice(1);
-
-    return word;
+    return string
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   }
 
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition =
     provincialPopOverData.x + tooltipWidth + xNudge > width
       ? provincialPopOverData.x - tooltipWidth - xNudge
-      : provincialPopOverData.x + xNudge - 40;
+      : provincialPopOverData.x + xNudge;
   $: yPosition =
     provincialPopOverData.y + tooltipHeight + yNudge > height
-      ? provincialPopOverData.y - tooltipHeight - yNudge + 250
-      : provincialPopOverData.y - yNudge + 40;
+      ? provincialPopOverData.y - tooltipHeight - yNudge
+      : provincialPopOverData.y - yNudge;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -39,7 +40,7 @@
   bind:clientWidth={tooltipWidth}
   bind:clientHeight={tooltipHeight}
   class="electionengine-tooltip-wrapper"
-  style="border-left-color:{provincialPopOverData.color}; top:{yPosition}px; left:{xPosition}px"
+  style="border-left-color:{provincialPopOverData.color}; top:{yPosition}px; left:{xPosition}px; position:fixed"
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
@@ -53,7 +54,9 @@
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Votes Percentage {provincialPopOverData.MUNI_NAME}</div>
+      <div class="electionengine-tooltip-thead">
+        {provincialPopOverData.highest_parties[0].party_abbreviation} Votes Percentage {provincialPopOverData.MUNI_NAME}
+      </div>
       <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
         <div class="electionengine-tooltip-range">
           <div class="electionengine-tooltip-outer">
@@ -68,7 +71,9 @@
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Runner-Up 1:{provincialPopOverData.highest_parties[1].party_name}</div>
+      <div class="electionengine-tooltip-thead">
+        Runner-Up 1: {firstLetterCap(provincialPopOverData.highest_parties[1].party_name)}
+      </div>
       <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
         <div class="electionengine-tooltip-range">
           <div class="electionengine-tooltip-outer">
@@ -85,7 +90,9 @@
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Runner-Up 2:{provincialPopOverData.highest_parties[2].party_name}</div>
+      <div class="electionengine-tooltip-thead">
+        Runner-Up 2:{firstLetterCap(provincialPopOverData.highest_parties[2].party_name)}
+      </div>
       <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
         <div class="electionengine-tooltip-range">
           <div class="electionengine-tooltip-outer">
@@ -102,7 +109,9 @@
       </div>
     </div>
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Total Number of Seats Won in {provincialPopOverData.MUNI_NAME}</div>
+      <div class="electionengine-tooltip-thead">
+        Total Number of Seats Won by {provincialPopOverData.highest_parties[0].party_abbreviation}
+      </div>
       <div class="electionengine-tooltip-tdata">{provincialPopOverData.highest_parties[0].seats}</div>
     </div>
     <div class="electionengine-tooltip-section">

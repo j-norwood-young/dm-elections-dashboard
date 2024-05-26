@@ -10,7 +10,6 @@ import national2019 from "../../data/api/2019-national.json";
  * @param {number} [options.year=2024] - The year of the election.
  * @param {string} [options.election="National Assembly"] - The type of election.
  * @param {string} [options.region="National"] - The region of the election.
- * @param {string} [options.type="votes"] - The type of data to load (votes or seats).
  * @returns {Promise<any>} - A promise that resolves with the loaded data.
  */
 export async function loadData({ year = 2024, election = "National Assembly", region = "National" }) {

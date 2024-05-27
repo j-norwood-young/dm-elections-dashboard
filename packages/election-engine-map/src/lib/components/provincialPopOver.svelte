@@ -30,7 +30,9 @@
       ? provincialPopOverData.x - tooltipWidth - xNudge
       : provincialPopOverData.x + xNudge;
   $: yPosition =
-    provincialPopOverData.y + tooltipHeight > svgHeight ? svgHeight - tooltipHeight : provincialPopOverData.y - yNudge;
+    provincialPopOverData.y + tooltipHeight > svgHeight
+      ? provincialPopOverData.y - tooltipHeight
+      : provincialPopOverData.y - yNudge;
 
   // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>

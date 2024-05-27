@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import { fly, fade } from "svelte/transition";
     import Hemicycle from "svelte-hemicycle";
 
     import { loadData } from "@election-engine/common/loadData.js";
@@ -18,13 +19,10 @@
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
-    export let displayHeight = "auto";
     export let r = 300;
 
     let current_party;
 
-    const color = "black";
-    const font_size = "20";
     const shape = "hexagon";
     export let total_seats = 400;
     export let rows = 12;
@@ -32,9 +30,15 @@
     export let blurb = null;
     let data, arc;
     let loading = false;
+    const current_year = new Date().getFullYear();
 
     onMount(async () => {
         data = await processData();
+        setInterval(async () => {
+            if (selected_year === current_year) {
+                data = await processData();
+            }
+        }, 300000); // 5 minutes
     });
 
     async function setYear(year) {
@@ -64,7 +68,7 @@
                 selected_region === "National" &&
                 selected_election === "Provincial Legislature"
             ) {
-                selected_region = "Gauteng";
+                selected_region = provinces[0];
             }
             const loaded_data = await loadData({
                 year: selected_year,
@@ -118,9 +122,27 @@
             loading = false;
         }
     }
+
+    let m = { x: 0, y: 0 };
+
+    function handleMousemove(event) {
+        m.x = event.clientX;
+        m.y = event.clientY;
+    }
+
+    let container;
+    let rect;
+    let halfWidthPos;
+
+    $: {
+        if (container) {
+            rect = container.getBoundingClientRect();
+            halfWidthPos = rect ? Math.round((rect.right + rect.left) / 2) : 0;
+        }
+    }
 </script>
 
-<div class="election-engine-hemicycle-app">
+<div class="election-engine-hemicycle-app" bind:this={container}>
     {#if loading}
         <Loading bind:loading />
     {/if}
@@ -182,7 +204,11 @@
         </div>
     {/if}
     <div class="election-engine-hemicycle-section">
-        <div class="electionengine-hemicycle-container">
+        <div
+            class="electionengine-hemicycle-container"
+            on:mousemove={handleMousemove}
+            role="presentation"
+        >
             <Hemicycle
                 bind:current_party
                 display_height="320px"
@@ -190,8 +216,6 @@
                 {data}
                 {rows}
                 {display}
-                {color}
-                {font_size}
                 {shape}
                 {arc}
                 {total_seats}
@@ -202,7 +226,13 @@
             <div class="electionengine-blurb">{blurb}</div>
         {/if}
         {#if current_party}
-            <div class="electionengine-party-results-information-container">
+            <div
+                class="electionengine-party-results-information-container"
+                style:right={m.x < halfWidthPos ? "0" : "auto"}
+                style:left={m.x < halfWidthPos ? "auto" : "0"}
+                in:fly={{ y: 10, duration: 200, delay: 200 }}
+                out:fade
+            >
                 <div
                     class="electionengine-party-results-information"
                     style:border-left="6px {current_party?.color} solid"
@@ -302,7 +332,6 @@
         align-items: center;
         position: absolute;
         top: 0px;
-        left: 0px;
         background-color: white;
         @media screen and (min-width: 1280px) {
             left: 20%;
@@ -324,8 +353,8 @@
         padding: 10px;
         border: 1px solid #ddd;
         text-align: center;
-        width: 100px;
-        font-size: 12px;
+        width: 150px;
+        font-size: 10px;
         display: flex;
         flex-direction: column;
         gap: 10px;

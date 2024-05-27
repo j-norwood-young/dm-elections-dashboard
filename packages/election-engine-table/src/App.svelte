@@ -4,19 +4,27 @@
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
+    import Loading from "@election-engine/common/Loading.svelte";
+    const current_year = new Date().getFullYear();
 
     export let selected_year = 2019; // 2024, 2019, 2014
     export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
+    export let show_count_progress = true;
 
     let provinces = PROVINCES;
-
+    let loading = false;
     let data;
 
     onMount(async () => {
         data = await processData(selected_year);
+            setInterval(async () => {
+                if (selected_year === current_year) {
+                    data = await processData(selected_year);
+                }
+            }, 300000); // 5 minutes
     });
 
     async function setYear(year) {
@@ -38,6 +46,9 @@
             provinces = PROVINCES.filter(
                 (p) => !["National", "Out of Country"].includes(p)
             );
+            if (!provinces.includes(selected_region)) {
+                selected_region = provinces[0];
+            }
         } else {
             provinces = PROVINCES;
         }
@@ -76,28 +87,37 @@
     }
 
     async function processData(year) {
-        const current_year = await getData(year);
-        if (year > YEARS[0]) {
-            const previous_year = await getData(year - 5);
-            for (let party of current_year.party_ballot_results) {
-                const previous_party = previous_year.party_ballot_results.find(
-                    (p) => p.party_id === party.party_id
-                );
-                if (previous_party) {
-                    party.change =
-                        Math.round(
-                            (party.vote_perc - previous_party.vote_perc) * 10
-                        ) / 10;
-                } else {
-                    party.change = null;
+        loading = true;
+        try {
+            const current_year = await getData(year);
+            if (year > YEARS[0]) {
+                const previous_year = await getData(year - 5);
+                for (let party of current_year.party_ballot_results) {
+                    const previous_party = previous_year.party_ballot_results.find(
+                        (p) => p.party_id === party.party_id
+                    );
+                    if (previous_party) {
+                        party.change =
+                            Math.round(
+                                (party.vote_perc - previous_party.vote_perc) * 10
+                            ) / 10;
+                    } else {
+                        party.change = null;
+                    }
                 }
             }
+            console.log(current_year)
+            return current_year;
+        } catch (error) {
+            console.error(error);
+        } finally {
+            loading = false;
         }
-        return current_year;
     }
 </script>
 
-<div>
+<div class="electionengine-table-page">
+    <Loading bind:loading />
     {#if show_buttons}
         <div class="electionengine-years-buttons">
             <button
@@ -149,10 +169,16 @@
     {/if}
     {#if show_title}
         <div class="electionengine-title">
-            Results for
             {selected_year}
             {selected_election}
-            {selected_region} General Election
+            {selected_region}
+        </div>
+    {/if}
+    {#if show_count_progress && selected_year === current_year && data}
+        <div class="electionengine-title">
+            {data
+                ? `${Math.round(data.vd_captured / data.vd_count * 100)}%  votes counted`
+                : ""}
         </div>
     {/if}
     <div class="electionengine-table-container">
@@ -170,7 +196,7 @@
                 </tr>
             </thead>
             <tbody>
-                {#if data}
+                {#if data && data.party_ballot_results && data.party_ballot_results.length > 0}
                     {#each data.party_ballot_results as row, i}
                         <tr
                             style:border-left="6px {partyColor(
@@ -193,7 +219,7 @@
                             <td class="electionengine-votes-column"
                                 >{Intl.NumberFormat("en-US").format(
                                     row.votes
-                                )}</td
+                                )}<div class="electionengine-perc">{Math.round(row.vote_perc * 10) / 10}%</div></td
                             >
                             {#if selected_year > 2009}
                                 <td class="electionengine-change-column">
@@ -226,6 +252,10 @@
                             {/if}
                         </tr>
                     {/each}
+                {:else}
+                    <tr>
+                        <td colspan="4">No results available yet</td>
+                    </tr>
                 {/if}
             </tbody>
         </table>
@@ -233,6 +263,10 @@
 </div>
 
 <style>
+    .electionengine-table-page {
+        position: relative;
+    }
+
     .electionengine-year-button {
         background-color: #e4e4e4;
         border: 1px solid #ccc;
@@ -249,6 +283,7 @@
     }
 
     .electionengine-table-container {
+        position: relative;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
@@ -322,5 +357,11 @@
         line-height: 1.2;
         /* width: 100%; */
         text-align: center;
+    }
+
+    .electionengine-perc {
+        font-size: 12px;
+        color: #777;
+        font-style: italic;
     }
 </style>

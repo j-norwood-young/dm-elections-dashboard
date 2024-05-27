@@ -8,6 +8,8 @@
 
   let tooltipWidth = 200;
   let tooltipHeight = 200;
+  export let svgWidth;
+  export let svgHeight;
   let width;
   let height;
 
@@ -24,15 +26,13 @@
 
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition =
-    provincialPopOverData.x + tooltipWidth + xNudge > width
+    provincialPopOverData.x + tooltipWidth + xNudge > svgWidth
       ? provincialPopOverData.x - tooltipWidth - xNudge
       : provincialPopOverData.x + xNudge;
   $: yPosition =
-    provincialPopOverData.y + tooltipHeight > height
-      ? height - tooltipHeight
-      : provincialPopOverData.y - yNudge;
+    provincialPopOverData.y + tooltipHeight > svgHeight ? height - tooltipHeight : provincialPopOverData.y - yNudge;
 
- // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
+  // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -70,7 +70,9 @@
             ></div>
           </div>
         </div>
-        <span> {Math.round(provincialPopOverData.highest_parties[0].vote_perc)}%</span>
+        <span class="electionengine-tooltip-span">
+          {Math.round(provincialPopOverData.highest_parties[0].vote_perc)}%</span
+        >
       </div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -89,7 +91,9 @@
             ></div>
           </div>
         </div>
-        <span> {Math.round(provincialPopOverData.highest_parties[1].vote_perc)}%</span>
+        <span class="electionengine-tooltip-span">
+          {Math.round(provincialPopOverData.highest_parties[1].vote_perc)}%</span
+        >
       </div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -108,7 +112,9 @@
             ></div>
           </div>
         </div>
-        <span> {Math.round(provincialPopOverData.highest_parties[2].vote_perc)}%</span>
+        <span class="electionengine-tooltip-span">
+          {Math.round(provincialPopOverData.highest_parties[2].vote_perc)}%</span
+        >
       </div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -128,7 +134,7 @@
 
 <style>
   .electionengine-tooltip-wrapper {
-    width: 200px;
+    width: 250px;
     position: absolute;
     background: #fffff9;
     padding: 0.55rem;
@@ -178,6 +184,10 @@
     width: 73%;
     position: absolute;
     border-radius: inherit;
+  }
+
+  .electionengine-tooltip-span {
+    text-wrap: nowrap;
   }
 
   .electionengine-tooltip-container > div:last-child .electionengine-tooltip-tdata {

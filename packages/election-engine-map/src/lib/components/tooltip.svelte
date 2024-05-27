@@ -7,6 +7,8 @@
   //$: console.log(tooltipData);
   let tooltipWidth = 200;
   let tooltipHeight = 200;
+  export let svgWidth;
+  export let svgHeight;
   let width;
   let height;
 
@@ -23,16 +25,19 @@
 
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition =
-    tooltipData.x + tooltipWidth + xNudge > width ? tooltipData.x - tooltipWidth - xNudge : tooltipData.x + xNudge;
+    tooltipData.x + tooltipWidth + xNudge > svgWidth ? tooltipData.x - tooltipWidth - xNudge : tooltipData.x + xNudge;
   $: yPosition =
-    tooltipData.y + tooltipHeight + yNudge > height ? height - tooltipHeight : tooltipData.y - yNudge;
+    tooltipData.y + tooltipHeight + yNudge > svgHeight
+      ? tooltipData.y - tooltipHeight - yNudge
+      : tooltipData.y - yNudge;
+
+  // $: console.log({"clientX": tooltipData.x, "clientY": tooltipData.y,"screenHeight": height, "svgHeight": svgHeight, "screenWidth": width, "svgWidth": svgWidth, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <!-- in:fly={{ y: 10, duration: 200, delay: 200 }}
   out:fade -->
 <div
-  
   bind:clientWidth={tooltipWidth}
   bind:clientHeight={tooltipHeight}
   class="electionengine-tooltip-wrapper"
@@ -52,12 +57,11 @@
           <div class="electionengine-tooltip-outer">
             <div
               class="electionengine-tooltip-inner"
-              style="width:{(tooltipData.total_valid_votes / tooltipData.registered_voters) *
-                100}%; background:#4CAF50"
+              style="width:{(tooltipData.total_valid_votes / tooltipData.registered_voters) * 100}%; background:#4CAF50"
             ></div>
           </div>
         </div>
-        <span>
+        <span class="electionengine-tooltip-span">
           {Math.round((tooltipData.total_valid_votes / tooltipData.registered_voters) * 100)}%</span
         >
       </div>
@@ -82,6 +86,7 @@
     border: 1px solid #c7c4c4;
     border-left-width: 6px;
     border-left-style: solid;
+    z-index: 999;
   }
 
   .electionengine-tooltip-section {
@@ -125,6 +130,10 @@
     width: 73%;
     position: absolute;
     border-radius: inherit;
+  }
+
+  .electionengine-tooltip-span {
+    text-wrap: nowrap;
   }
 
   .electionengine-tooltip-container > div:last-child .electionengine-tooltip-tdata {

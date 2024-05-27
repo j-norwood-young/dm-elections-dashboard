@@ -15,6 +15,8 @@
   let height = 800;
   let provinces;
   let tooltipData;
+  let svgWidth = 500;
+  let svgHeight = 500;
 
   onMount(async () => {
     attach_data_to_map();
@@ -82,10 +84,8 @@
   {/if}
 
   {#if data && provinces}
-    {#if tooltipData}
-      <Tooltip bind:tooltipData grid={false} />
-    {/if}
-    <div class="electionengine-svg-wrapper">
+    
+    <div bind:clientWidth={svgWidth} bind:clientHeight={svgHeight} class="electionengine-svg-wrapper">
       <!-- svelte-ignore a11y-no-static-element-interactions -->
       <svg class="electionengine-map-svg" viewBox="0 0 800 800" width="100%" on:mouseleave={() => tooltipData = null} >
         <!-- Countries -->
@@ -167,6 +167,9 @@
         </g>
       </svg>
     </div>
+    {#if tooltipData}
+      <Tooltip bind:tooltipData grid={false} bind:svgHeight bind:svgWidth />
+    {/if}
   {/if}
 </div>
 

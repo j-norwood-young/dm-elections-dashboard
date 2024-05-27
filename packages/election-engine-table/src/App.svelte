@@ -106,7 +106,6 @@
                     }
                 }
             }
-            console.log(current_year)
             return current_year;
         } catch (error) {
             console.error(error);

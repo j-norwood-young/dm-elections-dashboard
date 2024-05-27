@@ -35,6 +35,18 @@
 		"selected_fields": {
 			"type": "array",
 			"default": []
+		},
+		"show_title": {
+			"type": "boolean",
+			"default": true
+		},
+		"show_buttons": {
+			"type": "boolean",
+			"default": true
+		},
+		"show_blurb": {
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

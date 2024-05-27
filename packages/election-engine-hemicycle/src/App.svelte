@@ -19,6 +19,7 @@
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
+    export let show_blurb = true;
     export let r = 300;
 
     let current_party;
@@ -222,7 +223,7 @@
                 {r}
             />
         </div>
-        {#if blurb}
+        {#if blurb && show_blurb}
             <div class="electionengine-blurb">{blurb}</div>
         {/if}
         {#if current_party}
@@ -399,7 +400,7 @@
         border-radius: inherit;
     }
 
-    .electionengine-tooltip-span{
+    .electionengine-tooltip-span {
         text-wrap: nowrap;
     }
 

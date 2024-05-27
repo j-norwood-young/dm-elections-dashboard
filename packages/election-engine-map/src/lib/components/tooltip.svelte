@@ -45,7 +45,6 @@
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Province:</div>
       <div class="electionengine-tooltip-tdata">
         {tooltipData.province}
       </div>
@@ -68,9 +67,8 @@
     </div>
     {#each tooltipData.party as party}
       <div class="electionengine-tooltip-section">
-        <div class="electionengine-tooltip-thead">Party: {firstLetterCap(party.party_name)}</div>
-        <div class="electionengine-tooltip-tdata">
-          {party.seats}
+        <div class="electionengine-tooltip-thead">
+          * {firstLetterCap(party.party_name)} : <span class="electionengine-tooltip-span">{party.seats}</span>
         </div>
       </div>
     {/each}
@@ -79,7 +77,7 @@
 
 <style>
   .electionengine-tooltip-wrapper {
-    width: 200px;
+    min-width: max-content;
     position: absolute;
     background: #fffff9;
     padding: 0.55rem;
@@ -95,6 +93,10 @@
   .electionengine-tooltip-thead {
     font-size: 11px;
     color: #999494;
+
+    @media screen and (max-width: 500px) {
+      font-size: 9px;
+    }
   }
 
   .electionengine-tooltip-tdata {
@@ -102,6 +104,10 @@
     color: #2a2a2a;
     font-weight: bold;
     border-bottom: 1px solid #c7c4c4;
+
+    @media screen and (max-width: 500px) {
+      font-size: 10px;
+    }
   }
 
   .electionengine-tooltip-range-wrapper {
@@ -115,6 +121,10 @@
     position: relative;
     width: 100%;
     height: 12px;
+
+    @media screen and (max-width: 500px) {
+      height: 6px;
+    }
   }
 
   .electionengine-tooltip-outer {
@@ -133,6 +143,8 @@
   }
 
   .electionengine-tooltip-span {
+    font-weight: 600;
+    color: #232323;
     text-wrap: nowrap;
   }
 

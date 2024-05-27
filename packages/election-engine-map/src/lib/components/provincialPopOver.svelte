@@ -14,7 +14,7 @@
   let height;
 
   const xNudge = 25;
-  const yNudge = 30;
+  const yNudge = 10;
 
   function firstLetterCap(string) {
     return string
@@ -30,7 +30,7 @@
       ? provincialPopOverData.x - tooltipWidth - xNudge
       : provincialPopOverData.x + xNudge;
   $: yPosition =
-    provincialPopOverData.y + tooltipHeight > svgHeight ? height - tooltipHeight : provincialPopOverData.y - yNudge;
+    provincialPopOverData.y + tooltipHeight > svgHeight ? svgHeight - tooltipHeight : provincialPopOverData.y - yNudge;
 
   // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>
@@ -47,7 +47,6 @@
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Municipality:</div>
       <div class="electionengine-tooltip-tdata">{provincialPopOverData.MUNI_NAME}</div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -134,7 +133,7 @@
 
 <style>
   .electionengine-tooltip-wrapper {
-    width: 250px;
+    min-width: max-content;
     position: absolute;
     background: #fffff9;
     padding: 0.55rem;
@@ -149,6 +148,10 @@
   .electionengine-tooltip-thead {
     font-size: 11px;
     color: #999494;
+
+    @media screen and (max-width: 500px) {
+      font-size: 9px;
+    }
   }
 
   .electionengine-tooltip-tdata {
@@ -156,6 +159,10 @@
     color: #2a2a2a;
     font-weight: bold;
     border-bottom: 1px solid #c7c4c4;
+
+    @media screen and (max-width: 500px) {
+      font-size: 10px;
+    }
   }
 
   .electionengine-tooltip-range-wrapper {
@@ -169,6 +176,10 @@
     position: relative;
     width: 100%;
     height: 12px;
+
+    @media screen and (max-width: 500px) {
+      height: 6px;
+    }
   }
 
   .electionengine-tooltip-outer {
@@ -187,6 +198,8 @@
   }
 
   .electionengine-tooltip-span {
+    font-weight: 600;
+    color: #232323;
     text-wrap: nowrap;
   }
 

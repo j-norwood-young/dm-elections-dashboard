@@ -1,26 +1,56 @@
 <script>
-	import Button from '@election-engine/wordpress-block/src/svelte/components/svelte-wordpress-button.svelte'
-	export let years = [2024, 2019, 2014]
+	import Button from "@election-engine/wordpress-block/src/svelte/components/svelte-wordpress-button.svelte";
+	export let years = [2024, 2019, 2014];
 	export let selected_year = 2024;
-	export let elections = ['National Assembly', 'Provincial Legislature']
-	export let selected_election = 'National Assembly'
-	export let regions = ['National', 'Gauteng', 'Western Cape', 'KwaZulu-Natal', 'Eastern Cape', 'Free State', 'Limpopo', 'Mpumalanga', 'North West', 'Northern Cape']
-	export let selected_region = 'National'
+	export let elections = ["National Assembly", "Provincial Legislature"];
+	export let selected_election = "National Assembly";
+	export let regions = [
+		"National",
+		"Gauteng",
+		"Western Cape",
+		"KwaZulu-Natal",
+		"Eastern Cape",
+		"Free State",
+		"Limpopo",
+		"Mpumalanga",
+		"North West",
+		"Northern Cape",
+	];
+	export let selected_region = "National";
 </script>
+
 <div class="election-engine-selection-container">
 	<h4>Select Year</h4>
 	{#each years as year}
-		<div class="option"><Button primary={selected_year === year} on:click={() => selected_year = year}>{year}</Button></div>
+		<div class="option">
+			<Button
+				primary={selected_year === year}
+				on:click={() => (selected_year = year)}>{year}</Button
+			>
+		</div>
 	{/each}
 	<h4>Select Election</h4>
 	{#each elections as election}
-		<div class="option"><Button primary={selected_election === election} on:click={() => selected_election = election}>{election}</Button></div>
+		<div class="option">
+			<Button
+				primary={selected_election === election}
+				on:click={() => (selected_election = election)}>{election}</Button
+			>
+		</div>
 	{/each}
-	<h4>Select Region</h4>
-	{#each regions as region}
-		<div class="option"><Button primary={selected_region === region} on:click={() => selected_region = region}>{region}</Button></div>
-	{/each}
+	{#if selected_election === "Provincial Legislature"}
+		<h4>Select Province</h4>
+		{#each regions as region}
+			<div class="option">
+				<Button
+					primary={selected_region === region}
+					on:click={() => (selected_region = region)}>{region}</Button
+				>
+			</div>
+		{/each}
+	{/if}
 </div>
+
 <style>
 	.election-engine-selection-container .option {
 		display: inline-block;

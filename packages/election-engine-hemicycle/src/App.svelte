@@ -254,7 +254,7 @@
                                 ></div>
                             </div>
                         </div>
-                        <span>
+                        <span class="electionengine-tooltip-span">
                             {Math.round(current_party.percentage) ||
                                 "<1"}%</span
                         >
@@ -397,6 +397,10 @@
         width: 73%;
         position: absolute;
         border-radius: inherit;
+    }
+
+    .electionengine-tooltip-span{
+        text-wrap: nowrap;
     }
 
     .electionengine-tooltip-container

@@ -8,11 +8,13 @@
 
   let tooltipWidth = 200;
   let tooltipHeight = 200;
+  export let svgWidth;
+  export let svgHeight;
   let width;
   let height;
 
   const xNudge = 25;
-  const yNudge = 30;
+  const yNudge = 10;
 
   function firstLetterCap(string) {
     return string
@@ -24,15 +26,15 @@
 
   // If the x position + the tooltip width exceeds the chart width, offset backward to prevent overflow
   $: xPosition =
-    provincialPopOverData.x + tooltipWidth + xNudge > width
+    provincialPopOverData.x + tooltipWidth + xNudge > svgWidth
       ? provincialPopOverData.x - tooltipWidth - xNudge
       : provincialPopOverData.x + xNudge;
   $: yPosition =
-    provincialPopOverData.y + tooltipHeight > height
-      ? height - tooltipHeight
+    provincialPopOverData.y + tooltipHeight > svgHeight
+      ? provincialPopOverData.y - tooltipHeight
       : provincialPopOverData.y - yNudge;
 
- // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
+  // $: console.log({"clientX": provincialPopOverData.x, "clientY": provincialPopOverData.y,"screenHeight": height, "screenWidth": width, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -47,7 +49,6 @@
 >
   <div class="electionengine-tooltip-container">
     <div class="electionengine-tooltip-section">
-      <div class="electionengine-tooltip-thead">Municipality:</div>
       <div class="electionengine-tooltip-tdata">{provincialPopOverData.MUNI_NAME}</div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -70,7 +71,9 @@
             ></div>
           </div>
         </div>
-        <span> {Math.round(provincialPopOverData.highest_parties[0].vote_perc)}%</span>
+        <span class="electionengine-tooltip-span">
+          {Math.round(provincialPopOverData.highest_parties[0].vote_perc)}%</span
+        >
       </div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -89,7 +92,9 @@
             ></div>
           </div>
         </div>
-        <span> {Math.round(provincialPopOverData.highest_parties[1].vote_perc)}%</span>
+        <span class="electionengine-tooltip-span">
+          {Math.round(provincialPopOverData.highest_parties[1].vote_perc)}%</span
+        >
       </div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -108,7 +113,9 @@
             ></div>
           </div>
         </div>
-        <span> {Math.round(provincialPopOverData.highest_parties[2].vote_perc)}%</span>
+        <span class="electionengine-tooltip-span">
+          {Math.round(provincialPopOverData.highest_parties[2].vote_perc)}%</span
+        >
       </div>
     </div>
     <div class="electionengine-tooltip-section">
@@ -128,7 +135,7 @@
 
 <style>
   .electionengine-tooltip-wrapper {
-    width: 200px;
+    min-width: max-content;
     position: absolute;
     background: #fffff9;
     padding: 0.55rem;
@@ -143,6 +150,10 @@
   .electionengine-tooltip-thead {
     font-size: 11px;
     color: #999494;
+
+    @media screen and (max-width: 500px) {
+      font-size: 9px;
+    }
   }
 
   .electionengine-tooltip-tdata {
@@ -150,6 +161,10 @@
     color: #2a2a2a;
     font-weight: bold;
     border-bottom: 1px solid #c7c4c4;
+
+    @media screen and (max-width: 500px) {
+      font-size: 10px;
+    }
   }
 
   .electionengine-tooltip-range-wrapper {
@@ -163,6 +178,10 @@
     position: relative;
     width: 100%;
     height: 12px;
+
+    @media screen and (max-width: 500px) {
+      height: 6px;
+    }
   }
 
   .electionengine-tooltip-outer {
@@ -178,6 +197,12 @@
     width: 73%;
     position: absolute;
     border-radius: inherit;
+  }
+
+  .electionengine-tooltip-span {
+    font-weight: 600;
+    color: #232323;
+    text-wrap: nowrap;
   }
 
   .electionengine-tooltip-container > div:last-child .electionengine-tooltip-tdata {

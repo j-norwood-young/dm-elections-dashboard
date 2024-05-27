@@ -20,11 +20,11 @@
 
     onMount(async () => {
         data = await processData(selected_year);
-            setInterval(async () => {
-                if (selected_year === current_year) {
-                    data = await processData(selected_year);
-                }
-            }, 300000); // 5 minutes
+        setInterval(async () => {
+            if (selected_year === current_year) {
+                data = await processData(selected_year);
+            }
+        }, 300000); // 5 minutes
     });
 
     async function setYear(year) {

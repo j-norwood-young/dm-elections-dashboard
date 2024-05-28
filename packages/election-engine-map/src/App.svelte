@@ -15,12 +15,14 @@
     import { partyColor } from "@election-engine/common/colors";
 
     // Parameters
-    export let selected_year = 2019; // 2024, 2019, 2014
-    export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
+    export let selected_year = 2024; // 2024, 2019, 2014
+    export let selected_election = "Provincial Legislature"; // National Assembly, Provincial Legislature
     export let selected_region = "Western Cape"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
 
-    let provinces = PROVINCES;
+    const provinces = PROVINCES.filter(
+        (p) => !["National", "Out of Country"].includes(p)
+    );
     let loading = false;
     let isExpanded = false;
 
@@ -31,9 +33,6 @@
     onMount(async () => {
         data = await getData(selected_year);
         national_map = await getNationalMap();
-        provinces = PROVINCES.filter(
-            (p) => !["National", "Out of Country"].includes(p)
-        );
         if (selected_election === "Provincial Legislature") {
             provincial_map = await getProvincialMap();
         }
@@ -43,6 +42,9 @@
         if (year === selected_year) return;
         selected_year = year;
         data = await getData(selected_year);
+        if (selected_election === "Provincial Legislature") {
+            provincial_map = await getProvincialMap();
+        }
     }
 
     async function setElection(election) {
@@ -55,7 +57,9 @@
             }
         }
         data = await getData(selected_year, selected_election, selected_region);
-        provincial_map = await getProvincialMap();
+        if (selected_election === "Provincial Legislature") {
+            provincial_map = await getProvincialMap();
+        }
     }
 
     async function setRegion(region) {

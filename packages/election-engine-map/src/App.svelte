@@ -3,7 +3,6 @@
 
     import { loadData } from "@election-engine/common/loadData.js";
     import { onMount } from "svelte";
-    import { slide } from "svelte/transition";
 
     import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
     import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
@@ -16,8 +15,8 @@
     import SEAT_COUNTS from "@election-engine/common/seat_counts.json";
 
     // Parameters
-    export let selected_year = 2024; // 2024, 2019, 2014
-    export let selected_election = "Provincial Legislature"; // National Assembly, Provincial Legislature
+    export let selected_year = 2014; // 2024, 2019, 2014
+    export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
     export let selected_region = "Western Cape"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
     export let show_title = true;
@@ -34,7 +33,7 @@
     let national_map;
 
     onMount(async () => {
-        data = await getData(selected_year);
+        data = await getData();
         national_map = await getNationalMap();
         if (selected_election === "Provincial Legislature") {
             provincial_map = await getProvincialMap();
@@ -44,7 +43,8 @@
     async function setYear(year) {
         if (year === selected_year) return;
         selected_year = year;
-        data = await getData(selected_year);
+        data = null;
+        data = await getData();
         if (selected_election === "Provincial Legislature") {
             provincial_map = await getProvincialMap();
         }
@@ -54,12 +54,12 @@
         if (election === selected_election) return;
         data = null;
         selected_election = election;
-        if (election === "Provincial Legislature") {
+        if (selected_election === "Provincial Legislature") {
             if (selected_region === "National") {
                 selected_region = "Gauteng";
             }
         }
-        data = await getData(selected_year, selected_election, selected_region);
+        data = await getData();
         if (selected_election === "Provincial Legislature") {
             provincial_map = await getProvincialMap();
         }
@@ -68,12 +68,13 @@
     async function setRegion(region) {
         if (region === selected_region) return;
         selected_region = region;
-        data = await getData(selected_year, selected_election, selected_region);
+        data = await getData();
         provincial_map = await getProvincialMap();
     }
 
     async function getData() {
         loading = true;
+        let party_colors = {};
         try {
             if (selected_election === "National Assembly") {
                 const national_seats_result = await loadData({
@@ -84,16 +85,21 @@
                 let i = 0;
                 for (let province of national_seats_result.provincial_results) {
                     for (let party of province.party_ballot_results) {
-                        party.party_color = partyColor(
-                            party.party_abbreviation,
-                            i++
-                        );
+                        if (!party_colors[party.party_abbreviation]) {
+                            party.party_color = partyColor(
+                                party.party_abbreviation,
+                                i++
+                            );
+                            party_colors[party.party_abbreviation] =
+                                party.party_color;
+                        } else {
+                            party.party_color =
+                                party_colors[party.party_abbreviation];
+                        }
                     }
                 }
                 return national_seats_result.provincial_results;
-            }
-
-            if (selected_region !== "National") {
+            } else {
                 const provincial_seats_result = await loadData({
                     year: selected_year,
                     election: selected_election,
@@ -103,10 +109,17 @@
                 let i = 0;
                 for (let municipality of provincial_seats_result.municipal_results) {
                     for (let party of municipality.party_ballot_results) {
-                        party.party_color = partyColor(
-                            party.party_abbreviation,
-                            i++
-                        );
+                        if (!party_colors[party.party_abbreviation]) {
+                            party.party_color = partyColor(
+                                party.party_abbreviation,
+                                i++
+                            );
+                            party_colors[party.party_abbreviation] =
+                                party.party_color;
+                        } else {
+                            party.party_color =
+                                party_colors[party.party_abbreviation];
+                        }
                     }
                 }
                 return provincial_seats_result.municipal_results;
@@ -195,56 +208,25 @@
             </div>
         </SelectButton>
         {#if selected_election === "Provincial Legislature"}
-            {#if isMediaScreenSmall}
-                <div
-                    class="electionengine-selectdropdown-wrapper electionengine-dropdown-form"
-                >
+            <div class="electionengine-selectbutton-wrapper">
+                {#each provinces as province}
                     <button
-                        class="electionengine-dropdown-select"
-                        class:electionengine-provincial-dropdown={isExpanded}
-                        on:click={changeExpandable}>{selected_region}</button
+                        class="electionengine-year-button"
+                        class:selected={selected_region === province}
+                        on:click={() => setRegion(province)}
                     >
-                    {#if isExpanded}
-                        <div
-                            transition:slide
-                            class="electionengine-selectbutton-dropdown-wrapper"
-                        >
-                            {#each provinces as province}
-                                <button
-                                    class="electionengine-year-button electionengine-dropdown-button"
-                                    class:selected={selected_region ===
-                                        province}
-                                    on:click={() => {
-                                        setRegion(province);
-                                        isExpanded = !isExpanded;
-                                    }}
-                                >
-                                    {province}
-                                </button>
-                            {/each}
-                        </div>
-                    {/if}
-                </div>
-            {:else}
-                <div class="electionengine-selectbutton-wrapper">
-                    {#each provinces as province}
-                        <button
-                            class="electionengine-year-button"
-                            class:selected={selected_region === province}
-                            on:click={() => setRegion(province)}
-                        >
-                            {province}
-                        </button>
-                    {/each}
-                </div>
-            {/if}
+                        {province}
+                    </button>
+                {/each}
+            </div>
         {/if}
     {/if}
     {#if data}
         {#if selected_election === "National Assembly" && national_map}
             {#if show_title}
                 <h4 class="electionengine-title">
-                    {selected_year} National Assembly seats from provinces
+                    {selected_year} National Assembly seats (200) from the regional
+                    ballot
                 </h4>
             {/if}
             <NationalView
@@ -331,62 +313,9 @@
         }
     }
 
-    .electionengine-selectbutton-dropdown-wrapper {
-        margin-top: 0.3rem;
-        padding-top: 0.3rem;
-        padding-bottom: 0.3rem;
-        background: #ffffff;
-        border-radius: 6px;
-        border: 1px solid #cbcbcb;
-        position: absolute;
-        z-index: 9999;
-        width: 100%;
-    }
-
-    .electionengine-selectbutton-dropdown-wrapper
-        .electionengine-dropdown-button {
-        width: 100%;
-        display: block;
-        color: #cbcbcb;
-        background-color: transparent;
-        border-radius: 0;
-        border: none;
-        margin: 0;
-    }
-
-    .electionengine-selectbutton-dropdown-wrapper
-        .electionengine-dropdown-button:hover {
-        background: #f1fff1;
-    }
-
-    .electionengine-selectbutton-wrapper .electionengine-year-button.selected,
-    .electionengine-selectbutton-dropdown-wrapper
-        .electionengine-dropdown-button.selected,
-    .electionengine-selectbutton-dropdown-wrapper
-        .electionengine-dropdown-button:active {
+    .electionengine-selectbutton-wrapper .electionengine-year-button.selected {
         background-color: #4caf50;
         color: white;
-    }
-
-    .electionengine-dropdown-form {
-        position: relative;
-        width: 300px;
-    }
-
-    .electionengine-dropdown-select:hover,
-    .electionengine-dropdown-select:focus {
-        outline: 1px solid limegreen;
-        cursor: pointer;
-    }
-
-    .electionengine-dropdown-select {
-        position: relative;
-        width: 100%;
-        padding: 10px 24px;
-        border-radius: 6px;
-        border: 1px solid #cbcbcb;
-        color: #cbcbcb;
-        margin: 0;
     }
 
     .electionengine-year-button {

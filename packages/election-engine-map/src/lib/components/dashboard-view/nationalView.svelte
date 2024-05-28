@@ -31,7 +31,7 @@
 
     function attach_data_to_map() {
         if (!data || !map) {
-            console.log("Data or map not available");
+            console.error("Data or map not available");
             return;
         }
         provinces = map.features;

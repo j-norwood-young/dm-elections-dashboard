@@ -25,11 +25,9 @@
     }
 
     $: init = () => {
-        console.log({ data });
         seats = Object.values(calculateTotalSeats(data))
             .sort((a, b) => b.seats - a.seats)
             .filter((party) => party.seats > 0);
-        console.log({ seats });
     };
 
     $: init();

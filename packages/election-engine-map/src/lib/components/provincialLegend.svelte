@@ -19,8 +19,6 @@
     };
 
     $: sortedPartySeats = getUniqueParties(highParty.filter((p) => p));
-
-    $: console.log({ highParty, sortedPartySeats });
 </script>
 
 <div class="legend">

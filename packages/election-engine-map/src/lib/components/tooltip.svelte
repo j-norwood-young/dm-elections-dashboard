@@ -1,7 +1,5 @@
 <script>
     // @ts-nocheck
-    import { fly, fade } from "svelte/transition";
-    import { partyColor } from "@election-engine/common/colors";
     export let tooltipData = {};
     // export let width;
     let tooltipWidth = 200;
@@ -31,9 +29,6 @@
         tooltipData.y + tooltipHeight + yNudge > svgHeight
             ? tooltipData.y - tooltipHeight - yNudge
             : tooltipData.y - yNudge;
-
-    // $: console.log(tooltipData);
-    // $: console.log({"clientX": tooltipData.x, "clientY": tooltipData.y,"screenHeight": height, "svgHeight": svgHeight, "screenWidth": width, "svgWidth": svgWidth, "tooltipWidth": tooltipWidth, "tooltipHeight": tooltipHeight, "xPosition": xPosition, "yPosition": yPosition})
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -54,10 +49,7 @@
         {#each tooltipData.party as party, i}
             <div
                 class="electionengine-tooltip-section"
-                style:border-left-color={partyColor(
-                    party.party_abbreviation,
-                    i
-                )}
+                style:border-left-color={party.party_color}
             >
                 <div class="electionengine-tooltip-thead">
                     <div class="electionengine-party_name">

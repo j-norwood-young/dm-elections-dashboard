@@ -5,7 +5,7 @@
  * Description:       Visualisations for the South African general elections.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.6.1
+ * Version:           0.6.2
  * Author:            10Layer
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -85,7 +85,7 @@ function elections_engine_insert_admin_div()
 	<div id="ElectionsEngineAdminModal"></div>
 <?php
 }
-add_action('admin_init', 'elections_engine_insert_admin_div');
+add_action('admin_footer', 'elections_engine_insert_admin_div');
 
 function electionengine_shortcode($atts)
 {

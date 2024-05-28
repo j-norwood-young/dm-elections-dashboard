@@ -411,4 +411,13 @@ server.get("/provincial/:year/:province", async (req, res) => {
     res.send(result);
 });
 
-// Static file endpoing
+server.get("/progress/:year", async (req, res) => {
+    const year = parse_year(req.params.year);
+    const { national_event } = await getNationalData(year);
+    let progress = await getCache(`progress_${national_event.ID}`);
+    if (!progress) {
+        progress = await ElectionResults.progress(national_event.ID);
+        await setCache(`progress_${national_event.ID}`, progress);
+    }
+    res.send(progress);
+})

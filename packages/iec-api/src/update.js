@@ -30,7 +30,7 @@ async function update_national_votes_by_province() {
             assert(votes.ElectoralEventID === NATIONAL_EVENT_ID, "Invalid vote results.");
             assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
             await setCache(`national_votes_${NATIONAL_EVENT_ID}_${province.ProvinceID}`, votes);
-        } catch(e) {
+        } catch (e) {
             handle_error(e);
         }
     }
@@ -60,7 +60,7 @@ async function update_provincial_votes_by_province() {
             assert(votes.ElectoralEventID === PROVINCIAL_EVENT_ID, "Invalid vote results.");
             assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
             await setCache(`provincial_votes_${PROVINCIAL_EVENT_ID}_${province.ProvinceID}`, votes);
-        } catch(e) {
+        } catch (e) {
             handle_error(e);
         }
     }
@@ -75,7 +75,7 @@ async function update_provincial_seats_by_province() {
             assert(seats.ElectoralEventID === PROVINCIAL_EVENT_ID, "Invalid seat results.");
             assert(seats.PartyResults.length > 0, seats.PartyResults.length);
             await setCache(`provincial_seats_${PROVINCIAL_EVENT_ID}_${province.ProvinceID}`, seats);
-        } catch(e) {
+        } catch (e) {
             handle_error(e);
         }
     }
@@ -101,12 +101,19 @@ async function update_municipal_votes_by_province() {
                 assert(votes.ElectoralEventID === PROVINCIAL_EVENT_ID, "Invalid vote results.");
                 assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
                 await setCache(`municipal_votes_${PROVINCIAL_EVENT_ID}_${province.ProvinceID}_${municipality.MunicipalityID}`, votes);
-            } catch(e) {
+            } catch (e) {
                 handle_error(e);
             }
         }
     }
     console.log("Provincial votes by province updated.");
+}
+
+async function update_progress() {
+    const progress = await ElectionResults.progress(NATIONAL_EVENT_ID);
+    assert(progress.VDTotal > 0, "Invalid progress results.");
+    await setCache(`progress_${NATIONAL_EVENT_ID}`, progress);
+    console.log("Progress updated.");
 }
 
 function handle_error(e) {
@@ -124,5 +131,8 @@ export function update() {
         await update_provincial_seats_by_province().catch(handle_error);
         await update_municipal_votes_by_province().catch(handle_error);
         console.timeEnd("update");
+    });
+    cron.schedule('* * * * *', async () => {
+        await update_progress().catch(handle_error);
     });
 }

@@ -58,3 +58,13 @@ export async function seatsByProvince(eventID, provinceID) {
     const seats = await iec.NPESeatCalculationResultsProvince(eventID, provinceID);
     return seats;
 }
+
+export async function progress(eventID) {
+    const progress = await iec.electoralEventResultsProgress(eventID);
+    return progress;
+}
+
+export async function progressByProvince(eventID, provinceID) {
+    const progress = await iec.electoralEventResultsProgressProvince(eventID, provinceID);
+    return progress;
+}

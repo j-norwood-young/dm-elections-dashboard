@@ -313,4 +313,18 @@ describe("Maps download tests", () => {
         });
     });
 
+    test("GET /progress/2019", () => {
+        return server.inject({
+            method: "GET",
+            url: "/progress/2019"
+        }).then((response) => {
+            expect(response.statusCode).toBe(200);
+            expect(response.headers['content-type']).toMatch(/application\/json/);
+            const data = JSON.parse(response.payload);
+            expect(data.VDResultsIn).toBeDefined();
+            expect(data.VDTotal).toBeGreaterThan(0);
+            expect(data.SeatCalculationCompleted).toBeTruthy();
+        });
+    });
+
 });

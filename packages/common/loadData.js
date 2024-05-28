@@ -45,3 +45,16 @@ async function load(url) {
         throw new Error(`Failed to parse data from ${url}`);
     }
 }
+
+export function ok_to_update(container_el) {
+    if (!container_el) return false; // Early return if the element is not provided
+    const rect = container_el.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+    const isInViewport =
+        rect.bottom >= 0 && // Element's bottom is below the top of the viewport
+        rect.right >= 0 &&  // Element's right side is to the right of the left side of the viewport
+        rect.top <= windowHeight && // Element's top is above the bottom of the viewport
+        rect.left <= windowWidth; // Element's left side is to the left of the right side of the viewport
+    return !document.hidden && isInViewport;
+}

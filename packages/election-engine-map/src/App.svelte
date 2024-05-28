@@ -1,8 +1,11 @@
 <script>
     // @ts-nocheck
 
-    import { loadData } from "@election-engine/common/loadData.js";
-    import { onMount } from "svelte";
+    import {
+        loadData,
+        ok_to_update,
+    } from "@election-engine/common/loadData.js";
+    import { onMount, onDestroy } from "svelte";
 
     import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
     import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
@@ -25,12 +28,16 @@
     const provinces = PROVINCES.filter(
         (p) => !["National", "Out of Country"].includes(p)
     );
+    const current_year = new Date().getFullYear();
     let loading = false;
-    let isExpanded = false;
 
     let data;
     let provincial_map;
     let national_map;
+    let interval;
+    let timeout;
+    let container_el;
+    let warning = false;
 
     onMount(async () => {
         data = await getData();
@@ -38,6 +45,20 @@
         if (selected_election === "Provincial Legislature") {
             provincial_map = await getProvincialMap();
         }
+        interval = setInterval(async () => {
+            if (
+                selected_year === current_year &&
+                !loading &&
+                ok_to_update(container_el)
+            ) {
+                data = await getData();
+            }
+        }, 300000); // 5 minutes
+    });
+
+    onDestroy(() => {
+        clearInterval(interval);
+        clearTimeout(timeout);
     });
 
     async function setYear(year) {
@@ -74,8 +95,17 @@
 
     async function getData() {
         loading = true;
+        warning = false;
+        clearTimeout(timeout);
         let party_colors = {};
         try {
+            timeout = setTimeout(() => {
+                if (loading) {
+                    loading = false;
+                    warning = true;
+                    console.error("Data loading timeout");
+                }
+            }, 30000);
             if (selected_election === "National Assembly") {
                 const national_seats_result = await loadData({
                     year: selected_year,
@@ -126,8 +156,10 @@
             }
         } catch (error) {
             console.error(error);
+            warning = true;
         } finally {
             loading = false;
+            clearTimeout(timeout);
         }
     }
 
@@ -160,20 +192,9 @@
             loading = false;
         }
     }
-
-    function changeExpandable() {
-        isExpanded = !isExpanded;
-    }
-
-    // window width definition
-    let innerWidth = 0;
-
-    $: isMediaScreenSmall = innerWidth < 630 ? true : false;
 </script>
 
-<svelte:window bind:innerWidth />
-
-<div class="electionengine-maps">
+<div class="electionengine-maps" bind:this={container_el}>
     <Loading bind:loading />
     {#if show_buttons}
         <SelectButton>
@@ -220,6 +241,11 @@
                 {/each}
             </div>
         {/if}
+    {/if}
+    {#if warning}
+        <div class="electionengine-blurb">
+            <p>There was an error loading the data. Please try again later.</p>
+        </div>
     {/if}
     {#if data}
         {#if selected_election === "National Assembly" && national_map}

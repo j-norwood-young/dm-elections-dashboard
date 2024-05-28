@@ -1,9 +1,12 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import { fly, fade } from "svelte/transition";
     import Hemicycle from "svelte-hemicycle";
 
-    import { loadData } from "@election-engine/common/loadData.js";
+    import {
+        loadData,
+        ok_to_update,
+    } from "@election-engine/common/loadData.js";
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
@@ -31,15 +34,27 @@
     export let blurb = null;
     let data, arc;
     let loading = false;
+    let warning = false;
+    let interval;
+    let timeout;
     const current_year = new Date().getFullYear();
 
     onMount(async () => {
         data = await processData();
-        setInterval(async () => {
-            if (selected_year === current_year) {
+        interval = setInterval(async () => {
+            if (
+                selected_year === current_year &&
+                !loading &&
+                ok_to_update(container)
+            ) {
                 data = await processData();
             }
         }, 300000); // 5 minutes
+    });
+
+    onDestroy(() => {
+        clearInterval(interval);
+        clearTimeout(timeout);
     });
 
     async function setYear(year) {
@@ -63,7 +78,16 @@
 
     async function processData() {
         loading = true;
+        warning = false;
+        clearTimeout(timeout);
         try {
+            timeout = setTimeout(() => {
+                if (loading) {
+                    loading = false;
+                    warning = true;
+                    console.error("Data loading timeout");
+                }
+            }, 30000); // 30 seconds
             data = [];
             if (
                 selected_region === "National" &&
@@ -119,8 +143,10 @@
             }
         } catch (error) {
             console.error(error);
+            warning = true;
         } finally {
             loading = false;
+            clearTimeout(timeout);
         }
     }
 

@@ -1,6 +1,9 @@
 <script>
-    import { onMount } from "svelte";
-    import { loadData } from "@election-engine/common/loadData.js";
+    import { onMount, onDestroy } from "svelte";
+    import {
+        loadData,
+        ok_to_update,
+    } from "@election-engine/common/loadData.js";
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
@@ -17,14 +20,27 @@
     let provinces = PROVINCES;
     let loading = false;
     let data;
+    let container_el;
+    let interval;
+    let timeout;
+    let warning = false;
 
     onMount(async () => {
         data = await processData(selected_year);
-        setInterval(async () => {
-            if (selected_year === current_year) {
+        interval = setInterval(async () => {
+            if (
+                selected_year === current_year &&
+                !loading &&
+                ok_to_update(container_el)
+            ) {
                 data = await processData(selected_year);
             }
         }, 300000); // 5 minutes
+    });
+
+    onDestroy(() => {
+        clearInterval(interval);
+        clearTimeout(timeout);
     });
 
     async function setYear(year) {
@@ -88,18 +104,30 @@
 
     async function processData(year) {
         loading = true;
+        warning = false;
+        clearTimeout(timeout);
         try {
+            // Timeout
+            timeout = setTimeout(() => {
+                if (loading) {
+                    loading = false;
+                    warning = true;
+                    console.error("Data loading timeout");
+                }
+            }, 30000);
             const current_year = await getData(year);
             if (year > YEARS[0]) {
                 const previous_year = await getData(year - 5);
                 for (let party of current_year.party_ballot_results) {
-                    const previous_party = previous_year.party_ballot_results.find(
-                        (p) => p.party_id === party.party_id
-                    );
+                    const previous_party =
+                        previous_year.party_ballot_results.find(
+                            (p) => p.party_id === party.party_id
+                        );
                     if (previous_party) {
                         party.change =
                             Math.round(
-                                (party.vote_perc - previous_party.vote_perc) * 10
+                                (party.vote_perc - previous_party.vote_perc) *
+                                    10
                             ) / 10;
                     } else {
                         party.change = null;
@@ -109,14 +137,21 @@
             return current_year;
         } catch (error) {
             console.error(error);
+            warning = true;
         } finally {
             loading = false;
+            clearTimeout(timeout);
         }
     }
 </script>
 
-<div class="electionengine-table-page">
+<div class="electionengine-table-page" bind:this={container_el}>
     <Loading bind:loading />
+    {#if warning}
+        <div class="electionengine-warning">
+            We could not update the data. Please try again later.
+        </div>
+    {/if}
     {#if show_buttons}
         <div class="electionengine-years-buttons">
             <button
@@ -176,7 +211,9 @@
     {#if show_count_progress && selected_year === current_year && data}
         <div class="electionengine-title">
             {data
-                ? `${Math.round(data.vd_captured / data.vd_count * 100)}%  votes counted`
+                ? `${Math.round(
+                      (data.vd_captured / data.vd_count) * 100
+                  )}%  votes counted`
                 : ""}
         </div>
     {/if}
@@ -195,6 +232,14 @@
                 </tr>
             </thead>
             <tbody>
+                {#if warning}
+                    <tr>
+                        <td colspan="4"
+                            >Unable to fetch the data. We will try again
+                            later...</td
+                        >
+                    </tr>
+                {/if}
                 {#if data && data.party_ballot_results && data.party_ballot_results.length > 0}
                     {#each data.party_ballot_results as row, i}
                         <tr
@@ -216,9 +261,10 @@
                                 >
                             {/if}
                             <td class="electionengine-votes-column"
-                                >{Intl.NumberFormat("en-US").format(
-                                    row.votes
-                                )}<div class="electionengine-perc">{Math.round(row.vote_perc * 10) / 10}%</div></td
+                                >{Intl.NumberFormat("en-US").format(row.votes)}
+                                <div class="electionengine-perc">
+                                    {Math.round(row.vote_perc * 10) / 10}%
+                                </div></td
                             >
                             {#if selected_year > 2009}
                                 <td class="electionengine-change-column">

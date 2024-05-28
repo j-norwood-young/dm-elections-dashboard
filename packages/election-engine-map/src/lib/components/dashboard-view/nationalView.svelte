@@ -244,12 +244,4 @@
     .electionengine-svg-wrapper {
         width: 100%;
     }
-
-    .electionengine-title {
-        font-size: 20px;
-        font-weight: 700;
-        margin: 20px auto;
-        line-height: 1.2;
-        text-align: center;
-    }
 </style>

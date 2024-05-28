@@ -5,7 +5,7 @@
  * Description:       Visualisations for the South African general elections.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.6.0
+ * Version:           0.6.1
  * Author:            10Layer
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-define("ELECTIONENGINE_VERSION", '0.6.0');
+define("ELECTIONENGINE_VERSION", '0.6.1');
 define("ELECTIONENGINE_DIST_DIR", __DIR__ . '/packages/election-engine-wordpress-block/dist/');
 define("ELECTIONENGINE_DIST_URL", plugins_url('packages/election-engine-wordpress-block/dist/', __FILE__));
 define("ELECTIONENGINE_BLOCK_NAME", 'tenlayer/election-engine');
@@ -34,8 +34,6 @@ define("ELECTIONENGINE_BLOCK_NAME", 'tenlayer/election-engine');
 function election_engine_init()
 {
 	$dir = __DIR__;
-	// $block_name = 'tenlayer/election-engine';
-	// if ( has_block( $block_name ) ) {
 	wp_register_script(
 		'election-engine-app',
 		ELECTIONENGINE_DIST_URL . "app/election-engine.umd.js",
@@ -91,13 +89,15 @@ add_action('admin_init', 'elections_engine_insert_admin_div');
 
 function electionengine_shortcode($atts)
 {
-	// print_r($atts);
 	$atts = shortcode_atts(array(
 		'visualisation' => 'hemicycle',
 		'selected_election' => 'National Assembly',
 		'selected_year' => '2019',
 		'selected_region' => 'National',
 		'selected_fields' => ['party', 'seats'],
+		'show_title' => 'true',
+		'show_blurb' => 'true',
+		'show_buttons' => 'false',
 	), $atts);
 	require_once plugin_dir_path(__FILE__) . 'packages/election-engine-wordpress-block/php/views/election-engine-shortcode-view.php';
 	$election_view = new ElectionEngineShortcodeView($atts);

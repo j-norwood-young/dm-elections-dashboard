@@ -26,27 +26,27 @@
         },
         "2014": {
             "National": 400,
-            "Eastern Cape": 63,
-            "Free State": 30,
-            "Gauteng": 80,
-            "KwaZulu-Natal": 80,
-            "Limpopo": 49,
-            "Mpumalanga": 30,
-            "North West": 33,
-            "Northern Cape": 30,
-            "Western Cape": 42
+            "Eastern Cape": 26,
+            "Free State": 11,
+            "Gauteng": 48,
+            "KwaZulu-Natal": 40,
+            "Limpopo": 19,
+            "Mpumalanga": 15,
+            "North West": 13,
+            "Northern Cape": 5,
+            "Western Cape": 23
         },
         "2009": {
             "National": 400,
-            "Eastern Cape": 63,
-            "Free State": 30,
-            "Gauteng": 80,
-            "KwaZulu-Natal": 80,
-            "Limpopo": 49,
-            "Mpumalanga": 30,
-            "North West": 33,
-            "Northern Cape": 30,
-            "Western Cape": 42
+            "Eastern Cape": 26,
+            "Free State": 12,
+            "Gauteng": 47,
+            "KwaZulu-Natal": 39,
+            "Limpopo": 19,
+            "Mpumalanga": 15,
+            "North West": 14,
+            "Northern Cape": 5,
+            "Western Cape": 23
         }
     },
     "provincial": {

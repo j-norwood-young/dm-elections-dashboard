@@ -1,1 +1,1421 @@
-{"event_id":146,"event_name":"22 Apr 2009 National Election","registered_voters":23181997,"spoilt_votes":239237,"special_votes":743609,"total_votes_cast":17919966,"total_valid_votes":17680729,"vd_count":19734,"vd_captured":19734,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":11650748,"vote_perc":65.89517887,"ballot_type":"National","independent":false,"seats":264},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":2945829,"vote_perc":16.66124174,"ballot_type":"National","independent":false,"seats":67},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":1311027,"vote_perc":7.415005343,"ballot_type":"National","independent":false,"seats":30},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":804260,"vote_perc":4.54879434,"ballot_type":"National","independent":false,"seats":18},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":162915,"vote_perc":0.921426939,"ballot_type":"National","independent":false,"seats":4},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":149680,"vote_perc":0.846571428,"ballot_type":"National","independent":false,"seats":4},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":146796,"vote_perc":0.830259884,"ballot_type":"National","independent":false,"seats":4},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":142658,"vote_perc":0.806855871,"ballot_type":"National","independent":false,"seats":3},{"party_id":2,"party_name":"UNITED CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"UCDP","votes":66086,"vote_perc":0.373774181,"ballot_type":"National","independent":false,"seats":2},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":48530,"vote_perc":0.274479633,"ballot_type":"National","independent":false,"seats":1},{"party_id":31,"party_name":"MINORITY FRONT","party_abbreviation":"MF","votes":43474,"vote_perc":0.245883527,"ballot_type":"National","independent":false,"seats":1},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":38245,"vote_perc":0.216308954,"ballot_type":"National","independent":false,"seats":1},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":35867,"vote_perc":0.202859283,"ballot_type":"National","independent":false,"seats":1},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":29747,"vote_perc":0.168245325,"ballot_type":"National","independent":false,"seats":0},{"party_id":447,"party_name":"AL JAMA-AH","party_abbreviation":"NO_ABBR","votes":25947,"vote_perc":0.146752999,"ballot_type":"National","independent":false,"seats":0}],"provincial_results":[{"province_id":1,"province_name":"Eastern Cape","registered_voters":3056559,"spoilt_votes":34455,"special_votes":96499,"percent_voter_turnout":76.69,"total_votes_cast":2344098,"total_valid_votes":2309643,"vd_count":4483,"vd_captured":4483,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":1609926,"vote_perc":69.704538753,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":307437,"vote_perc":13.311018196,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":230187,"vote_perc":9.966345448,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":91227,"vote_perc":3.949831208,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":13750,"vote_perc":0.595330101,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":11925,"vote_perc":0.51631356,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":10502,"vote_perc":0.454702307,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":6029,"vote_perc":0.261036013,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":5490,"vote_perc":0.237699073,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":4614,"vote_perc":0.199771133,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":2748,"vote_perc":0.118979427,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":2,"province_name":"Free State","registered_voters":1388588,"spoilt_votes":17269,"special_votes":65095,"percent_voter_turnout":76.99,"total_votes_cast":1069127,"total_valid_votes":1051858,"vd_count":1264,"vd_captured":1264,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":756287,"vote_perc":71.900104387,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":127259,"vote_perc":12.098496185,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":116852,"vote_perc":11.109104081,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":16929,"vote_perc":1.609437776,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":7410,"vote_perc":0.704467713,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":3927,"vote_perc":0.373339367,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":3408,"vote_perc":0.323998106,"ballot_type":"National","independent":false,"seats":0},{"party_id":2,"party_name":"UNITED CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"UCDP","votes":3095,"vote_perc":0.294241238,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":3091,"vote_perc":0.293860958,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":3003,"vote_perc":0.28549481,"ballot_type":"National","independent":false,"seats":0},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":2260,"vote_perc":0.214857899,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":1797,"vote_perc":0.170840551,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":1786,"vote_perc":0.169794782,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":3,"province_name":"Gauteng","registered_voters":5555159,"spoilt_votes":46086,"special_votes":195941,"percent_voter_turnout":79.06,"total_votes_cast":4391699,"total_valid_votes":4345613,"vd_count":2296,"vd_captured":2296,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":2814277,"vote_perc":64.761335167,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":924211,"vote_perc":21.267678461,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":337931,"vote_perc":7.776371251,"ballot_type":"National","independent":false,"seats":0},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":64166,"vote_perc":1.476569589,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":59803,"vote_perc":1.376169484,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":38738,"vote_perc":0.891427746,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":25023,"vote_perc":0.575822099,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":17335,"vote_perc":0.398908048,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":12671,"vote_perc":0.291581418,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":9037,"vote_perc":0.207956852,"ballot_type":"National","independent":false,"seats":0},{"party_id":2,"party_name":"UNITED CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"UCDP","votes":8322,"vote_perc":0.191503477,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":6461,"vote_perc":0.148678679,"ballot_type":"National","independent":false,"seats":0},{"party_id":447,"party_name":"AL JAMA-AH","party_abbreviation":"NO_ABBR","votes":6392,"vote_perc":0.147090871,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":5777,"vote_perc":0.132938667,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":4,"province_name":"KwaZulu-Natal","registered_voters":4475217,"spoilt_votes":47092,"special_votes":53335,"percent_voter_turnout":79.87,"total_votes_cast":3574326,"total_valid_votes":3527234,"vd_count":4187,"vd_captured":4187,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":2256248,"vote_perc":63.966496127,"ballot_type":"National","independent":false,"seats":0},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":723940,"vote_perc":20.524297509,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":364518,"vote_perc":10.334386661,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":54611,"vote_perc":1.548266999,"ballot_type":"National","independent":false,"seats":0},{"party_id":31,"party_name":"MINORITY FRONT","party_abbreviation":"MF","votes":38944,"vote_perc":1.104094597,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":20851,"vote_perc":0.591143088,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":7917,"vote_perc":0.224453495,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":7529,"vote_perc":0.213453375,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":7086,"vote_perc":0.200893958,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":6600,"vote_perc":0.187115456,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":6322,"vote_perc":0.179233927,"ballot_type":"National","independent":false,"seats":0},{"party_id":447,"party_name":"AL JAMA-AH","party_abbreviation":"NO_ABBR","votes":6261,"vote_perc":0.177504526,"ballot_type":"National","independent":false,"seats":0},{"party_id":284,"party_name":"NATIONAL DEMOCRATIC CONVENTION","party_abbreviation":"NADECO","votes":4385,"vote_perc":0.124318375,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":4199,"vote_perc":0.119045121,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":5,"province_name":"Mpumalanga","registered_voters":1696705,"spoilt_votes":20583,"special_votes":91759,"percent_voter_turnout":80.38,"total_votes_cast":1363836,"total_valid_votes":1343253,"vd_count":1377,"vd_captured":1377,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":1152698,"vote_perc":85.813915919,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":102039,"vote_perc":7.596409612,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":38802,"vote_perc":2.888659098,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":11151,"vote_perc":0.8301489,"ballot_type":"National","independent":false,"seats":0},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":7286,"vote_perc":0.542414571,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":6880,"vote_perc":0.512189439,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":4421,"vote_perc":0.329126382,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":3509,"vote_perc":0.261231503,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":3159,"vote_perc":0.235175354,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":2915,"vote_perc":0.217010496,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":2698,"vote_perc":0.200855684,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":1619,"vote_perc":0.1205283,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":6,"province_name":"Northern Cape","registered_voters":554900,"spoilt_votes":6988,"special_votes":28065,"percent_voter_turnout":75.96,"total_votes_cast":421490,"total_valid_votes":414502,"vd_count":626,"vd_captured":626,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":253264,"vote_perc":61.100790829,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":66082,"vote_perc":15.942504499,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":54215,"vote_perc":13.079550883,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":19584,"vote_perc":4.724705792,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":4957,"vote_perc":1.195892903,"ballot_type":"National","independent":false,"seats":0},{"party_id":2,"party_name":"UNITED CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"UCDP","votes":4559,"vote_perc":1.099874066,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":4088,"vote_perc":0.986243733,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":1759,"vote_perc":0.424364659,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":1244,"vote_perc":0.300119179,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":727,"vote_perc":0.175391192,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":614,"vote_perc":0.148129563,"ballot_type":"National","independent":false,"seats":0},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":611,"vote_perc":0.147405803,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":503,"vote_perc":0.12135044,"ballot_type":"National","independent":false,"seats":0},{"party_id":451,"party_name":"CHRISTIAN DEMOCRATIC ALLIANCE","party_abbreviation":"CDA","votes":426,"vote_perc":0.102773931,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":7,"province_name":"Limpopo","registered_voters":2256073,"spoilt_votes":22956,"special_votes":74008,"percent_voter_turnout":69.62,"total_votes_cast":1570592,"total_valid_votes":1547636,"vd_count":2456,"vd_captured":2456,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":1319659,"vote_perc":85.269339819,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":111651,"vote_perc":7.214293283,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":57418,"vote_perc":3.710045515,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":9853,"vote_perc":0.636648411,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":8374,"vote_perc":0.541083304,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":7352,"vote_perc":0.475047104,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":5697,"vote_perc":0.368109814,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":5109,"vote_perc":0.330116384,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":4754,"vote_perc":0.307178174,"ballot_type":"National","independent":false,"seats":0},{"party_id":458,"party_name":"NEW VISION PARTY","party_abbreviation":"NVP","votes":4313,"vote_perc":0.278683101,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":2260,"vote_perc":0.14602917,"ballot_type":"National","independent":false,"seats":0},{"party_id":287,"party_name":"UNITED INDEPENDENT FRONT","party_abbreviation":"UIF","votes":1597,"vote_perc":0.103189639,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":8,"province_name":"North West","registered_voters":1564357,"spoilt_votes":22290,"special_votes":85139,"percent_voter_turnout":72.6,"total_votes_cast":1135701,"total_valid_votes":1113411,"vd_count":1503,"vd_captured":1503,"party_ballot_results":[{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":822166,"vote_perc":73.842094249,"ballot_type":"National","independent":false,"seats":0},{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":96850,"vote_perc":8.698494985,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":93898,"vote_perc":8.43336378,"ballot_type":"National","independent":false,"seats":0},{"party_id":2,"party_name":"UNITED CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"UCDP","votes":43855,"vote_perc":3.938797084,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":15986,"vote_perc":1.435768104,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":8239,"vote_perc":0.739978319,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":5768,"vote_perc":0.518047693,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":4891,"vote_perc":0.439280733,"ballot_type":"National","independent":false,"seats":0},{"party_id":479,"party_name":"MOVEMENT DEMOCRATIC PARTY","party_abbreviation":"MDP","votes":4405,"vote_perc":0.395631083,"ballot_type":"National","independent":false,"seats":0},{"party_id":450,"party_name":"AFRICAN PEOPLE'S CONVENTION","party_abbreviation":"APC","votes":3742,"vote_perc":0.336084339,"ballot_type":"National","independent":false,"seats":0},{"party_id":17,"party_name":"AZANIAN PEOPLE'S ORGANISATION","party_abbreviation":"AZAPO","votes":2797,"vote_perc":0.25121002,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":2727,"vote_perc":0.244923034,"ballot_type":"National","independent":false,"seats":0},{"party_id":3,"party_name":"INKATHA FREEDOM PARTY","party_abbreviation":"IFP","votes":1674,"vote_perc":0.150348793,"ballot_type":"National","independent":false,"seats":0}]},{"province_id":9,"province_name":"Western Cape","registered_voters":2634439,"spoilt_votes":21518,"special_votes":53768,"percent_voter_turnout":77.78,"total_votes_cast":2049097,"total_valid_votes":2027579,"vd_count":1542,"vd_captured":1542,"party_ballot_results":[{"party_id":52,"party_name":"DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE","party_abbreviation":"DA","votes":989132,"vote_perc":48.783894487,"ballot_type":"National","independent":false,"seats":0},{"party_id":7,"party_name":"AFRICAN NATIONAL CONGRESS","party_abbreviation":"ANC","votes":666223,"vote_perc":32.858053866,"ballot_type":"National","independent":false,"seats":0},{"party_id":499,"party_name":"CONGRESS  OF THE PEOPLE","party_abbreviation":"COPE","votes":183763,"vote_perc":9.063173371,"ballot_type":"National","independent":false,"seats":0},{"party_id":249,"party_name":"INDEPENDENT DEMOCRATS","party_abbreviation":"ID","votes":91001,"vote_perc":4.488160511,"ballot_type":"National","independent":false,"seats":0},{"party_id":18,"party_name":"AFRICAN CHRISTIAN DEMOCRATIC PARTY","party_abbreviation":"ACDP","votes":32849,"vote_perc":1.6201095,"ballot_type":"National","independent":false,"seats":0},{"party_id":4,"party_name":"VRYHEIDSFRONT PLUS","party_abbreviation":"VF Plus","votes":17506,"vote_perc":0.863394225,"ballot_type":"National","independent":false,"seats":0},{"party_id":6,"party_name":"UNITED DEMOCRATIC MOVEMENT","party_abbreviation":"UDM","votes":15642,"vote_perc":0.771461926,"ballot_type":"National","independent":false,"seats":0},{"party_id":447,"party_name":"AL JAMA-AH","party_abbreviation":"NO_ABBR","votes":9808,"vote_perc":0.483729611,"ballot_type":"National","independent":false,"seats":0},{"party_id":8,"party_name":"PAN AFRICANIST CONGRESS OF AZANIA","party_abbreviation":"PAC","votes":4877,"vote_perc":0.240533168,"ballot_type":"National","independent":false,"seats":0},{"party_id":451,"party_name":"CHRISTIAN DEMOCRATIC ALLIANCE","party_abbreviation":"CDA","votes":3590,"vote_perc":0.177058452,"ballot_type":"National","independent":false,"seats":0}]}]}
+{
+    "event_id": 146,
+    "event_name": "22 Apr 2009 National Election",
+    "registered_voters": 23181997,
+    "spoilt_votes": 239237,
+    "special_votes": 743609,
+    "total_votes_cast": 17919966,
+    "total_valid_votes": 17680729,
+    "vd_count": 19734,
+    "vd_captured": 19734,
+    "party_ballot_results": [
+        {
+            "party_id": 7,
+            "party_name": "AFRICAN NATIONAL CONGRESS",
+            "party_abbreviation": "ANC",
+            "votes": 11650748,
+            "vote_perc": 65.89517887,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 264
+        },
+        {
+            "party_id": 52,
+            "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+            "party_abbreviation": "DA",
+            "votes": 2945829,
+            "vote_perc": 16.66124174,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 67
+        },
+        {
+            "party_id": 499,
+            "party_name": "CONGRESS  OF THE PEOPLE",
+            "party_abbreviation": "COPE",
+            "votes": 1311027,
+            "vote_perc": 7.415005343,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 30
+        },
+        {
+            "party_id": 3,
+            "party_name": "INKATHA FREEDOM PARTY",
+            "party_abbreviation": "IFP",
+            "votes": 804260,
+            "vote_perc": 4.54879434,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 18
+        },
+        {
+            "party_id": 249,
+            "party_name": "INDEPENDENT DEMOCRATS",
+            "party_abbreviation": "ID",
+            "votes": 162915,
+            "vote_perc": 0.921426939,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 4
+        },
+        {
+            "party_id": 6,
+            "party_name": "UNITED DEMOCRATIC MOVEMENT",
+            "party_abbreviation": "UDM",
+            "votes": 149680,
+            "vote_perc": 0.846571428,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 4
+        },
+        {
+            "party_id": 4,
+            "party_name": "VRYHEIDSFRONT PLUS",
+            "party_abbreviation": "VF Plus",
+            "votes": 146796,
+            "vote_perc": 0.830259884,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 4
+        },
+        {
+            "party_id": 18,
+            "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+            "party_abbreviation": "ACDP",
+            "votes": 142658,
+            "vote_perc": 0.806855871,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 3
+        },
+        {
+            "party_id": 2,
+            "party_name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
+            "party_abbreviation": "UCDP",
+            "votes": 66086,
+            "vote_perc": 0.373774181,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 8,
+            "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+            "party_abbreviation": "PAC",
+            "votes": 48530,
+            "vote_perc": 0.274479633,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 31,
+            "party_name": "MINORITY FRONT",
+            "party_abbreviation": "MF",
+            "votes": 43474,
+            "vote_perc": 0.245883527,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 17,
+            "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+            "party_abbreviation": "AZAPO",
+            "votes": 38245,
+            "vote_perc": 0.216308954,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 450,
+            "party_name": "AFRICAN PEOPLE'S CONVENTION",
+            "party_abbreviation": "APC",
+            "votes": 35867,
+            "vote_perc": 0.202859283,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 479,
+            "party_name": "MOVEMENT DEMOCRATIC PARTY",
+            "party_abbreviation": "MDP",
+            "votes": 29747,
+            "vote_perc": 0.168245325,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 447,
+            "party_name": "AL JAMA-AH",
+            "party_abbreviation": "NO_ABBR",
+            "votes": 25947,
+            "vote_perc": 0.146752999,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        }
+    ],
+    "provincial_results": [
+        {
+            "province_id": 1,
+            "province_name": "Eastern Cape",
+            "registered_voters": 3056559,
+            "spoilt_votes": 34455,
+            "special_votes": 96499,
+            "percent_voter_turnout": 76.69,
+            "total_votes_cast": 2344098,
+            "total_valid_votes": 2309643,
+            "vd_count": 4483,
+            "vd_captured": 4483,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1609926,
+                    "vote_perc": 69.704538753,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 19
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 307437,
+                    "vote_perc": 13.311018196,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 230187,
+                    "vote_perc": 9.966345448,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 91227,
+                    "vote_perc": 3.949831208,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 13750,
+                    "vote_perc": 0.595330101,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 11925,
+                    "vote_perc": 0.51631356,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 10502,
+                    "vote_perc": 0.454702307,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 6029,
+                    "vote_perc": 0.261036013,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 5490,
+                    "vote_perc": 0.237699073,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 4614,
+                    "vote_perc": 0.199771133,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 2748,
+                    "vote_perc": 0.118979427,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 2,
+            "province_name": "Free State",
+            "registered_voters": 1388588,
+            "spoilt_votes": 17269,
+            "special_votes": 65095,
+            "percent_voter_turnout": 76.99,
+            "total_votes_cast": 1069127,
+            "total_valid_votes": 1051858,
+            "vd_count": 1264,
+            "vd_captured": 1264,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 756287,
+                    "vote_perc": 71.900104387,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 9
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 127259,
+                    "vote_perc": 12.098496185,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 116852,
+                    "vote_perc": 11.109104081,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 16929,
+                    "vote_perc": 1.609437776,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 7410,
+                    "vote_perc": 0.704467713,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 3927,
+                    "vote_perc": 0.373339367,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 3408,
+                    "vote_perc": 0.323998106,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 2,
+                    "party_name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "UCDP",
+                    "votes": 3095,
+                    "vote_perc": 0.294241238,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 3091,
+                    "vote_perc": 0.293860958,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 3003,
+                    "vote_perc": 0.28549481,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 2260,
+                    "vote_perc": 0.214857899,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 1797,
+                    "vote_perc": 0.170840551,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 1786,
+                    "vote_perc": 0.169794782,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 3,
+            "province_name": "Gauteng",
+            "registered_voters": 5555159,
+            "spoilt_votes": 46086,
+            "special_votes": 195941,
+            "percent_voter_turnout": 79.06,
+            "total_votes_cast": 4391699,
+            "total_valid_votes": 4345613,
+            "vd_count": 2296,
+            "vd_captured": 2296,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 2814277,
+                    "vote_perc": 64.761335167,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 31
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 924211,
+                    "vote_perc": 21.267678461,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 10
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 337931,
+                    "vote_perc": 7.776371251,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 4
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 64166,
+                    "vote_perc": 1.476569589,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 59803,
+                    "vote_perc": 1.376169484,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 38738,
+                    "vote_perc": 0.891427746,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 25023,
+                    "vote_perc": 0.575822099,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 17335,
+                    "vote_perc": 0.398908048,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 12671,
+                    "vote_perc": 0.291581418,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 9037,
+                    "vote_perc": 0.207956852,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 2,
+                    "party_name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "UCDP",
+                    "votes": 8322,
+                    "vote_perc": 0.191503477,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 6461,
+                    "vote_perc": 0.148678679,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "NO_ABBR",
+                    "votes": 6392,
+                    "vote_perc": 0.147090871,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 5777,
+                    "vote_perc": 0.132938667,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 4,
+            "province_name": "KwaZulu-Natal",
+            "registered_voters": 4475217,
+            "spoilt_votes": 47092,
+            "special_votes": 53335,
+            "percent_voter_turnout": 79.87,
+            "total_votes_cast": 3574326,
+            "total_valid_votes": 3527234,
+            "vd_count": 4187,
+            "vd_captured": 4187,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 2256248,
+                    "vote_perc": 63.966496127,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 26
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 723940,
+                    "vote_perc": 20.524297509,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 8
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 364518,
+                    "vote_perc": 10.334386661,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 4
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 54611,
+                    "vote_perc": 1.548266999,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 31,
+                    "party_name": "MINORITY FRONT",
+                    "party_abbreviation": "MF",
+                    "votes": 38944,
+                    "vote_perc": 1.104094597,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 20851,
+                    "vote_perc": 0.591143088,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 7917,
+                    "vote_perc": 0.224453495,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 7529,
+                    "vote_perc": 0.213453375,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 7086,
+                    "vote_perc": 0.200893958,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 6600,
+                    "vote_perc": 0.187115456,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 6322,
+                    "vote_perc": 0.179233927,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "NO_ABBR",
+                    "votes": 6261,
+                    "vote_perc": 0.177504526,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 284,
+                    "party_name": "NATIONAL DEMOCRATIC CONVENTION",
+                    "party_abbreviation": "NADECO",
+                    "votes": 4385,
+                    "vote_perc": 0.124318375,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 4199,
+                    "vote_perc": 0.119045121,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 5,
+            "province_name": "Mpumalanga",
+            "registered_voters": 1696705,
+            "spoilt_votes": 20583,
+            "special_votes": 91759,
+            "percent_voter_turnout": 80.38,
+            "total_votes_cast": 1363836,
+            "total_valid_votes": 1343253,
+            "vd_count": 1377,
+            "vd_captured": 1377,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1152698,
+                    "vote_perc": 85.813915919,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 14
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 102039,
+                    "vote_perc": 7.596409612,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 38802,
+                    "vote_perc": 2.888659098,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 11151,
+                    "vote_perc": 0.8301489,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 7286,
+                    "vote_perc": 0.542414571,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 6880,
+                    "vote_perc": 0.512189439,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 4421,
+                    "vote_perc": 0.329126382,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 3509,
+                    "vote_perc": 0.261231503,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 3159,
+                    "vote_perc": 0.235175354,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 2915,
+                    "vote_perc": 0.217010496,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 2698,
+                    "vote_perc": 0.200855684,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 1619,
+                    "vote_perc": 0.1205283,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 6,
+            "province_name": "Northern Cape",
+            "registered_voters": 554900,
+            "spoilt_votes": 6988,
+            "special_votes": 28065,
+            "percent_voter_turnout": 75.96,
+            "total_votes_cast": 421490,
+            "total_valid_votes": 414502,
+            "vd_count": 626,
+            "vd_captured": 626,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 253264,
+                    "vote_perc": 61.100790829,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 66082,
+                    "vote_perc": 15.942504499,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 54215,
+                    "vote_perc": 13.079550883,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 19584,
+                    "vote_perc": 4.724705792,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 4957,
+                    "vote_perc": 1.195892903,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 2,
+                    "party_name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "UCDP",
+                    "votes": 4559,
+                    "vote_perc": 1.099874066,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 4088,
+                    "vote_perc": 0.986243733,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 1759,
+                    "vote_perc": 0.424364659,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 1244,
+                    "vote_perc": 0.300119179,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 727,
+                    "vote_perc": 0.175391192,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 614,
+                    "vote_perc": 0.148129563,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 611,
+                    "vote_perc": 0.147405803,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 503,
+                    "vote_perc": 0.12135044,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 451,
+                    "party_name": "CHRISTIAN DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "CDA",
+                    "votes": 426,
+                    "vote_perc": 0.102773931,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 7,
+            "province_name": "Limpopo",
+            "registered_voters": 2256073,
+            "spoilt_votes": 22956,
+            "special_votes": 74008,
+            "percent_voter_turnout": 69.62,
+            "total_votes_cast": 1570592,
+            "total_valid_votes": 1547636,
+            "vd_count": 2456,
+            "vd_captured": 2456,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1319659,
+                    "vote_perc": 85.269339819,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 17
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 111651,
+                    "vote_perc": 7.214293283,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 57418,
+                    "vote_perc": 3.710045515,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 9853,
+                    "vote_perc": 0.636648411,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 8374,
+                    "vote_perc": 0.541083304,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 7352,
+                    "vote_perc": 0.475047104,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 5697,
+                    "vote_perc": 0.368109814,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 5109,
+                    "vote_perc": 0.330116384,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 4754,
+                    "vote_perc": 0.307178174,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 458,
+                    "party_name": "NEW VISION PARTY",
+                    "party_abbreviation": "NVP",
+                    "votes": 4313,
+                    "vote_perc": 0.278683101,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 2260,
+                    "vote_perc": 0.14602917,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 287,
+                    "party_name": "UNITED INDEPENDENT FRONT",
+                    "party_abbreviation": "UIF",
+                    "votes": 1597,
+                    "vote_perc": 0.103189639,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 8,
+            "province_name": "North West",
+            "registered_voters": 1564357,
+            "spoilt_votes": 22290,
+            "special_votes": 85139,
+            "percent_voter_turnout": 72.6,
+            "total_votes_cast": 1135701,
+            "total_valid_votes": 1113411,
+            "vd_count": 1503,
+            "vd_captured": 1503,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 822166,
+                    "vote_perc": 73.842094249,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 11
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 96850,
+                    "vote_perc": 8.698494985,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 93898,
+                    "vote_perc": 8.43336378,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 2,
+                    "party_name": "UNITED CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "UCDP",
+                    "votes": 43855,
+                    "vote_perc": 3.938797084,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 15986,
+                    "vote_perc": 1.435768104,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 8239,
+                    "vote_perc": 0.739978319,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 5768,
+                    "vote_perc": 0.518047693,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 4891,
+                    "vote_perc": 0.439280733,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 479,
+                    "party_name": "MOVEMENT DEMOCRATIC PARTY",
+                    "party_abbreviation": "MDP",
+                    "votes": 4405,
+                    "vote_perc": 0.395631083,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 3742,
+                    "vote_perc": 0.336084339,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 2797,
+                    "vote_perc": 0.25121002,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 2727,
+                    "vote_perc": 0.244923034,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 1674,
+                    "vote_perc": 0.150348793,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 9,
+            "province_name": "Western Cape",
+            "registered_voters": 2634439,
+            "spoilt_votes": 21518,
+            "special_votes": 53768,
+            "percent_voter_turnout": 77.78,
+            "total_votes_cast": 2049097,
+            "total_valid_votes": 2027579,
+            "vd_count": 1542,
+            "vd_captured": 1542,
+            "party_ballot_results": [
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE/DEMOKRATIESE ALLIANSIE",
+                    "party_abbreviation": "DA",
+                    "votes": 989132,
+                    "vote_perc": 48.783894487,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 12
+                },
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 666223,
+                    "vote_perc": 32.858053866,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 8
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 183763,
+                    "vote_perc": 9.063173371,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 249,
+                    "party_name": "INDEPENDENT DEMOCRATS",
+                    "party_abbreviation": "ID",
+                    "votes": 91001,
+                    "vote_perc": 4.488160511,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 32849,
+                    "vote_perc": 1.6201095,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF Plus",
+                    "votes": 17506,
+                    "vote_perc": 0.863394225,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 15642,
+                    "vote_perc": 0.771461926,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "NO_ABBR",
+                    "votes": 9808,
+                    "vote_perc": 0.483729611,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 4877,
+                    "vote_perc": 0.240533168,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 451,
+                    "party_name": "CHRISTIAN DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "CDA",
+                    "votes": 3590,
+                    "vote_perc": 0.177058452,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        }
+    ]
+}

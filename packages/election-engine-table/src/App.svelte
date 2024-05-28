@@ -202,20 +202,28 @@
         </div>
     {/if}
     {#if show_title}
-        <div class="electionengine-title">
-            {selected_year}
-            {selected_election}
-            {selected_region}
-        </div>
+        <h4>
+            {#if selected_election === "Provincial Legislature"}
+                {selected_year}
+                {selected_election}
+                {selected_region} results
+            {:else}
+                {selected_year}
+                {selected_election} results
+                {#if selected_region !== "National"}
+                    for {selected_region}
+                {/if}
+            {/if}
+        </h4>
     {/if}
     {#if show_count_progress && selected_year === current_year && data}
-        <div class="electionengine-title">
+        <h4>
             {data
                 ? `${Math.round(
                       (data.vd_captured / data.vd_count) * 100
                   )}%  votes counted`
                 : ""}
-        </div>
+        </h4>
     {/if}
     <div class="electionengine-table-container">
         <table class="electionengine-table">
@@ -344,6 +352,7 @@
     table.electionengine-table td {
         border: 1px solid #ddd;
         padding: 8px;
+        word-wrap: no-wrap;
     }
 
     table.electionengine-table th {
@@ -395,12 +404,7 @@
         background-color: #7a7a7a;
     }
 
-    .electionengine-title {
-        font-size: 20px;
-        font-weight: bold;
-        margin: 20px auto;
-        line-height: 1.2;
-        /* width: 100%; */
+    h4 {
         text-align: center;
     }
 

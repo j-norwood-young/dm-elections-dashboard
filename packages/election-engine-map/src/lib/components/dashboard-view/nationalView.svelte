@@ -78,10 +78,6 @@
 </script>
 
 <div class="electionengine-national-map">
-    <div class="electionengine-title">
-        National Assembly seats by province for {selected_year}
-    </div>
-
     {#if data}
         <Legend bind:data />
     {/if}

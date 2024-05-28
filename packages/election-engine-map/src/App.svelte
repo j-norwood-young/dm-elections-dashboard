@@ -13,12 +13,15 @@
     import Loading from "@election-engine/common/loading.svelte";
     import { maps_endpoint } from "./lib/libs/maps";
     import { partyColor } from "@election-engine/common/colors";
+    import SEAT_COUNTS from "@election-engine/common/seat_counts.json";
 
     // Parameters
     export let selected_year = 2024; // 2024, 2019, 2014
     export let selected_election = "Provincial Legislature"; // National Assembly, Provincial Legislature
     export let selected_region = "Western Cape"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
+    export let show_title = true;
+    export let show_blurb = true;
 
     const provinces = PROVINCES.filter(
         (p) => !["National", "Out of Country"].includes(p)
@@ -191,64 +194,100 @@
                 {/each}
             </div>
         </SelectButton>
-
-        {#if isMediaScreenSmall}
-            <div
-                class="electionengine-selectdropdown-wrapper electionengine-dropdown-form"
-            >
-                <button
-                    class="electionengine-dropdown-select"
-                    class:electionengine-provincial-dropdown={isExpanded}
-                    on:click={changeExpandable}>{selected_region}</button
+        {#if selected_election === "Provincial Legislature"}
+            {#if isMediaScreenSmall}
+                <div
+                    class="electionengine-selectdropdown-wrapper electionengine-dropdown-form"
                 >
-                {#if isExpanded}
-                    <div
-                        transition:slide
-                        class="electionengine-selectbutton-dropdown-wrapper"
-                    >
-                        {#each provinces as province}
-                            <button
-                                class="electionengine-year-button electionengine-dropdown-button"
-                                class:selected={selected_region === province}
-                                on:click={() => {
-                                    setRegion(province);
-                                    isExpanded = !isExpanded;
-                                }}
-                            >
-                                {province}
-                            </button>
-                        {/each}
-                    </div>
-                {/if}
-            </div>
-        {:else}
-            <div class="electionengine-selectbutton-wrapper">
-                {#each provinces as province}
                     <button
-                        class="electionengine-year-button"
-                        class:selected={selected_region === province}
-                        on:click={() => setRegion(province)}
+                        class="electionengine-dropdown-select"
+                        class:electionengine-provincial-dropdown={isExpanded}
+                        on:click={changeExpandable}>{selected_region}</button
                     >
-                        {province}
-                    </button>
-                {/each}
-            </div>
+                    {#if isExpanded}
+                        <div
+                            transition:slide
+                            class="electionengine-selectbutton-dropdown-wrapper"
+                        >
+                            {#each provinces as province}
+                                <button
+                                    class="electionengine-year-button electionengine-dropdown-button"
+                                    class:selected={selected_region ===
+                                        province}
+                                    on:click={() => {
+                                        setRegion(province);
+                                        isExpanded = !isExpanded;
+                                    }}
+                                >
+                                    {province}
+                                </button>
+                            {/each}
+                        </div>
+                    {/if}
+                </div>
+            {:else}
+                <div class="electionengine-selectbutton-wrapper">
+                    {#each provinces as province}
+                        <button
+                            class="electionengine-year-button"
+                            class:selected={selected_region === province}
+                            on:click={() => setRegion(province)}
+                        >
+                            {province}
+                        </button>
+                    {/each}
+                </div>
+            {/if}
         {/if}
     {/if}
     {#if data}
         {#if selected_election === "National Assembly" && national_map}
+            {#if show_title}
+                <h4 class="electionengine-title">
+                    {selected_year} National Assembly seats from provinces
+                </h4>
+            {/if}
             <NationalView
                 bind:map={national_map}
                 bind:data
                 bind:selected_year
             />
+            {#if show_blurb}
+                <div class="electionengine-blurb">
+                    <p>
+                        The National Assembly is composed of 400 members, 200 of
+                        whom are elected by regional votes per province, shown
+                        above. The remaining 200 are elected by national ballot.
+                    </p>
+                </div>
+            {/if}
         {:else if selected_election === "Provincial Legislature" && provincial_map}
+            {#if show_title}
+                <h4 class="electionengine-title">
+                    {selected_year} Provincial Legislature results for {selected_region}
+                </h4>
+            {/if}
             <ProvincialView
                 bind:provincial_map
                 bind:national_map
                 bind:data
                 bind:selected_region
             />
+            {#if show_blurb}
+                <div class="electionengine-blurb">
+                    <p>
+                        In {selected_year}, {selected_region} has
+                        {SEAT_COUNTS.provincial[selected_year][selected_region]}
+                        Provincial Legislature seats. The map above shows the municipal
+                        results for the
+                        {selected_region} province, with a darker colour representing
+                        more control for the winning party in each municipality.
+                        Winning a municipality does not guarantee a seat, as the
+                        seats are allocated based on the total proportion of votes
+                        received.
+                    </p>
+                </div>
+            {/if}
         {/if}
     {/if}
 </div>
@@ -363,5 +402,20 @@
             border: 0.76px solid #cbcbcb;
             border-radius: 6.85px;
         }
+    }
+
+    h4 {
+        text-align: center;
+    }
+
+    .electionengine-blurb {
+        font-size: 12px;
+        color: #2a2a2a;
+        font-weight: normal;
+        border-bottom: 1px solid #c7c4c4;
+        border-top: 1px solid #c7c4c4;
+        padding: 10px;
+        margin: 0px auto 20px auto;
+        max-width: 400px;
     }
 </style>

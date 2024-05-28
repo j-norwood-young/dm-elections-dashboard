@@ -198,11 +198,11 @@
         </div>
     {/if}
     {#if show_title}
-        <div class="electionengine-title">
+        <h4 class="electionengine-title">
             {selected_region === "National"
-                ? `National Assembly seats for ${selected_year}`
-                : `${selected_region} Provincial Legislature seat allocation for ${selected_year}`}
-        </div>
+                ? `${selected_year} National Assembly seat allocation`
+                : `${selected_year} ${selected_region} Provincial Legislature seat allocation `}
+        </h4>
     {/if}
     <div class="election-engine-hemicycle-section">
         <div
@@ -321,6 +321,7 @@
         color: #2a2a2a;
         font-weight: normal;
         border-bottom: 1px solid #c7c4c4;
+        border-top: 1px solid #c7c4c4;
         padding: 10px;
         margin: 0px auto 20px auto;
         max-width: 400px;
@@ -408,5 +409,9 @@
         > div:last-child
         .electionengine-tooltip-tdata {
         border-bottom: none;
+    }
+
+    h4 {
+        text-align: center;
     }
 </style>

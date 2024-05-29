@@ -11,7 +11,6 @@
     import ProvincialView from "./lib/components/dashboard-view/provincialView.svelte";
     import years from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
-    import SelectButton from "./lib/components/selectButton.svelte";
     import Loading from "@election-engine/common/loading.svelte";
     import { maps_endpoint } from "./lib/libs/maps";
     import { partyColor } from "@election-engine/common/colors";
@@ -197,43 +196,40 @@
 <div class="electionengine-maps" bind:this={container_el}>
     <Loading bind:loading />
     {#if show_buttons}
-        <SelectButton>
-            <div class="electionengine-selectbutton-wrapper">
-                <button
-                    class:selected={selected_election === "National Assembly"}
-                    on:click={() => setElection("National Assembly")}
-                >
-                    National Assembly</button
-                >
-                <div class="partition"></div>
-                <button
-                    class:selected={selected_election ===
-                        "Provincial Legislature"}
-                    on:click={() => setElection("Provincial Legislature")}
-                >
-                    Provincial Legislature
-                </button>
-            </div>
-        </SelectButton>
+        <div class="electionengine-buttons">
+            <button
+                class="electionengine-year-button"
+                class:active={selected_election === "National Assembly"}
+                on:click={() => setElection("National Assembly")}
+            >
+                National Assembly</button
+            >
+            <button
+                class="electionengine-year-button"
+                class:active={selected_election === "Provincial Legislature"}
+                on:click={() => setElection("Provincial Legislature")}
+            >
+                Provincial Legislature
+            </button>
+        </div>
 
-        <SelectButton>
-            <div class="electionengine-selectbutton-wrapper">
-                {#each years as year}
-                    <button
-                        class:selected={selected_year === year}
-                        on:click={() => setYear(year)}
-                    >
-                        {year}</button
-                    >
-                {/each}
-            </div>
-        </SelectButton>
+        <div class="electionengine-buttons">
+            {#each years as year}
+                <button
+                    class="electionengine-year-button"
+                    class:active={selected_year === year}
+                    on:click={() => setYear(year)}
+                >
+                    {year}</button
+                >
+            {/each}
+        </div>
         {#if selected_election === "Provincial Legislature"}
-            <div class="electionengine-selectbutton-wrapper">
+            <div class="electionengine-buttons">
                 {#each provinces as province}
                     <button
                         class="electionengine-year-button"
-                        class:selected={selected_region === province}
+                        class:active={selected_region === province}
                         on:click={() => setRegion(province)}
                     >
                         {province}
@@ -307,56 +303,19 @@
         width: 100%;
     }
 
-    .electionengine-selectbutton-wrapper {
-        display: flex;
-        gap: 6px;
-    }
-
-    .electionengine-selectbutton-wrapper button {
-        color: #cbcbcb;
-        background-color: white;
-        border: none;
-    }
-
-    .electionengine-selectbutton-wrapper button.selected {
-        background-color: #4caf50;
-        color: white;
-    }
-
-    .electionengine-selectbutton-wrapper .partition {
-        display: inline;
-        border: 1px solid #cbcbcb;
-        width: 2px;
-        background: #cbcbcb;
-        margin: 8px 0;
-    }
-
-    @media (width < 420px) {
-        .electionengine-selectbutton-wrapper {
-            font-size: 11px;
-            border: 0.76px solid #cbcbcb;
-            border-radius: 6.85px;
-        }
-    }
-
-    .electionengine-selectbutton-wrapper .electionengine-year-button.selected {
-        background-color: #4caf50;
-        color: white;
-    }
-
     .electionengine-year-button {
-        border: 0;
-        background-color: white;
-        border-radius: 0px;
-        border-bottom: 2px solid #cbcbcb;
+        background-color: #e4e4e4;
+        border: 1px solid #ccc;
+        color: black;
+        padding: 10px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 5px;
     }
 
-    @media (width < 420px) {
-        .electionengine-selectbutton-wrapper {
-            font-size: 11px;
-            border: 0.76px solid #cbcbcb;
-            border-radius: 6.85px;
-        }
+    .electionengine-year-button.active {
+        background-color: #4caf50;
+        color: white;
     }
 
     h4 {

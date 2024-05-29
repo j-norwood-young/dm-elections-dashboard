@@ -213,6 +213,10 @@ server.get("/national/:year", async (req, res) => {
             .filter((pr) => pr.PercOfVotes > 0.1)
             .map((pr) => {
                 const seats = seat_results.PartyResults.find((sr) => sr.Name === pr.Name);
+                let seat_count = 0;
+                if (seats) {
+                    seat_count = seats.NumberOfSeats;
+                }
                 return {
                     party_id: pr.ID,
                     party_name: pr.Name,
@@ -221,7 +225,7 @@ server.get("/national/:year", async (req, res) => {
                     vote_perc: pr.PercOfVotes,
                     ballot_type: pr.BallotType,
                     independent: pr.bIsIndependent,
-                    seats: seats?.NumberOfSeats || 0
+                    seats: seat_count
                 };
             })
             .sort((a, b) => b.Votes - a.Votes);
@@ -282,7 +286,7 @@ server.get("/provincial/:year", async (req, res) => {
                     vote_perc: pr.PercOfVotes,
                     ballot_type: pr.BallotType,
                     independent: pr.bIsIndependent,
-                    seats: seat_results.PartyResults.find((sr) => sr.Name === pr.Name).NumberOfSeats
+                    seats: seat_results.PartyResults.find((sr) => sr.Name === pr.Name)?.NumberOfSeats || 0
                 };
             })
             .sort((a, b) => b.Votes - a.Votes);
@@ -356,7 +360,7 @@ server.get("/provincial/:year/:province", async (req, res) => {
                 vote_perc: pr.PercOfVotes,
                 ballot_type: pr.BallotType,
                 independent: pr.bIsIndependent,
-                seats: seat_results.PartyResults.find((sr) => sr.Name === pr.Name).NumberOfSeats
+                seats: seat_results.PartyResults.find((sr) => sr.Name === pr.Name)?.NumberOfSeats || 0
             };
         })
         .sort((a, b) => b.Votes - a.Votes);
@@ -390,7 +394,7 @@ server.get("/provincial/:year/:province", async (req, res) => {
                         vote_perc: pr.PercOfVotes,
                         ballot_type: pr.BallotType,
                         independent: pr.bIsIndependent,
-                        seats: seat_results.PartyResults.find((sr) => sr.Name === pr.Name).NumberOfSeats
+                        seats: seat_results.PartyResults.find((sr) => sr.Name === pr.Name)?.NumberOfSeats || 0
                     };
                 })
                 .sort((a, b) => b.Votes - a.Votes)

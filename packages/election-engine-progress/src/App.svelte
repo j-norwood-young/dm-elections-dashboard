@@ -163,7 +163,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 10px;
-        background-color: #efe8e5;
+        background-color: #e6e6e6;
     }
 
     .electionengine-bignumber {

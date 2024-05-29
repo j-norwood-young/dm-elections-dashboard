@@ -2,6 +2,7 @@
 	import HemicycleConfig from "@election-engine/wordpress-block/src/svelte/admin/HemicycleConfig.svelte";
 	import MapConfig from "@election-engine/wordpress-block/src/svelte/admin/MapConfig.svelte";
 	import TableConfig from "@election-engine/wordpress-block/src/svelte/admin/TableConfig.svelte";
+	import ProgressConfig from "@election-engine/wordpress-block/src/svelte/admin/ProgressConfig.svelte";
 	import Modal from "@election-engine/wordpress-block/src/svelte/components/Modal.svelte";
 	import Button from "@election-engine/wordpress-block/src/svelte/components/svelte-wordpress-button.svelte";
 
@@ -16,7 +17,7 @@
 		hemicycle: {
 			selected_year: 2024,
 			selected_election: "National Assembly",
-			selected_region: "Gauteng",
+			selected_region: "Eastern Cape",
 			show_title: true,
 			show_blurb: true,
 			show_buttons: false,
@@ -36,12 +37,18 @@
 			show_title: true,
 			show_blurb: true,
 			show_buttons: false,
-			selected_fields: ["Party", "Votes", "Seats"],
+		},
+		progress: {
+			selected_year: 2024,
+			show_title: true,
+			show_blurb: true,
+			show_buttons: false,
 		},
 	};
 	let props = null;
 	let attributes = null;
 	let setAttributes = null;
+	const site_url = election_engine_admin.site_url;
 	if (is_block) {
 		jQuery(document).on(
 			"election-engine-edit-block-click",
@@ -65,6 +72,8 @@
 			setAttributes({ ...attributes, ...visualisation_data.carto });
 		} else if (visualisation === "table") {
 			setAttributes({ ...attributes, ...visualisation_data.table });
+		} else if (visualisation === "progress") {
+			setAttributes({ ...attributes, ...visualisation_data.progress });
 		}
 	}
 
@@ -84,7 +93,6 @@
 		<div slot="title">
 			<h2>Elections Engine</h2>
 		</div>
-
 		<div class="election-engine-visualisation-container">
 			<div
 				class="election-engine-visualisation-item"
@@ -116,15 +124,25 @@
 			>
 				<p>Table</p>
 			</div>
+			<div
+				class="election-engine-visualisation-item"
+				class:selected={visualisation === "progress"}
+				role="button"
+				on:click={() => selectVisualisation("progress")}
+				on:keypress={() => selectVisualisation("progress")}
+				tabindex="0"
+			>
+				<p>Progress</p>
+			</div>
 		</div>
 		{#if visualisation === "hemicycle"}
 			<HemicycleConfig
 				bind:selected_year={visualisation_data.hemicycle.selected_year}
 				bind:selected_election={visualisation_data.hemicycle.selected_election}
 				bind:selected_region={visualisation_data.hemicycle.selected_region}
-				bind:show_buttons={visualisation_data.show_buttons}
-				bind:show_blurb={visualisation_data.show_blurb}
-				bind:show_title={visualisation_data.show_title}
+				bind:show_buttons={visualisation_data.hemicycle.show_buttons}
+				bind:show_blurb={visualisation_data.hemicycle.show_blurb}
+				bind:show_title={visualisation_data.hemicycle.show_title}
 			/>
 		{/if}
 		{#if visualisation === "carto"}
@@ -132,8 +150,9 @@
 				bind:selected_year={visualisation_data.carto.selected_year}
 				bind:selected_election={visualisation_data.carto.selected_election}
 				bind:selected_region={visualisation_data.carto.selected_region}
-				bind:show_buttons={visualisation_data.show_buttons}
-				bind:show_title={visualisation_data.show_title}
+				bind:show_buttons={visualisation_data.carto.show_buttons}
+				bind:show_title={visualisation_data.carto.show_title}
+				bind:show_blurb={visualisation_data.carto.show_blurb}
 			/>
 		{/if}
 		{#if visualisation === "table"}
@@ -141,9 +160,16 @@
 				bind:selected_year={visualisation_data.table.selected_year}
 				bind:selected_election={visualisation_data.table.selected_election}
 				bind:selected_region={visualisation_data.table.selected_region}
-				bind:selected_fields={visualisation_data.table.selected_fields}
-				bind:show_buttons={visualisation_data.show_buttons}
-				bind:show_title={visualisation_data.show_title}
+				bind:show_buttons={visualisation_data.table.show_buttons}
+				bind:show_title={visualisation_data.table.show_title}
+			/>
+		{/if}
+		{#if visualisation === "progress"}
+			<ProgressConfig
+				bind:selected_year={visualisation_data.progress.selected_year}
+				bind:show_buttons={visualisation_data.progress.show_buttons}
+				bind:show_title={visualisation_data.progress.show_title}
+				bind:show_blurb={visualisation_data.progress.show_blurb}
 			/>
 		{/if}
 		<hr class="mt-4" />
@@ -152,13 +178,30 @@
 				>Done</Button
 			>
 		</div>
+		<hr class="mt-4" />
+		<iframe
+			title="{visualisation} Preview"
+			src={`${site_url}/election-engine/embed/?visualisation=${visualisation}&selected_year=${
+				visualisation_data[visualisation].selected_year
+			}&selected_election=${
+				visualisation_data[visualisation].selected_election
+			}&selected_region=${
+				visualisation_data[visualisation].selected_region
+			}&show_buttons=${
+				visualisation_data[visualisation].show_buttons ? 1 : 0
+			}&show_title=${
+				visualisation_data[visualisation].show_title ? 1 : 0
+			}&show_blurb=${visualisation_data[visualisation].show_blurb ? 1 : 0}`}
+			width="100%"
+			height="500px"
+		></iframe>
 	</Modal>
 {/if}
 
 <style>
 	.election-engine-visualisation-container {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
 
 	.election-engine-visualisation-item {

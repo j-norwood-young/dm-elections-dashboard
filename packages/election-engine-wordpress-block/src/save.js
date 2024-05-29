@@ -19,7 +19,7 @@ import { select as wpDataSelect } from '@wordpress/data';
  */
 export default function save({ attributes }) {
 	const site_url = election_engine_admin.site_url;
-	const embed = `${site_url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}&show_buttons=${attributes.show_buttons}&show_title=${attributes.show_title}&show_blurb=${attributes.show_blurb}`;
+	const embed = `${site_url}/election-engine/embed/?visualisation=${attributes.visualisation}&selected_year=${attributes.selected_year}&selected_election=${attributes.selected_election}&selected_region=${attributes.selected_region}&selected_fields=${attributes.selected_fields}&show_buttons=${attributes.show_buttons ? 1 : 0}&show_title=${attributes.show_title ? 1 : 0}&show_blurb=${attributes.show_blurb ? 1 : 0}`;
 	const blockProps = useBlockProps.save();
 	const result = (
 		<>

@@ -12,6 +12,7 @@
     export let selected_year = 2024; // 2024, 2019, 2014
     export let show_buttons = false;
     export let show_title = true;
+    export let show_blurb = true;
 
     let loading = false;
     let data;
@@ -113,14 +114,16 @@
                 <div
                     class="electionengine-status electionengine-status-in_progress"
                 >
-                    <p>Vote counting is in progress.</p>
+                    <p>Vote counting is in progress</p>
                 </div>
             {/if}
-            <div class="electionengine-blurb">
-                {number_format(data.VDResultsIn)} of {number_format(
-                    data.VDTotal
-                )} voting districts have reported their results.
-            </div>
+            {#if show_blurb}
+                <div class="electionengine-blurb">
+                    {number_format(data.VDResultsIn)} of {number_format(
+                        data.VDTotal
+                    )} voting districts have reported their results.
+                </div>
+            {/if}
         </div>
     {/if}
 </div>

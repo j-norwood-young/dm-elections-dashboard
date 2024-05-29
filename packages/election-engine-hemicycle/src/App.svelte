@@ -315,12 +315,7 @@
         color: white;
     }
 
-    .electionengine-title {
-        font-size: 20px;
-        font-weight: 700;
-        margin: 20px auto;
-        line-height: 1.2;
-        /* width: 100%; */
+    h4 {
         text-align: center;
     }
 

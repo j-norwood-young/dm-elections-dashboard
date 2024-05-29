@@ -40,11 +40,11 @@
 			"type": "boolean",
 			"default": true
 		},
-		"show_buttons": {
+		"show_blurb": {
 			"type": "boolean",
 			"default": true
 		},
-		"show_blurb": {
+		"show_buttons": {
 			"type": "boolean",
 			"default": true
 		}

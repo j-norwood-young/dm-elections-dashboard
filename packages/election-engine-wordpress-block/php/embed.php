@@ -36,10 +36,9 @@ class ElectionEngineEmbed
 		$selected_year = $params['selected_year'] ?: "2019";
 		$selected_election = $params['selected_election'] ?: "National Assembly";
 		$selected_region = $params['selected_region'] ?: "National";
-		$selected_fields = $params['selected_fields'] ?: "";
-		if (is_array($selected_fields)) {
-			$selected_fields = implode(",", $selected_fields);
-		}
+		$show_title = $params['show_title'] ? "1" : "0";
+		$show_blurb = $params['show_blurb'] ? "1" : "0";
+		$show_buttons = $params['show_buttons'] ? "1" : "0";
 		include_once(plugin_dir_path(__FILE__) . "./views/header-iframe.php");
 		$html = "<div
 			class=\"wp-block-tenlayer-election-engine\"
@@ -47,7 +46,9 @@ class ElectionEngineEmbed
 			data-selected_year=\"{$selected_year}\"
 			data-selected_election=\"{$selected_election}\"
 			data-selected_region=\"{$selected_region}\"
-			data-selected_fields=\"{$selected_fields}\"
+			data-show_title=\"{$show_title}\"
+			data-show_blurb=\"{$show_blurb}\"
+			data-show_buttons=\"{$show_buttons}\"
 		>
 			<div class=\"election-engine-inline\" data-inline=\"$embed\"></div>
 		</div>";

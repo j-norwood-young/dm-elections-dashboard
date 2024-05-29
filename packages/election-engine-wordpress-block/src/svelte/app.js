@@ -10,7 +10,6 @@ jQuery(() => {
 			selected_year: jQuery(target).data("selected_year"),
 			selected_election: jQuery(target).data("selected_election"),
 			selected_region: jQuery(target).data("selected_region"),
-			selected_fields: jQuery(target).data("selected_fields")?.split(",").map(s => s.trim()),
 			show_title: jQuery(target).data("show_title"),
 			show_blurb: jQuery(target).data("show_blurb"),
 			show_buttons: jQuery(target).data("show_buttons"),

@@ -10,7 +10,7 @@
     import Loading from "@election-engine/common/Loading.svelte";
     const current_year = new Date().getFullYear();
 
-    export let selected_year = 2019; // 2024, 2019, 2014
+    export let selected_year = 2024; // 2024, 2019, 2014
     export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
     export let selected_region = "National"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
@@ -134,6 +134,7 @@
                     }
                 }
             }
+            console.log(current_year);
             return current_year;
         } catch (error) {
             console.error(error);

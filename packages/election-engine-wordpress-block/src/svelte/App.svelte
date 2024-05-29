@@ -57,7 +57,7 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		border: 1px solid #ccc;
-		border-radius: 6px;
+		/* border: 1px solid #ccc; */
+		/* border-radius: 6px; */
 	}
 </style>

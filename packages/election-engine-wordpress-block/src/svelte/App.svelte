@@ -16,36 +16,48 @@
 	onMount(async () => {});
 </script>
 
-{#if visualisation === "hemicycle"}
-	<Hemicycle
-		{selected_year}
-		{selected_election}
-		{selected_region}
-		{show_title}
-		{show_blurb}
-		{show_buttons}
-	/>
-{/if}
-{#if visualisation === "carto"}
-	<Cartogram
-		{selected_year}
-		{selected_election}
-		{selected_region}
-		{show_title}
-		{show_blurb}
-		{show_buttons}
-	/>
-{/if}
-{#if visualisation === "table"}
-	<Table
-		{selected_year}
-		{selected_election}
-		{selected_region}
-		{show_title}
-		{show_blurb}
-		{show_buttons}
-	/>
-{/if}
-{#if visualisation === "progress"}
-	<Progress {selected_year} {show_title} {show_blurb} {show_buttons} />
-{/if}
+<div class="electionengine-widget">
+	{#if visualisation === "hemicycle"}
+		<Hemicycle
+			{selected_year}
+			{selected_election}
+			{selected_region}
+			{show_title}
+			{show_blurb}
+			{show_buttons}
+		/>
+	{/if}
+	{#if visualisation === "carto"}
+		<Cartogram
+			{selected_year}
+			{selected_election}
+			{selected_region}
+			{show_title}
+			{show_blurb}
+			{show_buttons}
+		/>
+	{/if}
+	{#if visualisation === "table"}
+		<Table
+			{selected_year}
+			{selected_election}
+			{selected_region}
+			{show_title}
+			{show_blurb}
+			{show_buttons}
+		/>
+	{/if}
+	{#if visualisation === "progress"}
+		<Progress {selected_year} {show_title} {show_blurb} {show_buttons} />
+	{/if}
+</div>
+
+<style>
+	.electionengine-widget {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+	}
+</style>

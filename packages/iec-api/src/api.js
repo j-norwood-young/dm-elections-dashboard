@@ -179,6 +179,10 @@ server.get("/national/:year", async (req, res) => {
         .filter((pr) => pr.PercOfVotes > 0.1)
         .map((pr) => {
             const seat = seats.PartyResults.find((sr) => pr.ID === sr.ID);
+            let seat_count = 0;
+            if (seat) {
+                seat_count = seat.Overall;
+            }
             return {
                 party_id: pr.ID,
                 party_name: pr.Name,
@@ -187,7 +191,7 @@ server.get("/national/:year", async (req, res) => {
                 vote_perc: pr.PercOfVotes,
                 ballot_type: pr.BallotType,
                 independent: pr.bIsIndependent,
-                seats: seat.Overall
+                seats: seat_count
             };
         })
         .sort((a, b) => b.votes - a.votes);

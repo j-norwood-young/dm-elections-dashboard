@@ -58,3 +58,8 @@ export function ok_to_update(container_el) {
         rect.left <= windowWidth; // Element's left side is to the left of the right side of the viewport
     return !document.hidden && isInViewport;
 }
+
+export function get_progress(year) {
+    const url = `${baseUrl}/progress/${year}`;
+    return fetch(url).then(response => response.json());
+}

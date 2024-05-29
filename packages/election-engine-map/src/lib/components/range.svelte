@@ -2,20 +2,27 @@
     export let max;
     export let value;
     export let color = "#4CAF50";
+    export let background_color = "#f2f2f2";
+    export let show_percentage = true;
 </script>
 
 <div class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata">
     <div class="electionengine-tooltip-range">
-        <div class="electionengine-tooltip-outer">
+        <div
+            class="electionengine-tooltip-outer"
+            style:background-color={background_color}
+        >
             <div
                 class="electionengine-tooltip-inner"
                 style="width:{(value / max) * 100}%; background:{color}"
             ></div>
         </div>
     </div>
-    <span class="electionengine-tooltip-span">
-        {Math.round((value / max) * 100)}%</span
-    >
+    {#if show_percentage}
+        <span class="electionengine-tooltip-span">
+            {Math.round((value / max) * 100)}%
+        </span>
+    {/if}
 </div>
 
 <style>

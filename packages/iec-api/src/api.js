@@ -177,6 +177,7 @@ server.get("/national/:year", async (req, res) => {
     }
     vote_results.PartyBallotResults = vote_results.PartyBallotResults
         .filter((pr) => pr.PercOfVotes > 0.1)
+        .filter((pr) => pr.BallotType === "National")
         .map((pr) => {
             const seat = seats.PartyResults.find((sr) => pr.ID === sr.ID);
             let seat_count = 0;
@@ -211,6 +212,7 @@ server.get("/national/:year", async (req, res) => {
         }
         const party_ballot_results = province_results.PartyBallotResults
             .filter((pr) => pr.PercOfVotes > 0.1)
+            .filter((pr) => pr.BallotType === "Regional")
             .map((pr) => {
                 const seats = seat_results.PartyResults.find((sr) => sr.Name === pr.Name);
                 let seat_count = 0;

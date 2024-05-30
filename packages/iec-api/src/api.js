@@ -10,7 +10,7 @@ import { fastifyStatic } from '@fastify/static';
 import fs from 'fs';
 
 export const server = Fastify({
-    logger: true
+    logger: false
 })
 
 server.register(cors, {

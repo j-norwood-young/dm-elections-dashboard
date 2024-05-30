@@ -31,8 +31,6 @@
     provincialPopOverData.y + tooltipHeight > svgHeight
       ? provincialPopOverData.y - tooltipHeight
       : provincialPopOverData.y - yNudge;
-
-  $: console.log(provincialPopOverData);
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />

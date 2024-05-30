@@ -23,16 +23,16 @@
 
 {#if loading}
     <div
-        class="loading"
+        class="electionengine-loading"
         style="display: {loading ? 'flex' : 'none'};"
         transition:fade={fadeConfig}
     >
-        <div class="loader"></div>
+        <div class="electionengine-loader"></div>
     </div>
 {/if}
 
 <style>
-    .loading {
+    .electionengine-loading {
         display: flex;
         position: absolute;
         top: 0;
@@ -45,7 +45,7 @@
         align-items: center;
     }
 
-    .loader {
+    .electionengine-loader {
         opacity: 0.8;
         width: 45px;
         aspect-ratio: 1;

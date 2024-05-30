@@ -1,13 +1,11 @@
 <script>
     import { onMount, onDestroy } from "svelte";
-    import {
-        get_progress,
-        ok_to_update,
-    } from "@election-engine/common/loadData.js";
+    import { get_progress } from "@election-engine/common/loadData.js";
+    import { refresh } from "@election-engine/common/refresh.js";
     import YEARS from "@election-engine/common/years.json";
     import Loading from "@election-engine/common/Loading.svelte";
     import Range from "@election-engine/map/src/lib/components/range.svelte";
-    const current_year = new Date().getFullYear();
+    const YEAR = new Date().getFullYear();
 
     export let selected_year = 2024; // 2024, 2019, 2014
     export let show_buttons = false;
@@ -17,25 +15,15 @@
     let loading = false;
     let data;
     let container_el;
-    let interval;
+    let refresh_timer;
     let timeout;
     let warning = false;
 
     onMount(async () => {
         await getData();
-        interval = setInterval(async () => {
-            if (
-                selected_year === current_year &&
-                !loading &&
-                ok_to_update(container_el)
-            ) {
-                await getData();
-            }
-        }, 60000); // 60 seconds
     });
 
     onDestroy(() => {
-        clearInterval(interval);
         clearTimeout(timeout);
     });
 
@@ -59,6 +47,14 @@
         } finally {
             loading = false;
             clearTimeout(timeout);
+            clearTimeout(refresh_timer);
+            if (YEAR === selected_year) {
+                refresh_timer = setTimeout(() => {
+                    refresh(container_el, async () => {
+                        await getData();
+                    });
+                }, 60000); // 1 minute
+            }
         }
     }
 
@@ -95,7 +91,7 @@
     {#if data}
         <div class="electionengine-progress">
             <div class="electionengine-bignumber">
-                {`${(0.34567891 * 100).toFixed(1)}%`}
+                {((data.VDResultsIn / data.VDTotal) * 100).toFixed(2)}%
                 <Range
                     max={data.VDTotal}
                     value={data.VDResultsIn}

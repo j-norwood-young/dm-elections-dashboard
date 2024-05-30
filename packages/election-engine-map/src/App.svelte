@@ -1,10 +1,8 @@
 <script>
     // @ts-nocheck
 
-    import {
-        loadData,
-        ok_to_update,
-    } from "@election-engine/common/loadData.js";
+    import { loadData } from "@election-engine/common/loadData.js";
+    import { refresh } from "@election-engine/common/refresh.js";
     import { onMount, onDestroy } from "svelte";
 
     import NationalView from "./lib/components/dashboard-view/nationalView.svelte";
@@ -17,7 +15,7 @@
     import SEAT_COUNTS from "@election-engine/common/seat_counts.json";
 
     // Parameters
-    export let selected_year = 2014; // 2024, 2019, 2014
+    export let selected_year = 2024; // 2024, 2019, 2014
     export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
     export let selected_region = "Western Cape"; // National, Gauteng, Western Cape, etc.
     export let show_buttons = false;
@@ -27,13 +25,13 @@
     const provinces = PROVINCES.filter(
         (p) => !["National", "Out of Country"].includes(p)
     );
-    const current_year = new Date().getFullYear();
+    const YEAR = new Date().getFullYear();
     let loading = false;
 
     let data;
     let provincial_map;
     let national_map;
-    let interval;
+    let refresh_timer;
     let timeout;
     let container_el;
     let warning = false;
@@ -44,19 +42,9 @@
         if (selected_election === "Provincial Legislature") {
             provincial_map = await getProvincialMap();
         }
-        interval = setInterval(async () => {
-            if (
-                selected_year === current_year &&
-                !loading &&
-                ok_to_update(container_el)
-            ) {
-                data = await getData();
-            }
-        }, 300000); // 5 minutes
     });
 
     onDestroy(() => {
-        clearInterval(interval);
         clearTimeout(timeout);
     });
 
@@ -159,6 +147,14 @@
         } finally {
             loading = false;
             clearTimeout(timeout);
+            clearTimeout(refresh_timer);
+            if (YEAR === selected_year) {
+                refresh_timer = setTimeout(() => {
+                    refresh(container_el, async () => {
+                        await getData();
+                    });
+                }, 10000);
+            }
         }
     }
 

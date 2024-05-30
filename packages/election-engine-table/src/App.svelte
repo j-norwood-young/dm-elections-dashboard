@@ -1,14 +1,13 @@
 <script>
     import { onMount, onDestroy } from "svelte";
-    import {
-        loadData,
-        ok_to_update,
-    } from "@election-engine/common/loadData.js";
+    import { loadData } from "@election-engine/common/loadData.js";
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
     import Loading from "@election-engine/common/Loading.svelte";
-    const current_year = new Date().getFullYear();
+    import { refresh } from "@election-engine/common/refresh.js";
+    import Range from "@election-engine/map/src/lib/components/range.svelte";
+    const YEAR = new Date().getFullYear();
 
     export let selected_year = 2024; // 2024, 2019, 2014
     export let selected_election = "National Assembly"; // National Assembly, Provincial Legislature
@@ -21,26 +20,17 @@
     let loading = false;
     let data;
     let container_el;
-    let interval;
+    let refresh_timer;
     let timeout;
     let warning = false;
 
     onMount(async () => {
         data = await processData(selected_year);
-        interval = setInterval(async () => {
-            if (
-                selected_year === current_year &&
-                !loading &&
-                ok_to_update(container_el)
-            ) {
-                data = await processData(selected_year);
-            }
-        }, 300000); // 5 minutes
     });
 
     onDestroy(() => {
-        clearInterval(interval);
         clearTimeout(timeout);
+        clearTimeout(refresh_timer);
     });
 
     async function setYear(year) {
@@ -134,7 +124,6 @@
                     }
                 }
             }
-            console.log(current_year);
             return current_year;
         } catch (error) {
             console.error(error);
@@ -142,17 +131,20 @@
         } finally {
             loading = false;
             clearTimeout(timeout);
+            clearTimeout(refresh_timer);
+            if (YEAR === selected_year) {
+                refresh_timer = setTimeout(() => {
+                    refresh(container_el, async () => {
+                        data = await processData(selected_year);
+                    });
+                }, 300000);
+            }
         }
     }
 </script>
 
 <div class="electionengine-table-page" bind:this={container_el}>
     <Loading bind:loading />
-    {#if warning}
-        <div class="electionengine-warning">
-            We could not update the data. Please try again later.
-        </div>
-    {/if}
     {#if show_buttons}
         <div class="electionengine-years-buttons">
             <button
@@ -217,14 +209,21 @@
             {/if}
         </h4>
     {/if}
-    {#if show_count_progress && selected_year === current_year && data}
+    {#if show_count_progress && selected_year === YEAR && data}
         <h4>
             {data
                 ? `${Math.round(
                       (data.vd_captured / data.vd_count) * 100
-                  )}%  votes counted`
+                  )}%  voting districts counted`
                 : ""}
         </h4>
+        <div style="max-width: 200px; margin: 5px auto 20px auto;">
+            <Range
+                max={data.vd_count}
+                value={data.vd_captured}
+                show_percentage={false}
+            />
+        </div>
     {/if}
     <div class="electionengine-table-container">
         <table class="electionengine-table">

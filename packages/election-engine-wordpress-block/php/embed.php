@@ -50,7 +50,6 @@ class ElectionEngineEmbed
 			data-show_blurb=\"{$show_blurb}\"
 			data-show_buttons=\"{$show_buttons}\"
 		>
-			<div class=\"election-engine-inline\" data-inline=\"$embed\"></div>
 		</div>";
 		wp_enqueue_script("electionengine-frontend-script", plugin_dir_url(__FILE__) . "../dist/app/election-engine.umd.js", [], ELECTIONENGINE_VERSION, true);
 		wp_enqueue_style("electionengine-frontend-style", plugin_dir_url(__FILE__) . "../dist/app/style.css", [], ELECTIONENGINE_VERSION);

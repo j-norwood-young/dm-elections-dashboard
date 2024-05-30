@@ -15,6 +15,7 @@
     export let show_buttons = false;
     export let show_title = true;
     export let show_count_progress = true;
+    export let selected_ballot = "National"; // National, Regional, 2024 National only
 
     let provinces = PROVINCES;
     let loading = false;
@@ -42,6 +43,12 @@
     async function setRegion(region) {
         if (region === selected_region) return;
         selected_region = region;
+        data = await processData(selected_year);
+    }
+
+    async function setBallot(ballot) {
+        if (ballot === selected_ballot) return;
+        selected_ballot = ballot;
         data = await processData(selected_year);
     }
 
@@ -73,6 +80,15 @@
                     (r) => r.province_name === selected_region
                 );
                 return result;
+            }
+            if (
+                selected_ballot === "Regional" &&
+                year >= 2024 &&
+                selected_region === "National"
+            ) {
+                vote_results.party_ballot_results =
+                    vote_results.regional_party_ballot_results;
+                return vote_results;
             }
             return vote_results;
         } else {
@@ -193,6 +209,24 @@
                 </button>
             {/each}
         </div>
+        {#if selected_election === "National Assembly" && selected_year >= 2024 && selected_region === "National"}
+            <div class="electionengine-years-buttons">
+                <button
+                    class="electionengine-year-button"
+                    on:click={() => setBallot("National")}
+                    class:active={selected_ballot === "National"}
+                >
+                    National Ballot
+                </button>
+                <button
+                    class="electionengine-year-button"
+                    on:click={() => setBallot("Regional")}
+                    class:active={selected_ballot === "Regional"}
+                >
+                    Regional Ballot
+                </button>
+            </div>
+        {/if}
     {/if}
     {#if show_title}
         <h4>

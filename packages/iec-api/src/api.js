@@ -175,6 +175,27 @@ server.get("/national/:year", async (req, res) => {
         seats = await ElectionResults.seats(national_event.ID);
         await setCache(`national_seats_${national_event.ID}`, seats);
     }
+    vote_results.RegionalPartyBallotResults = vote_results.PartyBallotResults
+        .filter((pr) => pr.PercOfVotes > 0.1)
+        .filter((pr) => pr.BallotType === "Regional")
+        .map((pr) => {
+            const seat = seats.PartyResults.find((sr) => pr.ID === sr.ID);
+            let seat_count = 0;
+            if (seat) {
+                seat_count = seat.Overall;
+            }
+            return {
+                party_id: pr.ID,
+                party_name: pr.Name,
+                party_abbreviation: pr.PartyAbbr,
+                votes: pr.ValidVotes,
+                vote_perc: pr.PercOfVotes,
+                ballot_type: pr.BallotType,
+                independent: pr.bIsIndependent,
+                seats: seat_count
+            };
+        })
+        .sort((a, b) => b.votes - a.votes);
     vote_results.PartyBallotResults = vote_results.PartyBallotResults
         .filter((pr) => pr.PercOfVotes > 0.1)
         .filter((pr) => pr.BallotType === "National")
@@ -256,6 +277,7 @@ server.get("/national/:year", async (req, res) => {
         vd_count: vote_results.VDCount,
         vd_captured: vote_results.VDWithResultsCaptured,
         party_ballot_results: vote_results.PartyBallotResults,
+        regional_party_ballot_results: vote_results.RegionalPartyBallotResults,
         provincial_results
     }
     res.send(result);

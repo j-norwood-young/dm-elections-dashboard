@@ -258,6 +258,19 @@
                 show_percentage={false}
             />
         </div>
+        <h4>
+            {((data.total_votes_cast / data.registered_voters) * 100).toFixed(
+                1
+            )}% votes of registered voters have been counted
+        </h4>
+        <div style="max-width: 200px; margin: 5px auto 20px auto;">
+            <Range
+                max={data.registered_voters}
+                value={data.total_votes_cast}
+                show_percentage={false}
+                color="rgb(236 137 100)"
+            />
+        </div>
     {/if}
     <div class="electionengine-table-container">
         <table class="electionengine-table">

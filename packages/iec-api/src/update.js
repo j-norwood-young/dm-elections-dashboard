@@ -1,6 +1,7 @@
 import cron from 'node-cron';
 import * as ElectionResults from "./election_results.js";
 import { setCache, getCache } from "./cache.js";
+import { heatCache } from './heat_cache.js';
 import assert from "assert";
 
 const NATIONAL_EVENT_ID = 1334;
@@ -121,9 +122,10 @@ function handle_error(e) {
     console.error(e);
 }
 
-export function update() {
+export async function update() {
     cron.schedule('*/5 * * * *', async () => {
         console.time("update");
+        await heatCache([NATIONAL_EVENT_ID, PROVINCIAL_EVENT_ID]);
         await update_national_votes().catch(handle_error);
         await update_national_seats().catch(handle_error);
         await update_national_votes_by_province().catch(handle_error);
@@ -134,6 +136,9 @@ export function update() {
         console.timeEnd("update");
     });
     cron.schedule('* * * * *', async () => {
+        await heatCache([NATIONAL_EVENT_ID, PROVINCIAL_EVENT_ID]);
         await update_progress().catch(handle_error);
     });
 }
+
+update();

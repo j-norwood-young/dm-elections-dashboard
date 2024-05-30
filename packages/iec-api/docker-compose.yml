@@ -1,23 +1,35 @@
-version: '3'
+version: "3"
 services:
-  app:
-    build:
-      dockerfile: ./packages/iec-api/Dockerfile
-      context: ../../.
-    ports:
-      - 7002:7002
-    environment:
-      - NODE_ENV=production
-      - PORT=7002
-      - HOST=0.0.0.0
-      - REDIS_URL=redis://keydb:6379
-    env_file:
-      - ./.env
-    restart: unless-stopped
-    depends_on:
-      - keydb
-  keydb:
-    image: eqalpha/keydb
-    restart: unless-stopped
-    volumes:
-      - ./data:/data
+    app:
+        build:
+            dockerfile: ./packages/iec-api/Dockerfile-api
+            context: ../../.
+        ports:
+            - 7002:7002
+        environment:
+            - NODE_ENV=production
+            - PORT=7002
+            - HOST=0.0.0.0
+            - REDIS_URL=redis://keydb:6379
+        env_file:
+            - ./.env
+        restart: unless-stopped
+        depends_on:
+            - keydb
+    update:
+        build:
+            dockerfile: ./packages/iec-api/Dockerfile-update
+            context: ../../.
+        environment:
+            - NODE_ENV=production
+            - REDIS_URL=redis://keydb:6379
+        env_file:
+            - ./.env
+        restart: unless-stopped
+        depends_on:
+            - keydb
+    keydb:
+        image: eqalpha/keydb
+        restart: unless-stopped
+        volumes:
+            - ./data:/data

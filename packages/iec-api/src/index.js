@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import { server } from './api.js';
 import { heatCache } from './heat_cache.js';
-import { update } from './update.js';
 import YEARS from '@election-engine/common/years.json' assert { type: 'json' };
 dotenv.config();
 
@@ -30,7 +29,6 @@ async function main() {
     cache_hot = false;
     await heatCache(YEARS);
     cache_hot = true;
-    await update();
 }
 
 main();

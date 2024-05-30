@@ -63,7 +63,8 @@
         const result = provinces_geo_data.map((feature) => {
             const matchingPartyResult = topParties.find(
                 (party) =>
-                    party.municipality_id === feature.properties.MUNI_CODE
+                    party.municipality_id === feature.properties.MUNI_CODE ||
+                    party.municipality_id === feature.properties.MunicCode
             );
 
             if (matchingPartyResult) {

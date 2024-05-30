@@ -95,7 +95,7 @@
     {#if data}
         <div class="electionengine-progress">
             <div class="electionengine-bignumber">
-                {Math.round(data.VDResultsIn / data.VDTotal) * 100}%
+                {`${(0.34567891 * 100).toFixed(1)}%`}
                 <Range
                     max={data.VDTotal}
                     value={data.VDResultsIn}

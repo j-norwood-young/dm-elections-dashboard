@@ -70,6 +70,12 @@
             if (matchingPartyResult) {
                 feature.properties.highest_parties =
                     matchingPartyResult.top_parties;
+                feature.properties.total_valid_votes =
+                    matchingPartyResult.total_valid_votes;
+                feature.properties.registered_voters =
+                    matchingPartyResult.registered_votes;
+                feature.properties.total_votes_cast =
+                    matchingPartyResult.total_votes_cast;
             }
             return feature;
         });
@@ -84,6 +90,9 @@
             return {
                 municipality_id: municipality.municipality_name.split(" ")[0],
                 municipality_name: municipality.municipality_name,
+                total_votes_cast: municipality.total_votes_cast,
+                total_valid_votes: municipality.total_valid_votes,
+                registered_votes: municipality.registered_voters,
                 top_parties: topParties,
             };
         });
@@ -153,7 +162,7 @@
                 width="100%"
                 viewBox="0 0 {width} {height}"
             >
-                <!-- Municipalities Group -->
+                <!-- Municipalities Group     -->
                 <g on:mouseleave={() => (provincialPopOverData = null)}>
                     {#each provinces_array as municipality, index}
                         <g>

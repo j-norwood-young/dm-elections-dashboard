@@ -225,12 +225,7 @@
             </svg>
         </div>
         {#if tooltipData}
-            <Tooltip
-                bind:tooltipData
-                grid={false}
-                bind:svgHeight
-                bind:svgWidth
-            />
+            <Tooltip bind:tooltipData bind:svgHeight bind:svgWidth />
         {/if}
     {/if}
 </div>

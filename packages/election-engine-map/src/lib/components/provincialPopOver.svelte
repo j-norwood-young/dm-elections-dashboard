@@ -41,15 +41,20 @@
     bind:clientWidth={tooltipWidth}
     bind:clientHeight={tooltipHeight}
     class="electionengine-tooltip-wrapper"
-    style="border-left-color:{provincialPopOverData.color}; top:{yPosition}px; left:{xPosition}px; position:fixed; z-index:1000;"
+    style="top:{yPosition}px; left:{xPosition}px; position:fixed; z-index:1000;"
 >
     <div class="electionengine-tooltip-container">
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-tdata">
-                {provincialPopOverData.MUNI_NAME}
+                {provincialPopOverData.MUNI_NAME ||
+                    provincialPopOverData.Municipali ||
+                    ""}
             </div>
         </div>
-        <div class="electionengine-tooltip-section">
+        <div
+            style:border-left-color={provincialPopOverData.color}
+            class="electionengine-tooltip-section"
+        >
             <div class="electionengine-tooltip-thead">Winning Party:</div>
             <div class="electionengine-tooltip-tdata">
                 {firstLetterCap(
@@ -60,7 +65,9 @@
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-thead">
                 {provincialPopOverData.highest_parties[0].party_abbreviation} Votes
-                Percentage {provincialPopOverData.MUNI_NAME}
+                Percentage {provincialPopOverData.MUNI_NAME ||
+                    provincialPopOverData.Municipali ||
+                    ""}
             </div>
             <div
                 class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata"
@@ -138,19 +145,39 @@
         </div>
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-thead">
-                Total Number of Seats Won by {provincialPopOverData
-                    .highest_parties[0].party_abbreviation}
+                Seats Won by <span class="electionengine-tooltip-span-bold">
+                    {provincialPopOverData.highest_parties[0]
+                        .party_abbreviation}
+                </span>
             </div>
             <div class="electionengine-tooltip-tdata">
-                {provincialPopOverData.highest_parties[0].seats}
+                {provincialPopOverData.highest_parties[0].seats} seats
             </div>
         </div>
         <div class="electionengine-tooltip-section">
-            <div class="electionengine-tooltip-thead">Total Votes</div>
+            <div class="electionengine-tooltip-thead">
+                Valid Votes & Voters Turnout in {provincialPopOverData.MUNI_NAME ||
+                    provincialPopOverData.Municipali ||
+                    ""}
+            </div>
             <div class="electionengine-tooltip-tdata">
-                {Intl.NumberFormat("en-US").format(
-                    provincialPopOverData.highest_parties[0].votes
-                )}
+                <span>
+                    {Intl.NumberFormat("en-US").format(
+                        provincialPopOverData.total_valid_votes
+                    )}
+                </span><span class="electionengine-tooltip-span-regular">
+                    votes
+                </span>
+                (<span>
+                    {Math.round(
+                        (provincialPopOverData.total_valid_votes /
+                            provincialPopOverData.registered_voters) *
+                            100
+                    )}%
+                </span>
+                <span class="electionengine-tooltip-span-regular">
+                    turnout</span
+                >)
             </div>
         </div>
     </div>
@@ -159,16 +186,18 @@
 <style>
     .electionengine-tooltip-wrapper {
         min-width: max-content;
-        position: absolute;
+        position: fixed;
         background: #fffff9;
-        padding: 0.55rem;
         border: 1px solid #c7c4c4;
-        border-left-width: 6px;
-        border-left-style: solid;
+        border-left: none;
+        border-collapse: collapse;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
     }
 
     .electionengine-tooltip-section {
-        padding-bottom: 4px;
+        padding: 5px 10px;
+        border-left: #f5f5f5 8px solid;
     }
     .electionengine-tooltip-thead {
         font-size: 11px;
@@ -181,9 +210,8 @@
 
     .electionengine-tooltip-tdata {
         font-size: 13px;
-        color: #2a2a2a;
         font-weight: bold;
-        border-bottom: 1px solid #c7c4c4;
+        color: #2a2a2a;
 
         @media screen and (max-width: 500px) {
             font-size: 10px;
@@ -223,8 +251,10 @@
     }
 
     .electionengine-tooltip-span {
-        font-weight: 600;
-        color: #232323;
+        text-wrap: nowrap;
+    }
+
+    .electionengine-tooltip-span-regular {
         text-wrap: nowrap;
     }
 

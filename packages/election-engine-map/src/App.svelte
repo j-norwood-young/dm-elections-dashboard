@@ -153,7 +153,7 @@
                     refresh(container_el, async () => {
                         await getData();
                     });
-                }, 10000);
+                }, 300000); // 5 minutes
             }
         }
     }

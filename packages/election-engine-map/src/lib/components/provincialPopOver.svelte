@@ -46,7 +46,9 @@
     <div class="electionengine-tooltip-container">
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-tdata">
-                {provincialPopOverData.MUNI_NAME}
+                {provincialPopOverData.MUNI_NAME ||
+                    provincialPopOverData.Municipali ||
+                    ""}
             </div>
         </div>
         <div
@@ -63,7 +65,9 @@
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-thead">
                 {provincialPopOverData.highest_parties[0].party_abbreviation} Votes
-                Percentage {provincialPopOverData.MUNI_NAME}
+                Percentage {provincialPopOverData.MUNI_NAME ||
+                    provincialPopOverData.Municipali ||
+                    ""}
             </div>
             <div
                 class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata"
@@ -152,7 +156,9 @@
         </div>
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-thead">
-                Valid Votes & Voters Turnout in {provincialPopOverData.MUNI_NAME}
+                Valid Votes & Voters Turnout in {provincialPopOverData.MUNI_NAME ||
+                    provincialPopOverData.Municipali ||
+                    ""}
             </div>
             <div class="electionengine-tooltip-tdata">
                 <span>

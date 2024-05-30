@@ -148,8 +148,8 @@
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div bind:clientWidth={svgWidth} bind:clientHeight={svgHeight}>
       <svg class="electionengine-map-svg" width="100%" viewBox="0 0 {width} {height}">
-        <!-- Municipalities Group  on:mouseleave={() => (provincialPopOverData = null)}   -->
-        <g>
+        <!-- Municipalities Group     -->
+        <g on:mouseleave={() => (provincialPopOverData = null)}>
           {#each provinces_array as municipality, index}
             <g>
               <!-- svelte-ignore a11y-mouse-events-have-key-events -->

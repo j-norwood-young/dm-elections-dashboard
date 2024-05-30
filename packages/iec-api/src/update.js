@@ -97,6 +97,7 @@ async function update_municipal_votes_by_province() {
         const municipalities = await getMunicipalities(PROVINCIAL_EVENT_ID, province.ProvinceID);
         for (let municipality of municipalities) {
             try {
+                console.log(`Updating ${`municipal_votes_${PROVINCIAL_EVENT_ID}_${province.ProvinceID}_${municipality.MunicipalityID}`}`)
                 const votes = await ElectionResults.votesByMunicipality(PROVINCIAL_EVENT_ID, province.ProvinceID, municipality.MunicipalityID);
                 assert(votes.ElectoralEventID === PROVINCIAL_EVENT_ID, "Invalid vote results.");
                 assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);

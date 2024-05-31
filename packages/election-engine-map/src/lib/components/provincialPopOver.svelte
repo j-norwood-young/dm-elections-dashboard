@@ -67,9 +67,13 @@
                 max={100}
             />
         </div>
-        <div class="electionengine-tooltip-section">
+        <div
+            class="electionengine-tooltip-section"
+            style:border-left-color={provincialPopOverData.highest_parties[1]
+                .party_color}
+        >
             <div class="electionengine-tooltip-thead">
-                Runner-Up 1: {firstLetterCap(
+                1st Runner-Up: {firstLetterCap(
                     provincialPopOverData.highest_parties[1].party_name
                 )}
             </div>
@@ -81,9 +85,13 @@
                 />
             </div>
         </div>
-        <div class="electionengine-tooltip-section">
+        <div
+            class="electionengine-tooltip-section"
+            style:border-left-color={provincialPopOverData.highest_parties[2]
+                .party_color}
+        >
             <div class="electionengine-tooltip-thead">
-                Runner-Up 2:{firstLetterCap(
+                2nd Runner-Up:{firstLetterCap(
                     provincialPopOverData.highest_parties[2].party_name
                 )}
             </div>

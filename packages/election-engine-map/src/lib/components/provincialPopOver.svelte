@@ -1,7 +1,7 @@
 <script>
     // @ts-nocheck
     import { fly, fade } from "svelte/transition";
-
+    import Range from "@election-engine/map/src/lib/components/range.svelte";
     export let provincialPopOverData;
 
     let tooltipWidth = 200;
@@ -55,39 +55,17 @@
             style:border-left-color={provincialPopOverData.color}
             class="electionengine-tooltip-section"
         >
-            <div class="electionengine-tooltip-thead">Winning Party:</div>
+            <div class="electionengine-tooltip-thead">Leading party:</div>
             <div class="electionengine-tooltip-tdata">
                 {firstLetterCap(
                     provincialPopOverData.highest_parties[0].party_name
                 )}
             </div>
-        </div>
-        <div class="electionengine-tooltip-section">
-            <div class="electionengine-tooltip-thead">
-                {provincialPopOverData.highest_parties[0].party_abbreviation} Votes
-                Percentage {provincialPopOverData.MUNI_NAME ||
-                    provincialPopOverData.Municipali ||
-                    ""}
-            </div>
-            <div
-                class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata"
-            >
-                <div class="electionengine-tooltip-range">
-                    <div class="electionengine-tooltip-outer">
-                        <div
-                            class="electionengine-tooltip-inner"
-                            style="width:{provincialPopOverData
-                                .highest_parties[0]
-                                .vote_perc}%; background:{provincialPopOverData.color}"
-                        ></div>
-                    </div>
-                </div>
-                <span class="electionengine-tooltip-span">
-                    {Math.round(
-                        provincialPopOverData.highest_parties[0].vote_perc
-                    )}%</span
-                >
-            </div>
+            <Range
+                color={provincialPopOverData.color}
+                value={provincialPopOverData.highest_parties[0].vote_perc}
+                max={100}
+            />
         </div>
         <div class="electionengine-tooltip-section">
             <div class="electionengine-tooltip-thead">
@@ -95,25 +73,12 @@
                     provincialPopOverData.highest_parties[1].party_name
                 )}
             </div>
-            <div
-                class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata"
-            >
-                <div class="electionengine-tooltip-range">
-                    <div class="electionengine-tooltip-outer">
-                        <div
-                            class="electionengine-tooltip-inner"
-                            style="width:{provincialPopOverData
-                                .highest_parties[1]
-                                .vote_perc}%; background:{provincialPopOverData
-                                .highest_parties[1].party_color}"
-                        ></div>
-                    </div>
-                </div>
-                <span class="electionengine-tooltip-span">
-                    {Math.round(
-                        provincialPopOverData.highest_parties[1].vote_perc
-                    )}%</span
-                >
+            <div class="electionengine-tooltip-tdata">
+                <Range
+                    value={provincialPopOverData.highest_parties[1].vote_perc}
+                    max={100}
+                    color={provincialPopOverData.highest_parties[1].party_color}
+                />
             </div>
         </div>
         <div class="electionengine-tooltip-section">
@@ -122,62 +87,32 @@
                     provincialPopOverData.highest_parties[2].party_name
                 )}
             </div>
-            <div
-                class="electionengine-tooltip-range-wrapper electionengine-tooltip-tdata"
-            >
-                <div class="electionengine-tooltip-range">
-                    <div class="electionengine-tooltip-outer">
-                        <div
-                            class="electionengine-tooltip-inner"
-                            style="width:{provincialPopOverData
-                                .highest_parties[2]
-                                .vote_perc}%; background:{provincialPopOverData
-                                .highest_parties[2].party_color}"
-                        ></div>
-                    </div>
-                </div>
-                <span class="electionengine-tooltip-span">
-                    {Math.round(
-                        provincialPopOverData.highest_parties[2].vote_perc
-                    )}%</span
-                >
-            </div>
+            <Range
+                value={provincialPopOverData.highest_parties[2].vote_perc}
+                max={100}
+                color={provincialPopOverData.highest_parties[2].party_color}
+            />
         </div>
         <div class="electionengine-tooltip-section">
-            <div class="electionengine-tooltip-thead">
-                Seats Won by <span class="electionengine-tooltip-span-bold">
-                    {provincialPopOverData.highest_parties[0]
-                        .party_abbreviation}
-                </span>
-            </div>
+            <div class="electionengine-tooltip-thead">Valid Votes</div>
             <div class="electionengine-tooltip-tdata">
-                {provincialPopOverData.highest_parties[0].seats} seats
+                {Intl.NumberFormat("en-US").format(
+                    provincialPopOverData.total_valid_votes
+                )}
+                votes
             </div>
-        </div>
-        <div class="electionengine-tooltip-section">
-            <div class="electionengine-tooltip-thead">
-                Valid Votes & Voters Turnout in {provincialPopOverData.MUNI_NAME ||
-                    provincialPopOverData.Municipali ||
-                    ""}
-            </div>
+            <div class="electionengine-tooltip-thead">Turnout</div>
             <div class="electionengine-tooltip-tdata">
-                <span>
-                    {Intl.NumberFormat("en-US").format(
-                        provincialPopOverData.total_valid_votes
-                    )}
-                </span><span class="electionengine-tooltip-span-regular">
-                    votes
-                </span>
-                (<span>
-                    {Math.round(
-                        (provincialPopOverData.total_valid_votes /
-                            provincialPopOverData.registered_voters) *
-                            100
-                    )}%
-                </span>
-                <span class="electionengine-tooltip-span-regular">
-                    turnout</span
-                >)
+                {provincialPopOverData.percent_voter_turnout.toFixed(2)}%
+            </div>
+            <div class="electionengine-tooltip-thead">VDs counted</div>
+            <div class="electionengine-tooltip-tdata">
+                {provincialPopOverData.vd_captured} of{" "}
+                {provincialPopOverData.vd_count} ({(
+                    (provincialPopOverData.vd_captured /
+                        provincialPopOverData.vd_count) *
+                    100
+                ).toFixed(1)}%) VDs
             </div>
         </div>
     </div>

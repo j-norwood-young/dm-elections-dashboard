@@ -62,16 +62,25 @@
                 </div>
             </div>
         {/each}
-        <div
-            class="electionengine-tooltip-section"
-            style="border-top: 1px #c7c4c4 solid"
-        >
-            <div class="electionengine-tooltip-thead">
-                Voter Turnout: {Math.round(
-                    (tooltipData.total_valid_votes /
-                        tooltipData.registered_voters) *
-                        100
-                )}%
+        <div class="electionengine-tooltip-section">
+            <div class="electionengine-tooltip-thead">Valid Votes</div>
+            <div class="electionengine-tooltip-tdata">
+                {Intl.NumberFormat("en-US").format(
+                    tooltipData.total_valid_votes
+                )}
+                votes
+            </div>
+            <div class="electionengine-tooltip-thead">Turnout</div>
+            <div class="electionengine-tooltip-tdata">
+                {tooltipData.percent_voter_turnout.toFixed(2)}%
+            </div>
+            <div class="electionengine-tooltip-thead">VDs counted</div>
+            <div class="electionengine-tooltip-tdata">
+                {tooltipData.vd_captured} of{" "}
+                {tooltipData.vd_count} ({(
+                    (tooltipData.vd_captured / tooltipData.vd_count) *
+                    100
+                ).toFixed(1)}%) VDs
             </div>
         </div>
     </div>

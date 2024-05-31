@@ -49,17 +49,18 @@
     };
 
     function getTotalParty(data) {
-        const municipal = [];
-        for (let item in data) {
-            const municipal_name = {
-                municipal_code: data[item].municipality_name.split(" ")[0],
-            };
-            if (!data[item].party_ballot_results?.length) continue;
-            const highestVotePercParty = data[item].party_ballot_results.sort(
-                (a, b) => b.vote_perc - a.vote_perc
-            )[0];
-            municipal.push(Object.assign(highestVotePercParty, municipal_name));
-        }
+        // const municipal = [];
+        // for (let item in data) {
+        //     const municipal_name = {
+        //         municipal_code: data[item].municipality_name.split(" ")[0],
+        //     };
+        //     const percent_voter_turnout = data[item].percent_voter_turnout;
+        //     if (!data[item].party_ballot_results?.length) continue;
+        //     const highestVotePercParty = data[item].party_ballot_results.sort(
+        //         (a, b) => b.vote_perc - a.vote_perc
+        //     )[0];
+        //     municipal.push(Object.assign(highestVotePercParty, municipal_name));
+        // }
         const result = provinces_geo_data.map((feature) => {
             const matchingPartyResult = topParties.find(
                 (party) =>
@@ -76,13 +77,18 @@
                     matchingPartyResult.registered_votes;
                 feature.properties.total_votes_cast =
                     matchingPartyResult.total_votes_cast;
+                feature.properties.percent_voter_turnout =
+                    matchingPartyResult.percent_voter_turnout;
+                feature.properties.vd_count = matchingPartyResult.vd_count;
+                feature.properties.vd_captured =
+                    matchingPartyResult.vd_captured;
             }
             return feature;
         });
         return result;
     }
 
-    function getTopParties(data) {
+    function setData(data) {
         return data.map((municipality) => {
             const topParties = municipality.party_ballot_results
                 .sort((a, b) => b.vote_perc - a.vote_perc)
@@ -93,6 +99,9 @@
                 total_votes_cast: municipality.total_votes_cast,
                 total_valid_votes: municipality.total_valid_votes,
                 registered_votes: municipality.registered_voters,
+                percent_voter_turnout: municipality.percent_voter_turnout,
+                vd_count: municipality.vd_count,
+                vd_captured: municipality.vd_captured,
                 top_parties: topParties,
             };
         });
@@ -115,7 +124,7 @@
 
     $: {
         provinces_geo_data = provincial_map.features;
-        topParties = getTopParties(data);
+        topParties = setData(data);
         highParty = topParties.map((d) => d.top_parties[0]);
         provinces_array = getTotalParty(data);
         const projection = geoIdentity()

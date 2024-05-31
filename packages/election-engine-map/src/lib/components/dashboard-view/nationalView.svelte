@@ -55,6 +55,26 @@
         return data.filter((party) => party.seats > 0);
     }
 
+    function setTooltipData(e, province) {
+        tooltipData = {};
+        tooltipData.province = province.properties.PROVINCE;
+        tooltipData.registered_voters = province.properties.registered_voters;
+        tooltipData.total_valid_votes = province.properties.total_valid_votes;
+        tooltipData.percent_voter_turnout =
+            selected_year === 2024
+                ? province.properties.percent_voter_turnout
+                : (province.properties.total_votes_cast /
+                      province.properties.registered_voters) *
+                  100;
+        tooltipData.vd_count = province.properties.vd_count;
+        tooltipData.vd_captured = province.properties.vd_captured;
+        tooltipData.party = filterPartiesWithSeats(
+            province.properties.party_ballot_results
+        );
+        tooltipData.x = e.clientX;
+        tooltipData.y = e.clientY;
+    }
+
     /**
      * geoIdentity - new geographic projection with an identity transformation
      * [20, 20] - Minimum X and Y coordinates for the map
@@ -113,22 +133,8 @@
                         {#if province.properties.PROVINCE === "Gauteng"}
                             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                             <g
-                                on:mouseover={(e) => {
-                                    tooltipData = {};
-                                    tooltipData["province"] =
-                                        province.properties.PROVINCE;
-                                    tooltipData["registered_voters"] =
-                                        province.properties.registered_voters;
-                                    tooltipData["total_valid_votes"] =
-                                        province.properties.total_valid_votes;
-                                    tooltipData["party"] =
-                                        filterPartiesWithSeats(
-                                            province.properties
-                                                .party_ballot_results
-                                        );
-                                    tooltipData["x"] = e.clientX;
-                                    tooltipData["y"] = e.clientY;
-                                }}
+                                on:mouseover={(e) =>
+                                    setTooltipData(e, province)}
                                 transform="translate({[350, 150]})"
                             >
                                 <text
@@ -179,22 +185,8 @@
                             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                             <g>
                                 <g
-                                    on:mouseover={(e) => {
-                                        tooltipData = {};
-                                        tooltipData["province"] =
-                                            province.properties.PROVINCE;
-                                        tooltipData["registered_voters"] =
-                                            province.properties.registered_voters;
-                                        tooltipData["total_valid_votes"] =
-                                            province.properties.total_valid_votes;
-                                        tooltipData["party"] =
-                                            filterPartiesWithSeats(
-                                                province.properties
-                                                    .party_ballot_results
-                                            );
-                                        tooltipData["x"] = e.clientX;
-                                        tooltipData["y"] = e.clientY;
-                                    }}
+                                    on:mouseover={(e) =>
+                                        setTooltipData(e, province)}
                                     transform={position_hexagons(province)}
                                 >
                                     <text

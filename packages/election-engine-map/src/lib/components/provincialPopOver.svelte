@@ -153,46 +153,6 @@
         }
     }
 
-    .electionengine-tooltip-range-wrapper {
-        display: flex;
-        gap: 12px;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .electionengine-tooltip-range {
-        position: relative;
-        width: 100%;
-        height: 12px;
-
-        @media screen and (max-width: 500px) {
-            height: 6px;
-        }
-    }
-
-    .electionengine-tooltip-outer {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background: #f2f2f2;
-        border-radius: 12px;
-    }
-
-    .electionengine-tooltip-inner {
-        height: 100%;
-        width: 73%;
-        position: absolute;
-        border-radius: inherit;
-    }
-
-    .electionengine-tooltip-span {
-        text-wrap: nowrap;
-    }
-
-    .electionengine-tooltip-span-regular {
-        text-wrap: nowrap;
-    }
-
     .electionengine-tooltip-container
         > div:last-child
         .electionengine-tooltip-tdata {

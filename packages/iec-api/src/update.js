@@ -8,10 +8,11 @@ const NATIONAL_EVENT_ID = 1334;
 const PROVINCIAL_EVENT_ID = 1335;
 
 async function update_national_votes() {
-    const vote_results = await ElectionResults.results(NATIONAL_EVENT_ID);
-    assert((vote_results.VDCount), "Invalid vote results.")
-    assert((vote_results.PartyBallotResults?.length), "Invalid vote results.")
-    await setCache(`national_votes_${NATIONAL_EVENT_ID}`, vote_results);
+    const votes = await ElectionResults.results(NATIONAL_EVENT_ID);
+    assert((votes.VDCount), "Invalid vote results.")
+    assert((votes.PartyBallotResults?.length), "Invalid vote results.")
+    assert((votes.VDWithResultsCaptured > 0), "VD cannot be zero.")
+    await setCache(`national_votes_${NATIONAL_EVENT_ID}`, votes);
     console.log("National votes updated.");
 }
 
@@ -30,6 +31,7 @@ async function update_national_votes_by_province() {
             const votes = await ElectionResults.votesByProvince(NATIONAL_EVENT_ID, province.ProvinceID);
             assert(votes.ElectoralEventID === NATIONAL_EVENT_ID, "Invalid vote results.");
             assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
+            assert((votes.VDWithResultsCaptured > 0), "VD cannot be zero.")
             await setCache(`national_votes_${NATIONAL_EVENT_ID}_${province.ProvinceID}`, votes);
         } catch (e) {
             handle_error(e);
@@ -60,6 +62,7 @@ async function update_provincial_votes_by_province() {
             const votes = await ElectionResults.votesByProvince(PROVINCIAL_EVENT_ID, province.ProvinceID);
             assert(votes.ElectoralEventID === PROVINCIAL_EVENT_ID, "Invalid vote results.");
             assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
+            assert((votes.VDWithResultsCaptured > 0), "VD cannot be zero.")
             await setCache(`provincial_votes_${PROVINCIAL_EVENT_ID}_${province.ProvinceID}`, votes);
         } catch (e) {
             handle_error(e);
@@ -102,6 +105,7 @@ async function update_municipal_votes_by_province() {
                 const votes = await ElectionResults.votesByMunicipality(PROVINCIAL_EVENT_ID, province.ProvinceID, municipality.MunicipalityID);
                 assert(votes.ElectoralEventID === PROVINCIAL_EVENT_ID, "Invalid vote results.");
                 assert(votes.PartyBallotResults.length > 0, votes.PartyBallotResults.length);
+                assert((votes.VDWithResultsCaptured > 0), "VD cannot be zero.")
                 await setCache(`municipal_votes_${PROVINCIAL_EVENT_ID}_${province.ProvinceID}_${municipality.MunicipalityID}`, votes);
             } catch (e) {
                 handle_error(e);
@@ -114,6 +118,7 @@ async function update_municipal_votes_by_province() {
 async function update_progress() {
     const progress = await ElectionResults.progress(NATIONAL_EVENT_ID);
     assert(progress.VDTotal > 0, "Invalid progress results.");
+    assert(progress.VDResultsIn > 0, "VDResultsIn cannot be zero.");
     await setCache(`progress_${NATIONAL_EVENT_ID}`, progress);
     console.log("Progress updated.");
 }
@@ -123,22 +128,32 @@ function handle_error(e) {
 }
 
 export async function update() {
+    await heatCache([NATIONAL_EVENT_ID, PROVINCIAL_EVENT_ID]);
+    await five_min_update();
+    await one_min_update();
     cron.schedule('*/5 * * * *', async () => {
-        console.time("update");
-        await heatCache([NATIONAL_EVENT_ID, PROVINCIAL_EVENT_ID]);
-        await update_national_votes().catch(handle_error);
-        await update_national_seats().catch(handle_error);
-        await update_national_votes_by_province().catch(handle_error);
-        await update_national_seats_by_province().catch(handle_error);
-        await update_provincial_votes_by_province().catch(handle_error);
-        await update_provincial_seats_by_province().catch(handle_error);
-        await update_municipal_votes_by_province().catch(handle_error);
-        console.timeEnd("update");
+        await five_min_update()
     });
     cron.schedule('* * * * *', async () => {
-        await heatCache([NATIONAL_EVENT_ID, PROVINCIAL_EVENT_ID]);
-        await update_progress().catch(handle_error);
+        await one_min_update()
     });
+}
+
+async function five_min_update() {
+    console.time("update");
+    await heatCache([NATIONAL_EVENT_ID, PROVINCIAL_EVENT_ID]);
+    await update_national_votes().catch(handle_error);
+    await update_national_seats().catch(handle_error);
+    await update_national_votes_by_province().catch(handle_error);
+    await update_national_seats_by_province().catch(handle_error);
+    await update_provincial_votes_by_province().catch(handle_error);
+    await update_provincial_seats_by_province().catch(handle_error);
+    await update_municipal_votes_by_province().catch(handle_error);
+    console.timeEnd("update");
+}
+
+async function one_min_update() {
+    await update_progress().catch(handle_error);
 }
 
 update();

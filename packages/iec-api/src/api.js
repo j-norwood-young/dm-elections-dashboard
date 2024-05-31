@@ -391,10 +391,10 @@ server.get("/provincial/:year/:province", async (req, res) => {
     const municipalities = await getMunicipalities(provincial_event.ID, province_id);
     const municipal_results = [];
     for (let municipality of municipalities) {
-        let municipality_results = await getCache(`municipality_votes_${provincial_event.ID}_${province_id}_${municipality.MunicipalityID}`);
+        let municipality_results = await getCache(`municipal_votes_${provincial_event.ID}_${province_id}_${municipality.MunicipalityID}`);
         if (!municipality_results) {
             municipality_results = await ElectionResults.votesByMunicipality(provincial_event.ID, province_id, municipality.MunicipalityID);
-            await setCache(`municipality_votes_${provincial_event.ID}_${province_id}_${municipality.MunicipalityID}`, municipality_results);
+            await setCache(`municipal_votes_${provincial_event.ID}_${province_id}_${municipality.MunicipalityID}`, municipality_results);
         }
         municipal_results.push({
             municipality_id: municipality.MunicipalityID,

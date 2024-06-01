@@ -232,8 +232,8 @@ server.get("/national/:year", async (req, res) => {
             // return res.status(404).send({ status: "error", msg: `Province Seats for National Election for province ${province} for year ${year} not found` });
         }
         const party_ballot_results = province_results.PartyBallotResults
-            .filter((pr) => pr.PercOfVotes > 0.1)
-            .filter((pr) => pr.BallotType === "Regional")
+            .filter((pr) => province_id === 99 || pr.PercOfVotes > 0.1)
+            .filter((pr) => province_id === 99 || pr.BallotType === "Regional")
             .map((pr) => {
                 const seats = seat_results.PartyResults.find((sr) => sr.Name === pr.Name);
                 let seat_count = 0;

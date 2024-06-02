@@ -1,0 +1,3007 @@
+{
+    "event_id": 1334,
+    "event_name": "2024 NATIONAL ELECTION",
+    "registered_voters": 27782081,
+    "spoilt_votes": 213437,
+    "special_votes": 1150880,
+    "total_votes_cast": 16290156,
+    "total_valid_votes": 16076719,
+    "vd_count": 23292,
+    "vd_captured": 23292,
+    "party_ballot_results": [
+        {
+            "party_id": 7,
+            "party_name": "AFRICAN NATIONAL CONGRESS",
+            "party_abbreviation": "ANC",
+            "votes": 6459683,
+            "vote_perc": 40.180356452,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 159
+        },
+        {
+            "party_id": 52,
+            "party_name": "DEMOCRATIC ALLIANCE",
+            "party_abbreviation": "DA",
+            "votes": 3505735,
+            "vote_perc": 21.806283981,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 87
+        },
+        {
+            "party_id": 1748,
+            "party_name": "UMKHONTO WESIZWE ",
+            "party_abbreviation": "M.K.",
+            "votes": 2344309,
+            "vote_perc": 14.582011417,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 58
+        },
+        {
+            "party_id": 945,
+            "party_name": "ECONOMIC FREEDOM FIGHTERS",
+            "party_abbreviation": "EFF",
+            "votes": 1529961,
+            "vote_perc": 9.51662463,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 39
+        },
+        {
+            "party_id": 3,
+            "party_name": "INKATHA FREEDOM PARTY",
+            "party_abbreviation": "IFP",
+            "votes": 618207,
+            "vote_perc": 3.845355511,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 17
+        },
+        {
+            "party_id": 957,
+            "party_name": "PATRIOTIC ALLIANCE",
+            "party_abbreviation": "PA",
+            "votes": 330425,
+            "vote_perc": 2.055301209,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 9
+        },
+        {
+            "party_id": 4,
+            "party_name": "VRYHEIDSFRONT PLUS",
+            "party_abbreviation": "VF PLUS",
+            "votes": 218850,
+            "vote_perc": 1.361285222,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 6
+        },
+        {
+            "party_id": 1511,
+            "party_name": "ACTIONSA",
+            "party_abbreviation": "ACTIONSA",
+            "votes": 192373,
+            "vote_perc": 1.196593658,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 6
+        },
+        {
+            "party_id": 18,
+            "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+            "party_abbreviation": "ACDP",
+            "votes": 96575,
+            "vote_perc": 0.600713367,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 3
+        },
+        {
+            "party_id": 6,
+            "party_name": "UNITED DEMOCRATIC MOVEMENT",
+            "party_abbreviation": "UDM",
+            "votes": 78448,
+            "vote_perc": 0.487960261,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 3
+        },
+        {
+            "party_id": 1755,
+            "party_name": "RISE MZANSI ",
+            "party_abbreviation": "RISE ",
+            "votes": 67975,
+            "vote_perc": 0.422816372,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 1711,
+            "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+            "party_abbreviation": "BOSA",
+            "votes": 65912,
+            "vote_perc": 0.409984152,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 1318,
+            "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+            "party_abbreviation": "ATM",
+            "votes": 63554,
+            "vote_perc": 0.39531698,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 447,
+            "party_name": "AL JAMA-AH",
+            "party_abbreviation": "ALJAMA",
+            "votes": 39067,
+            "vote_perc": 0.243003563,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 1492,
+            "party_name": "NATIONAL COLOURED CONGRESS",
+            "party_abbreviation": "CCC",
+            "votes": 37422,
+            "vote_perc": 0.232771376,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 8,
+            "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+            "party_abbreviation": "PAC",
+            "votes": 36716,
+            "vote_perc": 0.228379932,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 1707,
+            "party_name": "UNITED AFRICANS TRANSFORMATION",
+            "party_abbreviation": "UAT",
+            "votes": 35679,
+            "vote_perc": 0.221929611,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 1368,
+            "party_name": "GOOD",
+            "party_abbreviation": "GOOD",
+            "votes": 29501,
+            "vote_perc": 0.183501372,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 1801,
+            "party_name": "#HOPE4SA",
+            "party_abbreviation": "#HOPE4SA",
+            "votes": 27206,
+            "vote_perc": 0.169226072,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1067,
+            "party_name": "ALLIED MOVEMENT FOR CHANGE",
+            "party_abbreviation": "AM4C",
+            "votes": 22055,
+            "vote_perc": 0.137185952,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1644,
+            "party_name": "UNITED INDEPENDENT MOVEMENT",
+            "party_abbreviation": "UIM",
+            "votes": 20003,
+            "vote_perc": 0.124422154,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 330,
+            "party_name": "AFRICAN INDEPENDENT CONGRESS",
+            "party_abbreviation": "AIC",
+            "votes": 19900,
+            "vote_perc": 0.123781476,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 591,
+            "party_name": "NATIONAL FREEDOM PARTY",
+            "party_abbreviation": "NFP",
+            "votes": 19397,
+            "vote_perc": 0.120652728,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 17,
+            "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+            "party_abbreviation": "AZAPO",
+            "votes": 19048,
+            "vote_perc": 0.118481887,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1740,
+            "party_name": "AFRICAN CONGRESS FOR TRANSFORMATION",
+            "party_abbreviation": "ACT",
+            "votes": 18354,
+            "vote_perc": 0.114165086,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1544,
+            "party_name": "AFRICAN HEART CONGRESS",
+            "party_abbreviation": "AHC",
+            "votes": 16306,
+            "vote_perc": 0.101426168,
+            "ballot_type": "National",
+            "independent": false,
+            "seats": 0
+        }
+    ],
+    "regional_party_ballot_results": [
+        {
+            "party_id": 7,
+            "party_name": "AFRICAN NATIONAL CONGRESS",
+            "party_abbreviation": "ANC",
+            "votes": 6239089,
+            "vote_perc": 39.342442607,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 86
+        },
+        {
+            "party_id": 52,
+            "party_name": "DEMOCRATIC ALLIANCE",
+            "party_abbreviation": "DA",
+            "votes": 3454008,
+            "vote_perc": 21.780280984,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 45
+        },
+        {
+            "party_id": 1748,
+            "party_name": "UMKHONTO WESIZWE ",
+            "party_abbreviation": "M.K.",
+            "votes": 2240555,
+            "vote_perc": 14.128489992,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 27
+        },
+        {
+            "party_id": 945,
+            "party_name": "ECONOMIC FREEDOM FIGHTERS",
+            "party_abbreviation": "EFF",
+            "votes": 1560068,
+            "vote_perc": 9.837475592,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 22
+        },
+        {
+            "party_id": 3,
+            "party_name": "INKATHA FREEDOM PARTY",
+            "party_abbreviation": "IFP",
+            "votes": 688879,
+            "vote_perc": 4.343932667,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 9
+        },
+        {
+            "party_id": 957,
+            "party_name": "PATRIOTIC ALLIANCE",
+            "party_abbreviation": "PA",
+            "votes": 347292,
+            "vote_perc": 2.189953626,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 4
+        },
+        {
+            "party_id": 4,
+            "party_name": "VRYHEIDSFRONT PLUS",
+            "party_abbreviation": "VF PLUS",
+            "votes": 236594,
+            "vote_perc": 1.491914263,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 1511,
+            "party_name": "ACTIONSA",
+            "party_abbreviation": "ACTIONSA",
+            "votes": 220878,
+            "vote_perc": 1.392812322,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 2
+        },
+        {
+            "party_id": 18,
+            "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+            "party_abbreviation": "ACDP",
+            "votes": 93869,
+            "vote_perc": 0.591919068,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 6,
+            "party_name": "UNITED DEMOCRATIC MOVEMENT",
+            "party_abbreviation": "UDM",
+            "votes": 85764,
+            "vote_perc": 0.540810565,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 1755,
+            "party_name": "RISE MZANSI ",
+            "party_abbreviation": "RISE ",
+            "votes": 70424,
+            "vote_perc": 0.444079605,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 1711,
+            "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+            "party_abbreviation": "BOSA",
+            "votes": 69499,
+            "vote_perc": 0.438246741,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1318,
+            "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+            "party_abbreviation": "ATM",
+            "votes": 66912,
+            "vote_perc": 0.421933638,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 447,
+            "party_name": "AL JAMA-AH",
+            "party_abbreviation": "ALJAMA",
+            "votes": 53405,
+            "vote_perc": 0.395741949,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1492,
+            "party_name": "NATIONAL COLOURED CONGRESS",
+            "party_abbreviation": "CCC",
+            "votes": 47188,
+            "vote_perc": 2.404251308,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 1
+        },
+        {
+            "party_id": 8,
+            "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+            "party_abbreviation": "PAC",
+            "votes": 40843,
+            "vote_perc": 0.257547758,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1368,
+            "party_name": "GOOD",
+            "party_abbreviation": "GOOD",
+            "votes": 36307,
+            "vote_perc": 0.228944653,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1707,
+            "party_name": "UNITED AFRICANS TRANSFORMATION",
+            "party_abbreviation": "UAT",
+            "votes": 32271,
+            "vote_perc": 0.393396699,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 591,
+            "party_name": "NATIONAL FREEDOM PARTY",
+            "party_abbreviation": "NFP",
+            "votes": 22745,
+            "vote_perc": 0.241759735,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1644,
+            "party_name": "UNITED INDEPENDENT MOVEMENT",
+            "party_abbreviation": "UIM",
+            "votes": 18784,
+            "vote_perc": 0.118448133,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 17,
+            "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+            "party_abbreviation": "AZAPO",
+            "votes": 18762,
+            "vote_perc": 0.118309405,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1067,
+            "party_name": "ALLIED MOVEMENT FOR CHANGE",
+            "party_abbreviation": "AM4C",
+            "votes": 18414,
+            "vote_perc": 0.195840428,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1801,
+            "party_name": "#HOPE4SA",
+            "party_abbreviation": "#HOPE4SA",
+            "votes": 16967,
+            "vote_perc": 0.238367887,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 499,
+            "party_name": "CONGRESS  OF THE PEOPLE",
+            "party_abbreviation": "COPE",
+            "votes": 16791,
+            "vote_perc": 0.105880675,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 0,
+            "party_name": "ACHMAT ZACKIE - 583999",
+            "party_abbreviation": "IND",
+            "votes": 10579,
+            "vote_perc": 0.539005141,
+            "ballot_type": "Regional",
+            "independent": true,
+            "seats": 0
+        },
+        {
+            "party_id": 1016,
+            "party_name": "FORUM 4 SERVICE DELIVERY",
+            "party_abbreviation": "F4SD",
+            "votes": 7446,
+            "vote_perc": 0.216255715,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1036,
+            "party_name": "DEMOCRATIC LIBERAL CONGRESS",
+            "party_abbreviation": "DLC",
+            "votes": 7022,
+            "vote_perc": 0.20033488,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1744,
+            "party_name": "NORTHERN CAPE COMMUNITIES MOVEMENT",
+            "party_abbreviation": "NCCM",
+            "votes": 7016,
+            "vote_perc": 1.774966795,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1370,
+            "party_name": "AFRICAN CONTENT MOVEMENT",
+            "party_abbreviation": "ACM",
+            "votes": 4617,
+            "vote_perc": 0.559438356,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1728,
+            "party_name": "ACTION ALLIANCE DEVELOPMENT PARTY",
+            "party_abbreviation": "AADP",
+            "votes": 4600,
+            "vote_perc": 0.325061691,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1799,
+            "party_name": "REFERENDUM PARTY",
+            "party_abbreviation": "RP",
+            "votes": 4206,
+            "vote_perc": 0.214297724,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 1528,
+            "party_name": "AFRICAN PEOPLE'S MOVEMENT",
+            "party_abbreviation": "APEMO",
+            "votes": 4201,
+            "vote_perc": 0.119852867,
+            "ballot_type": "Regional",
+            "independent": false,
+            "seats": 0
+        },
+        {
+            "party_id": 0,
+            "party_name": "RAMOBA LEHLOHONOLO BLESSINGS ANSWER - 501784",
+            "party_abbreviation": "IND",
+            "votes": 1574,
+            "vote_perc": 0.111227631,
+            "ballot_type": "Regional",
+            "independent": true,
+            "seats": 0
+        }
+    ],
+    "provincial_results": [
+        {
+            "province_id": 1,
+            "province_name": "Eastern Cape",
+            "registered_voters": 3438924,
+            "spoilt_votes": 27644,
+            "special_votes": 187650,
+            "percent_voter_turnout": 53.4,
+            "total_votes_cast": 1836398,
+            "total_valid_votes": 1808754,
+            "vd_count": 4867,
+            "vd_captured": 4867,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1118028,
+                    "vote_perc": 62.384663801,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 16
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 266919,
+                    "vote_perc": 14.893770171,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 4
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 182809,
+                    "vote_perc": 10.200529866,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 63606,
+                    "vote_perc": 3.549140921,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 42393,
+                    "vote_perc": 2.36548016,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 28115,
+                    "vote_perc": 1.568784344,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 26246,
+                    "vote_perc": 1.464496315,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 9496,
+                    "vote_perc": 0.52986577,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 9288,
+                    "vote_perc": 0.518259612,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 8588,
+                    "vote_perc": 0.479200425,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 8529,
+                    "vote_perc": 0.475908293,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 5384,
+                    "vote_perc": 0.300420946,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 4852,
+                    "vote_perc": 0.270735964,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 2807,
+                    "vote_perc": 0.15662734,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 2184,
+                    "vote_perc": 0.121864663,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1754,
+                    "party_name": "ALLIANCE OF CITIZENS FOR CHANGE ",
+                    "party_abbreviation": "A.C.C.",
+                    "votes": 1964,
+                    "vote_perc": 0.109588919,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 1906,
+                    "vote_perc": 0.106352586,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 2,
+            "province_name": "Free State",
+            "registered_voters": 1456927,
+            "spoilt_votes": 11544,
+            "special_votes": 66047,
+            "percent_voter_turnout": 57.86,
+            "total_votes_cast": 842989,
+            "total_valid_votes": 831445,
+            "vd_count": 1586,
+            "vd_captured": 1586,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 433807,
+                    "vote_perc": 52.564062174,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 6
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 177615,
+                    "vote_perc": 21.521473612,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 115147,
+                    "vote_perc": 13.952273862,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 25544,
+                    "vote_perc": 3.09514693,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 18514,
+                    "vote_perc": 2.24332721,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 11838,
+                    "vote_perc": 1.4344014,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 6591,
+                    "vote_perc": 0.798626426,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 4823,
+                    "vote_perc": 0.584399219,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1370,
+                    "party_name": "AFRICAN CONTENT MOVEMENT",
+                    "party_abbreviation": "ACM",
+                    "votes": 4617,
+                    "vote_perc": 0.559438356,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 3443,
+                    "vote_perc": 0.417185675,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 3211,
+                    "vote_perc": 0.389074412,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 2406,
+                    "vote_perc": 0.291533179,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1801,
+                    "party_name": "#HOPE4SA",
+                    "party_abbreviation": "#HOPE4SA",
+                    "votes": 2231,
+                    "vote_perc": 0.270328562,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 1997,
+                    "vote_perc": 0.241974962,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 1814,
+                    "vote_perc": 0.219800992,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 1686,
+                    "vote_perc": 0.20429133,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1707,
+                    "party_name": "UNITED AFRICANS TRANSFORMATION",
+                    "party_abbreviation": "UAT",
+                    "votes": 1342,
+                    "vote_perc": 0.162609113,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 1333,
+                    "vote_perc": 0.16151859,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1644,
+                    "party_name": "UNITED INDEPENDENT MOVEMENT",
+                    "party_abbreviation": "UIM",
+                    "votes": 1170,
+                    "vote_perc": 0.141768005,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 915,
+                    "vote_perc": 0.11086985,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1754,
+                    "party_name": "ALLIANCE OF CITIZENS FOR CHANGE ",
+                    "party_abbreviation": "A.C.C.",
+                    "votes": 904,
+                    "vote_perc": 0.109536988,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 3,
+            "province_name": "Gauteng",
+            "registered_voters": 6541978,
+            "spoilt_votes": 36965,
+            "special_votes": 242819,
+            "percent_voter_turnout": 61.91,
+            "total_votes_cast": 4050456,
+            "total_valid_votes": 4013491,
+            "vd_count": 2797,
+            "vd_captured": 2797,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1359785,
+                    "vote_perc": 34.558516311,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 17
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 1071239,
+                    "vote_perc": 27.225208731,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 13
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 508480,
+                    "vote_perc": 12.922862345,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 6
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 384501,
+                    "vote_perc": 9.771974305,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 5
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 159668,
+                    "vote_perc": 4.057912966,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 97284,
+                    "vote_perc": 2.47244285,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 83809,
+                    "vote_perc": 2.129979882,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 40338,
+                    "vote_perc": 1.025177827,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 36143,
+                    "vote_perc": 0.918563196,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 34843,
+                    "vote_perc": 0.885524097,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 29410,
+                    "vote_perc": 0.747446078,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "ALJAMA",
+                    "votes": 17046,
+                    "vote_perc": 0.433218832,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 13025,
+                    "vote_perc": 0.331026357,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 11697,
+                    "vote_perc": 0.297275647,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1801,
+                    "party_name": "#HOPE4SA",
+                    "party_abbreviation": "#HOPE4SA",
+                    "votes": 8956,
+                    "vote_perc": 0.227613977,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1707,
+                    "party_name": "UNITED AFRICANS TRANSFORMATION",
+                    "party_abbreviation": "UAT",
+                    "votes": 8936,
+                    "vote_perc": 0.227105683,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 7831,
+                    "vote_perc": 0.199022449,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1644,
+                    "party_name": "UNITED INDEPENDENT MOVEMENT",
+                    "party_abbreviation": "UIM",
+                    "votes": 6228,
+                    "vote_perc": 0.158282699,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1368,
+                    "party_name": "GOOD",
+                    "party_abbreviation": "GOOD",
+                    "votes": 5773,
+                    "vote_perc": 0.146719014,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 4647,
+                    "vote_perc": 0.118102072,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1067,
+                    "party_name": "ALLIED MOVEMENT FOR CHANGE",
+                    "party_abbreviation": "AM4C",
+                    "votes": 4524,
+                    "vote_perc": 0.114976064,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 4,
+            "province_name": "KwaZulu-Natal",
+            "registered_voters": 5738249,
+            "spoilt_votes": 58406,
+            "special_votes": 213302,
+            "percent_voter_turnout": 62.31,
+            "total_votes_cast": 3575434,
+            "total_valid_votes": 3517028,
+            "vd_count": 4974,
+            "vd_captured": 4974,
+            "party_ballot_results": [
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 1574202,
+                    "vote_perc": 44.911359946,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 19
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 640683,
+                    "vote_perc": 18.27843239,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 8
+                },
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 603459,
+                    "vote_perc": 17.216446404,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 7
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 471830,
+                    "vote_perc": 13.461123136,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 6
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 83465,
+                    "vote_perc": 2.381223412,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 591,
+                    "party_name": "NATIONAL FREEDOM PARTY",
+                    "party_abbreviation": "NFP",
+                    "votes": 20716,
+                    "vote_perc": 0.59101928,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 11593,
+                    "vote_perc": 0.330743701,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 10455,
+                    "vote_perc": 0.298277012,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1067,
+                    "party_name": "ALLIED MOVEMENT FOR CHANGE",
+                    "party_abbreviation": "AM4C",
+                    "votes": 8676,
+                    "vote_perc": 0.247522846,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 7587,
+                    "vote_perc": 0.216454107,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "ALJAMA",
+                    "votes": 7127,
+                    "vote_perc": 0.203330489,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1036,
+                    "party_name": "DEMOCRATIC LIBERAL CONGRESS",
+                    "party_abbreviation": "DLC",
+                    "votes": 7022,
+                    "vote_perc": 0.20033488,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 6577,
+                    "vote_perc": 0.187639207,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 5620,
+                    "vote_perc": 0.160336375,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 4856,
+                    "vote_perc": 0.138539758,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1528,
+                    "party_name": "AFRICAN PEOPLE'S MOVEMENT",
+                    "party_abbreviation": "APEMO",
+                    "votes": 4201,
+                    "vote_perc": 0.119852867,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 4152,
+                    "vote_perc": 0.118454917,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 5,
+            "province_name": "Mpumalanga",
+            "registered_voters": 2025070,
+            "spoilt_votes": 20390,
+            "special_votes": 86344,
+            "percent_voter_turnout": 58,
+            "total_votes_cast": 1174589,
+            "total_valid_votes": 1154199,
+            "vd_count": 1811,
+            "vd_captured": 1811,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 585811,
+                    "vote_perc": 51.254477464,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 8
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 191869,
+                    "vote_perc": 16.787232293,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 160425,
+                    "vote_perc": 14.036096194,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 136575,
+                    "vote_perc": 11.949383435,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 18136,
+                    "vote_perc": 1.586776628,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 5990,
+                    "vote_perc": 0.524084252,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1707,
+                    "party_name": "UNITED AFRICANS TRANSFORMATION",
+                    "party_abbreviation": "UAT",
+                    "votes": 5587,
+                    "vote_perc": 0.488824494,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 5301,
+                    "vote_perc": 0.463801439,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 5014,
+                    "vote_perc": 0.438690892,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 4912,
+                    "vote_perc": 0.429766586,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 3551,
+                    "vote_perc": 0.310688344,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 3153,
+                    "vote_perc": 0.275866051,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 2762,
+                    "vote_perc": 0.241656211,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 1993,
+                    "vote_perc": 0.174373942,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 1548,
+                    "vote_perc": 0.13543947,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 1403,
+                    "vote_perc": 0.122752956,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1644,
+                    "party_name": "UNITED INDEPENDENT MOVEMENT",
+                    "party_abbreviation": "UIM",
+                    "votes": 1351,
+                    "vote_perc": 0.11820331,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 6,
+            "province_name": "Northern Cape",
+            "registered_voters": 656826,
+            "spoilt_votes": 6174,
+            "special_votes": 52054,
+            "percent_voter_turnout": 61.51,
+            "total_votes_cast": 404030,
+            "total_valid_votes": 397856,
+            "vd_count": 730,
+            "vd_captured": 730,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 195531,
+                    "vote_perc": 49.467079881,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 82767,
+                    "vote_perc": 20.939093036,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 52314,
+                    "vote_perc": 13.234836506,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 33994,
+                    "vote_perc": 8.600088546,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 7650,
+                    "vote_perc": 1.935361457,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1744,
+                    "party_name": "NORTHERN CAPE COMMUNITIES MOVEMENT",
+                    "party_abbreviation": "NCCM",
+                    "votes": 7016,
+                    "vote_perc": 1.774966795,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 3005,
+                    "vote_perc": 0.760230219,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 2027,
+                    "vote_perc": 0.512807539,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1368,
+                    "party_name": "GOOD",
+                    "party_abbreviation": "GOOD",
+                    "votes": 1870,
+                    "vote_perc": 0.473088356,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1801,
+                    "party_name": "#HOPE4SA",
+                    "party_abbreviation": "#HOPE4SA",
+                    "votes": 1672,
+                    "vote_perc": 0.422996648,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 1434,
+                    "vote_perc": 0.362785403,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 906,
+                    "vote_perc": 0.229207514,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 785,
+                    "vote_perc": 0.198595914,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 614,
+                    "vote_perc": 0.155334893,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 602,
+                    "vote_perc": 0.152299032,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 598,
+                    "vote_perc": 0.151287079,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 412,
+                    "vote_perc": 0.104231231,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1523,
+                    "party_name": "AFRICA RESTORATION ALLIANCE",
+                    "party_abbreviation": "ARA",
+                    "votes": 397,
+                    "vote_perc": 0.100436405,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 7,
+            "province_name": "Limpopo",
+            "registered_voters": 2779657,
+            "spoilt_votes": 18181,
+            "special_votes": 120894,
+            "percent_voter_turnout": 52.11,
+            "total_votes_cast": 1448365,
+            "total_valid_votes": 1430184,
+            "vd_count": 3216,
+            "vd_captured": 3216,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1038446,
+                    "vote_perc": 73.382394093,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 16
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 197992,
+                    "vote_perc": 13.991220508,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 84161,
+                    "vote_perc": 5.9472863,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 16145,
+                    "vote_perc": 1.14089587,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 12295,
+                    "vote_perc": 0.868833368,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1707,
+                    "party_name": "UNITED AFRICANS TRANSFORMATION",
+                    "party_abbreviation": "UAT",
+                    "votes": 11764,
+                    "vote_perc": 0.831309942,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 9444,
+                    "vote_perc": 0.667365785,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 4806,
+                    "vote_perc": 0.339618802,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1728,
+                    "party_name": "ACTION ALLIANCE DEVELOPMENT PARTY",
+                    "party_abbreviation": "AADP",
+                    "votes": 4600,
+                    "vote_perc": 0.325061691,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 4507,
+                    "vote_perc": 0.318489792,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 3075,
+                    "vote_perc": 0.217296674,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 2932,
+                    "vote_perc": 0.207191495,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 2787,
+                    "vote_perc": 0.196944985,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 2527,
+                    "vote_perc": 0.178571933,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 2118,
+                    "vote_perc": 0.149669709,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 2042,
+                    "vote_perc": 0.144299125,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1531,
+                    "party_name": "ABLE LEADERSHIP",
+                    "party_abbreviation": "AL",
+                    "votes": 1951,
+                    "vote_perc": 0.137868556,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1790,
+                    "party_name": "ECONOMIC LIBERATORS FORUM SOUTH AFRICA",
+                    "party_abbreviation": "ELF-SA",
+                    "votes": 1800,
+                    "vote_perc": 0.127198053,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 0,
+                    "party_name": "RAMOBA LEHLOHONOLO BLESSINGS ANSWER - 501784",
+                    "party_abbreviation": "IND",
+                    "votes": 1574,
+                    "vote_perc": 0.111227631,
+                    "ballot_type": "Regional",
+                    "independent": true,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1016,
+                    "party_name": "FORUM 4 SERVICE DELIVERY",
+                    "party_abbreviation": "F4SD",
+                    "votes": 1429,
+                    "vote_perc": 0.100981121,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 8,
+            "province_name": "North West",
+            "registered_voters": 1768576,
+            "spoilt_votes": 15524,
+            "special_votes": 86919,
+            "percent_voter_turnout": 51.42,
+            "total_votes_cast": 909475,
+            "total_valid_votes": 893951,
+            "vd_count": 1738,
+            "vd_captured": 1738,
+            "party_ballot_results": [
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 515832,
+                    "vote_perc": 58.28056998,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 8
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 153496,
+                    "vote_perc": 17.34253472,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 3
+                },
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 114629,
+                    "vote_perc": 12.951200112,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 24487,
+                    "vote_perc": 2.76663006,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 18176,
+                    "vote_perc": 2.053590394,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 13871,
+                    "vote_perc": 1.567195882,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 8055,
+                    "vote_perc": 0.910083111,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1016,
+                    "party_name": "FORUM 4 SERVICE DELIVERY",
+                    "party_abbreviation": "F4SD",
+                    "votes": 5344,
+                    "vote_perc": 0.6037845,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1707,
+                    "party_name": "UNITED AFRICANS TRANSFORMATION",
+                    "party_abbreviation": "UAT",
+                    "votes": 4642,
+                    "vote_perc": 0.524469994,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 3828,
+                    "vote_perc": 0.432501322,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 3765,
+                    "vote_perc": 0.425383353,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 3169,
+                    "vote_perc": 0.358045112,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 2118,
+                    "vote_perc": 0.239299321,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 1366,
+                    "vote_perc": 0.154335634,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 1327,
+                    "vote_perc": 0.149929272,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 1309,
+                    "vote_perc": 0.147895567,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 1267,
+                    "vote_perc": 0.143150255,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 1204,
+                    "vote_perc": 0.136032286,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1790,
+                    "party_name": "ECONOMIC LIBERATORS FORUM SOUTH AFRICA",
+                    "party_abbreviation": "ELF-SA",
+                    "votes": 1090,
+                    "vote_perc": 0.123152153,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 9,
+            "province_name": "Western Cape",
+            "registered_voters": 3317072,
+            "spoilt_votes": 18577,
+            "special_votes": 94851,
+            "percent_voter_turnout": 60.57,
+            "total_votes_cast": 2009304,
+            "total_valid_votes": 1990727,
+            "vd_count": 1572,
+            "vd_captured": 1572,
+            "party_ballot_results": [
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 1048273,
+                    "vote_perc": 53.410013808,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 14
+                },
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 388390,
+                    "vote_perc": 19.788657404,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 5
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 153936,
+                    "vote_perc": 7.843113278,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 2
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 105940,
+                    "vote_perc": 5.397693981,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 1492,
+                    "party_name": "NATIONAL COLOURED CONGRESS",
+                    "party_abbreviation": "CCC",
+                    "votes": 47188,
+                    "vote_perc": 2.404251308,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 32440,
+                    "vote_perc": 1.652833611,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 1
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "ALJAMA",
+                    "votes": 26787,
+                    "vote_perc": 1.364810541,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 25588,
+                    "vote_perc": 1.303720914,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1368,
+                    "party_name": "GOOD",
+                    "party_abbreviation": "GOOD",
+                    "votes": 22453,
+                    "vote_perc": 1.143991155,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 11747,
+                    "vote_perc": 0.598515303,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 0,
+                    "party_name": "ACHMAT ZACKIE - 583999",
+                    "party_abbreviation": "IND",
+                    "votes": 10579,
+                    "vote_perc": 0.539005141,
+                    "ballot_type": "Regional",
+                    "independent": true,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 10266,
+                    "vote_perc": 0.52305764,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 9734,
+                    "vote_perc": 0.495951984,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1523,
+                    "party_name": "AFRICA RESTORATION ALLIANCE",
+                    "party_abbreviation": "ARA",
+                    "votes": 8596,
+                    "vote_perc": 0.437970337,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 6751,
+                    "vote_perc": 0.343966699,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 6540,
+                    "vote_perc": 0.333216147,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 6012,
+                    "vote_perc": 0.306314293,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 5934,
+                    "vote_perc": 0.302340156,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1067,
+                    "party_name": "ALLIED MOVEMENT FOR CHANGE",
+                    "party_abbreviation": "AM4C",
+                    "votes": 5214,
+                    "vote_perc": 0.265655809,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1644,
+                    "party_name": "UNITED INDEPENDENT MOVEMENT",
+                    "party_abbreviation": "UIM",
+                    "votes": 4940,
+                    "vote_perc": 0.251695377,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1335,
+                    "party_name": "PEOPLE'S MOVEMENT FOR CHANGE",
+                    "party_abbreviation": "PMC",
+                    "votes": 4915,
+                    "vote_perc": 0.250421615,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1799,
+                    "party_name": "REFERENDUM PARTY",
+                    "party_abbreviation": "RP",
+                    "votes": 4206,
+                    "vote_perc": 0.214297724,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1801,
+                    "party_name": "#HOPE4SA",
+                    "party_abbreviation": "#HOPE4SA",
+                    "votes": 4108,
+                    "vote_perc": 0.209304577,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1754,
+                    "party_name": "ALLIANCE OF CITIZENS FOR CHANGE ",
+                    "party_abbreviation": "A.C.C.",
+                    "votes": 2235,
+                    "vote_perc": 0.113874326,
+                    "ballot_type": "Regional",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        },
+        {
+            "province_id": 99,
+            "province_name": "Out of Country",
+            "registered_voters": 58802,
+            "spoilt_votes": 32,
+            "special_votes": 0,
+            "percent_voter_turnout": 66.52,
+            "total_votes_cast": 39116,
+            "total_valid_votes": 39084,
+            "vd_count": 1,
+            "vd_captured": 1,
+            "party_ballot_results": [
+                {
+                    "party_id": 52,
+                    "party_name": "DEMOCRATIC ALLIANCE",
+                    "party_abbreviation": "DA",
+                    "votes": 29401,
+                    "vote_perc": 75.225156074,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 945,
+                    "party_name": "ECONOMIC FREEDOM FIGHTERS",
+                    "party_abbreviation": "EFF",
+                    "votes": 1721,
+                    "vote_perc": 4.403336404,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 7,
+                    "party_name": "AFRICAN NATIONAL CONGRESS",
+                    "party_abbreviation": "ANC",
+                    "votes": 1532,
+                    "vote_perc": 3.919762563,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1755,
+                    "party_name": "RISE MZANSI ",
+                    "party_abbreviation": "RISE ",
+                    "votes": 1383,
+                    "vote_perc": 3.538532392,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 4,
+                    "party_name": "VRYHEIDSFRONT PLUS",
+                    "party_abbreviation": "VF PLUS",
+                    "votes": 1183,
+                    "vote_perc": 3.026814042,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1511,
+                    "party_name": "ACTIONSA",
+                    "party_abbreviation": "ACTIONSA",
+                    "votes": 1172,
+                    "vote_perc": 2.998669532,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1711,
+                    "party_name": "BUILD ONE SOUTH AFRICA WITH MMUSI MAIMANE",
+                    "party_abbreviation": "BOSA",
+                    "votes": 565,
+                    "vote_perc": 1.445604339,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1748,
+                    "party_name": "UMKHONTO WESIZWE ",
+                    "party_abbreviation": "M.K.",
+                    "votes": 470,
+                    "vote_perc": 1.202538123,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 957,
+                    "party_name": "PATRIOTIC ALLIANCE",
+                    "party_abbreviation": "PA",
+                    "votes": 383,
+                    "vote_perc": 0.979940641,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 18,
+                    "party_name": "AFRICAN CHRISTIAN DEMOCRATIC PARTY",
+                    "party_abbreviation": "ACDP",
+                    "votes": 287,
+                    "vote_perc": 0.734315833,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1368,
+                    "party_name": "GOOD",
+                    "party_abbreviation": "GOOD",
+                    "votes": 159,
+                    "vote_perc": 0.406816088,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 6,
+                    "party_name": "UNITED DEMOCRATIC MOVEMENT",
+                    "party_abbreviation": "UDM",
+                    "votes": 108,
+                    "vote_perc": 0.276327909,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 447,
+                    "party_name": "AL JAMA-AH",
+                    "party_abbreviation": "ALJAMA",
+                    "votes": 99,
+                    "vote_perc": 0.253300583,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1644,
+                    "party_name": "UNITED INDEPENDENT MOVEMENT",
+                    "party_abbreviation": "UIM",
+                    "votes": 87,
+                    "vote_perc": 0.222597482,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 3,
+                    "party_name": "INKATHA FREEDOM PARTY",
+                    "party_abbreviation": "IFP",
+                    "votes": 81,
+                    "vote_perc": 0.207245932,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1801,
+                    "party_name": "#HOPE4SA",
+                    "party_abbreviation": "#HOPE4SA",
+                    "votes": 73,
+                    "vote_perc": 0.186777198,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1799,
+                    "party_name": "REFERENDUM PARTY",
+                    "party_abbreviation": "RP",
+                    "votes": 45,
+                    "vote_perc": 0.115136629,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 8,
+                    "party_name": "PAN AFRICANIST CONGRESS OF AZANIA",
+                    "party_abbreviation": "PAC",
+                    "votes": 44,
+                    "vote_perc": 0.112578037,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1492,
+                    "party_name": "NATIONAL COLOURED CONGRESS",
+                    "party_abbreviation": "CCC",
+                    "votes": 37,
+                    "vote_perc": 0.094667895,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1318,
+                    "party_name": "AFRICAN TRANSFORMATION MOVEMENT",
+                    "party_abbreviation": "ATM",
+                    "votes": 31,
+                    "vote_perc": 0.079316344,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 499,
+                    "party_name": "CONGRESS  OF THE PEOPLE",
+                    "party_abbreviation": "COPE",
+                    "votes": 31,
+                    "vote_perc": 0.079316344,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1362,
+                    "party_name": "ORGANIC HUMANITY MOVEMENT",
+                    "party_abbreviation": "OHM",
+                    "votes": 29,
+                    "vote_perc": 0.074199161,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1067,
+                    "party_name": "ALLIED MOVEMENT FOR CHANGE",
+                    "party_abbreviation": "AM4C",
+                    "votes": 24,
+                    "vote_perc": 0.061406202,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 17,
+                    "party_name": "AZANIAN PEOPLE'S ORGANISATION",
+                    "party_abbreviation": "AZAPO",
+                    "votes": 24,
+                    "vote_perc": 0.061406202,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1728,
+                    "party_name": "ACTION ALLIANCE DEVELOPMENT PARTY",
+                    "party_abbreviation": "AADP",
+                    "votes": 22,
+                    "vote_perc": 0.056289019,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1785,
+                    "party_name": "SOUTH AFRICAN RAINBOW ALLIANCE ",
+                    "party_abbreviation": "SARA",
+                    "votes": 13,
+                    "vote_perc": 0.033261693,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1036,
+                    "party_name": "DEMOCRATIC LIBERAL CONGRESS",
+                    "party_abbreviation": "DLC",
+                    "votes": 10,
+                    "vote_perc": 0.025585918,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1707,
+                    "party_name": "UNITED AFRICANS TRANSFORMATION",
+                    "party_abbreviation": "UAT",
+                    "votes": 9,
+                    "vote_perc": 0.023027326,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1775,
+                    "party_name": "AFRICAN MOVEMENT CONGRESS",
+                    "party_abbreviation": "NO_ABBR",
+                    "votes": 8,
+                    "vote_perc": 0.020468734,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1729,
+                    "party_name": "XILUVA",
+                    "party_abbreviation": "XILUVA",
+                    "votes": 7,
+                    "vote_perc": 0.017910142,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1523,
+                    "party_name": "AFRICA RESTORATION ALLIANCE",
+                    "party_abbreviation": "ARA",
+                    "votes": 5,
+                    "vote_perc": 0.012792959,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1754,
+                    "party_name": "ALLIANCE OF CITIZENS FOR CHANGE ",
+                    "party_abbreviation": "A.C.C.",
+                    "votes": 5,
+                    "vote_perc": 0.012792959,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1763,
+                    "party_name": "AFRICA AFRICANS RECLAIM ",
+                    "party_abbreviation": "AAR",
+                    "votes": 4,
+                    "vote_perc": 0.010234367,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1742,
+                    "party_name": "CITIZANS",
+                    "party_abbreviation": "CITIZANS",
+                    "votes": 4,
+                    "vote_perc": 0.010234367,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 466,
+                    "party_name": "CONSERVATIVES IN ACTION",
+                    "party_abbreviation": "CIASA",
+                    "votes": 4,
+                    "vote_perc": 0.010234367,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1354,
+                    "party_name": "FREE DEMOCRATS",
+                    "party_abbreviation": "FREE DEMS",
+                    "votes": 4,
+                    "vote_perc": 0.010234367,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1749,
+                    "party_name": "ALL CITIZENS PARTY ",
+                    "party_abbreviation": "ACP ",
+                    "votes": 3,
+                    "vote_perc": 0.007675775,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1335,
+                    "party_name": "PEOPLE'S MOVEMENT FOR CHANGE",
+                    "party_abbreviation": "PMC",
+                    "votes": 3,
+                    "vote_perc": 0.007675775,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1004,
+                    "party_name": "SIZWE UMMAH NATION",
+                    "party_abbreviation": "SUN",
+                    "votes": 3,
+                    "vote_perc": 0.007675775,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1744,
+                    "party_name": "NORTHERN CAPE COMMUNITIES MOVEMENT",
+                    "party_abbreviation": "NCCM",
+                    "votes": 2,
+                    "vote_perc": 0.005117184,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1623,
+                    "party_name": "SOUTH AFRICAN ROYAL KINGDOMS ORGANIZATION",
+                    "party_abbreviation": "SARKO",
+                    "votes": 2,
+                    "vote_perc": 0.005117184,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1488,
+                    "party_name": "ABANTU BATHO CONGRESS",
+                    "party_abbreviation": "ABC",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1740,
+                    "party_name": "AFRICAN CONGRESS FOR TRANSFORMATION",
+                    "party_abbreviation": "ACT",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1370,
+                    "party_name": "AFRICAN CONTENT MOVEMENT",
+                    "party_abbreviation": "ACM",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1544,
+                    "party_name": "AFRICAN HEART CONGRESS",
+                    "party_abbreviation": "AHC",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 450,
+                    "party_name": "AFRICAN PEOPLE'S CONVENTION",
+                    "party_abbreviation": "APC",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1790,
+                    "party_name": "ECONOMIC LIBERATORS FORUM SOUTH AFRICA",
+                    "party_abbreviation": "ELF-SA",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 591,
+                    "party_name": "NATIONAL FREEDOM PARTY",
+                    "party_abbreviation": "NFP",
+                    "votes": 1,
+                    "vote_perc": 0.002558592,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1531,
+                    "party_name": "ABLE LEADERSHIP",
+                    "party_abbreviation": "AL",
+                    "votes": 0,
+                    "vote_perc": 0,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 330,
+                    "party_name": "AFRICAN INDEPENDENT CONGRESS",
+                    "party_abbreviation": "AIC",
+                    "votes": 0,
+                    "vote_perc": 0,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1528,
+                    "party_name": "AFRICAN PEOPLE'S MOVEMENT",
+                    "party_abbreviation": "APEMO",
+                    "votes": 0,
+                    "vote_perc": 0,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                },
+                {
+                    "party_id": 1016,
+                    "party_name": "FORUM 4 SERVICE DELIVERY",
+                    "party_abbreviation": "F4SD",
+                    "votes": 0,
+                    "vote_perc": 0,
+                    "ballot_type": "National",
+                    "independent": false,
+                    "seats": 0
+                }
+            ]
+        }
+    ]
+}

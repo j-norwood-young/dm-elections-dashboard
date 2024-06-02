@@ -162,6 +162,12 @@ const parse_year = (year) => {
     return y;
 }
 
+import national2024 from "../../../data/api/2024-national.json" with { type: "json" };
+
+server.get("/national/2024", async (req, res) => {
+    res.send(national2024);
+})
+
 server.get("/national/:year", async (req, res) => {
     const year = parse_year(req.params.year);
     const { national_event, provinces } = await getNationalData(year);

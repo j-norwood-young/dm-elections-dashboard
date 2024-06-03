@@ -263,7 +263,9 @@
         <h4>
             {((data.total_votes_cast / data.registered_voters) * 100).toFixed(
                 1
-            )}% votes of registered voters have been counted
+            )}% {data.vd_captured === data.vd_count
+                ? `turnout`
+                : `votes of registered voters have been counted`}
         </h4>
         <div style="max-width: 200px; margin: 5px auto 20px auto;">
             <Range

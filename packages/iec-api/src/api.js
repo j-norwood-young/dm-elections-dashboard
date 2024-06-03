@@ -289,6 +289,12 @@ server.get("/national/:year", async (req, res) => {
     res.send(result);
 })
 
+import provincial2024 from "../../../data/api/2024-provincial.json" with { type: "json" };
+
+server.get("/provincial/2024", async (req, res) => {
+    res.send(provincial2024);
+})
+
 server.get("/provincial/:year", async (req, res) => {
     const year = parse_year(req.params.year);
     const { provincial_event, provinces } = await getProvincialData(year);

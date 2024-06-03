@@ -69,6 +69,12 @@
         border-radius: 4px;
         justify-content: flex-start;
         flex-direction: column;
+
+        @media screen and (max-width: 420px) {
+            flex-direction: row;
+            bottom: 0;
+            flex-wrap: wrap;
+        }
     }
 
     .party-wrapper {

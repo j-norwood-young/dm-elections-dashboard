@@ -3,6 +3,7 @@ const baseUrl = "https://iec-api.revengine.dailymaverick.co.za";
 import national2009 from "../../data/api/2009-national.json";
 import national2014 from "../../data/api/2014-national.json";
 import national2019 from "../../data/api/2019-national.json";
+import national2024 from "../../data/api/2024-national.json";
 
 /**
  * Loads data for a specific election year, type, region, and election.
@@ -18,6 +19,7 @@ export async function loadData({ year = 2024, election = "National Assembly", re
         if (year === 2009) return national2009;
         if (year === 2014) return national2014;
         if (year === 2019) return national2019;
+        if (year === 2024) return national2024;
         return await load(url);
     }
     if (region === "National") {

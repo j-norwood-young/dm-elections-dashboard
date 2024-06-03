@@ -17,7 +17,7 @@
             "vote_perc": 40.180356452,
             "ballot_type": "National",
             "independent": false,
-            "seats": 159
+            "seats": 73
         },
         {
             "party_id": 52,
@@ -27,7 +27,7 @@
             "vote_perc": 21.806283981,
             "ballot_type": "National",
             "independent": false,
-            "seats": 87
+            "seats": 42
         },
         {
             "party_id": 1748,
@@ -37,7 +37,7 @@
             "vote_perc": 14.582011417,
             "ballot_type": "National",
             "independent": false,
-            "seats": 58
+            "seats": 31
         },
         {
             "party_id": 945,
@@ -47,7 +47,7 @@
             "vote_perc": 9.51662463,
             "ballot_type": "National",
             "independent": false,
-            "seats": 39
+            "seats": 17
         },
         {
             "party_id": 3,
@@ -57,7 +57,7 @@
             "vote_perc": 3.845355511,
             "ballot_type": "National",
             "independent": false,
-            "seats": 17
+            "seats": 8
         },
         {
             "party_id": 957,
@@ -67,7 +67,7 @@
             "vote_perc": 2.055301209,
             "ballot_type": "National",
             "independent": false,
-            "seats": 9
+            "seats": 5
         },
         {
             "party_id": 4,
@@ -77,7 +77,7 @@
             "vote_perc": 1.361285222,
             "ballot_type": "National",
             "independent": false,
-            "seats": 6
+            "seats": 4
         },
         {
             "party_id": 1511,
@@ -87,7 +87,7 @@
             "vote_perc": 1.196593658,
             "ballot_type": "National",
             "independent": false,
-            "seats": 6
+            "seats": 4
         },
         {
             "party_id": 18,
@@ -107,7 +107,7 @@
             "vote_perc": 0.487960261,
             "ballot_type": "National",
             "independent": false,
-            "seats": 3
+            "seats": 2
         },
         {
             "party_id": 1755,
@@ -117,7 +117,7 @@
             "vote_perc": 0.422816372,
             "ballot_type": "National",
             "independent": false,
-            "seats": 2
+            "seats": 1
         },
         {
             "party_id": 1711,
@@ -157,7 +157,7 @@
             "vote_perc": 0.232771376,
             "ballot_type": "National",
             "independent": false,
-            "seats": 2
+            "seats": 1
         },
         {
             "party_id": 8,

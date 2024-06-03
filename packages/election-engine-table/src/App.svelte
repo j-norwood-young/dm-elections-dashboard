@@ -49,6 +49,7 @@
     async function setBallot(ballot) {
         if (ballot === selected_ballot) return;
         selected_ballot = ballot;
+        data = [];
         data = await processData(selected_year);
     }
 
@@ -81,15 +82,16 @@
                 );
                 return result;
             }
-            if (
-                selected_ballot === "Regional" &&
-                year >= 2024 &&
-                selected_region === "National"
-            ) {
-                vote_results.party_ballot_results =
-                    vote_results.regional_party_ballot_results;
-                return vote_results;
-            }
+            // if (
+            //     selected_ballot === "Regional" &&
+            //     year >= 2024 &&
+            //     selected_region === "National"
+            // ) {
+            //     vote_results.party_ballot_results =
+            //         vote_results.regional_party_ballot_results;
+            //     return vote_results;
+            // }
+            console.log(vote_results);
             return vote_results;
         } else {
             if (["National", "Out of Country"].includes(selected_region)) {
@@ -295,7 +297,70 @@
                         >
                     </tr>
                 {/if}
-                {#if data && data.party_ballot_results && data.party_ballot_results.length > 0}
+                {#if selected_ballot === "Regional" && selected_year >= 2024 && selected_region === "National"}
+                    {#if data && data.regional_party_ballot_results && data.regional_party_ballot_results.length > 0}
+                        {#each data.regional_party_ballot_results as row, i}
+                            <tr
+                                style:border-left="6px {partyColor(
+                                    row.party_abbreviation,
+                                    i
+                                )}
+                                solid"
+                                style:background-color={i % 2
+                                    ? "#f1f1f1"
+                                    : "#FFFFFF"}
+                            >
+                                <td class="electionengine-party-column"
+                                    >{row.party_name}</td
+                                >
+                                <td class="electionengine-seats-column"
+                                    >{row.seats}</td
+                                >
+                                <td class="electionengine-votes-column"
+                                    >{Intl.NumberFormat("en-US").format(
+                                        row.votes
+                                    )}
+                                    <div class="electionengine-perc">
+                                        {Math.round(row.vote_perc * 10) / 10}%
+                                    </div></td
+                                >
+                                {#if selected_year > 2009}
+                                    <td class="electionengine-change-column">
+                                        {#if row.change > 0}
+                                            <div
+                                                class="electionengine-label electionengine-change-up"
+                                            >
+                                                +{row.change}%
+                                            </div>
+                                        {:else if row.change === 0}
+                                            <div
+                                                class="electionengine-label electionengine-change-nochange"
+                                            >
+                                                0%
+                                            </div>
+                                        {:else if row.change < 0}
+                                            <div
+                                                class="electionengine-label electionengine-change-down"
+                                            >
+                                                {row.change}%
+                                            </div>
+                                        {:else}
+                                            <div
+                                                class="electionengine-label electionengine-change-na"
+                                            >
+                                                N/A
+                                            </div>
+                                        {/if}
+                                    </td>
+                                {/if}
+                            </tr>
+                        {/each}
+                    {:else}
+                        <tr>
+                            <td colspan="4">No results available yet</td>
+                        </tr>
+                    {/if}
+                {:else if data && data.party_ballot_results && data.party_ballot_results.length > 0}
                     {#each data.party_ballot_results as row, i}
                         <tr
                             style:border-left="6px {partyColor(

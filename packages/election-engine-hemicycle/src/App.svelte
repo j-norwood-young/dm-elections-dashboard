@@ -115,6 +115,17 @@
                         };
                     }
                 );
+                if (selected_year === 2024) {
+                    for (let i = 0; i < mappedData.length; i++) {
+                        // console.log(mappedData[i]);
+                        const regional_ballot_result =
+                            loaded_data.regional_party_ballot_results.find(
+                                (party) => party.party_id === mappedData[i].id
+                            );
+                        mappedData[i].count +=
+                            regional_ballot_result?.seats || 0;
+                    }
+                }
                 total_seats = 400;
                 rows = 13;
                 r = 300;

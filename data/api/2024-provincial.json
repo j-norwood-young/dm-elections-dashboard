@@ -99,7 +99,7 @@
                     "vote_perc": 0.519934156,
                     "ballot_type": "Provincial",
                     "independent": false,
-                    "seats": 0
+                    "seats": 1
                 },
                 {
                     "party_id": 8,
@@ -1756,7 +1756,7 @@
                 {
                     "party_id": 1492,
                     "party_name": "NATIONAL COLOURED CONGRESS",
-                    "party_abbreviation": "NCC",
+                    "party_abbreviation": "CCC",
                     "votes": 46770,
                     "vote_perc": 2.376206838,
                     "ballot_type": "Provincial",

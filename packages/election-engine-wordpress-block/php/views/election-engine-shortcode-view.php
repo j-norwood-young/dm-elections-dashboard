@@ -12,6 +12,7 @@ class ElectionEngineShortcodeView
 		$selected_year = $this->atts['selected_year'] ?: "2019";
 		$selected_election = $this->atts['selected_election'] ?: "National Assembly";
 		$selected_region = $this->atts['selected_region'] ?: "National";
+		$selected_ballot = $this->atts['selected_ballot'] ?: "Combined";
 		$show_title = $this->atts['show_title'] ? "1" : "0";
 		$show_blurb = $this->atts['show_blurb'] ? "1" : "0";
 		$show_buttons = $this->atts['show_buttons'] ? "1" : "0";
@@ -20,6 +21,7 @@ class ElectionEngineShortcodeView
 			"&selected_year=" . urlencode($selected_year) .
 			"&selected_election=" . urlencode($selected_election) .
 			"&selected_region=" . urlencode($selected_region) .
+			"&selected_ballot=" . urlencode($selected_ballot) .
 			"&show_title=" . urlencode($show_title) .
 			"&show_blurb=" . urlencode($show_blurb) .
 			"&show_buttons=" . urlencode($show_buttons);

@@ -4,9 +4,11 @@
     import { partyColor } from "@election-engine/common/colors.js";
     import YEARS from "@election-engine/common/years.json";
     import PROVINCES from "@election-engine/common/provinces.json";
+    import Title from "./Title.svelte";
+    import Progress from "./Progress.svelte";
     import Loading from "@election-engine/common/Loading.svelte";
     import { refresh } from "@election-engine/common/refresh.js";
-    import Range from "@election-engine/map/src/lib/components/range.svelte";
+
     const YEAR = new Date().getFullYear();
 
     export let selected_year = 2024; // 2024, 2019, 2014
@@ -15,7 +17,7 @@
     export let show_buttons = false;
     export let show_title = true;
     export let show_count_progress = true;
-    export let selected_ballot = "National"; // National, Regional, 2024 National only
+    export let selected_ballot = "Combined"; // National, Regional, Combined: 2024 National only
 
     let provinces = PROVINCES;
     let loading = false;
@@ -24,9 +26,11 @@
     let refresh_timer;
     let timeout;
     let warning = false;
+    let fields = ["Party", "Seats", "Votes", "Change"];
 
     onMount(async () => {
         data = await processData(selected_year);
+        console.log({ selected_ballot });
     });
 
     onDestroy(() => {
@@ -82,16 +86,6 @@
                 );
                 return result;
             }
-            // if (
-            //     selected_ballot === "Regional" &&
-            //     year >= 2024 &&
-            //     selected_region === "National"
-            // ) {
-            //     vote_results.party_ballot_results =
-            //         vote_results.regional_party_ballot_results;
-            //     return vote_results;
-            // }
-            console.log(vote_results);
             return vote_results;
         } else {
             if (["National", "Out of Country"].includes(selected_region)) {
@@ -142,6 +136,21 @@
                     }
                 }
             }
+            if (current_year.regional_party_ballot_results) {
+                current_year.party_ballot_results.forEach((party) => {
+                    const regional_party =
+                        current_year.regional_party_ballot_results.find(
+                            (p) => p.party_id === party.party_id
+                        );
+                    if (regional_party) {
+                        party.regional_seats = regional_party.seats;
+                    } else {
+                        party.regional_seats = 0;
+                    }
+                    party.total_seats = party.seats + party.regional_seats;
+                });
+            }
+            // console.log(current_year);
             return current_year;
         } catch (error) {
             console.error(error);
@@ -157,6 +166,32 @@
                     });
                 }, 300000);
             }
+        }
+    }
+
+    $: {
+        if (
+            selected_election === "National Assembly" &&
+            selected_region === "National"
+        ) {
+            if (selected_ballot === "Combined" || selected_year < 2024) {
+                fields = ["Party", "Total Seats", "Votes", "Change"];
+            } else if (selected_ballot === "Regional") {
+                fields = ["Party", "Regional Seats", "Votes", "Change"];
+            } else {
+                fields = ["Party", "PR Seats", "Votes", "Change"];
+            }
+        } else {
+            fields = ["Party", "Provincial Seats", "Votes", "Change"];
+        }
+        if (selected_region === "Out of Country") {
+            fields = fields.filter(
+                (f) =>
+                    !["PR Seats", "Provincial Seats", "Total Seats"].includes(f)
+            );
+        }
+        if (selected_year === 2009) {
+            fields.pop();
         }
     }
 </script>
@@ -227,67 +262,34 @@
                 >
                     Regional Ballot
                 </button>
+                <button
+                    class="electionengine-year-button"
+                    on:click={() => setBallot("Combined")}
+                    class:active={selected_ballot === "Combined"}
+                >
+                    Combined
+                </button>
             </div>
         {/if}
     {/if}
     {#if show_title}
-        <h4>
-            {#if selected_election === "Provincial Legislature"}
-                {selected_year}
-                {selected_election}
-                {selected_region} results
-            {:else}
-                {selected_year}
-                {selected_election} results
-                {#if selected_region !== "National"}
-                    for {selected_region}
-                {/if}
-            {/if}
-        </h4>
+        <Title
+            {selected_election}
+            {selected_year}
+            {selected_region}
+            {selected_ballot}
+        />
     {/if}
     {#if show_count_progress && selected_year === YEAR && data}
-        <h4>
-            {data
-                ? `${Math.round(
-                      (data.vd_captured / data.vd_count) * 100
-                  )}%  voting districts counted`
-                : ""}
-        </h4>
-        <div style="max-width: 200px; margin: 5px auto 20px auto;">
-            <Range
-                max={data.vd_count}
-                value={data.vd_captured}
-                show_percentage={false}
-            />
-        </div>
-        <h4>
-            {((data.total_votes_cast / data.registered_voters) * 100).toFixed(
-                1
-            )}% {data.vd_captured === data.vd_count
-                ? `turnout`
-                : `votes of registered voters have been counted`}
-        </h4>
-        <div style="max-width: 200px; margin: 5px auto 20px auto;">
-            <Range
-                max={data.registered_voters}
-                value={data.total_votes_cast}
-                show_percentage={false}
-                color="rgb(236 137 100)"
-            />
-        </div>
+        <Progress bind:data />
     {/if}
     <div class="electionengine-table-container">
         <table class="electionengine-table">
             <thead>
                 <tr style:border-left="6px #ccc solid">
-                    <th class="electionengine-party-column">Party</th>
-                    {#if selected_region !== "Out of Country"}
-                        <th class="electionengine-seats-column">Seats</th>
-                    {/if}
-                    <th class="electionengine-votes-column">Votes</th>
-                    {#if selected_year > 2009}
-                        <th class="electionengine-change-column">Change</th>
-                    {/if}
+                    {#each fields as field}
+                        <th class="electionengine-party-column">{field}</th>
+                    {/each}
                 </tr>
             </thead>
             <tbody>
@@ -378,9 +380,15 @@
                                 >{row.party_name}</td
                             >
                             {#if selected_region !== "Out of Country"}
-                                <td class="electionengine-seats-column"
-                                    >{row.seats}</td
-                                >
+                                {#if selected_ballot === "Combined" && selected_year >= 2024 && selected_region === "National"}
+                                    <td class="electionengine-seats-column"
+                                        >{row.total_seats}</td
+                                    >
+                                {:else}
+                                    <td class="electionengine-seats-column"
+                                        >{row.seats}</td
+                                    >
+                                {/if}
                             {/if}
                             <td class="electionengine-votes-column"
                                 >{Intl.NumberFormat("en-US").format(row.votes)}

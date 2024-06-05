@@ -6,6 +6,7 @@
 	export let selected_year = 2024;
 	export let elections = ["National Assembly", "Provincial Legislature"];
 	export let selected_election = "National Assembly";
+	export let selected_ballot = "Combined";
 	let national_regions = ["National", ...PROVINCES];
 	let provincial_regions = PROVINCES.filter((p) => p !== "Out of Country");
 	export let selected_region = "National";
@@ -64,6 +65,32 @@
 				>
 			</div>
 		{/each}
+	{/if}
+	{#if selected_election === "National Assembly" && selected_year >= 2024 && selected_region === "National"}
+		<h4>Select Ballot</h4>
+		<div class="electionengine-years-buttons">
+			<Button
+				class="electionengine-year-button"
+				on:click={() => (selected_ballot = "National")}
+				primary={selected_ballot === "National"}
+			>
+				National Ballot
+			</Button>
+			<Button
+				class="electionengine-year-button"
+				on:click={() => (selected_ballot = "Regional")}
+				primary={selected_ballot === "Regional"}
+			>
+				Regional Ballot
+			</Button>
+			<Button
+				class="electionengine-year-button"
+				on:click={() => (selected_ballot = "Combined")}
+				primary={selected_ballot === "Combined"}
+			>
+				Combined
+			</Button>
+		</div>
 	{/if}
 	<h4>Display Options</h4>
 	<div class="option">

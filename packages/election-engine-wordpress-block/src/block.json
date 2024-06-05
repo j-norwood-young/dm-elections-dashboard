@@ -36,6 +36,10 @@
 			"type": "array",
 			"default": []
 		},
+		"selected_ballot": {
+			"type": "string",
+			"default": "Combined"
+		},
 		"show_title": {
 			"type": "boolean",
 			"default": true

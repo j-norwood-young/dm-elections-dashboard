@@ -34,6 +34,7 @@
 			selected_year: 2024,
 			selected_election: "National Assembly",
 			selected_region: "National",
+			selected_ballot: "Combined",
 			show_title: true,
 			show_blurb: true,
 			show_buttons: false,
@@ -160,6 +161,7 @@
 				bind:selected_year={visualisation_data.table.selected_year}
 				bind:selected_election={visualisation_data.table.selected_election}
 				bind:selected_region={visualisation_data.table.selected_region}
+				bind:selected_ballot={visualisation_data.table.selected_ballot}
 				bind:show_buttons={visualisation_data.table.show_buttons}
 				bind:show_title={visualisation_data.table.show_title}
 			/>
@@ -187,6 +189,8 @@
 				visualisation_data[visualisation].selected_election
 			}&selected_region=${
 				visualisation_data[visualisation].selected_region
+			}&selected_ballot=${
+				visualisation_data[visualisation].selected_ballot
 			}&show_buttons=${
 				visualisation_data[visualisation].show_buttons ? 1 : 0
 			}&show_title=${

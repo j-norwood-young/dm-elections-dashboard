@@ -526,10 +526,6 @@
         background-color: #7a7a7a;
     }
 
-    h4 {
-        text-align: center;
-    }
-
     .electionengine-perc {
         font-size: 12px;
         color: #777;

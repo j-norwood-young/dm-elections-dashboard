@@ -5,7 +5,7 @@
  * Description:       Visualisations for the South African general elections.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.9.0
+ * Version:           0.9.1
  * Author:            10Layer
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-define("ELECTIONENGINE_VERSION", '0.9.0');
+define("ELECTIONENGINE_VERSION", '0.9.1');
 define("ELECTIONENGINE_DIST_DIR", __DIR__ . '/packages/election-engine-wordpress-block/dist/');
 define("ELECTIONENGINE_DIST_URL", plugins_url('packages/election-engine-wordpress-block/dist/', __FILE__));
 define("ELECTIONENGINE_BLOCK_NAME", 'tenlayer/election-engine');
@@ -94,7 +94,7 @@ function electionengine_shortcode($atts)
 		'selected_election' => 'National Assembly',
 		'selected_year' => '2019',
 		'selected_region' => 'National',
-		'selected_ballot' => ['Combined'],
+		'selected_ballot' => 'Combined',
 		'show_title' => 'true',
 		'show_blurb' => 'true',
 		'show_buttons' => 'false',
